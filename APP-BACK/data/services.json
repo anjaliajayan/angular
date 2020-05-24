@@ -1,0 +1,80 @@
+{
+    "serviceGroup": [{
+        "code": "BG",
+        "name": "Baggage"
+    }, {
+        "code": "CO",
+        "name": "Carbon Offset"
+    }, {
+        "code": "FF",
+        "name": "Frequent Flyer"
+    }, {
+        "code": "GT",
+        "name": "Ground Transportation"
+    }, {
+        "code": "IE",
+        "name": "In-Flight Entertainment"
+    }, {
+        "code": "LG",
+        "name": "Lounge"
+    }, {
+        "code": "MD",
+        "name": "Medical"
+    }, {
+        "code": "ML",
+        "name": "Meal/Beverage"
+    }, {
+        "code": "PT",
+        "name": "Pets"
+    }, {
+        "code": "RO",
+        "name": "Rule Override"
+    }, {
+        "code": "SA",
+        "name": "Pre-reserved Seat Assignment"
+    }, {
+        "code": "SB",
+        "name": "Standby"
+    }, {
+        "code": "ST",
+        "name": "Store"
+    }, {
+        "code": "TS",
+        "name": "Travel Services"
+    }, {
+        "code": "UN",
+        "name": "Unaccompanied Travel"
+    }, {
+        "code": "UP",
+        "name": "Upgrades"
+    }],
+
+    "serviceSubGroup": [{
+        "code": "AD",
+        "name": "Assistive Devices"
+    }, {
+        "code": "CT",
+        "name": "Container"
+    }, {
+        "code": "CY",
+        "name": "Carry On Hand Baggage"
+    }, {
+        "code": "IN",
+        "name": "Infant Baggage"
+    }, {
+        "code": "MI",
+        "name": "Musical Instruments"
+    }, {
+        "code": "PP",
+        "name": "Pre paid excess baggage"
+    }, {
+        "code": "SI",
+        "name": "Specialty Item"
+    }, {
+        "code": "SP",
+        "name": "Sporting Equipment"
+    }, {
+        "code": "XS",
+        "name": "Excess Baggage"
+    }]
+}

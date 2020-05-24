@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:edis="http://www.iata.org/IATA/EDIST" 
+    xmlns:head="http://tpconnects.com/security/header" 
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <head:SecurityHeader>
+			<agent>FCE</agent>
+			<apiKey>6d9b806d726749d2e2a992b5e9aa2737</apiKey>
+			<secretKey>f8d66f57-c4ec-403e-b264-e474a1f1fbac</secretKey>
+		</head:SecurityHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <FlightPriceRQ xmlns="http://www.iata.org/IATA/EDIST" AltLangID="EN" EchoToken="92727216-184e-49c3-b3f0-cb550ec59b2d" PrimaryLangID="EN" Version="1.1.4">
+            <PointOfSale>
+				<Location>
+					<CountryCode>US</CountryCode>
+					<CityCode>WAS</CityCode>
+				</Location>
+				<RequestTime Zone="EST">2019-09-01T08:45:41+00:00</RequestTime>
+				<TouchPoint>
+					<Device>
+						<Code>2</Code>
+						<Definition>Web Browser</Definition>
+						<Position>
+							<Latitude>50.04717</Latitude>
+							<Longitude>8.70066</Longitude>
+							<NAC>HPQJH RB728</NAC>
+						</Position>
+					</Device>
+				</TouchPoint>
+			</PointOfSale>
+			<Document>
+				<Name>A3 NDC GATEWAY</Name>
+				<ReferenceVersion>1.0</ReferenceVersion>
+			</Document>
+			<Party>
+				<Sender>
+					<Sender>
+						<AggregatorSender>
+							<Name>TpConnects</Name>
+							<Category>
+								<Code>M</Code>
+								<Definition>NDC aggregator</Definition>
+							</Category>
+							<AggregatorID>1T</AggregatorID>
+						</AggregatorSender>
+					</Sender>
+				</Sender>
+				<Participants>
+					<Participant>
+						<TravelAgencyParticipant SequenceNumber="1">
+							<Name>USD Travel</Name>
+							<Type>TravelAgency</Type>
+							<Contacts>
+								<Contact>
+									<EmailContact>
+										<Address>ndc@usdtravel.com</Address>
+									</EmailContact>
+								</Contact>
+							</Contacts>
+							<PseudoCity>1F8</PseudoCity>
+							<IATA_Number>2212345</IATA_Number>
+							<AgencyID Owner="A3">1001</AgencyID>
+							<AgentUser>
+								<Name>John Smith</Name>
+								<AgentUserID>1980</AgentUserID>
+								<UserRole>Admin</UserRole>
+							</AgentUser>
+						</TravelAgencyParticipant>
+					</Participant>
+				</Participants>
+			</Party>
+			<Parameters>
+				<CurrCodes>
+					<CurrCode>SAR</CurrCode>
+				</CurrCodes>
+				<Pricing/>
+			</Parameters>
+            <DataLists>
+				<FareList>
+					<FareGroup ListKey="FBCODE1-BA">
+						<Fare>
+							<FareCode>
+								<Code>70J</Code>
+							</FareCode>
+							<FareDetail>
+								<FareComponent refs="FBCODE1-BA">
+									<SegmentReference OnPoint="DXB" OffPoint="LHR">BA0106</SegmentReference>
+								</FareComponent>
+							</FareDetail>
+						</Fare>
+						<FareBasisCode>
+							<Code>ONNC04S6/Y</Code>
+						</FareBasisCode>
+						<SegmentReference>BA0106</SegmentReference>
+					</FareGroup>
+					<FareGroup ListKey="FBCODE2-BA">
+						<Fare>
+							<FareCode>
+								<Code>70J</Code>
+							</FareCode>
+							<FareDetail>
+								<FareComponent refs="FBCODE2-BA">
+									<SegmentReference OnPoint="LHR" OffPoint="DXB">BA0109</SegmentReference>
+								</FareComponent>
+							</FareDetail>
+						</Fare>
+						<FareBasisCode>
+							<Code>KNNC04S2/Y</Code>
+						</FareBasisCode>
+						<SegmentReference>BA0109</SegmentReference>
+					</FareGroup>
+				</FareList>
+				<FlightList>
+					<Flight FlightKey="Flight1" refs="BA0106">
+						<Journey>
+							<Time>PT8H</Time>
+						</Journey>
+						<SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</SegmentReferences>
+						<status>1</status>
+						<status_airline>1</status_airline>
+						<Layovers>1</Layovers>
+					</Flight>
+					<Flight FlightKey="Flight4" refs="BA0109">
+						<Journey>
+							<Time>PT6H55M</Time>
+						</Journey>
+						<SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</SegmentReferences>
+						<status>1</status>
+						<status_airline>1</status_airline>
+						<Layovers>1</Layovers>
+					</Flight>
+				</FlightList>
+				<FlightSegmentList>
+					<FlightSegment SegmentKey="BA0106">
+						<Departure>
+							<AirportCode>DXB</AirportCode>
+							<Date>2019-12-10</Date>
+							<Time>02:25</Time>
+							<AirportName>Dubai Intl</AirportName>
+							<Terminal>
+								<Name>1</Name>
+							</Terminal>
+						</Departure>
+						<Arrival>
+							<AirportCode>LHR</AirportCode>
+							<Date>2019-12-10</Date>
+							<Time>06:25</Time>
+							<ChangeOfDay>0</ChangeOfDay>
+							<AirportName>Heathrow</AirportName>
+							<Terminal>
+								<Name>5</Name>
+							</Terminal>
+						</Arrival>
+						<MarketingCarrier>
+							<AirlineID>BA</AirlineID>
+							<Name>British Airways</Name>
+							<FlightNumber>0106</FlightNumber>
+						</MarketingCarrier>
+						<OperatingCarrier>
+							<AirlineID>BA</AirlineID>
+							<Name>British Airways</Name>
+						</OperatingCarrier>
+						<Equipment>
+							<AircraftCode>351</AircraftCode>
+							<Name>Airbus A350 jet</Name>
+						</Equipment>
+						<FlightDetail>
+							<FlightDuration>
+								<Value>PT8H</Value>
+							</FlightDuration>
+						</FlightDetail>
+						<ClassOfService>
+							<Code SeatsLeft="9">O</Code>
+							<MarketingName CabinDesignator="">World Traveller</MarketingName>
+						</ClassOfService>
+					</FlightSegment>
+					<FlightSegment SegmentKey="BA0109">
+						<Departure>
+							<AirportCode>LHR</AirportCode>
+							<Date>2019-12-26</Date>
+							<Time>21:25</Time>
+							<AirportName>Heathrow</AirportName>
+							<Terminal>
+								<Name>5</Name>
+							</Terminal>
+						</Departure>
+						<Arrival>
+							<AirportCode>DXB</AirportCode>
+							<Date>2019-12-27</Date>
+							<Time>08:20</Time>
+							<ChangeOfDay>1</ChangeOfDay>
+							<AirportName>Dubai Intl</AirportName>
+							<Terminal>
+								<Name>1</Name>
+							</Terminal>
+						</Arrival>
+						<MarketingCarrier>
+							<AirlineID>BA</AirlineID>
+							<Name>British Airways</Name>
+							<FlightNumber>0109</FlightNumber>
+						</MarketingCarrier>
+						<OperatingCarrier>
+							<AirlineID>BA</AirlineID>
+							<Name>British Airways</Name>
+						</OperatingCarrier>
+						<Equipment>
+							<AircraftCode>744</AircraftCode>
+							<Name>Boeing 747 jet</Name>
+						</Equipment>
+						<FlightDetail>
+							<FlightDuration>
+								<Value>PT6H55M</Value>
+							</FlightDuration>
+						</FlightDetail>
+						<ClassOfService>
+							<Code SeatsLeft="4">K</Code>
+							<MarketingName CabinDesignator="">World Traveller</MarketingName>
+						</ClassOfService>
+					</FlightSegment>
+				</FlightSegmentList>
+				<OriginDestinationList>
+					<OriginDestination refs="Flight1" OriginDestinationKey="DXBLHR">
+						<DepartureCode>DXB</DepartureCode>
+						<ArrivalCode>LHR</ArrivalCode>
+						<FlightReferences>Flight1</FlightReferences>
+					</OriginDestination>
+					<OriginDestination refs="Flight4" OriginDestinationKey="LHRDXB">
+						<DepartureCode>LHR</DepartureCode>
+						<ArrivalCode>DXB</ArrivalCode>
+						<FlightReferences>Flight4</FlightReferences>
+					</OriginDestination>
+				</OriginDestinationList>
+			</DataLists>
+            <Query>
+                <Offers>
+                    <Offer>
+                        <OfferID Owner="BA">BA0106STANDARD</OfferID>
+                        <OfferItemIDs>
+                            <OfferItemID>1</OfferItemID>
+                        </OfferItemIDs>
+                    </Offer>
+                    <Offer>
+                        <OfferID Owner="BA">BA0109STANDARD</OfferID>
+                        <OfferItemIDs>
+                            <OfferItemID>1</OfferItemID>
+                        </OfferItemIDs>
+                    </Offer>
+                </Offers>
+            </Query>
+            <Travelers>
+				<Traveler>
+					<AnonymousTraveler ObjectKey="PAX1">
+						<PTC Quantity="1">ADT</PTC>
+						<Age>
+							<Value UOM="Years">30</Value>
+						</Age>
+					</AnonymousTraveler>
+				</Traveler>
+			</Travelers>
+            <Metadata>
+                <Other>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="GBP">
+                                <Decimals>2</Decimals>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <EquivalentID_Metadatas>
+                            <EquivalentID_Metadata MetadataKey="EM1">
+                                <EquivID MetadataKey="SK1">
+                                    <EquivalentID_Key>ID1</EquivalentID_Key>
+                                    <ID_Value>dfgdfryhdhdhxdfhbd</ID_Value>
+                                    <Owner>1S</Owner>
+                                </EquivID>
+                            </EquivalentID_Metadata>
+                        </EquivalentID_Metadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="GBP">
+                                <Decimals>2</Decimals>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <EquivalentID_Metadatas>
+                            <EquivalentID_Metadata MetadataKey="EM1">
+                                <EquivID MetadataKey="SK1">
+                                    <EquivalentID_Key>ID1</EquivalentID_Key>
+                                    <ID_Value>dfgdfryhdhdhxdfhbd</ID_Value>
+                                    <Owner>1S</Owner>
+                                </EquivID>
+                            </EquivalentID_Metadata>
+                        </EquivalentID_Metadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="DisplayCurrency">
+                                <Application>DisplayCurrency</Application>
+                                <Decimals>2</Decimals>
+                                <Name>GBP</Name>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                </Other>
+            </Metadata>
+            <Qualifier>
+                <PaymentCardQualifiers>
+                    <Type/>
+                </PaymentCardQualifiers>
+            </Qualifier>
+        </FlightPriceRQ>
+    </soapenv:Body>
+</soapenv:Envelope>

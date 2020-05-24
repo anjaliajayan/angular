@@ -1,0 +1,432 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    //- link(rel='apple-touch-icon', href='/favicon/apple-touch-icon.png')
+    //- link(rel='icon', sizes='32x32', type='image/png', href='/favicon/favicon.png')
+    link(rel='stylesheet', href='/css/voucher.css')
+    style(type="text/css").
+      @page {
+        margin: 30px;
+      }
+      table{
+          border-collapse:collapse;
+      }
+      td{
+          padding: 6px 3px;
+          font: normal 11px/16px Arial, Helvetica, sans-serif;
+          color:#434343;
+          /* border-bottom: 1px solid #e6e6e6;*/
+      }
+      table td.br-none{
+          border-right: none !important; 
+      }
+      table td.bl-none{
+          border-left: none !important; 
+      }
+      .border-none{
+          border: 0 !important; 
+      }
+      .main-table{
+          margin: 0 auto;
+          border: 1px solid #e6e6e6;
+          border-collapse: collapse;
+          border-spacing: 0px;
+          border-style: outset;
+      }
+      h2{
+          font: bold 13px/18px Arial, Helvetica, sans-serif;
+          color:#434343;
+          margin: 0;
+          padding: 10px 5px; 
+      }
+      h3{
+          font: bold 12px/16px Arial, Helvetica, sans-serif;
+          color:#434343;
+          margin: 0;
+          padding: 10px 5px 15px 5px;
+      }
+      .pr-0{
+          padding-right: none !important;
+      }
+      .pl-0{
+          padding-left: none !important;
+      }
+      .hd-row{
+          background: #e8e8e8;
+      }
+      .hd-row td{
+          background: #3766b0;
+          border: none !important;
+      }
+      .hd-txt{
+          margin: 0; 
+          padding: 0;
+          font: bold 14px/20px Arial, Helvetica, sans-serif;
+          color: #fff;
+      }
+      .sub-hd-row{
+          border-bottom: 1px solid #ddd !important;
+      }
+      .sub-hd-row th{
+          padding: 6px 3px;
+          font: bold 11px/18px Arial, Helvetica, sans-serif; 
+          color: #3766b0;
+          border-bottom: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+      }
+      .list{
+          margin: 0; 
+          padding: 10px 0 20px 30px;
+      }
+      .list li{
+          padding: 5px 0 5px 20px;
+          font: normal 11px/16px Arial, Helvetica, sans-serif;
+          color: #434343;
+          display: inline;
+      }
+      .rwb{
+          border-right: 1px solid #fff;
+      }
+      .common{
+          padding: 0  !important;
+          border: none  !important;
+      }
+      .htb td{
+          border: 1px solid #ddd;
+
+      }
+      .htb2{
+          border: 1px solid #ddd;
+
+      }
+    block css
+  body
+    div(class="container")
+      div(class="voucher")
+        table(cellspacing="0", cellpadding="0", border="0", width="100%", class="main-table", style="border: 0;")
+          tr
+            td(class="common")
+              table(cellspacing="0", cellpadding="0", border="0", width="100%")
+                tr
+                  td(class="br-none rwb", width="50%" )
+                    //- agents
+                    //- 
+                      div(class="col-md-6 col-sm-12")
+                        div(class="voucher-logo")
+                          img(src=logo, class="logo",  style="width:auto;height:80px;min-height: 80px;")
+                    //- website
+                      div(class="col-md-3 col-sm-12")
+                        div(class="voucher-logo") 
+                          img(src=logo, class="logo",  style="width:auto;height:80px;min-height: 80px;")
+                    //- admin
+                    div(class="col-md-3 col-sm-12")
+                      div(class="voucher-logo")
+                        img(src=logo, class="logo",  style="width:auto;height:80px;min-height: 80px;")
+                  td(width="100%")
+                  td(class="br-none", width="150%")
+                    div(style="float: left;")
+                      strong #{data.organisation.name}
+                      if data.organisation.address_1
+                        br
+                        | #{data.organisation.address_1}
+                      if data.organisation.address_2
+                        #{data.organisation.address_2}
+                      if data.organisation.contact
+                        br
+                        | Tel : #{data.organisation.contact}
+                        br 
+                        | Email : #{data.organisation.email}
+          tr(class="top-vhr vtp-border")
+            td(class="common", style="border-top: 1px solid #ddd;")
+              table(cellspacing="0", cellpadding="0", border="0", width="100%")
+                tr
+                  td(width="30%", class="border-none") Booking Reference
+                  td(width="30%", class="border-none") Airline PNR
+                  td(width="30%", class="border-none") CRS Ref. 
+                  td(width="30%", class="border-none") Issued on
+                  - var ptype = JSON.parse(data.bookings_flights[0].flightPrice) 
+                  if (ptype && ptype.payment.cardnumber != '' && ptype.payment.cardHolderName != '')
+                    td Payment Type IATA CARD
+                tr
+                  td(width="30%", class="border-none") #{data.trip_id}
+                  td(width="30%", class="border-none") #{pnr}
+                  td(width="30%", class="border-none") #{crs}
+                  td(width="30%", class="border-none") Issued on #{data.bookings_flights[0].created}
+                  - var ptype = JSON.parse(data.bookings_flights[0].flightPrice) 
+                  if (ptype && ptype.payment.cardnumber != '' && ptype.payment.cardHolderName != '')
+                    td Yes
+              
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Travel Information
+          each val, index in data.trip_detail.segment_details
+            tr
+              td(class="border-none")
+                table(cellspacing="0", cellpadding="0", width="100%", border="0", style="margin-bottom: 6px; border-bottom: 1px solid #000;")
+                  tr
+                    td(class="common")
+                      table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                        tr
+                          td(style="padding:5px 0;" class="border-none")
+                            h3(style="margin: 0 0 5px 0; padding: 0;font: bold 13px/20px Arial, Helvetica, sans-serif;color:#434343;")= val.segment_departure_airport_name
+                              em(style="font-size: 11px;")=`${val.segment_departure_airport_code} `
+                              img(src=airLinelogo)
+                              | #{val.segment_arrival_airport_name} 
+                              em= val.segment_arrival_airport_code
+                              em(style="font-size: 11px;")= val.segment_arrival_airport_code
+                            p(style="margin: 0; padding: 0;font: normal 10px/14px Arial, Helvetica, sans-serif;color:#434343")
+                            if (val.segment_operating_flight_number != 'null')
+                              span(class="")
+                                strong=` Flight No. ` 
+                                | #{val.segment_operating_flight_number} |
+                            else 
+                              span(class="")
+                                strong=` Flight No. `
+                                | #{val.segment_marketing_flight_number} |
+                            span
+                              strong(class="")=`  Travel Class : ` 
+                                | #{val.segment_seatingClass} |
+                            span Baggage
+          
+                        tr
+                          td(class="common")
+                            table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                              tr(class="sub-hd-row")
+                                th(width="75%", align="left") Airline
+                                th(width="75%", align="left") Departure
+                                th(width="25%", align="left") Dep.Terminal
+                                th(width="75%", align="left") Arrival
+                                th(width="25%", align="left") Arr.Terminal
+                                th(width="25%", align="left") Duration
+                              tr(class="sub-hd-row")
+                                //- airline data
+                                if (segment_operating_airline_name != '')
+                                  td(valign="top")=val.segment_operating_airline_name
+                                else 
+                                  td(valign="top")=val.segment_marketing_airline_name
+                                td(valign="top")=`${val.segment_departure_date} ${val.segment_departure_time}`
+                                if (segment_departure_terminal != '')
+                                  td(valign="top")=val.segment_departure_terminal
+                                else 
+                                  td(valign="top") -
+                                td(valign="top")=`${val.segment_arrival_date} ${val.segment_arrival_time}`
+                                if (segment_arrival_terminal != '')
+                                  td(valign="top")=val.segment_arrival_terminal
+                                else 
+                                  td(valign="top") -
+                                if (segment_flight_duration != '')
+                                  td(valign="top")=val.segment_flight_duration
+                                else 
+                                  td(valign="top") -
+
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Traveler(s) Information
+          tr
+            td
+              table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                tr(class="sub-hd-row")
+                  th(align="left", width="30%") Traveller
+                  th(align="left") PNR
+                  th(align="left") Ticket No. 
+                  th(align="left") Passport No.
+                  th(align="left") Status
+                  th(align="left") FF#
+                //- repeat
+                each pval, pindex in passangers
+                  tr(class="sub-hd-row")
+                    td(align="left", width="30%")=`${pval.pax_title} ${pval.pax_first_name} ${pval.pax_last_name}`
+                    td(align="left")=pnr
+                    td(align="left")=pval.ticket_number
+                    td(align="left")=pval.pax_passport_number
+                    if tickets[pindex].ticket_status
+                      if (tickets[pindex].ticket_status == 'Open')
+                        td(align="left") Confirm
+                      else
+                        td(align="left")=tickets[pindex].ticket_status
+                    else
+                      td(align="left") Hold
+                    if pval.pax_frequentFlyerNumber
+                      td(align="left")=pval.pax_frequentFlyerNumber
+                    else
+                      td(align="left") -
+
+          if (data.bookings_flights[0].flight_ticket_emds.length)
+            tr(class="hd-row")
+              td
+                h2(class="hd-txt") EMD Details
+
+            tr
+              td
+                table(border="0")
+                  tr(class="sub-hd-row")
+                    th(align="left", width="50%") EMD Number
+                    th 
+                    th(align="left", width="50%") Issuance Code
+                    th(align="left", width="75%") Remarks
+                    th(align="left", width="75%") Amount
+                    th 
+                  each bval, bindex in data.bookings_flights[0].flight_ticket_emds
+                    //- - var ancillary_charges += bval.amount
+                    tr(class="sub-hd-row")
+                      td(align="left", width="50%")=bval.emd_number
+                      td 
+                      td(align="left", width="50%")=bval.reason_for_issuance_subcode
+                      td(align="left", width="75%")=bval.remarks
+                      td(align="left", width="75%")=`${data.booking_currency} ${bval.amount}`
+                      td
+
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Special Service / Seat Details
+          tr
+            td
+              table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                tr(class="sub-hd-row")
+                  th(align="left", width="50%") Passenger Name
+                  th 
+                  th(align="left", width="50%") Service
+                  th(align="left", width="75%") Segments
+                  th(align="left", width="75%") Price
+                  th 
+                  th(align="left", width="75%") Seat Details
+                //- repeat service
+                tr(class="sub-hd-row")
+                  td(align="left", width="50%") Passenger Name
+                  td 
+                  td(align="left", width="50%") Service
+                  td(align="left", width="75%") Segments
+                  td(align="left", width="75%") Price
+                  td 
+                  td(align="left", width="75%") Seat Details
+
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Seat Details
+          tr
+            td
+              table(cellspacing="0", cellpadding="0", class="table table-responsive", width="100%", border="0", style="table-layout: fixed;")
+                tr(class="sub-hd-row")
+                  th(align="left", width="50%") Passenger Name
+                  th 
+                tr(class="sub-hd-row")
+                  td(align="left", width="50%") Passenger Name
+                  td 
+
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Fare Details
+          tr
+            td
+              table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                tr(class="sub-hd-row")
+                  th(align="left", width="50%") Passenger Name
+                  th 
+                  th(align="left", width="50%") Base Fare
+                  th(align="left", width="75%") Taxes & Fees
+                  th(align="left", width="75%") SurCharge
+                  th 
+                //- repeat
+                tr(class="sub-hd-row")
+                  td(align="left", width="50%") Passenger Name
+                  td 
+                  td(align="left", width="50%") Base Fare
+                  td(align="left", width="75%") Taxes & Fees
+                  td(align="left", width="75%") SurCharge
+                  td    
+          if (data.transactions && data.transactions.length > 0 )
+            if (data.transactions[0].tax_no != '' || data.transactions[0].tax_email != '')
+              tr(class="hd-row")
+                td
+                  h2(class="hd-txt") Customer GST Details
+              tr
+                td
+                  table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                    tr(class="sub-hd-row")
+                      th(align="left", width="50%") GST Number
+                      th(width="50%") 
+                      th(width="50%") 
+                      th(align="left", width="75%") GST Email
+                      th(width="75%") 
+                    tr(class="sub-hd-row")
+                      td=data.transactions[0].tax_no
+                      td 
+                      td 
+                      td=data.transactions[0].tax_email
+                      td  
+          if (settings.DisplayField.Flights.VoucherContactDetails != undefined && settings.DisplayField.Flights.VoucherContactDetails == 1)
+            tr(class="hd-row")
+              td
+                h2(class="hd-txt") Contact Detail
+            tr
+              td
+                table(cellspacing="0", cellpadding="0", width="100%", border="0")
+                  tr(class="sub-hd-row")
+                    th(align="left", width="50%") Email
+                    th(width="50%") 
+                    th(width="50%") 
+                    th(align="left", width="50%") Tel
+                    th(width="75%") X
+                  tr(class="sub-hd-row")
+                    if (data.passenger_details[0].pax_first_name)
+                      td=data.passenger_details[0].pax_first_name
+                    else
+                      td=data.Organisation.email
+                    td 
+                    td 
+                    if (data.passenger_details[0].pax_mobile)
+                      td=data.passenger_details[0].pax_mobile
+                    else
+                      td=data.organisation.contact
+                    td  
+
+          tr(class="hd-row")
+            td
+              h2(class="hd-txt") Terms and Conditions
+          tr
+              td
+                ul(class="list")
+                  if (settings.DisplayField.Flights.FlightVoucherMustReadText != undefined && settings.DisplayField.Flights.FlightVoucherMustReadText==1)
+                    li In addition to Airline charges , Al Hashar Travels charges a service fee of OMR:1 for each pax/ticket for all cancellations and changes/rescheduling.
+                  li Cancellation of tickets can be done either by emailing on #{settings.BookingMailCC} (offline) or directly calling the airline.
+                  li If you are cancelling or rescheduling your flight within 24 hours of its departure time, kindly contact the airline directly. Please note that the booking can only be cancelled till 12 hours before the departure of the flight as per common fare rule.
+                  li If you have cancelled your booking with the airline directly, kindly inform us by calling our Customer Care helpline or emailing on #{settings.BookingMailCC} to enable us to process your refund.
+                  //- if remarks
+                  if data.remarks
+                    li remarks
+                if (settings && settings.length > 0 && settings.PDFConfig.DangerousGoods != undefined && settings.PDFConfig.DangerousGoods==1)
+                  p(style="font: bold 14px Arial, Helvetica, sans-serif; color: #3766b0;padding: 8px 0;margin: 0;") Dangerous Goods & Restricted Articles
+                  p(style="font: normal 14px Arial, Helvetica, sans-serif; padding: 8px 0;margin: 0;") These objects can be extremely dangerous on the aircraft. If you have any dangerous goods or restricted articles. Please declare them. Carrying these objects may be on offence and may result in prosecution.
+
+                  ul
+                    li For safety reasons, dangerous goods as defined in the IATA Dangerous Goods Regulations, such as those listed below, shall not be carried in or as passenger checked or carry-on baggage.
+                    li Briefcases and security type attache cases with installed alarm devices; or incorporative lithium batteries and / or pyrotechnic material.
+                    li Explosives, munitions, fireworks and flares.
+                    li Gases (flammable, non-flammable deeply refrigerated and poisonous) such as camping gas. Radioactive materials.
+                    li Corrosives (such as mercury, acids, alkalis and wet cell batteries).
+                    li Magnetized materials and miscellaneous dangerous goods.
+                    li Oxidizing substances (such as bleaching powder and peroxides). Poisonous (toxic) and infectious substances
+                    li Flammable liquids, such as lighter fuels, paints and thinner.
+                    li Flammable solids, such as MATCHES and articles which are easily ignited; substances liable to spontaneous combustion; substances which on contact with water emit flammable gases.
+
+              //- Footer part
+                
+          if (settings && settings.length > 0)
+            if (settings.PDFConfig.Payablethrough != undefined && settings.PDFConfig.Payablethrough==1)
+              tr(class="hd-row")
+                td
+                  h2(style="color: #fff") Payable Through  
+              tr  
+                  td
+                    p #{data.organisation.name}
+                    h2 For assistance regarding your booking, please contact the following:
+                    p Direct Number (24x7) : #{data.organisation.contact_mobile_number} 
+                      br
+                      | Thank you for booking with #{data.organisation.name} Our Support Team is always ready to assist you.
+                      br
+                      | Please contact us at #{data.organisation.email}
+
+

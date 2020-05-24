@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Booking Voucher</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="voucher.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
+    <style>
+        .outer-wrapper {
+            margin: 36px;
+            border: 1px solid rgba(6, 40, 98, 0.2);
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        table {
+            border-spacing: 0;
+            width: 100%;
+        }
+
+        .logo-block {
+            padding: 18px 14px;
+        }
+
+        .logo-block img {
+            max-width: 100%;
+            max-height: 85px;
+        }
+
+        .detail-table {
+            width: 100%;
+            border: 1px solid rgba(6, 40, 98, 0.2);
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin-bottom: 16px;
+        }
+
+        .detail-table td {
+            font-style: normal;
+            font-size: 22px;
+            line-height: 26px;
+            color: #000000;
+            padding: 10px 25px 12px;
+            border-right: 1px solid rgba(6, 40, 98, 0.2);
+        }
+
+        .detail-table td:last-child {
+            border-right: none;
+        }
+
+        .table-content-row td {
+            padding-top: 0px;
+        }
+
+        .table-head-row td {
+            font-weight: bold;
+        }
+
+        .traveller-table {
+            margin: 30px 0px;
+        }
+
+        .traveller-table .table-head-row {
+            background: rgba(67, 122, 218, 0.05);
+        }
+
+        .traveller-table .table-content-row td {
+            padding-top: 12px;
+        }
+
+        .flight-wrapper {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .flight-table {
+            background: #3766B0;
+            padding: 22px 25px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .flight-table td {
+            color: #fff;
+            border-right: none;
+            padding-bottom: 14px;
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 30px;
+        }
+
+        .flight-table .heading td {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 23px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .flight-table .detail-table td {
+            font-weight: bold;
+            font-size: 26px;
+            line-height: 30px;
+            color: #FFFFFF;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .booking-detail-table {
+            background: rgba(67, 122, 218, 0.05);
+            border: 1px solid rgba(6, 40, 98, 0.2);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            width: 100%;
+        }
+
+        .booking-detail-table tr td {
+            border-bottom: 1px solid rgba(6, 40, 98, 0.2);
+            padding: 20px 25px;
+            border-right: 1px solid rgba(6, 40, 98, 0.2);
+            height: 26px;
+        }
+
+        .booking-detail-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .booking-detail-table td:last-child {
+            border-right: none;
+        }
+
+        .info-block {
+            width: 100%
+        }
+
+        .info-block td {
+            vertical-align: top;
+            padding: 0px 12px 0px 0px;
+            font-style: normal;
+            font-size: 22px;
+            line-height: 26px;
+            color: #000000;
+        }
+
+        .info-block .second-block {
+            padding: 0px;
+        }
+
+        .info-block td.item {
+            font-weight: 500;
+        }
+
+        .info-block td span.confirm {
+            background: rgba(115, 179, 93, 0.4);
+            border-radius: 4px;
+            font-family: Roboto;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 26px;
+            color: #007A0C;
+            padding: 8px 20px;
+        }
+
+        .layover-head-table {
+            margin: 35px 0px 0px;
+        }
+
+        .line p {
+            border: 1px solid rgba(6, 40, 98, 0.2);
+        }
+
+        .layover {
+            background: rgba(67, 122, 218, 0.2);
+            border-radius: 54px;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: #0046C0;
+            padding: 9px 45px 11px;
+            width: 25%;
+            text-align: center;
+        }
+
+        .ticket-block {
+            margin-bottom: 35px;
+        }
+
+        .ticket-block table {
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .ticket-block table tr td {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.9);
+            padding: 14px 25px;
+        }
+
+        .ticket-block table tr:first-child td {
+            background: #3766B0;
+            border-radius: 10px;
+            padding: 22px 25px;
+            width: 100%;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            color: #fff;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 23px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+
+        .ticket-block .pax-table {
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+        }
+
+        .ticket-block .pax-table tr td {
+            padding: 12px 25px 12px;
+        }
+
+        .ticket-block .pax-table tr:first-child td {
+            background: rgba(67, 122, 218, 0.05);
+            width: auto;
+            color: rgba(0, 0, 0, 0.9);
+            padding: 18px 25px;
+        }
+
+        .pax-table tr:last-child td {
+            border-top: 1px solid rgba(6, 40, 98, 0.2);
+            padding: 25px 25px 70px;
+        }
+
+        .pax-table tr:last-child td {
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000000;
+        }
+
+        .pax-table .total span {
+            padding-left: 60px;
+        }
+
+        .terms-cond-block .terms-head {
+            background: rgba(67, 122, 218, 0.2);
+            border-radius: 10px;
+            padding: 22px 25px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 28px;
+            color: #000000;
+            text-transform: capitalize;
+        }
+
+        .terms-cond-block ul,
+        .terms-cond-block p {
+            padding: 40px 44px;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 160.7%;
+            color: #000000;
+        }
+
+        .terms-cond-block ul:last-child {
+            padding-top: 0px;
+            margin-top: 0px;
+        }
+
+        .terms-cond-block p {
+            padding: 0px 44px;
+            font-weight: bold;
+        }
+
+        .terms-cond-block .remark-content {
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 160.7%;
+            color: #000000;
+        }
+
+        .terms-cond-block .rest-block {
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+
+        .payable-section p {
+            font-weight: normal;
+            margin-bottom: 0px;
+        }
+
+        .payable-section p:not(:first-child) {
+            margin-top: 8px;
+        }
+
+        .payable-section {
+            margin-bottom: 80px;
+        }
+
+        .flight-detail {
+            display: inline-block;
+            min-width: 20%;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 26px;
+            line-height: 30px;
+            color: #000000;
+            margin: 0px 12px;
+        }
+
+        .flight-detail img {
+            position: relative;
+            top: 40px;
+        }
+
+        .flight-detail.line {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            position: relative;
+            top: -8px;
+        }
+
+        .airport-info .flight-detail {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 26px;
+            color: rgba(0, 0, 0, 0.6);
+            margin-top: 15px;
+        }
+
+        .flight-detail.flight-name {
+            margin-top: 48px;
+        }
+
+        .flight-detail.flight-time {
+            position: relative;
+            top: 36px;
+        }
+
+        .flight-detail.flight-dur {
+            position: relative;
+            top: 44px;
+        }
+
+        .flight-detail.flight-date {
+            margin-top: 12px;
+        }
+
+        .flight-info-section {
+            margin: 0px 0px 80px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-wrapper">
+        <div class="logo-block">
+            <img src="tpc-logo.svg" title="TP Connects" />
+        </div>
+        <table class="detail-table">
+            <tr class="table-head-row">
+                <td>Booking Status:</td>
+                <td>Last Ticketing Date: </td>
+                <td>Agent Reference:</td>
+                <td>Booked by User:</td>
+            </tr>
+            <tr class="table-content-row">
+                <td> {{ booking_status }} </td>
+                <td> {{last_ticketing_date}} </td>
+                <td> {{agent_reference}} </td>
+                <td>TPConnects</td>
+            </tr>
+        </table>
+        <table class="detail-table">
+            <tr class="table-head-row">
+                <td>Booking Date:</td>
+                <td>Trip ID: </td>
+                <td>PNR No:</td>
+                <td>Airline Ref No:</td>
+            </tr>
+            <tr class="table-content-row">
+                <td> {{booking_date}} </td>
+                <td> {{trip_id}} </td>
+                <td> {{pnr_no}} </td>
+                <td> {{airline_ref_no}} </td>
+            </tr>
+        </table>
+        <table class="detail-table traveller-table">
+            <tr class="table-head-row">
+                <td>Traveller(s) Name</td>
+                <td>Passenger Type</td>
+                <td>Primary / Destination Contact</td>
+                <td>Email</td>
+                <td>Passport Info</td>
+            </tr>
+            <tr class="table-content-row">
+                <td>{{travellers_name}}</td>
+                <td>{{passenger_type}}</td>
+                <td>{{contact}}</td>
+                <td>{{email}}</td>
+                <td>{{passport_info}}</td>
+            </tr>
+        </table>
+        <div class="flight-wrapper">
+            <table class="flight-table">
+                <tr class="heading">
+                    <td>Flight Details (OUTBOUND)</td>
+                </tr>
+                <tr class="details">
+                    <td>Doha to Berlin</td>
+                    <td>Sat, 1st Feb 2020</td>
+                    <td class="right">Total Trip Duration: 8h 45m</td>
+                </tr>
+            </table>
+            <div class="flight-info-section">
+                <div>
+                    <div class="right flight-detail flight-time">16:35</div>
+                    <div class="center flight-detail flight-dur">2h 55m</div>
+                    <div class="flight-detail flight-time">18:30</div>
+                    <div class="center flight-detail flight-logo">
+                        <img src="emirates-logo.svg" />
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail">Doha</div>
+                    <div class="center flight-detail line"></div>
+                    <div class="flight-detail">Amman</div>
+                    <div class="center flight-detail flight-name">
+                        Emirates
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Hamad International </br> Airport</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Queen Alia </br> International Airport</div>
+                    <div class="center flight-detail flight-number">
+                        (777 SV 115) </br> <span>EK 996</span>
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Terminal 1</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Terminal 3</div>
+                    <div class="center flight-detail flight-number">
+
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail"></div>
+                    <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail flight-type">
+                        Business
+                    </div>
+                </div>
+            </div>
+            <table class="info-block">
+                <tr>
+                    <td>
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Cabin Baggage:</td>
+                                <td>7 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Check-in Baggage:</td>
+                                <td>30 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Seat:</td>
+                                <td>22 A</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Equipment:</td>
+                                <td>EK-650(Airbus Industrie A321)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="second-block">
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Meal:</td>
+                                <td>Vegan Vegetarian Meal</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Wheel Chair:</td>
+                                <td>Wheelchair-1-BA-Arranged</td>
+                            </tr>
+                            <tr>
+                                <td class="item">FF Number:</td>
+                                <td>EK12345</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Fare Basis:</td>
+                                <td>RRJSPL</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table class="layover-head-table">
+                <tr>
+                    <td class="line">
+                        <p></p>
+                    </td>
+                    <td class="layover">Layover Time: 1h 15m</td>
+                    <td class="line">
+                        <p></p>
+                    </td>
+                </tr>
+            </table>
+            <div class="flight-info-section">
+                <div>
+                    <div class="right flight-detail flight-time">16:35</div>
+                    <div class="center flight-detail flight-dur">2h 55m</div>
+                    <div class="flight-detail flight-time">18:30</div>
+                    <div class="center flight-detail flight-logo">
+                        <img src="emirates-logo.svg" />
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail">Doha</div>
+                    <div class="center flight-detail line"></div>
+                    <div class="flight-detail">Amman</div>
+                    <div class="center flight-detail flight-name">
+                        Emirates
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Hamad International </br> Airport</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Queen Alia </br> International Airport</div>
+                    <div class="center flight-detail flight-number">
+                        (777 SV 115) </br> <span>EK 996</span>
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Terminal 1</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Terminal 3</div>
+                    <div class="center flight-detail flight-number">
+
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail"></div>
+                    <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail flight-type">
+                        Business
+                    </div>
+                </div>
+            </div>
+            <table class="info-block">
+                <tr>
+                    <td>
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Cabin Baggage:</td>
+                                <td>7 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Check-in Baggage:</td>
+                                <td>30 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Seat:</td>
+                                <td>22 A</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Equipment:</td>
+                                <td>EK-650(Airbus Industrie A321)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="second-block">
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Meal:</td>
+                                <td>Vegan Vegetarian Meal</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Wheel Chair:</td>
+                                <td>Wheelchair-1-BA-Arranged</td>
+                            </tr>
+                            <tr>
+                                <td class="item">FF Number:</td>
+                                <td>EK12345</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Fare Basis:</td>
+                                <td>RRJSPL</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="flight-wrapper">
+            <table class="flight-table">
+                <tr class="heading">
+                    <td>Flight Details (INBOUND)</td>
+                </tr>
+                <tr class="details">
+                    <td>Berlin to Doha</td>
+                    <td>Tue, 18th Feb 2020</td>
+                    <td class="right">Total Trip Duration: 11h 45m</td>
+                </tr>
+            </table>
+            <div class="flight-info-section">
+                <div>
+                    <div class="right flight-detail flight-time">16:35</div>
+                    <div class="center flight-detail flight-dur">2h 55m</div>
+                    <div class="flight-detail flight-time">18:30</div>
+                    <div class="center flight-detail flight-logo">
+                        <img src="emirates-logo.svg" />
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail">Doha</div>
+                    <div class="center flight-detail line"></div>
+                    <div class="flight-detail">Amman</div>
+                    <div class="center flight-detail flight-name">
+                        Emirates
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Hamad International </br> Airport</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Queen Alia </br> International Airport</div>
+                    <div class="center flight-detail flight-number">
+                        (777 SV 115) </br> <span>EK 996</span>
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Terminal 1</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Terminal 3</div>
+                    <div class="center flight-detail flight-number">
+
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail"></div>
+                    <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail flight-type">
+                        Business
+                    </div>
+                </div>
+            </div>
+            <table class="info-block">
+                <tr>
+                    <td>
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Cabin Baggage:</td>
+                                <td>7 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Check-in Baggage:</td>
+                                <td>30 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Seat:</td>
+                                <td>22 A</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Equipment:</td>
+                                <td>EK-650(Airbus Industrie A321)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="second-block">
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Meal:</td>
+                                <td>Vegan Vegetarian Meal</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Wheel Chair:</td>
+                                <td>Wheelchair-1-BA-Arranged</td>
+                            </tr>
+                            <tr>
+                                <td class="item">FF Number:</td>
+                                <td>EK12345</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Fare Basis:</td>
+                                <td>RRJSPL</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            <table class="layover-head-table">
+                <tr>
+                    <td class="line">
+                        <p></p>
+                    </td>
+                    <td class="layover">Layover Time: 1h 15m</td>
+                    <td class="line">
+                        <p></p>
+                    </td>
+                </tr>
+            </table>
+            <div class="flight-info-section">
+                <div>
+                    <div class="right flight-detail flight-time">16:35</div>
+                    <div class="center flight-detail flight-dur">2h 55m</div>
+                    <div class="flight-detail flight-time">18:30</div>
+                    <div class="center flight-detail flight-logo">
+                        <img src="emirates-logo.svg" />
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail">Doha</div>
+                    <div class="center flight-detail line"></div>
+                    <div class="flight-detail">Amman</div>
+                    <div class="center flight-detail flight-name">
+                        Emirates
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Hamad International </br> Airport</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Queen Alia </br> International Airport</div>
+                    <div class="center flight-detail flight-number">
+                        (777 SV 115) </br> <span>EK 996</span>
+                    </div>
+                </div>
+                <div class="airport-info">
+                    <div class="right flight-detail airport">Terminal 1</div>
+                    <div class="flight-detail"></div>
+                    <div class="flight-detail">Terminal 3</div>
+                    <div class="center flight-detail flight-number">
+
+                    </div>
+                </div>
+                <div>
+                    <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail"></div>
+                    <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                    <div class="center flight-detail flight-type">
+                        Business
+                    </div>
+                </div>
+            </div>
+            <table class="info-block">
+                <tr>
+                    <td>
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Cabin Baggage:</td>
+                                <td>7 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Check-in Baggage:</td>
+                                <td>30 KG for MR IFEANYI NWAONICHA</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Seat:</td>
+                                <td>22 A</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Equipment:</td>
+                                <td>EK-650(Airbus Industrie A321)</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="second-block">
+                        <table class="booking-detail-table">
+                            <tr>
+                                <td class="item">Meal:</td>
+                                <td>Vegan Vegetarian Meal</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Wheel Chair:</td>
+                                <td>Wheelchair-1-BA-Arranged</td>
+                            </tr>
+                            <tr>
+                                <td class="item">FF Number:</td>
+                                <td>EK12345</td>
+                            </tr>
+                            <tr>
+                                <td class="item">Fare Basis:</td>
+                                <td>RRJSPL</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>EMD Details</td>
+                </tr>
+            </table>
+            <table class="pax-table">
+                <tr>
+                    <td>Traveller</td>
+                    <td>Services Type</td>
+                    <td>Airline</td>
+                    <td>EMD Number</td>
+                    <td>Route</td>
+                    <td>Price</td>
+                </tr>
+                <tr>
+                    <td>MR IFEANYI NWAONICHA</td>
+                    <td>Baggage</td>
+                    <td>Emirates</td>
+                    <td>258963</td>
+                    <td>DOH-AMM</td>
+                    <td>80.00</td>
+                </tr>
+                <tr>
+                    <td>MR IFEANYI NWAONICHA</td>
+                    <td>Meal</td>
+                    <td>Emirates</td>
+                    <td>58963</td>
+                    <td>DOH-AMM</td>
+                    <td>30.00</td>
+                </tr>
+                <tr>
+
+                    <td>MR IFEANYI NWAONICHA</td>
+                    <td>Seat</td>
+                    <td>Emirates</td>
+                    <td>58963</td>
+                    <td>DOH-AMM</td>
+                    <td>30.00</td>
+                </tr>
+                <tr></tr>
+            </table>
+        </div>
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>Ticket Details</td>
+                </tr>
+                <tr>
+                    <td>123-1234567890 For 1 MR IFEANYI NWAONICHA</td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>Price Details (AED)</td>
+                </tr>
+            </table>
+            <table class="pax-table">
+                <tr>
+                    <td>Passenger Type</td>
+                    <td>Base Fare</td>
+                    <td>Tax</td>
+                    <td>Service Fee</td>
+                    <td class="right">Total</td>
+                </tr>
+                <tr>
+                    <td>Adult (1)</td>
+                    <td>330.00</td>
+                    <td>1,385.00</td>
+                    <td>85.75</td>
+                    <td class="right">1800.75</td>
+                </tr>
+                <tr>
+                    <td>Baggage</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="right">80.00</td>
+                </tr>
+                <tr>
+                    <td>Meal</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="right">30.00</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="total right">Total Flight Price: <span>AED 1910.00</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="terms-cond-block">
+            <div class="terms-head">Remarks</div>
+            <p class="remark-content">
+                Remarks block content
+            </p>
+        </div>
+        <div class="terms-cond-block">
+            <div class="terms-head">Terms and Conditions</div>
+            <ul>
+                <li>
+                    In addition to Airline charges , charges a service fee of OMR:1 for each pax/ticket for all
+                    cancellations and changes/rescheduling.
+                </li>
+                <li>
+                    Please be at the check-in counter at least 3 -4hours prior to departure of International Flights.
+                </li>
+                <li>
+                    Please reconfirm your onward or return reservation if you break your journey at any point.
+                </li>
+                <li>
+                    If there is a change in your travel plans, ensure that your reservations are cancelled. Failure to
+                    do so may result in automatic cancellation of your entire itinerary.
+                </li>
+                <li>
+                    Please ensure you have Valid Passport and visa, Insurance, Vaccination certificate (if required).
+                </li>
+                <li>
+                    Cancellation of tickets can be done either by emailing on mayank@tpconnects.com (offline) or
+                    directly calling the airline.
+                </li>
+                <li>
+                    If you are cancelling or rescheduling your flight within 24 hours of its departure time, kindly
+                    contact the airline directly. Please note that the booking can only be cancelled till 12 hours
+                    before the departure of the flight as per common fare rule.
+                </li>
+                <li>
+                    If you have cancelled your booking with the airline directly, kindly inform us by calling our
+                    Customer Care helpline or emailing on mayank@tpconnects.com to enable us to process your refund.
+                </li>
+            </ul>
+            <p>Dangerous Goods & Restricted Articles</p>
+            <p class="rest-block">
+                These objects can be extremely dangerous on the aircraft. If you have any dangerous goods or restricted
+                articles. Please declare them. Carrying these objects may be on offence and may result in prosecution.
+            </p>
+            <ul>
+                <li>
+                    For safety reasons, dangerous goods as defined in the IATA Dangerous Goods Regulations, such as
+                    those listed below, shall not be carried in or as passenger checked or carry-on baggage.
+                </li>
+                <li>
+                    Briefcases and security type attache cases with installed alarm devices; or incorporative lithium
+                    batteries and / or pyrotechnic material. • Explosives, munitions, fireworks and flares.
+                </li>
+                <li>
+                    Gases (flammable, non-flammable deeply refrigerated and poisonous) such as camping gas. Radioactive
+                    materials.
+                </li>
+                <li>
+                    Corrosives (such as mercury, acids, alkalis and wet cell batteries).
+                </li>
+                <li>
+                    Magnetized materials and miscellaneous dangerous goods.
+                </li>
+                <li>
+                    Oxidizing substances (such as bleaching powder and peroxides). Poisonous (toxic) and infectious
+                    substances
+                </li>
+                <li>
+                    Flammable liquids, such as lighter fuels, paints and thinner.
+                </li>
+                <li>
+                    Flammable solids, such as MATCHES and articles which are easily ignited; substances liable to
+                    spontaneous combustion; substances which on contact with water emit flammable gases.
+                </li>
+            </ul>
+            <div class="terms-head">Payable Through</div>
+            <div class="payable-section">
+                <p>Mayank Test travel Agency</p>
+                <p><strong>For assistance regarding your booking, please contact the following:</strong></p>
+                <p>THE Direct Number (24x7) : 12345678</p>
+                <p>Thank you for booking with Mayank Test travel Agency Our Support Team is always ready to assist you.
+                    Please contact us at mayank@tpconnects.com</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

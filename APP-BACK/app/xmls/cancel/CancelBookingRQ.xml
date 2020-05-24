@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:edis="http://www.iata.org/IATA/EDIST" xmlns:head="http://tpconnects.com/security/header" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header>
+		<head:SecurityHeader>
+			<agent>TPC</agent>
+			<apiKey>5ec8b2955d618a38232bd168870eca60</apiKey>
+			<secretKey>11ce6082-988a-11e7-abc4-cec278b6b50a</secretKey>
+		</head:SecurityHeader>
+	</soapenv:Header>
+	<soapenv:Body>
+		<OrderCancelRQ xmlns="http://www.iata.org/IATA/EDIST" Version="16.1" EchoToken="41ebcbff-be1d-494c-9bb1-0efc58f7abbd" PrimaryLangID="EN" AltLangID="EN">
+			<Document>
+				<Name>1S</Name>
+			</Document>
+			<Party>
+				<Sender>
+					<AggregatorSender>
+						<Name>TpConnects</Name>
+						<Category>
+							<Code>M</Code>
+							<Definition>NDC aggregator</Definition>
+						</Category>
+						<AggregatorID>1T</AggregatorID>
+					</AggregatorSender>
+					<RetailPartnerSender>
+						<AgentUser>
+							<Name>Ullas Travels</Name>
+							<Type>BSP</Type>
+							<PseudoCity>SAR</PseudoCity>
+							<IATA_Number>62210201</IATA_Number>
+							<AgentUserID>0</AgentUserID>
+						</AgentUser>
+					</RetailPartnerSender>
+				</Sender>
+				<Participants>
+					<Participant>
+						<TravelAgencyParticipant SequenceNumber="2">
+							<AggregatorID>1S</AggregatorID>
+						</TravelAgencyParticipant>
+					</Participant>
+				</Participants>
+			</Party>
+			<Query>
+				<OrderID Owner="1S">IZDJZX</OrderID>
+				<BookingReferences>
+					<BookingReference>
+						<ID>123</ID>
+						<OtherID Name="TPC">TSS44695D191029S</OtherID>
+					</BookingReference>
+				</BookingReferences>
+			</Query>
+		</OrderCancelRQ>
+	</soapenv:Body>
+</soapenv:Envelope>

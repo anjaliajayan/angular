@@ -1,0 +1,333 @@
+{
+  "paxCodes": [{
+    "code": "ACC",
+    "name": "Accompanied Passenger"
+  }, {
+    "code": "ADT",
+    "name": "Adult"
+  }, {
+    "code": "AGT",
+    "name": "Agent"
+  }, {
+    "code": "ANN",
+    "name": "Age Restricted Companion"
+  }, {
+    "code": "ASB",
+    "name": "Standby Passenger"
+  }, {
+    "code": "ASF",
+    "name": "Air-sea Fare"
+  }, {
+    "code": "AST",
+    "name": "Airline Staff Standby"
+  }, {
+    "code": "BLD",
+    "name": "Blind Passenger"
+  }, {
+    "code": "BNN",
+    "name": "Adult with Age Restriction"
+  }, {
+    "code": "BRV",
+    "name": "Bereavement Passenger"
+  }, {
+    "code": "BUD",
+    "name": "Airline Buddy Standby"
+  }, {
+    "code": "CCM",
+    "name": "Card Carrying Member"
+  }, {
+    "code": "CHD",
+    "name": "Child (2-11)"
+  }, {
+    "code": "CMM",
+    "name": "Commuter"
+  }, {
+    "code": "CMP",
+    "name": "Companion"
+  }, {
+    "code": "CNN",
+    "name": "Accompanied Child"
+  }, {
+    "code": "CNV",
+    "name": "Convention Passenger"
+  }, {
+    "code": "CPN",
+    "name": "Coupon Discount"
+  }, {
+    "code": "CSB",
+    "name": "Child Standby"
+  }, {
+    "code": "CTZ",
+    "name": "Category Z Passenger"
+  }, {
+    "code": "DNN",
+    "name": "Child of European Parliament Member"
+  }, {
+    "code": "DOD",
+    "name": "Department of Defense Passenger"
+  }, {
+    "code": "EMI",
+    "name": "Emigrant"
+  }, {
+    "code": "ENF",
+    "name": "Electronic Ticket discount Infant"
+  }, {
+    "code": "ENN",
+    "name": "Group Inclusive Tour Child"
+  }, {
+    "code": "FFY",
+    "name": "Frequent Flyer"
+  }, {
+    "code": "FIF",
+    "name": "Family Intra-France"
+  }, {
+    "code": "FNF",
+    "name": "Family Plan Infant"
+  }, {
+    "code": "FNN",
+    "name": "Family Plan Child"
+  }, {
+    "code": "GCF",
+    "name": "Government Contract Passenger"
+  }, {
+    "code": "GCT",
+    "name": "City/County Government Travel"
+  }, {
+    "code": "GDP",
+    "name": "Government Employee Dependent"
+  }, {
+    "code": "GEX",
+    "name": "Government Exchange"
+  }, {
+    "code": "GNN",
+    "name": "Group Child"
+  }, {
+    "code": "GST",
+    "name": "State Government Passenger"
+  }, {
+    "code": "GVT",
+    "name": "Government"
+  }, {
+    "code": "HNN",
+    "name": "Charter Child Passenger"
+  }, {
+    "code": "ICP",
+    "name": "Incentive Certificates"
+  }, {
+    "code": "IIT",
+    "name": "Individual Inclusive Tour"
+  }, {
+    "code": "INN",
+    "name": "Individual Inclusive Tour Child"
+  }, {
+    "code": "INS",
+    "name": "Infant with a Seat"
+  }, {
+    "code": "ITF",
+    "name": "Inclusive Tour Infant without a Seat"
+  }, {
+    "code": "ITS",
+    "name": "Inclusive Tour Infant with a Seat"
+  }, {
+    "code": "ITY",
+    "name": "Inclusive Tour Youth"
+  }, {
+    "code": "JCB",
+    "name": "Contract Bulk Adult"
+  }, {
+    "code": "JNF",
+    "name": "Contract Bulk Infant without a Seat"
+  }, {
+    "code": "JNN",
+    "name": "Contract Bulk Child"
+  }, {
+    "code": "JNS",
+    "name": "Contract Bulk infant with a seat"
+  }, {
+    "code": "LBR",
+    "name": "Laborer/Worker"
+  }, {
+    "code": "LIF",
+    "name": "Laborer/Worker Infant without a Seat"
+  }, {
+    "code": "LNN",
+    "name": "Laborer/Worker Child"
+  }, {
+    "code": "MBT",
+    "name": "Military – Basic Training Graduate"
+  }, {
+    "code": "MCR",
+    "name": "Military Charter Passenger"
+  }, {
+    "code": "MDP",
+    "name": "Spouse/Dependent Children of Military Personnel"
+  }, {
+    "code": "MED",
+    "name": "Patients Travelling for Medical Treatment"
+  }, {
+    "code": "MIL",
+    "name": "Military"
+  }, {
+    "code": "MIR",
+    "name": "Military Reserves on Active Duty"
+  }, {
+    "code": "MIS",
+    "name": "Missionary"
+  }, {
+    "code": "MNN",
+    "name": "Military Child"
+  }, {
+    "code": "MPA",
+    "name": "Military Parents/Parents In Law"
+  }, {
+    "code": "MRE",
+    "name": "Retired Military/Military Dependenty"
+  }, {
+    "code": "MSG",
+    "name": "Multi State Government Passenger"
+  }, {
+    "code": "MUS",
+    "name": "Military/DOD based in USA"
+  }, {
+    "code": "MXS",
+    "name": "Military/DOD not based in USA"
+  }, {
+    "code": "NAT",
+    "name": "NATO Passenger"
+  }, {
+    "code": "NSB",
+    "name": "Nonrevenue Standby"
+  }, {
+    "code": "OTS",
+    "name": "Passengers Occupying Two Seats"
+  }, {
+    "code": "PCR",
+    "name": "Charter Adult Passenger"
+  }, {
+    "code": "PFA",
+    "name": "Private Fare Adult"
+  }, {
+    "code": "PIL",
+    "name": "Pilgrim"
+  }, {
+    "code": "PNN",
+    "name": "Child private fare"
+  }, {
+    "code": "QHH",
+    "name": "Student"
+  }, {
+    "code": "REC",
+    "name": "Military Recruit"
+  }, {
+    "code": "REF",
+    "name": "Refugee"
+  }, {
+    "code": "SDB",
+    "name": "Student Standby"
+  }, {
+    "code": "SEA",
+    "name": "Seaman"
+  }, {
+    "code": "SNN",
+    "name": "Restricted Senior Citizen With Multiple Age Reqs"
+  }, {
+    "code": "SPA",
+    "name": "Accompanied Spouse"
+  }, {
+    "code": "SPH",
+    "name": "Head of Family Spouse"
+  }, {
+    "code": "SPS",
+    "name": "Spouse"
+  }, {
+    "code": "SPT",
+    "name": "Sports Passenger"
+  }, {
+    "code": "STR",
+    "name": "State Resident"
+  }, {
+    "code": "STU",
+    "name": "Student"
+  }, {
+    "code": "TEA",
+    "name": "Teacher"
+  }, {
+    "code": "TIM",
+    "name": "Timesaver"
+  }, {
+    "code": "TNN",
+    "name": "Frequent Flyer Child"
+  }, {
+    "code": "TUR",
+    "name": "Tour Conductor"
+  }, {
+    "code": "UNN",
+    "name": "Unaccompanied Child"
+  }, {
+    "code": "UNV",
+    "name": "University Employee"
+  }, {
+    "code": "VAC",
+    "name": "Visit Another Country Adult"
+  }, {
+    "code": "VFR",
+    "name": "Visit Friends/Relatives"
+  }, {
+    "code": "VNN",
+    "name": "Visit Another Country Child"
+  }, {
+    "code": "WEB",
+    "name": "Internet Fares"
+  }, {
+    "code": "YCB",
+    "name": "Senior Citizen Standby"
+  }, {
+    "code": "YCD",
+    "name": "Senior Traveller"
+  }, {
+    "code": "YCL",
+    "name": "Clergy"
+  }, {
+    "code": "YCR",
+    "name": "Charter Youth Passenger"
+  }, {
+    "code": "YNN",
+    "name": "Youth"
+  }, {
+    "code": "YSB",
+    "name": "Youth Standby"
+  }, {
+    "code": "YTH",
+    "name": "Youth"
+  }, {
+    "code": "ZNN",
+    "name": "Visit Another Country Group Child"
+  }],
+  "paxTypes": [{
+    "type": "ADT"
+  }, {
+    "type": "CHD"
+  }, {
+    "type": "CNN"
+  }, {
+    "type": "GST"
+  }, {
+    "type": "GVT"
+  }, {
+    "type": "ITX"
+  }, {
+    "type": "JCB"
+  }, {
+    "type": "MIL"
+  }, {
+    "type": "MIS"
+  }, {
+    "type": "SEA"
+  }, {
+    "type": "SRC"
+  }, {
+    "type": "STU"
+  }, {
+    "type": "YTH"
+  }]
+}

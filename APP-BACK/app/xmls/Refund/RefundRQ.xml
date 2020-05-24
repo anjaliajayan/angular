@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:edis="http://www.iata.org/IATA/EDIST" xmlns:head="http://tpconnects.com/security/header" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+	<soapenv:Header>
+		<head:SecurityHeader>
+			<agent>TPC</agent>
+			<apiKey>27619d82dce25a4c5aa3d308a0a7f1e0</apiKey>
+			<secretKey>11ce6082-988a-11e7-abc4-cec278b6b50a</secretKey>
+		</head:SecurityHeader>
+	</soapenv:Header>
+	<soapenv:Body>
+		<ItinReshopRQ xmlns="http://www.iata.org/IATA/EDIST" AltLangID="EN" EchoToken="272fb65a-91c1-4b21-a2b2-b63e5752848f" PrimaryLangID="EN" Version="1.1.4">
+			<PointOfSale>
+				<Location>
+					<CountryCode>United Arab Emirates</CountryCode>
+					<CityCode>UAE</CityCode>
+				</Location>
+				<RequestTime Zone="EST">2019-10-30T14:38:46+00:00</RequestTime>
+				<TouchPoint>
+					<Device>
+						<Code>2</Code>
+						<Definition>Web Browser</Definition>
+						<Position>
+							<Latitude>50.04717</Latitude>
+							<Longitude>8.70066</Longitude>
+							<NAC>HPQJH RB728</NAC>
+						</Position>
+					</Device>
+				</TouchPoint>
+			</PointOfSale>
+			<Document>
+				<Name>A3 NDC GATEWAY</Name>
+				<ReferenceVersion>1.0</ReferenceVersion>
+			</Document>
+			<Party>
+				<Sender>
+					<AggregatorSender>
+						<Name>TpConnects</Name>
+						<Category>
+							<Code>M</Code>
+							<Definition>NDC aggregator</Definition>
+						</Category>
+						<AggregatorID>1T</AggregatorID>
+					</AggregatorSender>
+					<RetailPartnerSender>
+						<AgentUser>
+							<Name>Ullas Travels</Name>
+							<Type>BSP</Type>
+							<PseudoCity>SAR</PseudoCity>
+							<IATA_Number>62210201</IATA_Number>
+							<AgentUserID>0</AgentUserID>
+						</AgentUser>
+					</RetailPartnerSender>
+				</Sender>
+				<Participants>
+					<Participant>
+						<TravelAgencyParticipant SequenceNumber="1">
+							<Name>USD Travel</Name>
+							<Type>TravelAgency</Type>
+							<Contacts>
+								<Contact>
+									<EmailContact>
+										<Address>ndc@usdtravel.com</Address>
+									</EmailContact>
+								</Contact>
+							</Contacts>
+							<PseudoCity>1F8</PseudoCity>
+							<IATA_Number>2212345</IATA_Number>
+							<AgencyID Owner="BA">1001</AgencyID>
+							<AgentUser>
+								<Name>John Smith</Name>
+								<AgentUserID>1980</AgentUserID>
+								<UserRole>Admin</UserRole>
+							</AgentUser>
+						</TravelAgencyParticipant>
+					</Participant>
+				</Participants>
+			</Party>
+			<Query>
+				<Reshop>
+					<Actions>
+						<ActionType>Refund</ActionType>
+						<BookingReferences>
+							<BookingReference>
+								<ID>SAR</ID>
+								<OtherID Name="TPC">TPC46866D19918S</OtherID>
+							</BookingReference>
+						</BookingReferences>
+						<OrderID Owner="BA">MZK7JA</OrderID>
+						<TicketDocuments/>
+					</Actions>
+				</Reshop>
+			</Query>
+		</ItinReshopRQ>
+	</soapenv:Body>
+</soapenv:Envelope>
+

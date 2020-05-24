@@ -1,0 +1,123 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    //- link(rel='apple-touch-icon', href='/favicon/apple-touch-icon.png')
+    //- link(rel='icon', sizes='32x32', type='image/png', href='/favicon/favicon.png')
+    //- link(rel='stylesheet', href='/css/voucher.css')
+    
+    block css
+  body
+    div(class="main", style="border: 1px solid #ddd;")
+      div(class="head", style="overflow: hidden; padding: 15px;border-bottom: 1px solid #ddd")
+        div(style="width:50%; float: left;")
+          img(src=logo, class="img-responsive logo-control", style="height: 40px;")
+        div(style="width:50%; float: left;text-align: right")
+          h5(style="font-size: 20px; margin: 10px 0;") #{data.organisation.name}
+          if data.organisation.address_1
+            p(style="font-size: 15px;") #{data.organisation.address_1}
+          if data.organisation.address_2
+            p(style="font-size: 15px;") #{data.organisation.address_2}
+          if data.organisation.contact
+            p(style="font-size: 15px;")  #{data.organisation.contact}
+      div(style="border: 1px solid #ddd")
+        div(style="background-color:#ddd;")   
+          p(style="margin: 0; padding: 5px;") Booking Details  
+        div 
+          p(style="margin: 0; padding: 5px;") Booking Reference: 
+            b #{data.trip_id}
+          p(style="margin: 0; padding: 5px;") Booking confirmation date: 
+            b #{data.bookings_flights[0].created}
+          - var ptype = JSON.parse(data.bookings_flights[0].flightPrice) 
+          if (ptype.payment.cardnumber != '' && ptype.payment.cardHolderName != '')
+            p(style="margin: 0; padding: 5px;") Payment Type:
+              b Payment Type IATA CARD
+        div(style="background-color:#ddd;")   
+          p(style="margin: 0; padding: 5px;") Trip Details  
+        div 
+          p(style="margin: 0; padding: 5px;font-family: Arial") Booking Reference: 
+        table(cellspacing="0", cellpadding="5")
+          thead(class = "voucher-divider-table")    
+            tr
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") From
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") To
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") On
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Leaves
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Arrives
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Flight
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Class
+          tbody
+            tr
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+
+        div(style="border-top: 1px solid #ddd")   
+          p(style="margin: 0; padding: 5px;") Passenger Details 
+        table(cellspacing="0", cellpadding="5")
+          thead(color="#D3D3D3")    
+            tr
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Name
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Passenger Type
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") PNR No.
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Ticket No.
+              th(style="width: 20%; text-align: center", bgcolor="#D3D3D3") Price
+          tbody
+            tr
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              td(style="width: 20%; border-right: 1px solid #ddd; text-align: center") From
+              
+        div(style="border-top: 1px solid #ddd")   
+          p(style="margin: 0; padding: 5px;") Emd Details
+        table(cellspacing="0", cellpadding="5")
+          thead(color="#D3D3D3")    
+            tr
+              th(style="width: 33%; text-align: center", bgcolor="#D3D3D3") EMD Number
+              th(style="width: 33%; text-align: center", bgcolor="#D3D3D3") REMARKS
+              th(style="width: 33%; text-align: center", bgcolor="#D3D3D3") PRICE
+          tbody
+            tr
+              td(style="width: 33%;text-align: center") From
+              td(style="width: 33%;text-align: center") From
+              td(style="width: 33%;text-align: center") From
+        div(style="border-top: 1px solid #ddd")   
+          p(style="margin: 0; padding: 5px;") Tax Breakdown
+          //- loop here
+          table(cellspacing="0", cellpadding="5")
+            thead(color="#D3D3D3")    
+              tr
+                th(style="width: 20%;text-align: center; border-bottom: 1px solid #333;", bgcolor="#D3D3D3") Tax (TKT No. 65)
+                th(style="width: 20%;border: 1px solid #ddd; text-align: center", bgcolor="#D3D3D3") REMARKS
+                th(style="width: 33%; text-align: center", bgcolor="#D3D3D3") PRICE
+            tbody
+              tr
+                td(style="width: 33%;text-align: center") From
+                td(style="width: 33%;text-align: center") From
+                td(style="width: 33%;text-align: center") From
+
+        div(style="background-color:#ddd;")   
+          p(style="margin: 0; padding: 10px; font-size:20px;") Total:
+            b Service charge
+            |
+            span(style="line-height: 5px;font-size:10px;") (Total price including ?? )
+      div(style="padding: 0px 15px;")
+        div
+          span(style="font-weight:bold; display:block; padding:5px 0; font-size:22px;")
+          p For further details please contact accounts dept
+          p(style="line-height: 5px") Phone :# #{data.organisation.contact} 
+          p(style="line-height: 5px") Email :# #{data.organisation.name}
+          p(style="line-height: 15px") Our Support Team is always ready to assist you. Please contact us on #{data.organisation.name} for any assistance or feedback.
+        div(style="float: right")
+          p(style="font-size:20px; font-weight:bold; display:block;text-align: right") Thanking You
+          p(style="text-align: right;line-height: 5px") Registration & Sales Team.
+          p(style="text-align: right;line-height: 5px") #{data.organisation.name}
+          p(style="text-align: right;line-height: 5px") #{data.organisation.contact_person_email}

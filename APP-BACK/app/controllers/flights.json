@@ -1,0 +1,2709 @@
+{
+    "type": "data",
+    "json": {
+        "PaxDetails": {
+            "@ObjectKey": "PAX1",
+            "PTC": {
+                "#text": "ADT",
+                "@Quantity": 1
+            },
+            "Age": {
+                "Value": {
+                    "#text": 30,
+                    "@UOM": "Years"
+                }
+            }
+        },
+        "ChkBagAllowanceList": {},
+        "FareList": {},
+        "FlightSegmentList": {},
+        "FlightList": {},
+        "OriginDestList": {},
+        "OfferList": {},
+        "PriceClassList": {},
+        "FlightDetails": [
+            {
+                "onwards": {
+                    "flight": {
+                        "@SegmentKey": "BA0108",
+                        "Departure": {
+                            "AirportCode": "DXB",
+                            "Date": "2019-10-05",
+                            "Time": "09:20",
+                            "AirportName": "Dubai Intl",
+                            "Terminal": {
+                                "Name": 1
+                            }
+                        },
+                        "Arrival": {
+                            "AirportCode": "LHR",
+                            "Date": "2019-10-05",
+                            "Time": "14:15",
+                            "ChangeOfDay": 0,
+                            "AirportName": "Heathrow",
+                            "Terminal": {
+                                "Name": 5
+                            }
+                        },
+                        "MarketingCarrier": {
+                            "AirlineID": "BA",
+                            "Name": "British Airways",
+                            "FlightNumber": "0108"
+                        },
+                        "OperatingCarrier": {
+                            "AirlineID": "BA",
+                            "Name": "British Airways"
+                        },
+                        "Equipment": {
+                            "AircraftCode": 777,
+                            "Name": "Boeing 777 jet"
+                        },
+                        "FlightDetail": {
+                            "FlightDuration": {
+                                "Value": "PT7H55M"
+                            }
+                        }
+                    }
+                },
+                "returns": {
+                    "flight": {}
+                },
+                "offers": [
+                    {
+                        "airlineOfferSnapshot": {
+                            "Highest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "3480.70",
+                                    "@Code": "GBP"
+                                }
+                            },
+                            "Lowest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "479.10",
+                                    "@Code": "GBP"
+                                }
+                            }
+                        },
+                        "airlineOwner": "1BA",
+                        "onwardOffers": [
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.846Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 3
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 1
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 3
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 1
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.912Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "returnOffers": []
+                    },
+                    {
+                        "airlineOfferSnapshot": {
+                            "Highest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "3480.70",
+                                    "@Code": "GBP"
+                                }
+                            },
+                            "Lowest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "479.10",
+                                    "@Code": "GBP"
+                                }
+                            }
+                        },
+                        "airlineOwner": "BA",
+                        "onwardOffers": [
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.846Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 3
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 1
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 3
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 1
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0108Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0108Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.912Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0108",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0108",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0108",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight2-BA"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "returnOffers": []
+                    }
+                ],
+                "priceClass": [
+                    {
+                        "@ObjectKey": "STANDARD",
+                        "Name": "STANDARD",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "30-31&quot; legroom"
+                                },
+                                {
+                                    "Text": "1 x 23kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Food and bar service"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@ObjectKey": "World Traveller Plus",
+                        "Name": "World Traveller Plus",
+                        "Code": "T",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "38&quot; legroom"
+                                },
+                                {
+                                    "Text": "2 x 23kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Three-course meal and bar service"
+                                },
+                                {
+                                    "Text": "Separate, smaller cabin"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@ObjectKey": "Club World",
+                        "Name": "Club World",
+                        "Code": "C",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "Seat that converts into a 6ft fully flat bed"
+                                },
+                                {
+                                    "Text": "2 x 32kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Dedicated check-in area"
+                                },
+                                {
+                                    "Text": "Access to British Airways lounges"
+                                },
+                                {
+                                    "Text": "Three-course dining including fine wines and champagne"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "onwards": {
+                    "flight": {
+                        "@SegmentKey": "BA0106",
+                        "Departure": {
+                            "AirportCode": "DXB",
+                            "Date": "2019-10-05",
+                            "Time": "01:30",
+                            "AirportName": "Dubai Intl",
+                            "Terminal": {
+                                "Name": 1
+                            }
+                        },
+                        "Arrival": {
+                            "AirportCode": "LHR",
+                            "Date": "2019-10-05",
+                            "Time": "06:15",
+                            "ChangeOfDay": 0,
+                            "AirportName": "Heathrow",
+                            "Terminal": {
+                                "Name": 5
+                            }
+                        },
+                        "MarketingCarrier": {
+                            "AirlineID": "BA",
+                            "Name": "British Airways",
+                            "FlightNumber": "0106"
+                        },
+                        "OperatingCarrier": {
+                            "AirlineID": "BA",
+                            "Name": "British Airways"
+                        },
+                        "Equipment": {
+                            "AircraftCode": 777,
+                            "Name": "Boeing 777 jet"
+                        },
+                        "FlightDetail": {
+                            "FlightDuration": {
+                                "Value": "PT7H45M"
+                            }
+                        }
+                    }
+                },
+                "returns": {
+                    "flight": {}
+                },
+                "offers": [
+                    {
+                        "airlineOfferSnapshot": {
+                            "Highest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "3480.70",
+                                    "@Code": "GBP"
+                                }
+                            },
+                            "Lowest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "479.10",
+                                    "@Code": "GBP"
+                                }
+                            }
+                        },
+                        "airlineOwner": "1BA",
+                        "onwardOffers": [
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.846Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.912Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "returnOffers": []
+                    },
+                    {
+                        "airlineOfferSnapshot": {
+                            "Highest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "3480.70",
+                                    "@Code": "GBP"
+                                }
+                            },
+                            "Lowest": {
+                                "EncodedCurrencyPrice": {
+                                    "#text": "479.10",
+                                    "@Code": "GBP"
+                                }
+                            }
+                        },
+                        "airlineOwner": "BA",
+                        "onwardOffers": [
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.846Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.847Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-1BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-1BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106STANDARD",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106STANDARD"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "479.10",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "479.10",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "136.10",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "343.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "136.10",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE2-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "STANDARD"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "K",
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "K",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106World Traveller Plus",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106World Traveller Plus"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.911Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "643.00",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "643.00",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "153.00",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "490.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "153.00",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE3-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "World Traveller Plus"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "T",
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "T",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "World Traveller Plus"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "@refs": "",
+                                "OfferID": {
+                                    "#text": "BA0106Club World",
+                                    "@Owner": "BA",
+                                    "@ObjectKey": "BA0106Club World"
+                                },
+                                "TimeLimits": {
+                                    "OfferExpiration": {
+                                        "@DateTime": "2019-09-26T07:57:59.912Z"
+                                    }
+                                },
+                                "TotalPrice": {
+                                    "DetailCurrencyPrice": {
+                                        "Total": {
+                                            "#text": "3480.70",
+                                            "@Code": "GBP"
+                                        }
+                                    }
+                                },
+                                "PricedOffer": {
+                                    "OfferPrice": {
+                                        "@OfferItemID": 1,
+                                        "RequestedDate": {
+                                            "PriceDetail": {
+                                                "TotalAmount": {
+                                                    "DetailCurrencyPrice": {
+                                                        "Total": {
+                                                            "#text": "3480.70",
+                                                            "@Code": "GBP"
+                                                        },
+                                                        "Taxes": {
+                                                            "Total": {
+                                                                "#text": "198.70",
+                                                                "@Code": "GBP"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "BaseAmount": {
+                                                    "#text": "3282.00",
+                                                    "@Code": "GBP"
+                                                },
+                                                "Taxes": {
+                                                    "Total": {
+                                                        "#text": "198.70",
+                                                        "@Code": "GBP"
+                                                    }
+                                                },
+                                                "SegmentReferences": {
+                                                    "#text": "BA0106",
+                                                    "@OnPoint": "DXB",
+                                                    "@OffPoint": "LHR"
+                                                }
+                                            },
+                                            "Associations": {
+                                                "AssociatedTraveler": {
+                                                    "TravelerReferences": "PAX1"
+                                                }
+                                            }
+                                        },
+                                        "FareDetail": {
+                                            "FareComponent": {
+                                                "@refs": "FBCODE1-BA",
+                                                "SegmentReference": {
+                                                    "#text": "BA0106",
+                                                    "@ON_Point": "DXB",
+                                                    "@OFF_Point": "LHR"
+                                                }
+                                            },
+                                            "PriceClassReference": "Club World"
+                                        }
+                                    },
+                                    "Associations": {
+                                        "ApplicableFlight": {
+                                            "FlightSegmentReference": {
+                                                "@ref": "BA0106",
+                                                "Cabin": {
+                                                    "CabinDesignator": "C",
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "ClassOfService": {
+                                                    "Code": {
+                                                        "#text": "C",
+                                                        "@SeatsLeft": 9
+                                                    },
+                                                    "MarketingName": "Club World"
+                                                },
+                                                "BagDetailAssociation": {
+                                                    "CheckedBagReferences": "PI-"
+                                                },
+                                                "MarriedSegmentGroup": 0
+                                            },
+                                            "OriginDestinationReferences": "DXBLHR",
+                                            "FlightReferences": "Flight1-BA"
+                                        }
+                                    }
+                                }
+                            }
+                        ],
+                        "returnOffers": []
+                    }
+                ],
+                "priceClass": [
+                    {
+                        "@ObjectKey": "STANDARD",
+                        "Name": "STANDARD",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "30-31&quot; legroom"
+                                },
+                                {
+                                    "Text": "1 x 23kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Food and bar service"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@ObjectKey": "World Traveller Plus",
+                        "Name": "World Traveller Plus",
+                        "Code": "T",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "38&quot; legroom"
+                                },
+                                {
+                                    "Text": "2 x 23kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Three-course meal and bar service"
+                                },
+                                {
+                                    "Text": "Separate, smaller cabin"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "@ObjectKey": "Club World",
+                        "Name": "Club World",
+                        "Code": "C",
+                        "Descriptions": {
+                            "Description": [
+                                {
+                                    "Text": "Seat that converts into a 6ft fully flat bed"
+                                },
+                                {
+                                    "Text": "2 x 32kg checked baggage allowance"
+                                },
+                                {
+                                    "Text": "Dedicated check-in area"
+                                },
+                                {
+                                    "Text": "Access to British Airways lounges"
+                                },
+                                {
+                                    "Text": "Three-course dining including fine wines and champagne"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

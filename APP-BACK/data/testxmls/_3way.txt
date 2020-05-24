@@ -1,0 +1,2540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <ns2:AirShoppingRS xmlns:ns2="http://www.iata.org/IATA/EDIST" xmlns:ns3="http://tpconnects.com/security/header" EchoToken="1d22f9c4-7013-454d-bb7d-9baf7f670dfe" TimeStamp="2019-12-09T08:13:15.747Z" Version="16.1">
+            <ns2:Document>
+                <ns2:Name>TPC</ns2:Name>
+                <ns2:ReferenceVersion>16.1</ns2:ReferenceVersion>
+            </ns2:Document>
+            <ns2:Success/>
+            <ns2:ShoppingResponseID>
+                <ns2:ResponseID>op08.tx-08-02-1-fb975494-4464-407d-84ea-0af67f7aa888</ns2:ResponseID>
+            </ns2:ShoppingResponseID>
+            <ns2:OffersGroup>
+                <ns2:AirlineOffers>
+                    <ns2:AirlineOfferSnapshot>
+                        <ns2:Highest>
+                            <ns2:EncodedCurrencyPrice Code="USD">15537.156636081024</ns2:EncodedCurrencyPrice>
+                        </ns2:Highest>
+                        <ns2:Lowest>
+                            <ns2:EncodedCurrencyPrice Code="USD">10875.741589254024</ns2:EncodedCurrencyPrice>
+                        </ns2:Lowest>
+                    </ns2:AirlineOfferSnapshot>
+                    <ns2:Owner>BA7</ns2:Owner>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer1">offer1</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="LNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="LNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="LNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108_DXBLHR2019-12-10">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="3">L</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer2">offer2</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight7-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer3">offer3</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0104_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0104_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-61b64114-aa38-418b-9cac-28735b246720-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0104_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104_DXBLHR2019-12-13">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0133">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBJED</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight11-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer4">offer4</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-e3258204-8374-4b11-86cb-0bcb3e02dbdc-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-e3258204-8374-4b11-86cb-0bcb3e02dbdc-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-e3258204-8374-4b11-86cb-0bcb3e02dbdc-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight8-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer5">offer5</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-ad402a50-686d-44ff-9343-ede31c52dfab-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-ad402a50-686d-44ff-9343-ede31c52dfab-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-ad402a50-686d-44ff-9343-ede31c52dfab-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight9-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer6">offer6</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">10875.741589254024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-6a81ac08-87ce-41ea-9e30-3c3b6193037a-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0108_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-6a81ac08-87ce-41ea-9e30-3c3b6193037a-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0108_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-6a81ac08-87ce-41ea-9e30-3c3b6193037a-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="JED">BA0108_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YNNC00S1_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108_DXBLHR2019-12-13</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="MLNC00S7_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="JED">BA0133</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108_DXBLHR2019-12-13">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0133">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBJED</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight12-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer7">offer7</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">11109.633591603624</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-14c2f88c-51ba-4313-a33a-407faea1ab00-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="MNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-14c2f88c-51ba-4313-a33a-407faea1ab00-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="MNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-14c2f88c-51ba-4313-a33a-407faea1ab00-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="MNNC00S2_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104_DXBLHR2019-12-10</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104_DXBLHR2019-12-10">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="5">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer8">offer8</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-09T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">12483.683405406864</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-352573f9-fe73-4d8f-b076-a58eab5789e7-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0125 GF0500</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YR_N-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="BAH">BA0125</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="YR_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="DXB">GF0500</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-352573f9-fe73-4d8f-b076-a58eab5789e7-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0125 GF0500</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YR_N-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="BAH">BA0125</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="YR_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="DXB">GF0500</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-352573f9-fe73-4d8f-b076-a58eab5789e7-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0125 GF0500</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="YR_N-BA7">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="BAH">BA0125</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="YR_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="DXB">GF0500</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0125">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="GF0500">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">E</ns2:Code>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight10-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer9">offer9</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">15463.572635341824</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-113eb39e-9b71-47ab-90f8-fa4ab5d99565-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">ME0431 BA0148</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BEY">ME0431</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BEY" OFF_Point="LHR">BA0148</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-113eb39e-9b71-47ab-90f8-fa4ab5d99565-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">ME0431 BA0148</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BEY">ME0431</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BEY" OFF_Point="LHR">BA0148</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-113eb39e-9b71-47ab-90f8-fa4ab5d99565-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">ME0431 BA0148</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BEY">ME0431</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BEY" OFF_Point="LHR">BA0148</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="ME0431">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">T</ns2:Code>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0148">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer10">offer10</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">15537.156636081024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-8a45ec37-a15e-4c27-89d6-917b2bb7dba2-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0513 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0513</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-8a45ec37-a15e-4c27-89d6-917b2bb7dba2-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0513 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0513</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-8a45ec37-a15e-4c27-89d6-917b2bb7dba2-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0513 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0513</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="GF0513">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">E</ns2:Code>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0124">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer11">offer11</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">15537.156636081024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-5da6d826-1113-470f-bfbe-5315302df29e-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0511 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0511</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-5da6d826-1113-470f-bfbe-5315302df29e-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0511 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0511</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-5da6d826-1113-470f-bfbe-5315302df29e-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0511 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0511</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="GF0511">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">E</ns2:Code>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0124">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer>
+                        <ns2:OfferID Owner="BA7" ObjectKey="offer12">offer12</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-12-09T08:43:15.493Z"/>
+                            <ns2:Payment DateTime="2019-12-10T23:59:59.000Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="USD">15537.156636081024</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="OF-ba29da4c-6545-4c4c-97fa-b387a7dfc77d-OI-1_PAX1-PAX2">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0509 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1 PAX2</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0509</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-ba29da4c-6545-4c4c-97fa-b387a7dfc77d-OI-2_PAX3">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0509 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX3</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0509</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:OfferPrice OfferItemID="OF-ba29da4c-6545-4c4c-97fa-b387a7dfc77d-OI-3_PAX4">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="USD">0.000000000000</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="USD">0.000000000000</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">GF0509 BA0124</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX4</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="Y1ME_N-BA7">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="BAH">GF0509</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:FareComponent refs="Y1ME_Y-BA7">
+                                        <ns2:SegmentReference ON_Point="BAH" OFF_Point="LHR">BA0124</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="GF0509">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">E</ns2:Code>
+                                            <ns2:MarketingName>ECONOMY</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:FlightSegmentReference ref="BA0124">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator></ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">Y</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6-BA7</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                </ns2:AirlineOffers>
+            </ns2:OffersGroup>
+            <ns2:DataLists>
+                <ns2:AnonymousTravelerList>
+                    <ns2:AnonymousTraveler ObjectKey="PAX1">
+                        <ns2:PTC Quantity="1">ADT</ns2:PTC>
+                        <ns2:Age>
+                            <ns2:Value UOM="Years">30</ns2:Value>
+                        </ns2:Age>
+                    </ns2:AnonymousTraveler>
+                    <ns2:AnonymousTraveler ObjectKey="PAX2">
+                        <ns2:PTC Quantity="1">ADT</ns2:PTC>
+                        <ns2:Age>
+                            <ns2:Value UOM="Years">30</ns2:Value>
+                        </ns2:Age>
+                    </ns2:AnonymousTraveler>
+                    <ns2:AnonymousTraveler ObjectKey="PAX3">
+                        <ns2:PTC Quantity="1">CHD</ns2:PTC>
+                        <ns2:Age>
+                            <ns2:Value UOM="Years">1</ns2:Value>
+                        </ns2:Age>
+                    </ns2:AnonymousTraveler>
+                    <ns2:AnonymousTraveler ObjectKey="PAX4">
+                        <ns2:PTC Quantity="1">INF</ns2:PTC>
+                        <ns2:Age>
+                            <ns2:Value UOM="Years">2</ns2:Value>
+                        </ns2:Age>
+                    </ns2:AnonymousTraveler>
+                </ns2:AnonymousTravelerList>
+                <ns2:CheckedBagAllowanceList/>
+                <ns2:FareList>
+                    <ns2:FareGroup ListKey="LNNC00S2_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>LNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="YR_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>YR/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="YR_N-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>YR/N</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="Y1ME_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>Y1ME/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="YNNC00S1_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>YNNC00S1/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="MLNC00S7_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MLNC00S7/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="MNNC00S2_Y-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="Y1ME_N-BA7">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>Y1ME/N</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                </ns2:FareList>
+                <ns2:FlightSegmentList>
+                    <ns2:FlightSegment SegmentKey="BA0108_DXBLHR2019-12-10">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>10:05</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>14:10</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0108</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>744</ns2:AircraftCode>
+                            <ns2:Name>Boeing 747 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H5M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0104_DXBLHR2019-12-10">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>14:00</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>18:00</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0104</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="ME0431">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>03:10</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>BEY</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>04:45</ns2:Time>
+                            <ns2:AirportName>Beirut, Lebanon (BEY-Rafic Hariri Intl.)</ns2:AirportName>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>ME</ns2:AirlineID>
+                            <ns2:Name>MIDDLE EAST AIRLINES</ns2:Name>
+                            <ns2:FlightNumber>0431</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>ME</ns2:AirlineID>
+                            <ns2:Name>MIDDLE EAST AIRLINES</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>320</ns2:AircraftCode>
+                            <ns2:Name>Airbus A320 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT3H35M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0148">
+                        <ns2:Departure>
+                            <ns2:AirportCode>BEY</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>08:10</ns2:Time>
+                            <ns2:AirportName>Beirut, Lebanon (BEY-Rafic Hariri Intl.)</ns2:AirportName>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>11:40</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0148</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>321</ns2:AircraftCode>
+                            <ns2:Name>Airbus A321 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT5H30M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="GF0513">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>23:35</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>23:50</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                            <ns2:FlightNumber>0513</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>320</ns2:AircraftCode>
+                            <ns2:Name>Airbus A320 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT1H15M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0124">
+                        <ns2:Departure>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-11</ns2:Date>
+                            <ns2:Time>02:20</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-11</ns2:Date>
+                            <ns2:Time>06:40</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0124</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT7H20M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="GF0511">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>21:20</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>21:35</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                            <ns2:FlightNumber>0511</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>320</ns2:AircraftCode>
+                            <ns2:Name>Airbus A320 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT1H15M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="GF0509">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>19:15</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>19:30</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                            <ns2:FlightNumber>0509</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>320</ns2:AircraftCode>
+                            <ns2:Name>Airbus A320 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT1H15M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0109">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>21:25</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>08:20</ns2:Time>
+                            <ns2:ChangeOfDay>1</ns2:ChangeOfDay>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0109</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>744</ns2:AircraftCode>
+                            <ns2:Name>Boeing 747 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT6H55M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0105">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>20:40</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>07:45</ns2:Time>
+                            <ns2:ChangeOfDay>1</ns2:ChangeOfDay>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0105</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT7H5M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0107">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>12:35</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>23:45</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0107</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>351</ns2:AircraftCode>
+                            <ns2:Name>Airbus A350 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT7H10M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0125">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>11:30</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-12</ns2:Date>
+                            <ns2:Time>20:55</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0125</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT6H25M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="GF0500">
+                        <ns2:Departure>
+                            <ns2:AirportCode>BAH</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>01:55</ns2:Time>
+                            <ns2:AirportName>Manama, Bahrain (BAH-Bahrain Intl.)</ns2:AirportName>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>04:10</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                            <ns2:FlightNumber>0500</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>GF</ns2:AirlineID>
+                            <ns2:Name>GULF AIR</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>320</ns2:AircraftCode>
+                            <ns2:Name>Airbus A320 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT1H15M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0104_DXBLHR2019-12-13">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>14:00</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>18:00</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0104</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0133">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>22:05</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>JED</ns2:AirportCode>
+                            <ns2:Date>2019-12-14</ns2:Date>
+                            <ns2:Time>07:05</ns2:Time>
+                            <ns2:ChangeOfDay>1</ns2:ChangeOfDay>
+                            <ns2:AirportName>Jeddah, Saudi Arabia (JED-King Abdulaziz Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>N</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0133</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT6H</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0108_DXBLHR2019-12-13">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>10:05</ns2:Time>
+                            <ns2:AirportName>Dubai, United Arab Emirates (DXB-Dubai Intl.)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-13</ns2:Date>
+                            <ns2:Time>14:10</ns2:Time>
+                            <ns2:AirportName>London, England, UK (LHR-Heathrow)</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0108</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>744</ns2:AircraftCode>
+                            <ns2:Name>Boeing 747 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H5M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                </ns2:FlightSegmentList>
+                <ns2:FlightList>
+                    <ns2:Flight FlightKey="Flight1-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT8H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0108_DXBLHR2019-12-10</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight2-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT8H0M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0104_DXBLHR2019-12-10</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight3-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT12H30M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>ME0431 BA0148</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight4-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT11H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>GF0513 BA0124</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight5-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT13H20M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>GF0511 BA0124</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight6-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT15H25M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>GF0509 BA0124</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight7-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT6H55M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0109</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight8-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT7H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0105</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight9-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT7H10M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0107</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight10-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT12H40M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0125 GF0500</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight11-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT18H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0104_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight12-BA7">
+                        <ns2:Journey>
+                            <ns2:Time>PT22H0M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences>BA0108_DXBLHR2019-12-13 BA0133</ns2:SegmentReferences>
+                    </ns2:Flight>
+                </ns2:FlightList>
+                <ns2:OriginDestinationList>
+                    <ns2:OriginDestination OriginDestinationKey="DXBLHR" refs="Flight1-BA7 Flight2-BA7 Flight3-BA7 Flight4-BA7 Flight5-BA7 Flight6-BA7">
+                        <ns2:DepartureCode>DXB</ns2:DepartureCode>
+                        <ns2:ArrivalCode>LHR</ns2:ArrivalCode>
+                        <ns2:FlightReferences>Flight1-BA7 Flight2-BA7 Flight3-BA7 Flight4-BA7 Flight5-BA7 Flight6-BA7</ns2:FlightReferences>
+                    </ns2:OriginDestination>
+                    <ns2:OriginDestination OriginDestinationKey="LHRDXB" refs="Flight7-BA7 Flight8-BA7 Flight9-BA7 Flight10-BA7">
+                        <ns2:DepartureCode>LHR</ns2:DepartureCode>
+                        <ns2:ArrivalCode>DXB</ns2:ArrivalCode>
+                        <ns2:FlightReferences>Flight7-BA7 Flight8-BA7 Flight9-BA7 Flight10-BA7</ns2:FlightReferences>
+                    </ns2:OriginDestination>
+                    <ns2:OriginDestination OriginDestinationKey="DXBJED" refs="Flight11-BA7 Flight12-BA7">
+                        <ns2:DepartureCode>DXB</ns2:DepartureCode>
+                        <ns2:ArrivalCode>JED</ns2:ArrivalCode>
+                        <ns2:FlightReferences>Flight11-BA7 Flight12-BA7</ns2:FlightReferences>
+                    </ns2:OriginDestination>
+                </ns2:OriginDestinationList>
+                <ns2:PriceClassList>
+                    <ns2:PriceClass ObjectKey="STANDARD">
+                        <ns2:Name>STANDARD</ns2:Name>
+                        <ns2:Code>L</ns2:Code>
+                        <ns2:Descriptions>
+                            <ns2:Description>
+                                <ns2:Text>30-31&quot; legroom</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>1 x 23kg checked baggage allowance</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Food and bar service</ns2:Text>
+                            </ns2:Description>
+                        </ns2:Descriptions>
+                        <ns2:ClassOfService>
+                            <ns2:Code>L</ns2:Code>
+                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                        </ns2:ClassOfService>
+                    </ns2:PriceClass>
+                    <ns2:PriceClass ObjectKey="World Traveller">
+                        <ns2:Name>World Traveller</ns2:Name>
+                        <ns2:Code>Y</ns2:Code>
+                        <ns2:ClassOfService>
+                            <ns2:Code>Y</ns2:Code>
+                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                        </ns2:ClassOfService>
+                    </ns2:PriceClass>
+                </ns2:PriceClassList>
+            </ns2:DataLists>
+            <ns2:Metadata>
+                <ns2:Other>
+                    <ns2:OtherMetadata>
+                        <ns2:EquivalentID_Metadatas>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-61b64114-aa38-418b-9cac-28735b246720</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-e3258204-8374-4b11-86cb-0bcb3e02dbdc</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-ad402a50-686d-44ff-9343-ede31c52dfab</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-6a81ac08-87ce-41ea-9e30-3c3b6193037a</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-704c42cb-3b63-4c1e-82e7-4a3927b2311c</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-14c2f88c-51ba-4313-a33a-407faea1ab00</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-5d9d3548-b016-4bff-85ee-3387919edd0c</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-f36f5cff-dcd2-4e0e-843d-45f866690db4</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-0984ca96-d000-452e-a2f5-2bdf13ae008e</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-c4c153d2-ce91-437d-8990-f278a2110b9d</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-352573f9-fe73-4d8f-b076-a58eab5789e7</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer1~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-d5d0f418-c484-4580-8089-26386e4ff770</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-b4c8c492-b4ca-4ac1-beaa-42f3ab54fff2</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer7~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-9cac773d-4ec7-4f20-87f0-bc490af05aa4</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-113eb39e-9b71-47ab-90f8-fa4ab5d99565</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-adff20b9-46b9-4dcf-8109-12ea669c8e2c</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-72bcc8df-5fe6-48de-b8c9-aa64d1787585</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-3fd95142-74a7-4651-84ef-ef48ac2afcfb</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-0fd43948-820a-4b14-9aca-3592f5b6d791</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-8a45ec37-a15e-4c27-89d6-917b2bb7dba2</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-53601e95-a70d-4b82-adaa-de060f90d1fa</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-f7c23d85-91aa-4eb8-8b69-1ffc2c4ec31b</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-5da6d826-1113-470f-bfbe-5315302df29e</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-d2e14301-9388-41d2-a1e7-1abb67288bbd</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-c34b4107-9670-4cca-9913-055d65164f06</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-c720fd17-20f8-4fd0-8301-02bd062db3f5</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-69deb9ac-be69-4240-8d96-417e58780f19</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer2~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-ba29da4c-6545-4c4c-97fa-b387a7dfc77d</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer4~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-2bf313a4-39f7-43fc-9ea4-f5bc797ad081</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer5~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-7723662d-77fd-4c14-ad3f-2ac83451c3ab</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-40c10ea0-1225-4b59-8118-8d5bbec68f77</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-31871f27-d1d9-4f0c-8f32-b29818c006dc</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer4~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-cf5423a2-a9f1-4881-8f60-41ab93c3f941</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer5~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-f688695d-5eea-4415-a9ac-0a7d8ab0c607</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-c912441a-8e77-44cb-8d86-6b5ea3dd269b</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-fb65c78f-bbc1-455d-b021-2b68c373baae</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer10~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-349fa641-c563-4219-be78-9ddb8407f95a</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-22c1c803-6880-48f9-bcc9-e03bb66511a2</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer11~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-20ee98e1-58c8-4688-bbdd-a1b6596c1038</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer12~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-fe078d17-b22f-445b-afc3-3938aada1cf6</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer8~offer3">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-cd110a5e-5a21-4cd1-a70b-8c741d538d80</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                            <ns2:EquivalentID_Metadata MetadataKey="offer9~offer8~offer6">
+                                <ns2:EquivID>
+                                    <ns2:EquivalentID_Key>OF-84f24795-9043-4d0a-b877-033bfe308c55</ns2:EquivalentID_Key>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                        </ns2:EquivalentID_Metadatas>
+                    </ns2:OtherMetadata>
+                    <ns2:OtherMetadata>
+                        <ns2:CurrencyMetadatas>
+                            <ns2:CurrencyMetadata MetadataKey="DisplayCurrency">
+                                <ns2:Application>DisplayCurrency</ns2:Application>
+                                <ns2:Decimals>2</ns2:Decimals>
+                                <ns2:Name>USD</ns2:Name>
+                            </ns2:CurrencyMetadata>
+                        </ns2:CurrencyMetadatas>
+                    </ns2:OtherMetadata>
+                </ns2:Other>
+            </ns2:Metadata>
+        </ns2:AirShoppingRS>
+    </soapenv:Body>
+</soapenv:Envelope>

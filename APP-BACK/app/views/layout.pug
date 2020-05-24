@@ -1,0 +1,113 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    //- link(rel='apple-touch-icon', href='/favicon/apple-touch-icon.png')
+    //- link(rel='icon', sizes='32x32', type='image/png', href='/favicon/favicon.png')
+    link(rel='stylesheet', href='/css/voucher.css')
+    style(type="text/css").
+      @page {
+        margin: 30px;
+      }
+      table{
+          border-collapse:collapse;
+      }
+      td{
+          padding: 6px 3px;
+          font: normal 11px/16px Arial, Helvetica, sans-serif;
+          color:#434343;
+          /* border-bottom: 1px solid #e6e6e6;*/
+      }
+      table td.br-none{
+          border-right: none !important; 
+      }
+      table td.bl-none{
+          border-left: none !important; 
+      }
+      .border-none{
+          border: 0 !important; 
+      }
+      .main-table{
+          margin: 0 auto;
+          border: 1px solid #e6e6e6;
+          border-collapse: collapse;
+          border-spacing: 0px;
+          border-style: outset;
+      }
+      h2{
+          font: bold 13px/18px Arial, Helvetica, sans-serif;
+          color:#434343;
+          margin: 0;
+          padding: 10px 5px; 
+      }
+      h3{
+          font: bold 12px/16px Arial, Helvetica, sans-serif;
+          color:#434343;
+          margin: 0;
+          padding: 10px 5px 15px 5px;
+      }
+      .pr-0{
+          padding-right: none !important;
+      }
+      .pl-0{
+          padding-left: none !important;
+      }
+      .hd-row{
+          background: #e8e8e8;
+      }
+      .hd-row td{
+          background: #3766b0;
+          border: none !important;
+      }
+      .hd-txt{
+          margin: 0; 
+          padding: 0;
+          font: bold 14px/20px Arial, Helvetica, sans-serif;
+          color: #fff;
+      }
+      .sub-hd-row{
+          border-bottom: 1px solid #ddd !important;
+      }
+      .sub-hd-row th{
+          padding: 6px 3px;
+          font: bold 11px/18px Arial, Helvetica, sans-serif; 
+          color: #3766b0;
+          border-bottom: 1px solid #ddd;
+          border-top: 1px solid #ddd;
+      }
+      .list{
+          margin: 0; 
+          padding: 10px 0 20px 30px;
+      }
+      .list li{
+          padding: 5px 0 5px 20px;
+          font: normal 11px/16px Arial, Helvetica, sans-serif;
+          color: #434343;
+          display: inline;
+      }
+      .rwb{
+          border-right: 1px solid #fff;
+      }
+      .common{
+          padding: 0  !important;
+          border: none  !important;
+      }
+      .htb td{
+          border: 1px solid #ddd;
+
+      }
+      .htb2{
+          border: 1px solid #ddd;
+
+      }
+    block css
+  body
+    include header.pug
+    block content
+    include footer.pug
+
+    //- script(src='/components/jquery/dist/jquery.min.js', type="text/javascript")
+    //- script(src='/js/main.js', type="text/javascript")
+    block js

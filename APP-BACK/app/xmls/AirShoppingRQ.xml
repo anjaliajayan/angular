@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:edis="http://www.iata.org/IATA/EDIST" 
+    xmlns:head="http://tpconnects.com/security/header" 
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <head:SecurityHeader>
+            <agent>TSS</agent>
+            <apiKey>dc526452cd346ea11f29403129c77928</apiKey>
+            <secretKey>844cd4b4-f111-11e7-8c3f-9a214cf093ae</secretKey>
+        </head:SecurityHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST" AltLangID="EN" PrimaryLangID="EN">
+            <PointOfSale>
+                <Location>
+                    <CountryCode/>
+                    <CityCode/>
+                </Location>
+                <TouchPoint>
+                    <Device>
+                        <Code/>
+                        <Definition/>
+                        <Position>
+                            <Latitude/>
+                            <Longitude/>
+                            <NAC>9KD7V PGGM0</NAC>
+                        </Position>
+                    </Device>
+                </TouchPoint>
+            </PointOfSale>
+            <Document>
+                <Metadata>NDC GATEWAY</Metadata>
+                <Name/>
+                <ReferenceVersion>16.1</ReferenceVersion>
+            </Document>
+            <Party>
+                <Sender>
+                    <AggregatorSender>
+                        <Name>TpConnects</Name>
+                        <Category>
+                            <Code>M</Code>
+                            <Definition>NDC GATEWAY</Definition>
+                        </Category>
+                        <AggregatorID>travelfusion</AggregatorID>
+                    </AggregatorSender>
+                </Sender>
+            </Party>
+            <Parameters>
+                <Languages>
+                    <LanguageCode ObjectKey="en">en</LanguageCode>
+                </Languages>
+                <CurrCodes>
+                    <CurrCode>AED</CurrCode>
+                </CurrCodes>
+            </Parameters>
+            <Travelers>
+                <Traveler>
+                    <AnonymousTraveler ObjectKey="PAX1">
+                        <PTC Quantity="1">ADT</PTC>
+                        <Age>
+                            <Value UOM="Years">30</Value>
+                        </Age>
+                    </AnonymousTraveler>
+                    <AnonymousTraveler ObjectKey="PAX2">
+                        <PTC Quantity="1">CHD</PTC>
+                        <Age>
+                            <Value UOM="Years">1</Value>
+                        </Age>
+                    </AnonymousTraveler>
+                    <AnonymousTraveler ObjectKey="PAX3">
+                        <PTC Quantity="1">INF</PTC>
+                        <Age>
+                            <Value UOM="Years">2</Value>
+                        </Age>
+                    </AnonymousTraveler>
+                </Traveler>
+            </Travelers>
+            <CoreQuery>
+                <OriginDestinations>
+                    <OriginDestination>
+                        <Departure>
+                            <AirportCode>DXB</AirportCode>
+                            <Date>2019-11-02</Date>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>JED</AirportCode>
+                        </Arrival>
+                    </OriginDestination>
+                    <OriginDestination>
+                        <Departure>
+                            <AirportCode>JED</AirportCode>
+                            <Date>2019-11-04</Date>
+                            <TimeRange>9:30 AM - 10:40 PM</TimeRange>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>DXB</AirportCode>
+                            <TimeRange>9:30 AM - 10:40 PM</TimeRange>
+                        </Arrival>
+                    </OriginDestination>
+                </OriginDestinations>
+            </CoreQuery>
+            <Preference>
+                <FlightPreferences>
+                    <Characteristic>
+                        <NonStopPreferences>Preferred</NonStopPreferences>
+                        <CalendarPreferences>Preferred</CalendarPreferences>
+                        <SameDayReturnPreferences>Preferred</SameDayReturnPreferences>
+                        <NoBaggagePreferences>Preferred</NoBaggagePreferences>
+                    </Characteristic>
+                </FlightPreferences>
+                <CabinPreferences>
+                    <CabinType>
+                        <Code>Y</Code>
+                        <Definition>Y</Definition>
+                    </CabinType>
+                </CabinPreferences>
+                <FarePreferences>
+                    <Types>
+                        <Type>
+                            <Code>754-0</Code>
+                        </Type>
+                    </Types>
+                    <Restrictions>
+                        <Restriction>
+                            <Code>854-0</Code>
+                        </Restriction>
+                        <Restriction>
+                            <Code>854-1</Code>
+                        </Restriction>
+                    </Restrictions>
+                    <Quotes>
+                        <Type>Published Fare</Type>
+                        <Currency>AED</Currency>
+                    </Quotes>
+                    <TicketDesignator></TicketDesignator>
+                </FarePreferences>
+                <AirlinePreferences>
+                    <Airline>
+                        <AirlineID>EK</AirlineID>
+                        <AirlineClass>Economy</AirlineClass>
+                        <AirlineRBD>K</AirlineRBD>
+                    </Airline>
+                </AirlinePreferences>
+                <PricingPreferences>
+                    <Options>
+                        <Option>Both</Option>
+                        <Option>No Restriction Refundability</Option>
+                    </Options>
+                </PricingPreferences>
+            </Preference>
+            <Metadata>
+                <Other>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="DisplayCurrency">
+                                <Application>DisplayCurrency</Application>
+                                <Decimals>2</Decimals>
+                                <Name>AED</Name>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <RuleMetadatas>
+                            <RuleMetadata MetadataKey="DynamicMarkup_byPerc/byAmt_1">
+                                <RuleID>DynamicMarkup</RuleID>
+                                <Name>DynamicMarkup-BYPERC</Name>
+                                <Values>
+                                    <Value>
+                                        <Instruction>DM-by_amount-10-UPSALE-BY_PAX</Instruction>
+                                    </Value>
+                                </Values>
+                                <Remarks>
+                                    <Remark>By amount</Remark>
+                                </Remarks>
+                            </RuleMetadata>
+                        </RuleMetadatas>
+                    </OtherMetadata>
+                </Other>
+            </Metadata>
+            <Qualifier>
+                <SpecialFareQualifiers>
+                    <Account>12345</Account>
+                </SpecialFareQualifiers>
+                <Qualifiers>
+                    <Qualifier>
+                        <Type>ADT</Type>
+                        <Code></Code>
+                        <Name></Name>
+                        <Airline>EK</Airline>
+                    </Qualifier>
+                    <Qualifier>
+                        <Type>ADT</Type>
+                        <Code></Code>
+                        <Name></Name>
+                        <Airline>EK</Airline>
+                    </Qualifier>
+                </Qualifiers>
+            </Qualifier>
+            <FrequentFlyerNo>1234</FrequentFlyerNo>
+            <ExcludedConnections>
+                <Cities>
+                    <city>DXB</city>
+                    <city>MCT</city>
+                </Cities>
+            </ExcludedConnections>
+            <TaxExemptOptions>
+                <GovernmentBody></GovernmentBody>
+                <Country>UAE</Country>
+                <Exempt>0</Exempt>
+                <Province></Province>
+                <State></State>
+                <Tax>
+                    <TaxCode></TaxCode>
+                    <TaxType></TaxType>
+                    <TaxFeesType></TaxFeesType>
+                </Tax>
+                <CurrencyOptions>AED</CurrencyOptions>
+            </TaxExemptOptions>
+            <Services>
+                <Service>
+                    <Group></Group>
+                    <SubGroup></SubGroup>
+                </Service>
+            </Services>
+        </AirShoppingRQ>
+    </soapenv:Body>
+</soapenv:Envelope>

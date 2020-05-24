@@ -1,0 +1,437 @@
+{
+    "@EchoToken": "d3af692a-0597-4f84-94eb-33a46d8209dc",
+    "@TimeStamp": "2019-10-30T07:12:20.358Z",
+    "@Version": 16.1,
+    "Document": {
+        "Name": "TPC",
+        "ReferenceVersion": 16.1
+    },
+    "Success": "",
+    "Response": {
+        "echoToken": "",
+        "OrderViewProcessing": "",
+        "Passengers": {
+            "Passenger": {
+                "@ObjectKey": "PAX1",
+                "PTC": {
+                    "#text": "ADT",
+                    "@Quantity": 1
+                },
+                "ResidenceCode": "AE",
+                "Age": {
+                    "BirthDate": "2019-08-12"
+                },
+                "Name": {
+                    "Surname": "Syed Ahmed",
+                    "Given": "Shah",
+                    "Title": "Mr",
+                    "Middle": ""
+                },
+                "ProfileID": "001",
+                "Contacts": {
+                    "Contact": {
+                        "EmailContact": {
+                            "Address": "syedahmedshah2013@gmail.com"
+                        },
+                        "PhoneContact": {
+                            "Application": "Personal",
+                            "Number": {
+                                "#text": 522856076,
+                                "@CountryCode": 971
+                            }
+                        }
+                    }
+                },
+                "Gender": "Male",
+                "PassengerIDInfo": {
+                    "PassengerDocument": {
+                        "Type": "PT",
+                        "ID": "568889KL",
+                        "DateOfExpiration": "2025-08-12",
+                        "CountryOfIssuance": "AE",
+                        "CountryOfResidence": "AE"
+                    }
+                }
+            }
+        },
+        "Order": {
+            "OrderID": {
+                "#text": "1S-KJMVBH",
+                "@Owner": "1S"
+            },
+            "BookingReferences": {
+                "BookingReference": {
+                    "ID": "KJMVBH",
+                    "AirlineID": {
+                        "#text": "QUCVGC",
+                        "@Name": "GF"
+                    },
+                    "OtherID": {
+                        "#text": "FCE47357D191030S",
+                        "@Name": "TPC"
+                    }
+                }
+            },
+            "TotalOrderPrice": {
+                "DetailCurrencyPrice": {
+                    "Total": {
+                        "#text": "1380.750090453000",
+                        "@Code": "AED"
+                    },
+                    "Taxes": {
+                        "Total": {
+                            "#text": "469.063328600700",
+                            "@Code": "AED"
+                        },
+                        "Breakdown": {
+                            "Tax": [
+                                {
+                                    "Amount": {
+                                        "#text": "68.547876831000",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "BH"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "75.402664514100",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "AE"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "1.958510766600",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "HM"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "35.253193798800",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "F6"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "11.751064599600",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "ZR"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "5.875532299800",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "TP"
+                                },
+                                {
+                                    "Amount": {
+                                        "#text": "270.274485790800",
+                                        "@Code": "AED"
+                                    },
+                                    "TaxCode": "YQ"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "OrderItems": {
+                "OrderItem": {
+                    "OrderItemID": {
+                        "#text": "ORDERITEM-1",
+                        "@Owner": "1S"
+                    },
+                    "FlightItem": {
+                        "Price": {
+                            "BaseAmount": {
+                                "#text": "911.686761852300",
+                                "@Code": "AED"
+                            },
+                            "Taxes": {
+                                "Total": {
+                                    "#text": "469.063328600700",
+                                    "@Code": "AED"
+                                },
+                                "Breakdown": {
+                                    "Tax": [
+                                        {
+                                            "Amount": {
+                                                "#text": "270.274485790800",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "YQ"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "75.402664514100",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "AE"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "5.875532299800",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "TP"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "11.751064599600",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "ZR"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "35.253193798800",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "F6"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "68.547876831000",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "BH"
+                                        },
+                                        {
+                                            "Amount": {
+                                                "#text": "1.958510766600",
+                                                "@Code": "AED"
+                                            },
+                                            "TaxCode": "HM"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "OriginDestination": [
+                            {
+                                "Flight": {
+                                    "SegmentKey": "SEG1",
+                                    "Departure": {
+                                        "AirportCode": "DXB",
+                                        "Date": "2019-10-31",
+                                        "Time": "10:25",
+                                        "Terminal": {
+                                            "Name": "TERMINAL 1"
+                                        }
+                                    },
+                                    "Arrival": {
+                                        "AirportCode": "BAH",
+                                        "Date": "2019-10-31",
+                                        "Time": "10:40"
+                                    },
+                                    "MarketingCarrier": {
+                                        "AirlineID": "GF",
+                                        "FlightNumber": "0503"
+                                    },
+                                    "Equipment": {
+                                        "AirlineEquipCode": 321
+                                    },
+                                    "ClassOfService": {
+                                        "Code": "O"
+                                    }
+                                }
+                            },
+                            {
+                                "Flight": {
+                                    "SegmentKey": "SEG2",
+                                    "Departure": {
+                                        "AirportCode": "BAH",
+                                        "Date": "2019-12-15",
+                                        "Time": "14:00"
+                                    },
+                                    "Arrival": {
+                                        "AirportCode": "DXB",
+                                        "Date": "2019-12-15",
+                                        "Time": "16:15",
+                                        "Terminal": {
+                                            "Name": "TERMINAL 1"
+                                        }
+                                    },
+                                    "MarketingCarrier": {
+                                        "AirlineID": "GF",
+                                        "FlightNumber": "0506"
+                                    },
+                                    "Equipment": {
+                                        "AirlineEquipCode": 320
+                                    },
+                                    "ClassOfService": {
+                                        "Code": "O"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    "TimeLimits": {
+                        "TicketingTimeLimits": {
+                            "@Timestamp": "2019-10-30T07:12:20.042"
+                        }
+                    },
+                    "Associations": {
+                        "Passengers": {
+                            "PassengerReferences": "PAX1"
+                        }
+                    }
+                }
+            }
+        },
+        "Commission": {
+            "Amount": "920.500",
+            "Code": "AD:460.250030151000||AG:0"
+        },
+        "DataLists": {
+            "FlightSegmentList": {
+                "FlightSegment": [
+                    {
+                        "@SegmentKey": "SEG-GF503-GF503-201910311025-201910311040-O",
+                        "Departure": {
+                            "AirportCode": "DXB",
+                            "Date": "2019-10-31",
+                            "Time": "10:25",
+                            "AirportName": "Dubai, United Arab Emirates (DXB-Dubai Intl.)",
+                            "Terminal": {
+                                "Name": 1
+                            }
+                        },
+                        "Arrival": {
+                            "AirportCode": "BAH",
+                            "Date": "2019-10-31",
+                            "Time": "10:40",
+                            "AirportName": "Manama, Bahrain (BAH-Bahrain Intl.)"
+                        },
+                        "MarketingCarrier": {
+                            "AirlineID": "GF",
+                            "Name": "Gulf Air Bahrain",
+                            "FlightNumber": 503
+                        },
+                        "OperatingCarrier": {
+                            "AirlineID": "GF",
+                            "Name": "Gulf Air Bahrain",
+                            "FlightNumber": 503
+                        },
+                        "Equipment": {
+                            "AircraftCode": 321
+                        },
+                        "ClassOfService": "",
+                        "FlightDetail": {
+                            "FlightDuration": {
+                                "Value": "PT1H15M"
+                            }
+                        }
+                    },
+                    {
+                        "@SegmentKey": "SEG-GF506-GF506-201912151400-201912151615-O",
+                        "Departure": {
+                            "AirportCode": "BAH",
+                            "Date": "2019-12-15",
+                            "Time": "14:00",
+                            "AirportName": "Manama, Bahrain (BAH-Bahrain Intl.)"
+                        },
+                        "Arrival": {
+                            "AirportCode": "DXB",
+                            "Date": "2019-12-15",
+                            "Time": "16:15",
+                            "AirportName": "Dubai, United Arab Emirates (DXB-Dubai Intl.)",
+                            "Terminal": {
+                                "Name": 1
+                            }
+                        },
+                        "MarketingCarrier": {
+                            "AirlineID": "GF",
+                            "Name": "Gulf Air Bahrain",
+                            "FlightNumber": 506
+                        },
+                        "OperatingCarrier": {
+                            "AirlineID": "GF",
+                            "Name": "Gulf Air Bahrain",
+                            "FlightNumber": 506
+                        },
+                        "Equipment": {
+                            "AircraftCode": 320
+                        },
+                        "ClassOfService": "",
+                        "FlightDetail": {
+                            "FlightDuration": {
+                                "Value": "PT1H15M"
+                            }
+                        }
+                    }
+                ]
+            },
+            "FlightList": {
+                "Flight": [
+                    {
+                        "@FlightKey": "FL-SEG-GF503-GF503-201910311025-201910311040-O",
+                        "@refs": "SEG-GF503-GF503-201910311025-201910311040-O",
+                        "Journey": "",
+                        "SegmentReferences": {
+                            "#text": "SEG-GF503-GF503-201910311025-201910311040-O",
+                            "@OnPoint": "DXB",
+                            "@OffPoint": "BAH"
+                        }
+                    },
+                    {
+                        "@FlightKey": "FL-SEG-GF506-GF506-201912151400-201912151615-O",
+                        "@refs": "SEG-GF506-GF506-201912151400-201912151615-O",
+                        "Journey": "",
+                        "SegmentReferences": {
+                            "#text": "SEG-GF506-GF506-201912151400-201912151615-O",
+                            "@OnPoint": "BAH",
+                            "@OffPoint": "DXB"
+                        }
+                    }
+                ]
+            },
+            "OriginDestinationList": {
+                "OriginDestination": [
+                    {
+                        "@OriginDestinationKey": "DXBBAH",
+                        "@refs": "FL-SEG-GF503-GF503-201910311025-201910311040-O",
+                        "DepartureCode": "DXB",
+                        "ArrivalCode": "BAH",
+                        "FlightReferences": "FL-SEG-GF503-GF503-201910311025-201910311040-O"
+                    },
+                    {
+                        "@OriginDestinationKey": "BAHDXB",
+                        "@refs": "FL-SEG-GF506-GF506-201912151400-201912151615-O",
+                        "DepartureCode": "BAH",
+                        "ArrivalCode": "DXB",
+                        "FlightReferences": "FL-SEG-GF506-GF506-201912151400-201912151615-O"
+                    }
+                ]
+            }
+        },
+        "Metadata": {
+            "Other": {
+                "OtherMetadata": [
+                    {
+                        "CurrencyMetadatas": {
+                            "CurrencyMetadata": {
+                                "@MetadataKey": "AED",
+                                "Decimals": 2
+                            }
+                        }
+                    },
+                    {
+                        "CurrencyMetadatas": {
+                            "CurrencyMetadata": {
+                                "@MetadataKey": "DisplayCurrency",
+                                "Application": "DisplayCurrency",
+                                "Decimals": 2,
+                                "Name": "AED"
+                            }
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,417 @@
+<soapenv:Envelope xmlns:edis="http://www.iata.org/IATA/EDIST" 
+    xmlns:head="http://tpconnects.com/security/header" 
+    xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Header>
+        <head:SecurityHeader>
+            <agent>ZNPZG</agent>
+            <apiKey>eebd46ec1260f7f9bf67085ffd321523</apiKey>
+            <secretKey>c3401f91-97bb-4cde-b21e-3d8deaa3f087</secretKey>
+        </head:SecurityHeader>
+    </soapenv:Header>
+    <soapenv:Body>
+        <FlightPriceRQ xmlns="http://www.iata.org/IATA/EDIST" AltLangID="EN" EchoToken="723c6a48-e54a-40c2-83df-6dcaa79e8f18" PrimaryLangID="EN" Version="1.1.4">
+            <PointOfSale>
+                <Location>
+                    <CountryCode>US</CountryCode>
+                    <CityCode>WAS</CityCode>
+                </Location>
+                <RequestTime Zone="EST">2019-05-23T12:48:00+02:00</RequestTime>
+                <TouchPoint>
+                    <Device>
+                        <Code>2</Code>
+                        <Definition>Web Browser</Definition>
+                        <Position>
+                            <Latitude>50.04717</Latitude>
+                            <Longitude>8.70066</Longitude>
+                            <NAC>HPQJH RB728</NAC>
+                        </Position>
+                    </Device>
+                </TouchPoint>
+            </PointOfSale>
+            <Document>
+                <Name>A3 NDC GATEWAY</Name>
+                <ReferenceVersion>1.0</ReferenceVersion>
+            </Document>
+            <Party>
+                <Sender>
+                    <AggregatorSender>
+                        <Name>Worldspan</Name>
+                        <Category>
+                            <Code>M</Code>
+                            <Definition>NDC aggregator</Definition>
+                        </Category>
+                        <AggregatorID>1P</AggregatorID>
+                    </AggregatorSender>
+                </Sender>
+                <Participants>
+                    <Participant>
+                        <TravelAgencyParticipant SequenceNumber="1">
+                            <Name>USD Travel</Name>
+                            <Type>TravelAgency</Type>
+                            <Contacts>
+                                <Contact>
+                                    <EmailContact>
+                                        <Address>ndc@usdtravel.com</Address>
+                                    </EmailContact>
+                                </Contact>
+                            </Contacts>
+                            <PseudoCity>1F8</PseudoCity>
+                            <IATA_Number>2212345</IATA_Number>
+                            <AgencyID Owner="A3">1001</AgencyID>
+                            <AgentUser>
+                                <Name>John Smith</Name>
+                                <AgentUserID>1980</AgentUserID>
+                                <UserRole>Admin</UserRole>
+                            </AgentUser>
+                        </TravelAgencyParticipant>
+                    </Participant>
+                </Participants>
+            </Party>
+            <Parameters>
+                <CurrCodes>
+                    <CurrCode>SAR</CurrCode>
+                </CurrCodes>
+                <Pricing/>
+            </Parameters>
+            <DataLists>
+                <FareList>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                    <FareGroup ListKey="YOW11/YF-Y">
+                        <Fare>
+                            <FareCode>
+                                <Code>Y</Code>
+                            </FareCode>
+                            <FareDetail>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="XNB" OffPoint="AUH">SBR-EY5421-EY5421-2019110117-2019110119-YO</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="AUH" OffPoint="RUH">SBR-EY351-EY351-2019110121-2019110122-YI</SegmentReference>
+                                </FareComponent>
+                                <FareComponent refs="YOW11/YF-Y">
+                                    <SegmentReference OnPoint="RUH" OffPoint="KRT">SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                                </FareComponent>
+                            </FareDetail>
+                        </Fare>
+                        <FareBasisCode>
+                            <Code>YOW11/YF</Code>
+                        </FareBasisCode>
+                        <SegmentReference>SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReference>
+                    </FareGroup>
+                </FareList>
+                <FlightList>
+                    <Flight FlightKey="FL-SBR-EY5421-EY5421-2019110117-2019110119-YOSBR-EY351-EY351-2019110121-2019110122-YISBR-SV457-SV457-2019110200-2019110202-YO" refs="SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO">
+                        <Journey>
+                            <Time>PT10H30M</Time>
+                        </Journey>
+                        <SegmentReferences OnPoint="XNB" OffPoint="KRT">SBR-EY5421-EY5421-2019110117-2019110119-YO SBR-EY351-EY351-2019110121-2019110122-YI SBR-SV457-SV457-2019110200-2019110202-YO</SegmentReferences>
+                        <status>1</status>
+                        <status_airline>1</status_airline>
+                        <Layovers>1</Layovers>
+                    </Flight>
+                </FlightList>
+                <FlightSegmentList>
+                    <FlightSegment SegmentKey="SBR-EY5421-EY5421-2019110117-2019110119-YO" SecureFlight="false">
+                        <Departure>
+                            <AirportCode>XNB</AirportCode>
+                            <Date>2019-11-01</Date>
+                            <Time>17:40</Time>
+                            <AirportName>Dubai, United Arab Emirates (XNB-Dubai Bus Station)</AirportName>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>AUH</AirportCode>
+                            <Date>2019-11-01</Date>
+                            <Time>19:00</Time>
+                            <AirportName>Abu Dhabi, United Arab Emirates (AUH-Abu Dhabi Intl.)</AirportName>
+                            <Terminal>
+                                <Name>1</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>EY</AirlineID>
+                            <Name>Etihad Airways</Name>
+                            <FlightNumber>5421</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>EY</AirlineID>
+                            <Name>Etihad Airways</Name>
+                            <FlightNumber>5421</FlightNumber>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>BUS</AircraftCode>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT1H20M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                        <ClassOfService>
+                            <Code SeatsLeft="9">Y</Code>
+                            <MarketingName CabinDesignator="">ECONOMY</MarketingName>
+                        </ClassOfService>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="SBR-EY351-EY351-2019110121-2019110122-YI" SecureFlight="true">
+                        <Departure>
+                            <AirportCode>AUH</AirportCode>
+                            <Date>2019-11-01</Date>
+                            <Time>21:00</Time>
+                            <AirportName>Abu Dhabi, United Arab Emirates (AUH-Abu Dhabi Intl.)</AirportName>
+                            <Terminal>
+                                <Name>3</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>RUH</AirportCode>
+                            <Date>2019-11-01</Date>
+                            <Time>22:05</Time>
+                            <AirportName>Riyadh, Saudi Arabia (RUH-King Khaled Intl.)</AirportName>
+                            <Terminal>
+                                <Name>1</Name>
+                            </Terminal>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>EY</AirlineID>
+                            <Name>Etihad Airways</Name>
+                            <FlightNumber>351</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>EY</AirlineID>
+                            <Name>Etihad Airways</Name>
+                            <FlightNumber>351</FlightNumber>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>320</AircraftCode>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT2H5M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                        <ClassOfService>
+                            <Code SeatsLeft="9">Y</Code>
+                            <MarketingName CabinDesignator="">ECONOMY</MarketingName>
+                        </ClassOfService>
+                    </FlightSegment>
+                    <FlightSegment SegmentKey="SBR-SV457-SV457-2019110200-2019110202-YO" SecureFlight="false">
+                        <Departure>
+                            <AirportCode>RUH</AirportCode>
+                            <Date>2019-11-02</Date>
+                            <Time>00:10</Time>
+                            <AirportName>Riyadh, Saudi Arabia (RUH-King Khaled Intl.)</AirportName>
+                            <Terminal>
+                                <Name>2</Name>
+                            </Terminal>
+                        </Departure>
+                        <Arrival>
+                            <AirportCode>KRT</AirportCode>
+                            <Date>2019-11-02</Date>
+                            <Time>02:10</Time>
+                            <AirportName>Khartoum, Sudan (KRT-Khartoum International Airport)</AirportName>
+                        </Arrival>
+                        <MarketingCarrier>
+                            <AirlineID>SV</AirlineID>
+                            <Name>Saudi Arabian Airlines</Name>
+                            <FlightNumber>457</FlightNumber>
+                        </MarketingCarrier>
+                        <OperatingCarrier>
+                            <AirlineID>SV</AirlineID>
+                            <Name>Saudi Arabian Airlines</Name>
+                            <FlightNumber>457</FlightNumber>
+                        </OperatingCarrier>
+                        <Equipment>
+                            <AircraftCode>320</AircraftCode>
+                        </Equipment>
+                        <FlightDetail>
+                            <FlightDuration>
+                                <Value>PT3H0M</Value>
+                            </FlightDuration>
+                            <Stops>
+                                <StopQuantity>0</StopQuantity>
+                            </Stops>
+                        </FlightDetail>
+                        <ClassOfService>
+                            <Code SeatsLeft="9">Y</Code>
+                            <MarketingName CabinDesignator="">ECONOMY</MarketingName>
+                        </ClassOfService>
+                    </FlightSegment>
+                </FlightSegmentList>
+                <OriginDestinationList>
+                    <OriginDestination refs="FL-SBR-EY5421-EY5421-2019110117-2019110119-YOSBR-EY351-EY351-2019110121-2019110122-YISBR-SV457-SV457-2019110200-2019110202-YO" OriginDestinationKey="DXBKRT">
+                        <DepartureCode>DXB</DepartureCode>
+                        <ArrivalCode>KRT</ArrivalCode>
+                        <FlightReferences>FL-SBR-EY5421-EY5421-2019110117-2019110119-YOSBR-EY351-EY351-2019110121-2019110122-YISBR-SV457-SV457-2019110200-2019110202-YO</FlightReferences>
+                    </OriginDestination>
+                </OriginDestinationList>
+            </DataLists>
+            <Query>
+                <Offers>
+                    <Offer>
+                        <OfferID Owner="1S">1S-EY-5421-24</OfferID>
+                        <OfferItemIDs>
+                            <OfferItemID>1</OfferItemID>
+                        </OfferItemIDs>
+                    </Offer>
+                </Offers>
+            </Query>
+            <Travelers>
+                <Traveler>
+                    <AnonymousTraveler ObjectKey="PAX1">
+                        <PTC Quantity="1">ADT</PTC>
+                    </AnonymousTraveler>
+                </Traveler>
+            </Travelers>
+            <Metadata>
+                <Other>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="currency">
+                                <Decimals>2</Decimals>
+                                <Name>SAR</Name>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <EquivalentID_Metadatas>
+                            <EquivalentID_Metadata MetadataKey="EM1">
+                                <EquivID MetadataKey="SK1">
+                                    <EquivalentID_Key>ID1</EquivalentID_Key>
+                                    <ID_Value>dfgdfryhdhdhxdfhbd</ID_Value>
+                                    <Owner>1S</Owner>
+                                </EquivID>
+                            </EquivalentID_Metadata>
+                        </EquivalentID_Metadatas>
+                    </OtherMetadata>
+                    <OtherMetadata>
+                        <CurrencyMetadatas>
+                            <CurrencyMetadata MetadataKey="DisplayCurrency">
+                                <Application>DisplayCurrency</Application>
+                                <Decimals>2</Decimals>
+                                <Name>SDG</Name>
+                            </CurrencyMetadata>
+                        </CurrencyMetadatas>
+                    </OtherMetadata>
+                </Other>
+            </Metadata>
+            <Qualifier>
+                <PaymentCardQualifiers>
+                    <Type>Cash</Type>
+                </PaymentCardQualifiers>
+            </Qualifier>
+        </FlightPriceRQ>
+    </soapenv:Body>
+</soapenv:Envelope>

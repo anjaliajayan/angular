@@ -1,0 +1,2938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+    <soapenv:Body>
+        <ns2:AirShoppingRS xmlns:ns2="http://www.iata.org/IATA/EDIST" xmlns:ns3="http://tpconnects.com/security/header" EchoToken="a8449edf-f83d-4250-b434-f2f139544380" TimeStamp="2019-09-01T07:45:51.518Z" Version="16.1">
+            <ns2:Document>
+                <ns2:Name>TPC</ns2:Name>
+                <ns2:ReferenceVersion>16.1</ns2:ReferenceVersion>
+            </ns2:Document>
+            <ns2:Success/>
+            <ns2:OffersGroup>
+                <ns2:AirlineOffers>
+                    <ns2:AirlineOfferSnapshot>
+                        <ns2:Highest>
+                            <ns2:EncodedCurrencyPrice Code="GBP">1843.02</ns2:EncodedCurrencyPrice>
+                        </ns2:Highest>
+                        <ns2:Lowest>
+                            <ns2:EncodedCurrencyPrice Code="GBP">623.02</ns2:EncodedCurrencyPrice>
+                        </ns2:Lowest>
+                    </ns2:AirlineOfferSnapshot>
+                    <ns2:Owner>1BA</ns2:Owner>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106STANDARD">BA0106STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.603Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE1-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>O</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">O</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109STANDARD">BA0109STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.604Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE2-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="6">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107STANDARD">BA0107STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.604Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE2-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105STANDARD">BA0105STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.604Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">645.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">645.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">268.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE3-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="2">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104STANDARD">BA0104STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.605Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">696.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">696.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">319.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE4-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>V</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="2">V</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108STANDARD">BA0108STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.605Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">716.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">716.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">339.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE5-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>L</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="3">L</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106World Traveller Plus">BA0106World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.606Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">718.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">718.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">324.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE6-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104World Traveller Plus">BA0104World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.608Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">776.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">776.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">382.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE7-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109World Traveller Plus">BA0109World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.609Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105World Traveller Plus">BA0105World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.609Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107World Traveller Plus">BA0107World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.610Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109Club World">BA0109Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.615Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1531.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1531.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">996.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106Club World">BA0106Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.615Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104Club World">BA0104Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.615Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108Club World">BA0108Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.616Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108World Traveller Plus">BA0108World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.621Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1780.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1780.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1386.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE10-1BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>W</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="5">W</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105Club World">BA0105Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.626Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1308.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE11-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107Club World">BA0107Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.627Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1308.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE11-1BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="1">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                </ns2:AirlineOffers>
+                <ns2:AirlineOffers>
+                    <ns2:AirlineOfferSnapshot>
+                        <ns2:Highest>
+                            <ns2:EncodedCurrencyPrice Code="GBP">1843.02</ns2:EncodedCurrencyPrice>
+                        </ns2:Highest>
+                        <ns2:Lowest>
+                            <ns2:EncodedCurrencyPrice Code="GBP">623.02</ns2:EncodedCurrencyPrice>
+                        </ns2:Lowest>
+                    </ns2:AirlineOfferSnapshot>
+                    <ns2:Owner>BA</ns2:Owner>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106STANDARD">BA0106STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.768Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE1-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>O</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">O</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109STANDARD">BA0109STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.769Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE2-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="6">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107STANDARD">BA0107STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.769Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">623.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">246.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE2-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105STANDARD">BA0105STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.769Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">645.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">645.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">268.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE3-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>M</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="2">M</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104STANDARD">BA0104STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.769Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">696.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">696.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">319.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE4-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>V</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="2">V</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108STANDARD">BA0108STANDARD</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.770Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">716.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">716.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">377.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">339.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">377.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE5-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>STANDARD</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>L</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="3">L</ns2:Code>
+                                            <ns2:MarketingName>World Traveller</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106World Traveller Plus">BA0106World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.771Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">718.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">718.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">324.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE6-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104World Traveller Plus">BA0104World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.773Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">776.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">776.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">382.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE7-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="7">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109World Traveller Plus">BA0109World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.774Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105World Traveller Plus">BA0105World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.774Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107World Traveller Plus">BA0107World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.775Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">816.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">488.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">328.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">488.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE8-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>T</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">T</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0109Club World">BA0109Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.780Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1531.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1531.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">996.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0109</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0109">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight4</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0106Club World">BA0106Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.780Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0106</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0106">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight1</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0104Club World">BA0104Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.780Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0104</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0104">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight2</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108Club World">BA0108Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.781Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1600.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">441.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1159.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">441.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE9-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="9">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="BA0109STANDARD BA0107STANDARD BA0105STANDARD BA0109World Traveller Plus BA0105World Traveller Plus BA0107World Traveller Plus BA0109Club World BA0105Club World BA0107Club World">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0108World Traveller Plus">BA0108World Traveller Plus</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.786Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1780.22</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1780.22</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">394.22</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1386.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">394.22</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE10-BA">
+                                        <ns2:SegmentReference ON_Point="DXB" OFF_Point="LHR">BA0108</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>World Traveller Plus</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0108">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>W</ns2:CabinDesignator>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="5">W</ns2:Code>
+                                            <ns2:MarketingName>World Traveller Plus</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>DXBLHR</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight3</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0105Club World">BA0105Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.791Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1308.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE11-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0105</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0105">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="8">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight6</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                    <ns2:AirlineOffer refs="">
+                        <ns2:OfferID Owner="BA" ObjectKey="BA0107Club World">BA0107Club World</ns2:OfferID>
+                        <ns2:TimeLimits>
+                            <ns2:OfferExpiration DateTime="2019-09-01T07:50:50.792Z"/>
+                        </ns2:TimeLimits>
+                        <ns2:TotalPrice>
+                            <ns2:DetailCurrencyPrice>
+                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                            </ns2:DetailCurrencyPrice>
+                        </ns2:TotalPrice>
+                        <ns2:PricedOffer>
+                            <ns2:OfferPrice OfferItemID="1">
+                                <ns2:RequestedDate>
+                                    <ns2:PriceDetail>
+                                        <ns2:TotalAmount>
+                                            <ns2:DetailCurrencyPrice>
+                                                <ns2:Total Code="GBP">1843.02</ns2:Total>
+                                                <ns2:Taxes>
+                                                    <ns2:Total Code="GBP">535.02</ns2:Total>
+                                                </ns2:Taxes>
+                                            </ns2:DetailCurrencyPrice>
+                                        </ns2:TotalAmount>
+                                        <ns2:BaseAmount Code="GBP">1308.00</ns2:BaseAmount>
+                                        <ns2:Taxes>
+                                            <ns2:Total Code="GBP">535.02</ns2:Total>
+                                        </ns2:Taxes>
+                                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                                    </ns2:PriceDetail>
+                                    <ns2:Associations>
+                                        <ns2:AssociatedTraveler>
+                                            <ns2:TravelerReferences>PAX1</ns2:TravelerReferences>
+                                        </ns2:AssociatedTraveler>
+                                    </ns2:Associations>
+                                </ns2:RequestedDate>
+                                <ns2:FareDetail>
+                                    <ns2:FareComponent refs="FBCODE11-BA">
+                                        <ns2:SegmentReference ON_Point="LHR" OFF_Point="DXB">BA0107</ns2:SegmentReference>
+                                    </ns2:FareComponent>
+                                    <ns2:PriceClassReference>Club World</ns2:PriceClassReference>
+                                </ns2:FareDetail>
+                            </ns2:OfferPrice>
+                            <ns2:Associations>
+                                <ns2:ApplicableFlight>
+                                    <ns2:FlightSegmentReference ref="BA0107">
+                                        <ns2:Cabin>
+                                            <ns2:CabinDesignator>I</ns2:CabinDesignator>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:Cabin>
+                                        <ns2:ClassOfService>
+                                            <ns2:Code SeatsLeft="1">I</ns2:Code>
+                                            <ns2:MarketingName>Club World</ns2:MarketingName>
+                                        </ns2:ClassOfService>
+                                        <ns2:BagDetailAssociation>
+                                            <ns2:CheckedBagReferences>PI-</ns2:CheckedBagReferences>
+                                        </ns2:BagDetailAssociation>
+                                        <ns2:MarriedSegmentGroup>0</ns2:MarriedSegmentGroup>
+                                    </ns2:FlightSegmentReference>
+                                    <ns2:OriginDestinationReferences>LHRDXB</ns2:OriginDestinationReferences>
+                                    <ns2:FlightReferences>Flight5</ns2:FlightReferences>
+                                </ns2:ApplicableFlight>
+                            </ns2:Associations>
+                        </ns2:PricedOffer>
+                    </ns2:AirlineOffer>
+                </ns2:AirlineOffers>
+            </ns2:OffersGroup>
+            <ns2:DataLists>
+                <ns2:AnonymousTravelerList>
+                    <ns2:AnonymousTraveler ObjectKey="PAX1">
+                        <ns2:PTC Quantity="1">ADT</ns2:PTC>
+                        <ns2:Age>
+                            <ns2:Value UOM="Years">30</ns2:Value>
+                        </ns2:Age>
+                    </ns2:AnonymousTraveler>
+                </ns2:AnonymousTravelerList>
+                <ns2:CheckedBagAllowanceList>
+                    <ns2:CheckedBagAllowance ListKey="PI-">
+                        <ns2:PieceAllowance>
+                            <ns2:TotalQuantity>1</ns2:TotalQuantity>
+                        </ns2:PieceAllowance>
+                    </ns2:CheckedBagAllowance>
+                    <ns2:CheckedBagAllowance ListKey="PI-">
+                        <ns2:PieceAllowance>
+                            <ns2:TotalQuantity>1</ns2:TotalQuantity>
+                        </ns2:PieceAllowance>
+                    </ns2:CheckedBagAllowance>
+                </ns2:CheckedBagAllowanceList>
+                <ns2:FareList>
+                    <ns2:FareGroup ListKey="FBCODE1-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>ONNC04S6/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE2-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MNNC03S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE3-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE4-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>VNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE5-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>LNNC04S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE6-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0OS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE7-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0VS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE8-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0MS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE9-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>INNC02S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE10-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>WNNC00S0/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE11-1BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>INNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE1-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>ONNC04S6/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE2-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MNNC03S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE3-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>MNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE4-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>VNNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE5-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>LNNC04S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE6-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0OS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE7-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0VS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE8-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>TNNC0MS2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE9-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>INNC02S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE10-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>WNNC00S0/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                    <ns2:FareGroup ListKey="FBCODE11-BA">
+                        <ns2:Fare>
+                            <ns2:FareCode>
+                                <ns2:Code>70J</ns2:Code>
+                            </ns2:FareCode>
+                        </ns2:Fare>
+                        <ns2:FareBasisCode>
+                            <ns2:Code>INNC00S2/Y</ns2:Code>
+                        </ns2:FareBasisCode>
+                    </ns2:FareGroup>
+                </ns2:FareList>
+                <ns2:FlightSegmentList>
+                    <ns2:FlightSegment SegmentKey="BA0106">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>02:25</ns2:Time>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>06:25</ns2:Time>
+                            <ns2:ChangeOfDay>0</ns2:ChangeOfDay>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0106</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>351</ns2:AircraftCode>
+                            <ns2:Name>Airbus A350 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0104">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>14:00</ns2:Time>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>18:00</ns2:Time>
+                            <ns2:ChangeOfDay>0</ns2:ChangeOfDay>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0104</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0108">
+                        <ns2:Departure>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>10:05</ns2:Time>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-10</ns2:Date>
+                            <ns2:Time>14:10</ns2:Time>
+                            <ns2:ChangeOfDay>0</ns2:ChangeOfDay>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0108</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>744</ns2:AircraftCode>
+                            <ns2:Name>Boeing 747 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT8H5M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0109">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-15</ns2:Date>
+                            <ns2:Time>21:25</ns2:Time>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-16</ns2:Date>
+                            <ns2:Time>08:20</ns2:Time>
+                            <ns2:ChangeOfDay>1</ns2:ChangeOfDay>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0109</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>744</ns2:AircraftCode>
+                            <ns2:Name>Boeing 747 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT6H55M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0107">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-15</ns2:Date>
+                            <ns2:Time>12:35</ns2:Time>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-15</ns2:Date>
+                            <ns2:Time>23:45</ns2:Time>
+                            <ns2:ChangeOfDay>0</ns2:ChangeOfDay>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0107</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>351</ns2:AircraftCode>
+                            <ns2:Name>Airbus A350 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT7H10M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                    <ns2:FlightSegment SegmentKey="BA0105">
+                        <ns2:Departure>
+                            <ns2:AirportCode>LHR</ns2:AirportCode>
+                            <ns2:Date>2019-12-15</ns2:Date>
+                            <ns2:Time>20:40</ns2:Time>
+                            <ns2:AirportName>Heathrow</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>5</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Departure>
+                        <ns2:Arrival>
+                            <ns2:AirportCode>DXB</ns2:AirportCode>
+                            <ns2:Date>2019-12-16</ns2:Date>
+                            <ns2:Time>07:45</ns2:Time>
+                            <ns2:ChangeOfDay>1</ns2:ChangeOfDay>
+                            <ns2:AirportName>Dubai Intl</ns2:AirportName>
+                            <ns2:Terminal>
+                                <ns2:Name>1</ns2:Name>
+                            </ns2:Terminal>
+                        </ns2:Arrival>
+                        <ns2:MarketingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                            <ns2:FlightNumber>0105</ns2:FlightNumber>
+                        </ns2:MarketingCarrier>
+                        <ns2:OperatingCarrier>
+                            <ns2:AirlineID>BA</ns2:AirlineID>
+                            <ns2:Name>British Airways</ns2:Name>
+                        </ns2:OperatingCarrier>
+                        <ns2:Equipment>
+                            <ns2:AircraftCode>777</ns2:AircraftCode>
+                            <ns2:Name>Boeing 777 jet</ns2:Name>
+                        </ns2:Equipment>
+                        <ns2:FlightDetail>
+                            <ns2:FlightDuration>
+                                <ns2:Value>PT7H5M</ns2:Value>
+                            </ns2:FlightDuration>
+                        </ns2:FlightDetail>
+                    </ns2:FlightSegment>
+                </ns2:FlightSegmentList>
+                <ns2:FlightList>
+                    <ns2:Flight FlightKey="Flight1">
+                        <ns2:Journey>
+                            <ns2:Time>PT8H</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0106</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight2">
+                        <ns2:Journey>
+                            <ns2:Time>PT8H</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0104</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight3">
+                        <ns2:Journey>
+                            <ns2:Time>PT8H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="DXB" OffPoint="LHR">BA0108</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight4">
+                        <ns2:Journey>
+                            <ns2:Time>PT6H55M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0109</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight5">
+                        <ns2:Journey>
+                            <ns2:Time>PT7H10M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0107</ns2:SegmentReferences>
+                    </ns2:Flight>
+                    <ns2:Flight FlightKey="Flight6">
+                        <ns2:Journey>
+                            <ns2:Time>PT7H5M</ns2:Time>
+                        </ns2:Journey>
+                        <ns2:SegmentReferences OnPoint="LHR" OffPoint="DXB">BA0105</ns2:SegmentReferences>
+                    </ns2:Flight>
+                </ns2:FlightList>
+                <ns2:OriginDestinationList>
+                    <ns2:OriginDestination OriginDestinationKey="DXBLHR" refs="Flight1 Flight2 Flight3 Flight1 Flight2 Flight3">
+                        <ns2:DepartureCode>DXB</ns2:DepartureCode>
+                        <ns2:ArrivalCode>LHR</ns2:ArrivalCode>
+                        <ns2:FlightReferences>Flight1 Flight2 Flight3</ns2:FlightReferences>
+                    </ns2:OriginDestination>
+                    <ns2:OriginDestination OriginDestinationKey="LHRDXB" refs="Flight4 Flight5 Flight6 Flight4 Flight5 Flight6">
+                        <ns2:DepartureCode>LHR</ns2:DepartureCode>
+                        <ns2:ArrivalCode>DXB</ns2:ArrivalCode>
+                        <ns2:FlightReferences>Flight4 Flight5 Flight6</ns2:FlightReferences>
+                    </ns2:OriginDestination>
+                </ns2:OriginDestinationList>
+                <ns2:PriceClassList>
+                    <ns2:PriceClass ObjectKey="STANDARD">
+                        <ns2:Name>STANDARD</ns2:Name>
+                        <ns2:Descriptions>
+                            <ns2:Description>
+                                <ns2:Text>30-31&quot; legroom</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>1 x 23kg checked baggage allowance</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Food and bar service</ns2:Text>
+                            </ns2:Description>
+                        </ns2:Descriptions>
+                    </ns2:PriceClass>
+                    <ns2:PriceClass ObjectKey="World Traveller Plus">
+                        <ns2:Name>World Traveller Plus</ns2:Name>
+                        <ns2:Code>W</ns2:Code>
+                        <ns2:Descriptions>
+                            <ns2:Description>
+                                <ns2:Text>38&quot; legroom</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>2 x 23kg checked baggage allowance</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Three-course meal and bar service</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Separate, smaller cabin</ns2:Text>
+                            </ns2:Description>
+                        </ns2:Descriptions>
+                    </ns2:PriceClass>
+                    <ns2:PriceClass ObjectKey="Club World">
+                        <ns2:Name>Club World</ns2:Name>
+                        <ns2:Code>I</ns2:Code>
+                        <ns2:Descriptions>
+                            <ns2:Description>
+                                <ns2:Text>Seat that converts into a 6ft fully flat bed</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>2 x 32kg checked baggage allowance</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Dedicated check-in area</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Access to British Airways lounges</ns2:Text>
+                            </ns2:Description>
+                            <ns2:Description>
+                                <ns2:Text>Three-course dining including fine wines and champagne</ns2:Text>
+                            </ns2:Description>
+                        </ns2:Descriptions>
+                    </ns2:PriceClass>
+                </ns2:PriceClassList>
+            </ns2:DataLists>
+            <ns2:Metadata>
+                <ns2:Other>
+                    <ns2:OtherMetadata>
+                        <ns2:CurrencyMetadatas>
+                            <ns2:CurrencyMetadata MetadataKey="GBP">
+                                <ns2:Decimals>2</ns2:Decimals>
+                            </ns2:CurrencyMetadata>
+                        </ns2:CurrencyMetadatas>
+                    </ns2:OtherMetadata>
+                    <ns2:OtherMetadata>
+                        <ns2:EquivalentID_Metadatas>
+                            <ns2:EquivalentID_Metadata MetadataKey="EM1">
+                                <ns2:EquivID MetadataKey="SK1">
+                                    <ns2:EquivalentID_Key>ID1</ns2:EquivalentID_Key>
+                                    <ns2:ID_Value>dfgdfryhdhdhxdfhbd</ns2:ID_Value>
+                                    <ns2:Owner>1S</ns2:Owner>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                        </ns2:EquivalentID_Metadatas>
+                    </ns2:OtherMetadata>
+                    <ns2:OtherMetadata>
+                        <ns2:CurrencyMetadatas>
+                            <ns2:CurrencyMetadata MetadataKey="GBP">
+                                <ns2:Decimals>2</ns2:Decimals>
+                            </ns2:CurrencyMetadata>
+                        </ns2:CurrencyMetadatas>
+                    </ns2:OtherMetadata>
+                    <ns2:OtherMetadata>
+                        <ns2:EquivalentID_Metadatas>
+                            <ns2:EquivalentID_Metadata MetadataKey="EM1">
+                                <ns2:EquivID MetadataKey="SK1">
+                                    <ns2:EquivalentID_Key>ID1</ns2:EquivalentID_Key>
+                                    <ns2:ID_Value>dfgdfryhdhdhxdfhbd</ns2:ID_Value>
+                                    <ns2:Owner>1S</ns2:Owner>
+                                </ns2:EquivID>
+                            </ns2:EquivalentID_Metadata>
+                        </ns2:EquivalentID_Metadatas>
+                    </ns2:OtherMetadata>
+                    <ns2:OtherMetadata>
+                        <ns2:CurrencyMetadatas>
+                            <ns2:CurrencyMetadata MetadataKey="DisplayCurrency">
+                                <ns2:Application>DisplayCurrency</ns2:Application>
+                                <ns2:Decimals>2</ns2:Decimals>
+                                <ns2:Name>GBP</ns2:Name>
+                            </ns2:CurrencyMetadata>
+                        </ns2:CurrencyMetadatas>
+                    </ns2:OtherMetadata>
+                </ns2:Other>
+            </ns2:Metadata>
+        </ns2:AirShoppingRS>
+    </soapenv:Body>
+</soapenv:Envelope>

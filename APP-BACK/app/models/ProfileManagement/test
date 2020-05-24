@@ -1,0 +1,56 @@
+traveller_profile_id: 1001
+  organisation_id: 12
+  salutation: MR.
+  first_name: Syed Ahmed
+  last_name: Shah
+  dob: 12/08/1994
+  gender: Male
+  customer_index: 2003
+  customer_status: Approved
+  passenger_type: 1001
+  company_name: Flight Center
+  languages: 2
+  nationality: Australian
+  number_details: "{}"
+  add_email: "{}"
+  address_details: "{}"
+  job_title: Quality Controller
+  category: Audits
+  marital_status: non-married
+  no_children: 1
+  customers: 1
+  agency_office: "{}"
+  agency_contact_name: "{}"
+  misc_ticketing: "{}"
+  ticketing_arrangements: "{}"
+  original_issue: "{}"
+  tour_code: "{}"
+  validating_carrier: "{}"
+  shadow_destination: London, Heathrow
+  keywords: "{}"
+  travel_management: YES
+  fare_types: Public
+  bank_code: 2034
+  bank_name: HSBC
+  bank_number: 1006
+  bank_valid_from: 20/12/2016
+  bank_valid_to: 20/12/2019
+  direct_debit_authorized: true
+  forms_of_payment: "{}"
+  fare_price_override: "{}"
+  endorsements: "{}"
+  discount: 1001
+  commission: "{}"
+  accounting: "{}"
+  remarks: "{}"
+  profile_notes: "{}"
+  priority_lines: "{}"
+  follow_up: "{}"
+  special_needs: "{}"
+  frequent_flyers: "{}"
+  seating_preferences: "{}"
+  home_airport: Dubai, International
+  arrival_airport: London, Heathrow
+  delivery_method: instant
+  delivery_time: 2 hrs
+  airline_preferrences: "{}"
