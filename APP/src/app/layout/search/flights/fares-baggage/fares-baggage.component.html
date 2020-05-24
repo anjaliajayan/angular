@@ -1,0 +1,254 @@
+<div class="ui top attached tabular menu">
+  <div class="active item mini-fare-tab" data-tab="mini-fare-tab">Mini Fare Rules</div>
+  <div class="item mini-fare-tab" data-tab="fare-summary">Fare Summary</div>
+  <div class="item baggage-tab" data-tab="baggage-tab">Baggage</div>
+  <div class="item fare-tab" data-tab="fare-tab">Fare Rules</div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="baggage-tab">
+  <div class="ui fluid container">
+    <div class="outer-form">
+      <!-- <div class="ui styled accordion"> -->
+        <!-- <div class="title active"> -->
+          <!-- DXB - COK {{fareBaggageArr | json}} -->
+          <!-- <i class="dropdown icon"></i> -->
+        <!-- </div> -->
+        <!-- <div class="content active"> -->
+          <table class="single line table ui">
+            <thead>
+              <tr>
+                <td>Passenger Type</td>
+                <td>Check-in Baggage</td>
+                <td>Cabin Baggage</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pricedOffer of pricedOffer | keyvalue">
+                <td>
+                  {{fareAndBaggage?.DataLists['AnonymousTravelersList'][pricedOffer.value['RequestedDate'].Associations[0].AssociatedTraveler['TravelerReferences'].text.split(' ')[0]].PTC['text']}}
+
+                </td>
+                <td>
+                  <div *ngIf="fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance != undefined && fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance['MaximumWeight'].Value !== undefined">
+                    {{fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance['MaximumWeight'].Value}} {{fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance['MaximumWeight'].UOM}}
+                  </div>
+
+                  <div *ngIf="fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance == undefined && !fareAndBaggage?.DataLists['CheckedBagAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CheckedBagReferences']].WeightAllowance['MaximumWeight'].Value">
+                    N/A
+                  </div>
+                </td>
+                <td>
+                  <div *ngIf="fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance != undefined && fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance['MaximumWeight'].Value !== undefined">
+                    {{fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance['MaximumWeight'].Value}} {{fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance['MaximumWeight'].UOM}}
+                  </div>
+                  <div *ngIf="fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance == undefined && !fareAndBaggage?.DataLists['CarryOnAllowanceList'][pricedOffer.value['RequestedDate'].Associations[0].ApplicableFlights['FlightSegmentReference'][0].BagDetailAssociation['CarryOnReferences']].WeightAllowance['MaximumWeight'].Value">
+                    N/A
+                  </div>
+                 </td>
+              </tr>
+            </tbody>
+          </table>
+        <!-- </div> -->
+        <!-- <div class="title">
+          COK - DXB
+          <i class="dropdown icon"></i>
+        </div> -->
+        <!-- <div class="content">
+          <table class="single line table ui">
+            <thead>
+              <tr>
+                <td>Passenger Type</td>
+                <td>Check-in Baggage</td>
+                <td>Cabin Baggage</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ADT</td>
+                <td>30Kg</td>
+                <td>7Kg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+      <!-- </div> -->
+      <div class="total-fare-block">
+        <div class="ui grid">
+          <div class="sixteen wide column row">
+            <div class="sixteen wide column">
+              <span class="total">Total Trip Fare: </span>
+              <span class="amt"> {{airlineOfferStrCode}} {{airlineOfferStr | number:'1.1-1'}}0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="fare-tab">
+  <div class="ui fluid container">
+    <div class="outer-form">
+      <div class="ui styled accordion">
+        <div *ngIf="(flightSegList | json) != '{}'">
+         
+        <ng-container *ngFor="let depArr of flightSegList | keyvalue">
+        <div (click)="fetchFareRules(depArr.value)" class="title active">
+              {{depArr.value.Departure.AirportCode.text}}-{{depArr.value.Arrival.AirportCode.text}}   
+          <i class="dropdown icon"></i>
+        </div>
+        <div *ngIf="fareRules != null" class="content active">
+ 
+          <div *ngFor="let rDtls of fareRules.Rule | keyvalue" class="rules-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column">
+                  <h3>{{rDtls.value.FareRuleCategory.Definition }} -  {{rDtls.value.FareRuleCategory.Code }}</h3>
+                </div>
+              </div>
+            </div>
+            <ul>
+              <li *ngFor="let txt of rDtls.value.Text">{{txt}}</li>
+            </ul>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+      
+      </div>
+      <div class="total-fare-block">
+        <div class="ui grid">
+          <div class="sixteen wide column row">
+            <div class="sixteen wide column">
+              <span class="total">Total Trip Fare: </span>
+              <span class="amt"> {{airlineOfferStrCode}} {{airlineOfferStr | number:'1.1-1'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui bottom attached active tab segment" data-tab="mini-fare-tab">
+  <div class="ui fluid container">
+    <div class="outer-form">
+      <!-- <div class="ui styled accordion"> -->
+        <!-- <div class="title active"> -->
+          <!-- DXB - COK  -->
+          <!-- <i class="dropdown icon"></i>
+        </div> -->
+        <div *ngIf="(fltMiniFareRuleObj | json) != '{}'" >  <!--class="content active"-->
+          <table class="single line table ui">
+            <!-- <thead>
+              <tr>
+                <td></td>
+                <td>Before Departure</td>
+                <td>No-Show</td>
+                <td>After Departure</td>
+              </tr>
+            </thead> -->
+            <tbody>
+              <ng-container *ngIf="fltMiniFareRuleObj.Details.Detail.length > 0">
+              <tr *ngFor="let mn of fltMiniFareRuleObj.Details.Detail">
+                <td class="fee">{{mn.Type.text}}*</td>
+                <td>{{mn.Amounts[0].Amount.CurrencyAmountValue.text.Code}} {{mn.Amounts[0].Amount.CurrencyAmountValue.text['#text']}}</td>
+              </tr>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="title">
+          COK - DXB
+          <i class="dropdown icon"></i>
+        </div>
+        <div class="content">
+          <table class="single line table ui">
+            <thead>
+              <tr>
+                <td></td>
+                <td>Before Departure</td>
+                <td>No-Show</td>
+                <td>After Departure</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="fee">Cancellation Fee*</td>
+                <td>AED 190.00</td>
+                <td>AED 240.00</td>
+                <td>AED 240.00</td>
+              </tr>
+              <tr>
+                <td class="fee">Change Fee*</td>
+                <td>AED 240.00</td>
+                <td>AED 240.00</td>
+                <td>AED 240.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+      <!-- </div> -->
+      <div class="total-fare-block">
+        <div class="ui grid">
+          <div class="sixteen wide column row">
+            <div class="sixteen wide column">
+              <span class="total">Total Trip Fare: </span>
+              <span class="amt"> {{airlineOfferStrCode}} {{airlineOfferStr | number:'1.1-1'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui bottom attached tab segment" data-tab="fare-summary">
+  <div class="ui fluid container">
+    <div class="outer-form">
+      <!-- <div class="ui styled accordion"> -->
+        <!-- <div> -->
+          <!-- <div class="title active"> -->
+            <!-- DXB - COK -->
+            <!-- <i class="dropdown icon"></i> -->
+          <!-- </div> -->
+          <!-- <div class="content active"> -->
+            <table class="single line table ui">
+              <thead>
+                <tr>
+                  <td>Fare Summary</td>
+                  <td>Base Fare</td>
+                  <td>Tax</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let OfferPrice of airlineOffer?.PricedOffer?.OfferPrice | keyvalue">
+                    <td class="fee">
+                      {{fareAndBaggage?.DataLists['AnonymousTravelersList'][OfferPrice.value['RequestedDate']?.Associations[0]['AssociatedTraveler']?.TravelerReferences['text'].split(' ')[0]].PTC['text']}} X {{OfferPrice.value['RequestedDate']?.Associations[0]['AssociatedTraveler']?.TravelerReferences['text'].split(' ').length}}
+                    </td>
+                    <td>{{OfferPrice.value['RequestedDate']?.PriceDetail['BaseAmount'].attributes['Code']}}
+                      {{OfferPrice.value['RequestedDate']?.PriceDetail['BaseAmount'].text | number:'1.1-1'}} </td>
+                    <td>{{OfferPrice.value['RequestedDate']?.PriceDetail['Taxes'][0].Total['attributes'].Code}}
+                      {{OfferPrice.value['RequestedDate']?.PriceDetail['Taxes'][0].Total['text'] | number:'1.1-1'}}
+                    </td>
+                    <td>
+                      {{OfferPrice.value['RequestedDate']?.PriceDetail['TotalAmount'].DetailCurrencyPrice['Total'].attributes['Code']}}
+                      {{OfferPrice.value['RequestedDate']?.PriceDetail['TotalAmount'].DetailCurrencyPrice['Total'].text |  number:'1.1-1'}}
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+      <div class="total-fare-block">
+        <div class="ui grid">
+          <div class="sixteen wide column row">
+            <div class="sixteen wide column">
+              <span class="total">Total Trip Fare: </span>
+              <span class="amt"> 
+                {{airlineOfferStrCode}} {{airlineOfferStr | number:'1.1-1'}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

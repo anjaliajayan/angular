@@ -1,0 +1,114 @@
+<div class="ui fluid container">
+  <form class="ui form" name="form" #f="ngForm" novalidate>
+    <div [ngClass]="{'head-search-block': (showAddGroupForm) }">
+      <div class="fields search-section" [ngClass]="{'list-search-block': (showAddGroupForm) }">
+        <div class="four wide field bookings_btn-panel add-btn">
+          <button class="ui primary button filterMarkUp_btn" tabindex="0" (click)="onClickAddNewGroup(true)" *ngIf="showListForm">
+            <span class="filterMarkUp_list">Add New Group</span>
+          </button>
+          <a href="javascript:void(0)" class="ui filterMarkUp_btn goto_list" tabindex="0" (click)="onClickListGroup()"
+            *ngIf="showAddGroupForm">
+            <span class="">
+              <!-- <img src="../../../../../assets/icons/goto_link_arrow.svg" class="goto-link" /> -->
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              Go to List Group
+            </span>
+          </a>
+        </div>
+        <div class="twelve wide field search-btn-block" *ngIf="showListForm">
+          <!-- <div class="two wide field"></div> -->
+          <!-- <div class="six wide field input_field"> -->
+            <input type="text" placeholder="Group / Seasonality Name" [(ngModel)]="searchObject.groupname"
+            name="groupname" />
+          <!-- </div> -->
+          <div class="bookings_btn-panel">
+            <button (click)="searchChange()" class="ui primary button addNewGroup_btn" tabindex="0">
+              <span class="addNewGroup-text">Search </span>
+            </button>
+            <button (click)="resetFilter()" class="ui reset button addNewGroup_btn" tabindex="0">
+              <span class="addNewGroup-text"> Reset</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-group result-block" *ngIf="showAddGroupForm" [ngClass]="{'list-code-block': (showAddGroupForm) }">
+      <app-add-group [change]="groupRow" [flag]="flag" [flgEdit]="flgEdit" (sendDataToParent)="eventFromChild($event)">
+      </app-add-group>
+    </div>
+    <div class="list-group result-block" *ngIf="showListForm">
+      <div class="user-table-list b2c-list-user-table">
+        <ngx-datatable #table class="table" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'" [rows]="FilteredGroups" [count]="totalCount" [offset]="offset" [externalPaging]="true" (page)="pageCallback($event)" 
+          [sorts]="[{prop: 'created', dir: 'desc'}]">
+          <!-- <ngx-datatable-column name="Sale ID" prop="sale_id">
+          </ngx-datatable-column> -->
+          <ngx-datatable-column name="Group name" prop="name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Organisation" prop="organisation">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span *ngIf="!value">---</span>
+              <span *ngIf="value">{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="Add Markup" prop="markup_id">
+                    <ng-template let-row="row"  ngx-datatable-cell-template let-value="value">
+                      <div class="center">
+                        <div class="addMarkUp" (click)="addMarkupingroup(row)">
+                          Add
+                        </div>
+                      </div>
+                      
+                    </ng-template>
+                </ngx-datatable-column> -->
+          <ngx-datatable-column name="Preference" prop="preference">
+            <ng-template ngx-datatable-cell-template let-value="value">
+             <span>{{value}}</span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Date" prop="created" >
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span>{{value |date: 'dd/MM/yyyy h:mm a'}}</span>
+             </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Sale Type" prop="is_stop_sale, is_free_sale">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <span *ngIf="row.is_stop_sale == 1"> Stop Sale </span>
+              <span *ngIf="row.is_free_sale == 1"> Free Sale </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" prop="is_active">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              <span *ngIf="value == 1" title="Active" (click)="statusToggle(row)">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <!-- <i class="icon"  title="click to deactivate">
+                  <img src="./../../../../../assets/icons/checkmark.png" class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+              <span *ngIf="value != 1" title="click to activate" (click)="statusToggle(row)">
+                <!-- <img src="./../../../../../assets/icons/cross.png" class="bookings_input__placeholder-icon cal" /> -->
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Actions">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <span (click)="editGroup(row)" class="action" title="Edit Details">
+                <!-- <i class="icon">
+                  <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                </i> -->
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              </span>
+              <span (click)="deleteGroup(row)" class="action" title="Delete Details">
+                <!-- <i class="icon">
+                  <img src="./../../../../../assets/icons/delete-button.png"
+                    class="bookings_input__placeholder-icon cal" /> </i> -->
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                  </span>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </form>
+</div>

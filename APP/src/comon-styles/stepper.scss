@@ -1,0 +1,131 @@
+.stepper-grid {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  .stepper-grid_step {
+    display: flex;
+    align-items: center;
+    opacity: .6;
+    cursor: pointer;
+
+    &._active {
+      opacity: 1;
+      transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      .stepper-grid_step__step-icon {
+        div {
+          background-color: $deep-blue-color;
+          border: 0;
+
+          div.image {
+            background-color: white;
+          }
+
+          &:hover {
+            border: 2px solid $secondary-color;
+          }
+        }
+
+        label {
+          border: 0;
+          background-color: $deep-blue-color;
+          color: white;
+        }
+      }
+
+      .stepper-grid_step__step-border {
+        hr {
+          border-bottom: 2px solid $deep-blue-color;
+        }
+      }
+    }
+
+    &._activated {
+      opacity: 1;
+      transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      .stepper-grid_step__step-icon {
+        div {
+          background-color: $primary-color;
+          border: 0;
+
+          div.image {
+            background-color: white;
+          }
+
+          &:hover {
+            border: 2px solid $secondary-color;
+          }
+        }
+
+        label {
+          border: 0;
+          background-color: $primary-color;
+          color: white;
+        }
+      }
+
+      .stepper-grid_step__step-border {
+        hr {
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+
+    .stepper-grid_step__step-icon {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+
+      div {
+        background-color: transparent;
+        border: 2px solid $secondary-color;
+        color: white;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      label {
+        width: 100px;
+        height: auto;
+        line-height: 24px;
+        text-align: center;
+        background-color: transparent;
+        border: 2px solid $secondary-color;
+        margin-top: 15px;
+        font-family: $font-family;
+        font-weight: 600 !important;
+        font-size: 13px;
+        color: $secondary-color;
+        border-radius: $border-radius-primary;
+
+        &._last {
+          width: 150px;
+        }
+      }
+    }
+
+    .stepper-grid_step__step-border {
+      width: 100%;
+
+      hr {
+        margin-top: -24px;
+        width: 100%;
+        height: 2px;
+        background: none;
+        border-bottom: 2px solid $secondary-color;
+      }
+    }
+  }
+}
+
+.stepper-grid-content {
+  display: none;
+
+  &._active {
+    display: block;
+  }
+}

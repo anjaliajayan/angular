@@ -1,0 +1,141 @@
+@import './../../hotels/hotels-search-results/hotels-search-results.component.scss';
+@import './../../cars/cars.component.scss';
+
+.outer-wrapper {
+    .ui.grid {
+        .item-block {
+            .detail-btn {
+                background: none;
+                border: none;
+                color: #437ADA;
+                &:hover {
+                    background:none;
+                }
+            }
+            .item-details {
+                padding: 24px;
+                h2 {
+                    padding-bottom: 14px;
+                }
+                .light {
+                    line-height: 16px;
+                }
+                .price-block {
+                    margin-top: 8px;
+                }
+            }
+        } 
+        .confirm-btn {
+            background: #4E9B32;
+            border: none;
+            border-radius: 10px;
+            margin-left: 110px;
+            font-size: 11px;
+            padding: 14px;
+            padding-left: 50px;
+            padding-right: 50px;
+            color: #fff;
+                &:hover {
+                    background:#4E9B32;
+                }
+        }
+        .date-picker{
+            margin-top:10px;
+        }
+        label~div {
+            margin-top: 12px;
+            width: 100%;
+        }
+        .ui.checkbox.benef-checkbox {
+            margin-top: 32px;
+            label {
+                padding-left: 32px;
+            }
+        }
+        .item-details:not(:first-child) {
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 24px !important;
+            margin-top: 18px;
+        }
+        .ui.fluid.search {
+            width: 100%;
+        }
+        .ui.checkbox {
+            padding-bottom: 10px;
+            margin: 5px;
+            display: block;
+            label {
+                 &:before {
+                //     border-radius: 20px;
+                width: 15px;
+                height: 15px;
+                top: 1px;
+                left: 1px;
+                 }
+                &:after {
+                    font-size: 12px;
+                    top: 1px;
+                }
+            }
+            input:checked~label {
+                // color: #3867b1 !important;
+                &:before {
+                    border: 1px solid #3867b1;
+                }
+                &:after {
+                    color: #3867b1 !important;
+                }
+            }
+        }
+    }
+}
+.filter-list-block {
+    p {
+        word-break: break-word;
+        text-align: left;
+    }
+}
+
+.airline-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+// .search-list-block {
+//     .ui.grid>.column.row>[class*="six wide"].column, .ui.grid>.row>[class*="six wide"].column {
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         max-width: 100px;
+//         white-space: nowrap;
+//     }
+// }
+
+@media (max-width: 1440px) {
+    .search-list-block {
+        .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column {
+            width: 33.33%!important;
+            &:first-child {
+                padding-bottom: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1440px) {
+    .search-list-block {
+        .ui.grid>.column.row>[class*="six wide"].column, .ui.grid>.row>[class*="six wide"].column {
+            width: 50%!important;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .search-list-block {
+        .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+            width: 20%!important;
+         
+        }
+    }
+}

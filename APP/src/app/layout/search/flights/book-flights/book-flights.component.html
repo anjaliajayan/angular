@@ -1,0 +1,178 @@
+<mat-card>
+    <div class="row">
+        <div class="col-12">
+            <h2>Travellers & Payments</h2>
+            <p>Please confirm and pay for the following traveller and flight bookings.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Flight</td>
+                        <td>Class</td>
+                        <td>Date</td>
+                        <td>From</td>
+                        <td>To</td>
+                        <td>Departure Time</td>
+                        <td>Arrival Time</td>
+                        <td>Aircraft</td>
+                        <td>Duration</td>
+                        <td>Fare</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>SA 587</td>
+                        <td>
+                            T-
+                            Economy without
+                            Economy Premium
+                            K-
+                            Economy
+                        </td>
+                        <td>21 Sep, 2019</td>
+                        <td>DXB <br> Dubai International Airport</td>
+                        <td>LHR <br> London Heathrow Airport</td>
+                        <td>18:40</td>
+                        <td>19:45</td>
+                        <td>Airbus <br> Industrie A320</td>
+                        <td>24 hrs</td>
+                        <td><p (click)="openBottomSheet()">AED 3500</p></td> 
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Traveller(s) information (1 + 0 INF)</h5>
+            <div class="row">
+                <div class="col-12 text-right">
+                    <button mat-button color="primary">Reterive Profile</button>
+                    <button mat-button color="primary">Save Profile</button>
+                </div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>PTC</td>
+                        <td>Title</td>
+                        <td>Last Name</td>
+                        <td>First Name</td>
+                        <td>Date of Birth</td>
+                        <td>Contact</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>ADT</td>
+                        <td>
+                            <mat-form-field>
+                                <mat-label>Choose Title</mat-label>
+                                <mat-select>
+                                    <mat-option>Mr.</mat-option>
+                                    <mat-option>Ms.</mat-option>
+                                    <mat-option>Mrs.</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="Last Name">
+                            </mat-form-field>   
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="First Name">
+                            </mat-form-field>  
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <mat-form-field>
+                                <input matInput placeholder="Email">
+                            </mat-form-field> 
+                            <mat-form-field>
+                                <input matInput placeholder="Phone">
+                            </mat-form-field>  
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Payment Information</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Form of Payment</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mat-form-field class="example-full-width">
+                                <input type="text" placeholder="Payment Options" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                                <mat-autocomplete #auto="matAutocomplete">
+                                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                    {{option}}
+                                    </mat-option>
+                                </mat-autocomplete>
+                            </mat-form-field>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5>Billing Address</h5>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Address Selection</td>
+                        <td>Address Details</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <mat-form-field>
+                                <textarea matInput placeholder="Address Details"></textarea>
+                            </mat-form-field>
+                        </td>
+                        <td>
+                            <div class="row">
+                                <div class="col-12">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Street Name/Number">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-4">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Postal Code">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-8">
+                                    <mat-form-field>
+                                        <input matInput placeholder="City">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-6">
+                                    <mat-form-field>
+                                        <input matInput placeholder="State/Province">
+                                    </mat-form-field> 
+                                </div>
+                                <div class="col-6">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Country">
+                                    </mat-form-field> 
+                                </div>
+                            </div>        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</mat-card>

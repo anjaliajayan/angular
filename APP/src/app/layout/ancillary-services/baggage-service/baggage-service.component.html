@@ -1,0 +1,307 @@
+<jw-modal id="baggage-modal" class="anc_modal">
+    <div class="ui">
+        <h2>Select Baggage</h2>
+        <i class="close icon" (click)="closeModal('baggage-modal')"></i>
+        <div class="ui grid">
+            <div class="sixteen wide column row traveller-wrapper">
+                <div class="five wide column traveller-list-block">
+                    <div class="ui tabular menu">
+                        <div class="item active" data-tab="traveller-tab1">
+                            <span class="name">Traveller Name</span>
+                            <span class="type">ADT</span>
+                        </div>
+                        <div class="item" data-tab="traveller-tab2">
+                            <span class="name">Traveller Name</span>
+                            <span class="type">CHD</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="eleven wide column travller-detail-block traveller_bag_section">
+                    <div class="ui tab active" data-tab="traveller-tab1">
+                        <div class="route-block">
+                            <div class="ui styled accordion">
+                                <div class="title active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>DXB - COK</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row bag_detail_wrapper_row">
+                                            <div class="twelve wide column bag_detail_wrapper_col">
+                                                <div class="ui grid">
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Your checked allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Number of extra bags</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <button (click)="decrementBaggageCount()">-</button>
+                                                            <input type="text" value={{baggageCount}}/>
+                                                            <button (click)="incrementBaggageCount()">+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Select baggage</span>
+                                                        </div>
+                                                        <div class="eight wide column bag_dropdown">
+                                                            <div class="ui selection dropdown fluid">
+                                                                <input type="hidden">
+                                                                <i class="dropdown icon"></i>
+                                                                <div class="default text">Select baggage</div>
+                                                                <div class="menu">
+                                                                    <div class="item" data-value="1">UPTO44LB 20KG AND62LI 158LCM - AED 370.00</div>
+                                                                    <div class="item" data-value="2">SPORTING EQUIPMENT 23KG 330LCM - AED 440.00</div>
+                                                                    <div class="item" data-value="3">SPORTING EQUIPMENT MEDIUM - AED 440.00</div>
+                                                                    <div class="item" data-value="4">SPORTING EQUIPMENT 32KG 330LCM - AED 620.00</div>
+                                                                    <div class="item" data-value="5">PET IN HOLD UP TO 23KG - AED 1100.00</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">New allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="four wide column bag_price_wrapper">
+                                                <p>Price to pay</p>
+                                                <div class="bag_price">AED
+                                                    <strong>46</strong>
+                                                </div>
+                                                <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                                            <p>price for selected quantity 1st is 60.00</p>
+                                            <p>price for selected quantity 2nd is 180.00</p>
+                                            <p>price for selected quantity 3rd is 300.00</p>
+                                            <p>price for selected quantity 4th is 420.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>COK - DXB</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row bag_detail_wrapper_row">
+                                            <div class="twelve wide column bag_detail_wrapper_col">
+                                                <div class="ui grid">
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Your checked allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Number of extra bags</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <button>-</button>
+                                                            <input type="text" value="0" />
+                                                            <button>+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">New allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="four wide column bag_price_wrapper">
+                                                <p>Price to pay</p>
+                                                <div class="bag_price">AED
+                                                    <strong>46</strong>
+                                                </div>
+                                                <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                                            <p>price for selected quantity 1st is 60.00</p>
+                                            <p>price for selected quantity 2nd is 180.00</p>
+                                            <p>price for selected quantity 3rd is 300.00</p>
+                                            <p>price for selected quantity 4th is 420.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui tab" data-tab="traveller-tab2">
+                        <div class="route-block">
+                            <div class="ui styled accordion">
+                                <div class="title active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>DXB - COK</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row bag_detail_wrapper_row">
+                                            <div class="twelve wide column bag_detail_wrapper_col">
+                                                <div class="ui grid">
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Your checked allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Number of extra bags</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <button>-</button>
+                                                            <input type="text" value="0" />
+                                                            <button>+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">New allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="four wide column bag_price_wrapper">
+                                                <p>Price to pay</p>
+                                                <div class="bag_price">AED
+                                                    <strong>46</strong>
+                                                </div>
+                                                <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                                            <p>price for selected quantity 1st is 60.00</p>
+                                            <p>price for selected quantity 2nd is 180.00</p>
+                                            <p>price for selected quantity 3rd is 300.00</p>
+                                            <p>price for selected quantity 4th is 420.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>COK - DXB</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row bag_detail_wrapper_row">
+                                            <div class="twelve wide column bag_detail_wrapper_col">
+                                                <div class="ui grid">
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Your checked allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">Number of extra bags</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <button>-</button>
+                                                            <input type="text" value="0" />
+                                                            <button>+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row item_row">
+                                                        <div class="eight wide column">
+                                                            <span class="bag_typ">New allowance</span>
+                                                        </div>
+                                                        <div class="eight wide column">
+                                                            <span class="avail">NA</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="four wide column bag_price_wrapper">
+                                                <p>Price to pay</p>
+                                                <div class="bag_price">AED
+                                                    <strong>46</strong>
+                                                </div>
+                                                <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                                            <p>price for selected quantity 1st is 60.00</p>
+                                            <p>price for selected quantity 2nd is 180.00</p>
+                                            <p>price for selected quantity 3rd is 300.00</p>
+                                            <p>price for selected quantity 4th is 420.00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sixteen wide column row action-block">
+                <div class="ten wide column">
+                    <h5>Total:</h5>
+                    <button class="sel_item">2 Extra bags
+                        <span aria-hidden="true" class="close">&times;</span>
+                    </button>
+                </div>
+                <div class="six wide column bookings_btn-panel">
+                    <button class="ui export button" (click)="closeModal('baggage-modal')">Cancel</button>
+                    <button class="ui primary button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>

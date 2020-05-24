@@ -1,0 +1,259 @@
+<div class="ui fluid container _custom-padd">
+  <h3><span class="preset-header">Preset Package</span></h3>
+</div>
+<div class="ui fluid container">
+  <div class="preset">
+    <div class="preset_form">
+      <div class="ui form">
+        <div class="preset_form__inner">
+          <h4 class="ui  header"><span class="basic-header">Basic Information</span></h4>
+          <div class="field">
+            <div class="five fields">
+              <div class="three wide field">
+                <input type="text" name="packagCode" placeholder="Package Code">
+              </div>
+              <div class="three wide field">
+                <input type="text" name="package-name" placeholder="Package Name">
+              </div>
+              <div class="three wide field">
+                <div class="ui selection dropdown fluid">
+                  <input type="hidden" name="region">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Region</div>
+                  <div class="menu">
+                    <div class="item" data-value="1">-------</div>
+                    <div class="item" data-value="0">-----</div>
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field">
+                <div class="ui selection dropdown fluid">
+                  <input type="hidden" name="category">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Category</div>
+                  <div class="menu">
+                    <div class="item" data-value="1">------</div>
+                    <div class="item" data-value="0">-----</div>
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field">
+                <div class="ui fluid search selection dropdown fluid">
+                  <input type="hidden" name="country">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Select Country</div>
+                  <div class="menu">
+                    <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
+                    <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
+                    <div class="item" data-value="al"><i class="al flag"></i>Albania</div>
+                    <div class="item" data-value="dz"><i class="dz flag"></i>Algeria</div>
+                    <div class="item" data-value="as"><i class="as flag"></i>American Samoa</div>
+                    <div class="item" data-value="ad"><i class="ad flag"></i>Andorra</div>
+                    <div class="item" data-value="ao"><i class="ao flag"></i>Angola</div>
+                    <div class="item" data-value="ai"><i class="ai flag"></i>Anguilla</div>
+                    <div class="item" data-value="ag"><i class="ag flag"></i>Antigua</div>
+                    <div class="item" data-value="ar"><i class="ar flag"></i>Argentina</div>
+                    <div class="item" data-value="am"><i class="am flag"></i>Armenia</div>
+                    <div class="item" data-value="aw"><i class="aw flag"></i>Aruba</div>
+                    <div class="item" data-value="au"><i class="au flag"></i>Australia</div>
+                    <div class="item" data-value="at"><i class="at flag"></i>Austria</div>
+                    <div class="item" data-value="az"><i class="az flag"></i>Azerbaijan</div>
+                    <div class="item" data-value="bs"><i class="bs flag"></i>Bahamas</div>
+                    <div class="item" data-value="bh"><i class="bh flag"></i>Bahrain</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="five fields">
+              <div class="three wide field">
+                <input type="text" name="destCountry" placeholder="Destination,Country ">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <hr>
+          </div>
+          <div class="field">
+            <h4 class="ui header"><span class="basic-header">Package Items</span></h4>
+            <div class="fields">
+              <div class="five wide field">
+                <div class="ui checkbox  flight_check">
+                  <input type="checkbox" name="flights">
+                  <label>Flights</label>
+                </div>
+                <div class="ui checkbox hotel_check">
+                  <input type="checkbox" name="hotel">
+                  <label>Hotels</label>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="three wide field">
+                <input type="text" name="packMax" placeholder="Package Days(Max 30 days)">
+              </div>
+              <div class="three wide field">
+                <input type="text" name="packagePrice" placeholder="Package Price ">
+              </div>
+              <div class="three wide field">
+                <input type="text" name="discount" placeholder="Discount in % ">
+              </div>
+              <div class="three wide field">
+                <input type="text" name="discount" placeholder="Package Stock">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <div class="ui checkbox  featured_check">
+                  <input type="checkbox" name="featured">
+                  <label>Featured</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <hr>
+          </div>
+          <h4 class="ui header"><span class="basic-header">Flight Itinery Details</span></h4>
+          <div class="field">
+            <div class="fields">
+              <div class="five wide field">
+                <div class="ui checkbox  online_check">
+                  <input type="checkbox" name="online">
+                  <label>Online</label>
+                </div>
+                <div class="ui checkbox offline_check">
+                  <input type="checkbox" name="offline">
+                  <label>Offline</label>
+                </div>
+              </div>
+            </div>
+            <div class="ui tiny header">Flight Option 1</div>
+            <div class="fields">
+              <div class="three wide field">
+                <input type="text" name="departure" placeholder="Departure">
+              </div>
+              <div class="three wide field">
+                <input type="text" name="arrival" placeholder="Arrival">
+              </div>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+          </div>
+          <h4 class="ui header"><span class="basic-header">Hotel Itinery Details</span></h4>
+          <div class="field">
+            <div class="fields">
+              <div class="five wide field">
+                <div class="ui checkbox  online_check">
+                  <input type="checkbox" name="online">
+                  <label>Online</label>
+                </div>
+                <div class="ui checkbox offline_check">
+                  <input type="checkbox" name="offline">
+                  <label>Offline</label>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <button class="ui button addHotel_btn">
+                <span class="addHotel_text">Add Hotel</span>
+              </button>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+            <div class="field">
+              <div class="ui grid">
+                <div class="eight wide column ckEditor-area">
+                  <ckeditor data="Hello, world!"></ckeditor>
+                </div>
+                <div class="eight wide column">
+                  <div class="ui tiny header">Supporting images / Documents</div>
+                  <div class="eight wide field">
+                    <input type="text" name="departure" placeholder="Youtube web link">
+                  </div>
+                  <div class="field">
+                    <table class="ui striped table">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="upload">
+                              <span class="file_choose">Choose photo</span>
+                              <input type="file" name="uploadPhoto" />
+                            </div>
+                          </td>
+                          <td><i>No of file choosen</i></td>
+                          <td>Destination Image</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="upload">
+                              <span class="file_choose">Choose photo</span>
+                              <input type="file" name="uploadPhoto" />
+                            </div>
+                          </td>
+                          <td><i>No of file choosen</i></td>
+                          <td>Banner Image</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="upload">
+                              <span class="file_choose">Choose photo</span>
+                              <input type="file" name="uploadPhoto" />
+                            </div>
+                          </td>
+                          <td><i>No of file choosen</i></td>
+                          <td>Slider Image</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="upload">
+                              <span class="file_choose">Choose photo</span>
+                              <input type="file" name="uploadPhoto" />
+                            </div>
+                          </td>
+                          <td><i>No of file choosen</i></td>
+                          <td>Package PDF</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <a href="url">+ Add Day</a>
+            </div>
+          </div>
+          <div class="field">
+            <hr>
+          </div>
+          <h4 class="ui header"><span class="basic-header">Additional Informations</span></h4>
+          <div class="ui grid">
+            <div class="eight wide column">
+              <div class="eight wide field">
+                <div class="ui selection dropdown fluid">
+                  <input type="hidden" name="tourOverview">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Tour Overview</div>
+                  <div class="menu">
+                    <div class="item" data-value="1">-------</div>
+                    <div class="item" data-value="0">-----</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="eight wide column ckEditor-area">
+              <ckeditor data="Hello, world!"></ckeditor>
+            </div>
+          </div>
+          <button class="ui right floated button submit_btn">
+            <span class="submit_text">Submit</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

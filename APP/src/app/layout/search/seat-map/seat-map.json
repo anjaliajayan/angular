@@ -1,0 +1,3364 @@
+
+{
+    "AllSeats": [
+        {
+            "RowWiseSeat": {
+                "41": [],
+                "42": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A42"
+                    }
+					,
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B42"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C42"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H42"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J42"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K42"
+                    }
+                ],
+                "43": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A43"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B43"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C43"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E43"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F43"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G43"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H43"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J43"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K43"
+                    }
+                ],
+                "44": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A44"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B44"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C44"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D44"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E44"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F44"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G44"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H44"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J44"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K44"
+                    }
+                ],
+                "45": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A45"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B45"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C45"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D45"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E45"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F45"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G45"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H45"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J45"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K45"
+                    }
+                ],
+                "46": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A46"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            ""
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B46"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C46"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D46"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            ""
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E46"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            ""
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F46"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G46"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H46"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            ""
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J46"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE3-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP3-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "21.00",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K46"
+                    }
+                ],
+                "47": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Window seat without window",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A47"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B47"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C47"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H47"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J47"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Window seat without window",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K47"
+                    }
+                ],
+                "48": [],
+                "49": [],
+                "50": [],
+                "51": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Overwing seat(s)",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A51"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B51"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C51"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Leg space seat",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D51"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E51"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Overwing seat(s)"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J51"
+                    }
+                ],
+                "52": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A52"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B52"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C52"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D52"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E52"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F52"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G52"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H52"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J52"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K52"
+                    }
+                ],
+                "53": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A53"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B53"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C53"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D53"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E53"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F53"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G53"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H53"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J53"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K53"
+                    }
+                ],
+                "54": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A54"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B54"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C54"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D54"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E54"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F54"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G54"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H54"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J54"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K54"
+                    }
+                ],
+                "55": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A55"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B55"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C55"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D55"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E55"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F55"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G55"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H55"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J55"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K55"
+                    }
+                ],
+                "56": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A56"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B56"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H56"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J56"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K56"
+                    }
+                ],
+                "57": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Window seat without window",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Preferential seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A57"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B57"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C57"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H57"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J57"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE2-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Window seat without window",
+                            "CHARGEABLE_SEAT",
+                            "Seat not allowed for infant",
+                            "Leg space seat",
+                            "Preferential seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP2-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "84.10",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K57"
+                    }
+                ],
+                "58": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A58"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B58"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C58"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H58"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J58"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K58"
+                    }
+                ],
+                "59": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A59"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B59"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C59"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D59"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E59"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F59"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G59"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H59"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J59"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K59"
+                    }
+                ],
+                "60": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A60"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B60"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C60"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D60"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E60"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F60"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G60"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H60"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J60"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K60"
+                    }
+                ],
+                "61": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A61"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B61"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C61"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D61"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E61"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F61"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G61"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H61"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J61"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K61"
+                    }
+                ],
+                "62": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A62"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B62"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C62"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D62"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E62"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F62"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G62"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H62"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J62"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K62"
+                    }
+                ],
+                "63": [
+                    {
+                        "ColumnID": "A",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "A63"
+                    },
+                    {
+                        "ColumnID": "B",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "B63"
+                    },
+                    {
+                        "ColumnID": "C",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "C63"
+                    },
+                    {
+                        "ColumnID": "D",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "D63"
+                    },
+                    {
+                        "ColumnID": "E",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "E63"
+                    },
+                    {
+                        "ColumnID": "F",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "F63"
+                    },
+                    {
+                        "ColumnID": "G",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "G63"
+                    },
+                    {
+                        "ColumnID": "H",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Aisle seat",
+                            "CHARGEABLE_SEAT",
+                            "Seat with facilities for handicapped/incapacitated passenger",
+                            "Seat suitable for adult with an infant"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "H63"
+                    },
+                    {
+                        "ColumnID": "J",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "Center seat (not window, not aisle)",
+                            "CHARGEABLE_SEAT"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "J63"
+                    },
+                    {
+                        "ColumnID": "K",
+                        "OccupationStatusCode": "F",
+                        "OfferItemRefID": "SQ-PRICE1-SEG1",
+                        "SeatCharacteristicCode": [
+                            "CHARGEABLE_SEAT",
+                            "Window seat"
+                        ],
+                        "SeatProfileRefID": [
+                            "SP1-SEG1",
+                            "MEDIA1-SEG1"
+                        ],
+                        "price": {
+                            "#text": "0",
+                            "@CurCode": "SGD"
+                        },
+                        "seatNumber": "K63"
+                    }
+                ],
+                "64": [],
+                "65": [],
+                "66": []
+            },
+            "Columns": 3,
+            "Groups": [
+                "ABC",
+                "DEFG",
+                "HJK"
+            ],
+            "DeckCode": "M",
+            "ATYPE": "388",
+            "CDC": "SQ",
+            "COF": "231",
+            "ExtraComponents": [
+                {
+                    "CabinComponentTypeCode": "B",
+                    "ColumnID": "C",
+                    "FirstRowNumber": "41",
+                    "LastRowNumber": "41",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "B",
+                    "ColumnID": "D",
+                    "FirstRowNumber": "41",
+                    "LastRowNumber": "41",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "B",
+                    "ColumnID": "G",
+                    "FirstRowNumber": "41",
+                    "LastRowNumber": "41",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "B",
+                    "ColumnID": "H",
+                    "FirstRowNumber": "41",
+                    "LastRowNumber": "41",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "A",
+                    "FirstRowNumber": "46",
+                    "LastRowNumber": "46",
+                    "OrientationCode": "INL",
+                    "PositionCode": "After"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "D",
+                    "FirstRowNumber": "46",
+                    "LastRowNumber": "46",
+                    "OrientationCode": "INL",
+                    "PositionCode": "After"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "G",
+                    "FirstRowNumber": "46",
+                    "LastRowNumber": "46",
+                    "OrientationCode": "INL",
+                    "PositionCode": "After"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "K",
+                    "FirstRowNumber": "46",
+                    "LastRowNumber": "46",
+                    "OrientationCode": "INL",
+                    "PositionCode": "After"
+                },
+                {
+                    "CabinComponentTypeCode": "ST",
+                    "ColumnID": "D",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "ST",
+                    "ColumnID": "E",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "ST",
+                    "ColumnID": "F",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "ST",
+                    "ColumnID": "G",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "Before"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "D",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                },
+                {
+                    "CabinComponentTypeCode": "LA",
+                    "ColumnID": "G",
+                    "FirstRowNumber": "47",
+                    "LastRowNumber": "47",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                },
+                {
+                    "CabinComponentTypeCode": "GN",
+                    "ColumnID": "D",
+                    "FirstRowNumber": "56",
+                    "LastRowNumber": "56",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                },
+                {
+                    "CabinComponentTypeCode": "GN",
+                    "ColumnID": "E",
+                    "FirstRowNumber": "56",
+                    "LastRowNumber": "56",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                },
+                {
+                    "CabinComponentTypeCode": "GN",
+                    "ColumnID": "F",
+                    "FirstRowNumber": "56",
+                    "LastRowNumber": "56",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                },
+                {
+                    "CabinComponentTypeCode": "GN",
+                    "ColumnID": "G",
+                    "FirstRowNumber": "56",
+                    "LastRowNumber": "56",
+                    "OrientationCode": "INL",
+                    "PositionCode": "INL"
+                }
+            ]
+        }
+    ]
+}

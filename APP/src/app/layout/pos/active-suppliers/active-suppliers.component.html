@@ -1,0 +1,135 @@
+<app-pos-edit-button></app-pos-edit-button>
+<div class="ui segment">
+  <h4 class="ui header spacing main-head">Suppliers</h4>
+  <h5 class="ui header spacing header_align head">Flights</h5>
+  <form [formGroup]="suppiersForm" autocomplete="off" (ngSubmit)="submitActiveSuppliers()">
+    <div class="sixteen wide column">
+      <div formArrayName="active_suppliers_flights">
+        <div class="ui six column grid suppliers fields spacing" *ngFor="let item1 of supplierFlights; let i = index;"
+          style="display: inline-flex;">
+          <div class="three wide field" [formGroupName]="0">
+            <div class="ui checkbox">
+              <input type="checkbox" name="{{item1.is_flight}}" [checked]="item1.is_flight"
+                formControlName="{{item1.active_name}}">
+              <label>{{item1.active_name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="ui six column grid suppliers fields spacing" style="display: inline-flex;">
+          <div class="three wide field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="all"  (change)="checkAllFlightsuppliers()">
+              <label>All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h5 class="ui header spacing head">Hotel</h5>
+    <div class="sixteen wide column">
+      <div formArrayName="active_suppliers_hotels">
+        <div class="ui six column grid suppliers fields spacing" *ngFor="let item of supplierHotel; let i = index;"
+          style="display: inline-flex;">
+          <div class="three wide field" [formGroupName]="0">
+            <div class="ui checkbox">
+              <input type="checkbox" name="{{item.is_hotel}}" [checked]="item.is_hotel"
+                formControlName="{{item.active_name}}">
+              <label>{{item.active_name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="ui six column grid suppliers fields spacing" style="display: inline-flex;">
+          <div class="three wide field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="all" (change)="checkAllHotelsuppliers()">
+              <label>All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <h5 class="ui header spacing head">Car</h5>
+    <div class="sixteen wide column">
+      <div formArrayName="active_suppliers_cars">
+        <div class="ui six column grid suppliers fields spacing" *ngFor="let item2 of supplierCar; let i = index;"
+          style="display: inline-flex;">
+          <div class="three wide field" [formGroupName]="0">
+            <div class="ui checkbox">
+              <input type="checkbox" name="{{item2.is_car}}" [checked]="item2.is_car"
+                formControlName="{{item2.active_name}}">
+              <label>{{item2.active_name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="ui six column grid suppliers fields spacing" style="display: inline-flex;">
+          <div class="three wide field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="all" (change)="checkAllCarsuppliers()">
+              <label>All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <h5 class="ui header spacing head">Insurance</h5>
+    <div class="sixteen wide column">
+      <div formArrayName="active_suppliers_insurance">
+        <div class="ui six column grid suppliers fields spacing" *ngFor="let item3 of supplierInsurance; let n = index;"
+          style="display: inline-flex;">
+          <div class="three wide field" [formGroupName]="0">
+            <div class="ui checkbox">
+              <input type="checkbox" name="{{item3.is_insurance}}" [checked]="item3.is_insurance"
+                formControlName="{{item3.active_name}}">
+              <label>{{item3.active_name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="ui six column grid suppliers fields spacing" style="display: inline-flex;">
+          <div class="three wide field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="all" (change)="checkAllInsurancesuppliers()">
+              <label>All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <h5 class="ui header spacing head">Activities</h5>
+    <div class="sixteen wide column">
+      <div formArrayName="active_suppliers_activities">
+        <div class="ui six column grid suppliers fields spacing" *ngFor="let item4 of supplierActivity; let i = index;"
+          style="display: inline-flex;">
+          <div>
+            <div class="three wide field" [formGroupName]="0">
+              <div class="ui checkbox">
+                <input type="checkbox" name="{{item4.is_activities}}" [checked]="item4.is_activities"
+                  formControlName="{{item4.active_name}}">
+                <label>{{item4.active_name}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui six column grid suppliers fields spacing" style="display: inline-flex;">
+          <div class="three wide field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="all" (change)="checkAllActivitysuppliers()">
+              <label>All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="four wide field buttonStyle">
+          <button class="ui button primary button_align" type="submit">Save</button>
+          <button class="ui button reset button_align" (click)="cancelSupplier()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

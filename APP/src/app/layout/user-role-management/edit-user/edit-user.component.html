@@ -1,0 +1,310 @@
+<div class="outer-segment">
+  <div class="user">
+    <h3 class="user_title">Edit User</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item create_tab_title" data-tab="first">Update B2B User</div>
+    <!-- <div class="item corporate_staff" data-tab="second">Update Corporate Staff</div> -->
+  </div>
+  <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+    <!-- b2b_basic_form  --- removed this class form form -->
+    <div class=" result-block">
+      <form [formGroup]="editBusinessForm" autocomplete="off" (ngSubmit)="updateBussiessUser()" class="ui form ">
+        <div class="ui fluid container">
+          <div class="outer-form">
+            <!-- <h4 class="ui header">Basic Information</h4> -->
+            <div class="field">
+              <div class="five fields">
+                <div class="two wide field">
+                  <label>Title</label>
+                  <select formControlName="salute">
+                    <option *ngFor="let salute of saluteNames" value="{{salute}}">{{salute}}</option>
+                  </select>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.first_name.errors) && f.first_name.errors.required) }">
+                  <label>First Name<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="first_name" placeholder="First Name">
+                  <div
+                    *ngIf="editBusinessForm.controls['first_name'].invalid && (editBusinessForm.controls['first_name'].dirty || editBusinessForm.controls['first_name'].touched) "
+                    [ngClass]="{'error': ( editBusinessForm.controls.first_name.status == 'INVALID')}">
+                    <!-- <div *ngIf="editBusinessForm.controls['first_name'].errors.required"
+                                          [appValidation]="{label:'error', placeholder:'First Name', control: editBusinessForm.controls['first_name']}">
+                                        </div> -->
+                  </div>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.last_name.errors) && f.last_name.errors.required) }">
+                  <label>Last Name<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="last_name" placeholder="Last Name">
+                  <div
+                    *ngIf="editBusinessForm.controls['last_name'].invalid && (editBusinessForm.controls['last_name'].dirty || editBusinessForm.controls['last_name'].touched) "
+                    [ngClass]="{'error': ( editBusinessForm.controls.last_name.status == 'INVALID')}">
+                    <!-- <div *ngIf="editBusinessForm.controls['last_name'].errors.required"
+                                            [appValidation]="{label:'error', placeholder:'Last Name', control: editBusinessForm.controls['last_name']}">
+                                          </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field">
+                  <label>Email<span class="mandatory">*</span></label>
+                  <input type="email" formControlName="email" placeholder="Email" class="email">
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.mobile.errors) && f.mobile.errors.required) }">
+                  <label>Contact Number<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="mobile" placeholder="Contact number">
+                  <div
+                    *ngIf="editBusinessForm.controls['mobile'].invalid && (editBusinessForm.controls['mobile'].dirty || editBusinessForm.controls['mobile'].touched) "
+                    [ngClass]="{'error': ( editBusinessForm.controls.mobile.status == 'INVALID')}">
+                    <!-- <div *ngIf="editBusinessForm.controls['mobile'].errors.required"
+                                              [appValidation]="{label:'error', placeholder:'Contact Number', control: editBusinessForm.controls['mobile']}">
+                                            </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="fields">
+                <div class="six wide field">
+                  <label>Initials</label>
+                  <input type="text" formControlName="initial" placeholder="Initials(EX:BIN)">
+                </div>
+                <div class="six wide field sexRadio">
+                  <div class="ui radio checkbox">
+                    <input type="radio" id="male" value="male" name="sex" formControlName="sex" class="hidden">
+                    <label>Male</label>
+                  </div>
+
+                  <div class="ui radio checkbox">
+                    <input type="radio" id="female" value="female" name="sex" formControlName="sex" class="hidden">
+                    <label>Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+                          <hr>
+                      </div> -->
+            <!-- <h4 class="ui header">Address Information</h4> -->
+            <div class="field">
+              <!-- <label>Name</label> -->
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.address_1.errors) && f.address_1.errors.required) }">
+                  <label>Address 1<span class="mandatory">*</span></label>
+                  <input type="text" name="address_1" formControlName="address_1" placeholder="Address 1">
+                  <div
+                    *ngIf="editBusinessForm.controls['address_1'].invalid && (editBusinessForm.controls['address_1'].dirty || editBusinessForm.controls['address_1'].touched) "
+                    [ngClass]="{'error': ( editBusinessForm.controls.address_1.status == 'INVALID')}">
+                    <!-- <div *ngIf="editBusinessForm.controls['address_1'].errors.required"
+                      [appValidation]="{label:'error', placeholder:'Address', control: editBusinessForm.controls['address_1']}">
+                    </div> -->
+                  </div>
+                </div>
+                <div class="six wide field">
+                  <label>Address 2</label>
+                  <input type="text" name="address_2" formControlName="address_2" placeholder="Address 2">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.country_id.errors) && f.country_id.errors.required) }">
+                  <label>Country</label>
+                  <select class="ui search dropdown" formControlName="country_id">
+                    <option *ngFor="let country of countries; let i = index"
+                      value="{{country['country_id'] > 0 ? country['country_id'] : 0}}">
+                      {{ country['country'] }}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+                          <hr>
+                      </div> -->
+            <!-- <h4 class="ui header">Login Information</h4> -->
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field">
+                  <label>Username<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="username" placeholder="Username">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.password.errors) && f.password.errors.required) }">
+                  <label>
+                    Password<span class="mandatory">*</span>
+                    <i class="fa fa-exclamation-circle tooltip">
+                      <span class="tooltiptext">
+                        Password should be atleast 8 characters. Contain atleast 1 number, 1 capital letter, 1 lower case
+                        letter and 1 special character!
+                      </span>
+                    </i>
+                  </label>
+                  <input type="password" name="password" formControlName="password" (keyup)="validatePassword()"
+                    (change)="validatePassword()" placeholder="Password">
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.password_confirmation.errors) && ( f.password_confirmation.errors.required || f.password_confirmation.errors.unmatched) ) }">
+                  <label>Confirm Password<span class="mandatory">*</span></label>
+                  <input type="password" formControlName="password_confirmation" (keyup)="validatePassword()"
+                    (change)="validatePassword()" placeholder="Confirm Password">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field">
+                  <label>Agent</label>
+                  <input type="text" value="{{userInfo.orgName}}" disabled>
+                </div>
+                <div class="six wide field">
+                  <label>Status</label>
+                  <!-- <option *ngFor="let status of statusRow" value="{{status.id}}">{{status.value}}</option> -->
+                  <select placeholder="Status" formControlName="is_active" class="ui fluid dropdown">
+                    <!-- <option value=""> Status </option> -->
+                    <option value="1">Active</option>
+                    <option value="0">InActive</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+                          <hr>
+                      </div> -->
+            <!-- skills  -->
+            <div class="field">
+              <div class="six fields" [formGroup]="skillGroup"
+                *ngFor="let skillGroup of editBusinessForm.get('skills')['controls'];let i = index;">
+                <div class="four wide field">
+                  <label>Year</label>
+                  <select class="ui fluid dropdown" formControlName="year">
+                    <option value="">Year</option>
+                    <option *ngFor="let year of yearList" value="{{year}}">{{year}}</option>
+                  </select>
+                </div>
+                <div class="four wide field">
+                  <label>Month</label>
+                  <select class="ui fluid dropdown" formControlName="month">
+                    <option value="">Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <div class="four wide field">
+                  <label>Amount</label>
+                  <input type="number" formControlName="target_amount" placeholder="Target Amount">
+                </div>
+                <div class="newAgency_topAlign" title="Click to add more" (click)="addSkill()"
+                  *ngIf="i==(editBusinessForm.get('skills')['controls'].length-1)">
+                  <i class="icon">
+                    <img src="./../../../../../assets/icons/add_icon.png" />
+                  </i>
+                </div>
+                <div class="newAgency_topAlign" title="Click to remove this" *ngIf="i!=0" tabindex="0"
+                  (click)="removeSkill(i)">
+                  <i class="icon">
+                    <img src="./../../../../../assets/icons/remove_icon.png" />
+                  </i>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+                          <hr>
+                      </div> -->
+            <!-- <h4 class="ui header">Role Permission</h4> -->
+            <div class="field">
+              <div class="fields">
+                  <!-- <div class="ui grid field" *ngIf="rolePermissions && rolePermissions.keys">
+                    <div *ngFor="let key of rolePermissions.keys" class="sixteen wide column">
+                        <div class="ui checkbox mar-right-15px ">
+                            <input type="checkbox" name="search" id="{{key}}"  [checked]="rolePermissions['data'][key].checked" (change)="checkAllChild($event,rolePermissions['data'][key])" >
+                            <label for="{{key}}"><span class="pos_access-rights">{{ rolePermissions['data'][key].name }}</span></label>
+                        </div>
+                        <div [hidden]="!rolePermissions['data'][key].checked" class="padd-left-15">
+                            <div *ngFor="let accessObj of rolePermissions['data'][key].accessType; let idx = index" class="ui checkbox mar-right-15 mar-top-15">
+                                <input type="checkbox" id="test-{{idx}}-{{accessObj.name}}" name="search" [checked]="accessObj.checked" (change)="checkChild($event,accessObj)" >
+                                <label for="test-{{idx}}-{{accessObj.name}}"><span class="pos_access-rights">{{ accessObj.display }}</span></label>
+                            </div>
+                        </div>
+                      </div>
+                  </div> -->
+                  <div class="ui grid field edit-role-block" *ngIf="rolePermissions && rolePermissions.keys">
+                    <label class="role-perm-label">Role Permission</label>
+                    <div *ngFor="let key of rolePermissions.keys" class="seven wide column role-perm-block">
+                      <div class="ui checkbox mar-right-15px outer-checkbox">
+                        <input type="checkbox" name="search" id="{{key}}" [checked]="rolePermissions['data'][key].checked"
+                          (change)="checkAllChild($event,rolePermissions['data'][key])">
+                        <label for="{{key}}"><span
+                            class="pos_access-rights head">{{ rolePermissions['data'][key].display }}</span>
+                            <i *ngIf="!rolePermissions['data'][key].checked" class="level down alternate icon role-head"></i>
+                            <i *ngIf="rolePermissions['data'][key].checked" class="level up alternate icon role-head"></i>
+                          </label>
+                      </div>
+                      <div [hidden]="!rolePermissions['data'][key].checked" class="padd-left-15 mt-12">
+                        <ng-container *ngFor="let accessObj of rolePermissions['data'][key].accessType; let idx = index;">
+                          <div [ngClass]="{'showOnlyParent': (!accessObj.accessType.length)}"
+                            [ngClass]="{'ui grid field': (accessObj.accessType.length)}" class="child-container">
+                            <div [ngClass]="{'sixteen wide column': (accessObj.accessType.length)}">
+                              <div class="ui checkbox mar-right-15 mar-top-15 inner-checkbox">
+                                <input type="checkbox" id="test-{{idx}}-{{ rolePermissions['data'][key].display }}"
+                                  name="search" [checked]="accessObj.checked" (change)="checkChild($event,accessObj, true)">
+                                <label for="test-{{idx}}-{{ rolePermissions['data'][key].display }}"><span
+                                    class="pos_access-rights">{{ accessObj.display }}</span>
+                                    <i *ngIf="accessObj.accessType.length && !accessObj.checked"
+                                        class="level down alternate icon"></i>
+                                    <i *ngIf="accessObj.accessType.length && accessObj.checked"
+                                        class="level up alternate icon"></i>
+                                  </label>
+                                <!--  -->
+                                <div [hidden]="!accessObj.checked" [ngClass]="{'child-obj-block': (accessObj.accessType.length && accessObj.checked) }">
+                                  <div class="">
+                                    <div *ngFor="let childObj of accessObj.accessType; let cdx = index"
+                                      class="ui checkbox mar-right-15 mar-top-15">
+                                      <input type="checkbox" id="test-{{cdx}}-chld-{{accessObj.display}}" name="search"
+                                        [checked]="childObj.checked" (change)="checkChild($event,childObj)">
+                                      <label for="test-{{cdx}}-chld-{{accessObj.display}}"><span
+                                          class="pos_access-rights">{{ childObj.display }}</span></label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bookings_btn-panel save-btn-block">
+          <button class="ui primary button create_btn" tabindex="0">
+            <span class="create_text">Update</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment" data-tab="second">
+  </div>
+</div>

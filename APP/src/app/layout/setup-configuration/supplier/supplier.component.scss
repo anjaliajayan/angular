@@ -1,0 +1,111 @@
+.update-header {
+    margin-left: 24px;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 23px;
+    color: #4F4F4F;
+}
+
+.outer-basic {
+    background-color: #FFF;
+    box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    // padding: 15px;
+    margin-top: 30px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    .ui.segment {
+        padding: 0px;
+    }
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+.field input::placeholder {
+    font-size: 12px;
+}
+
+.dropdown .text {
+    font-size: 12px;
+}
+
+.supplier_month {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+td {
+    color: #4F4F4F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    line-height: 11px;
+    text-align: center;
+}
+
+th {
+    color: #4F4F4F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 11px;
+    text-align: center;
+}
+
+.salutation-title {
+    background-color: #3867b1 !important;
+    color: white;
+    margin-left: auto;
+    margin-bottom: 15px;
+}
+
+.icon {
+    opacity: 1;
+    z-index: 100;
+    .bookings_input__placeholder-icon {
+        width: 24px;
+        // margin-top: 6px;
+        &.cal {
+            width: 13px;
+            // margin-top: 10px;
+        }
+        &.call {
+            width: 10px;
+            // margin-top: 10px;
+        }
+    }
+}
+
+.outer-basic {
+    margin-top: 24px !important;
+}
+
+.action .icon {
+    cursor: pointer;
+}
+
+h3 {
+    margin-top: 24px !important;
+}
+
+.ui.fluid.container {
+    padding: 0px !important;
+    background: none;
+    margin-top: 24px !important;
+}
+
+@media (max-width: 1280px) {
+    .update-header {
+        margin-left: 20px;
+    }
+}   
+

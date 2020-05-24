@@ -1,0 +1,396 @@
+<div class="outer-form">
+  <form class="ui form pos_basic_form" [formGroup]="addMarkupForm" autocomplete="off">
+    <div class="ui form pos_basic_form">
+      <!-- <h4 class="ui header">Add New Markup Rules</h4> -->
+      <div class="fields">
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.title.status == 'INVALID')}">
+          <label>Markup Title</label>
+          <input type="text" formControlName="title" placeholder="Markup Title">
+        </div>
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.priority.status == 'INVALID')}">
+          <label>Priority</label>
+          <select class="ui fluid selection dropdown" formControlName="priority">
+            <option value="" selected>Priority</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.is_active.status == 'INVALID')}">
+          <label>Status</label>
+          <select class="ui fluid selection dropdown" formControlName="is_active">
+            <option value="" selected>Status</option>
+            <option value="1">Active</option>
+            <option value="0">InActive</option>
+          </select>
+        </div>
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.sale_id.status == 'INVALID')}">
+          <label>Group Name</label>
+          <select class="ui dropdown fluid search selection dropdown-group" formControlName="sale_id"
+            (change)="groupChanged($event.target.value)">
+            <option value="">Select Group</option>
+            <option *ngFor="let group of allGroups" value="{{group.sale_id}}"> {{group.name}} </option>
+          </select>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.supplier_id.status == 'INVALID')}">
+          <label>Supplier<span class="mandatory">*</span></label>
+          <select class="ui fluid search selection dropdown" formControlName="supplier_id"
+            (change)="supplierChanged($event.target.value)">
+            <option value="" selected>Select Supplier</option>
+            <option *ngFor="let supplier of filteredSuppliers" value="{{ supplier.supplier_id }}"> {{supplier.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <!-- <div class="ui fitted divider"></div> -->
+      <!-- *ngIf="showEditions('flight')"  -->
+      <div class="markup-block" formGroupName="flightsMarkup" *ngIf="addMarkupForm.controls.flightsMarkup">
+        <!-- <h4 class="ui header">Flights Markup Rules -->
+        <!-- {{ addMarkupForm.controls.flightsMarkup.calculation_basis }} -->
+        <!-- </h4> -->
+        <div class="fields">
+          <div class="six wide field"
+            [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.flightsMarkup['controls'].calculation_basis.status == 'INVALID')}">
+            <label>Calculation Basis</label>
+            <select class="ui fluid selection dropdown" formControlName="calculation_basis"
+              (change)="makeJqueryFields()">
+              <option value="" selected disabled hidden>Calculation Basis</option>
+              <option value="per_person">By Person</option>
+              <option value="by_airline">By Airline</option>
+            </select>
+          </div>
+          <div class="six wide field"
+            [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.flightsMarkup['controls'].calculation_type.status == 'INVALID')}">
+            <label>Calculation Type</label>
+            <select class="ui fluid selection dropdown" formControlName="calculation_type">
+              <!-- <option value="" selected>Status</option> -->
+              <option value="" selected disabled hidden>Calculation Type</option>
+              <option value="far_base">Base Amount</option>
+              <option value="far_total">Total</option>
+            </select>
+          </div>
+        </div>
+        <div class="fields">
+          <div class="six wide field"
+            [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.flightsMarkup['controls'].markup.status == 'INVALID')}">
+            <label>Markup</label>
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="six wide field"
+            [ngClass]="{'error': (isSubmitted && addMarkupForm.controls.flightsMarkup['controls'].markup_mode.status == 'INVALID')}">
+            <label>Markup Mode</label>
+            <select class="ui fluid selection dropdown" formControlName="markup_mode" required>
+              <option value="" selected disabled hidden>Markup Mode</option>
+              <!-- <option value="" selected>Status</option> -->
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+        </div>
+        <div class="fields">
+          <div class="six wide field field-inline">
+            <label class="checkbox-field">Pax Type (s)</label>
+            <div class="four wide field">
+              <div class="ui checkbox">
+                <input type="checkbox" formControlName="is_adult">
+                <label>Adult</label>
+              </div>
+            </div>
+            <div class="four wide field">
+              <div class="ui checkbox">
+                <input type="checkbox" formControlName="is_child">
+                <label>Child</label>
+              </div>
+            </div>
+            <div class="four wide field">
+              <div class="ui checkbox">
+                <input type="checkbox" formControlName="is_infant">
+                <label>Infant</label>
+              </div>
+            </div>
+            <!-- <div class="four wide field ">
+              <div class="ui checkbox">
+                <input type="checkbox" formControlName="is_all">
+                <label>All</label>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="" *ngIf="addMarkupForm.controls.flightsMarkup['controls'].calculation_basis.value == 'by_airline'">
+          <!-- <h4 class="ui header">
+                        Apply specific search or itinerary scenario ( If this markup rule applies to flight search or itinerary, please specify. Otherwise this rule will apply to the whole content source )
+                    </h4> -->
+          <div class="fields">
+            <div class="six wide field input-tagbased mb-0">
+              <label>Origin Airport</label>
+              <select class="ui fluid search dropdown1" formControlName="org_airport" multiple="">
+                <option *ngFor="let airport of airports" value="{{airport.AirportCode}}"> {{ airport.AirportCode }}
+                </option>
+              </select>
+            </div>
+            <div class="six wide field input-tagbased mb-0">
+              <label>Destination Airport</label>
+              <select class="ui fluid search dropdown1" formControlName="dest_airport" multiple="">
+                <option *ngFor="let airport of airports" value="{{airport.AirportCode}}"> {{ airport.AirportCode }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="fields">
+            <div class="six wide field input-tagbased mb-0 hide-text align-markettop">
+              <label>Marketing Careers</label>
+              <mat-form-field style="width: 100%;top: -10px;">
+                <mat-chip-list #chipList3>
+                  <mat-chip
+                    *ngFor="let val of addMarkupForm.controls.flightsMarkup['controls'].marketing_carriers.value"
+                    [selectable]="selectable" [removable]="removable" (removed)="remove(val,3)">
+                    {{val.name}}
+                    <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+                  </mat-chip>
+                </mat-chip-list>
+                <input class="align-market" placeholder="Marketing Careers" [matChipInputFor]="chipList3"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event,3)">
+              </mat-form-field>
+            </div>
+          </div>
+          <!-- 
+                  <h4 class="ui header"> 
+                    Apply specific search or itinerary scenario ( If this markup rule applies to flight search or itinerary, please specify. Otherwise this rule will apply to the whole content source ) 
+                  </h4> -->
+          <div class="fields">
+            <div class="six wide field input-tagbased mb-0 hide-text">
+              <label>Service Classes</label>
+              <mat-form-field style="width: 100%; top: -10px;">
+                <mat-chip-list #chipList4>
+                  <mat-chip *ngFor="let val of addMarkupForm.controls.flightsMarkup['controls'].service_class.value"
+                    [selectable]="selectable" [removable]="removable" (removed)="remove(val,4)">
+                    {{val.name}}
+                    <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+                  </mat-chip>
+                </mat-chip-list>
+                <input placeholder="Service Classes" class="input_mat align-market" [matChipInputFor]="chipList4"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event,4)">
+              </mat-form-field>
+            </div>
+            <div class="six wide field">
+              <label>Trip Type</label>
+              <select class="ui fluid selection dropdown" formControlName="itinerary_type">
+                <option value="" selected disabled hidden>Trip Type</option>
+                <option value="oneway">One Way</option>
+                <option value="roundtrip">Round Trip</option>
+                <option value="both">Both</option>
+              </select>
+            </div>
+            <!-- </div> -->
+            <!-- <div class="ui fitted divider"></div> -->
+          </div>
+        </div>
+        <!-- <div class="ui fitted divider"></div> -->
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.hotelsMarkup" formGroupName="hotelsMarkup">
+        <h4 class="ui header">Hotel Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.hotelsMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.hotelsMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.activitiesMarkup" formGroupName="activitiesMarkup">
+        <h4 class="ui header">Activities Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.activitiesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.activitiesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.carsMarkup" formGroupName="carsMarkup">
+        <h4 class="ui header">Cars Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.carsMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.carsMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.transfersMarkup" formGroupName="transfersMarkup">
+        <h4 class="ui header">Transfer Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.transfersMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.transfersMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.insurancesMarkup" formGroupName="insurancesMarkup">
+        <h4 class="ui header">Insurance Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.insurancesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.insurancesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <div class="markup-block" *ngIf="addMarkupForm.controls.cruisesMarkup" formGroupName="cruisesMarkup">
+        <h4 class="ui header">Cruises Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.cruisesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.cruisesMarkup['controls'].markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+
+        </div>
+        <div class="ui fitted divider"></div>
+      </div>
+      <!-- <div class="markup-block" *ngIf="showEditions('holiday')" formGroupName="holidaysMarkup">
+        <h4 class="ui header">Holidays Markup Rules</h4>
+        <div class="fields">
+          <div class="three wide field">
+            <input type="number" name="markup" placeholder="Markup Value" formControlName="markup">
+          </div>
+          <div class="three wide field">
+            <select class="ui fluid selection dropdown" formControlName="markup_mode">
+              <option value="by_percentage">Percentage</option>
+              <option value="by_amount">Amount</option>
+            </select>
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.holidaysMarkup.controls.markup_mode.value == 'by_amount'">
+            <input type="number" name="minMarkup" placeholder="Minimum Markup" formControlName="min_markup">
+          </div>
+          <div class="three wide field"
+            [hidden]="addMarkupForm.controls.holidaysMarkup.controls.markup_mode.value == 'by_amount'">
+            <input type="number" name="maxMarkup" placeholder="Maximum Markup" formControlName="max_markup">
+          </div>
+
+        </div>
+        <div class="ui fitted divider"></div>
+      </div> -->
+    </div>
+    <!-- <div class="pos_btn-panel">
+      <button mat-button class="ui secondary  button">
+        Cancel
+      </button>
+      <button mat-button matStepperNext class="ui primary  button">
+        Save And Next
+      </button>
+    </div> -->
+    <div class="bookings_btn-panel group_save-btn save-btn-block">
+      <button class="ui primary button commissionCode_btn fluid" type="submit" (click)="addMark(null)"
+        *ngIf="showSaveButton">
+        <span class="tourCode_text">Save</span>
+      </button>
+      <!-- <button class="ui button commissionCode_btn fluid">
+                    <span class="tourCode_text">Reset</span>
+                </button> -->
+      <button class="ui primary button commissionCode_btn fluid" (click)="onUpdateMarkup(null)"
+        *ngIf="showUpdateButton">
+        <span class="tourCode_text">Update</span>
+      </button>
+    </div>
+  </form>
+</div>

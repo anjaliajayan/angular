@@ -1,0 +1,33 @@
+<h3><span class="update-header">Feature Hotel Listing</span></h3>
+<div class="ui fluid container">
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <div class="ui form">
+        <div class="email-list b2c-list-user-table">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50"
+          [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='NewListOfHotels'
+          [sortType]="'multi'" [reorderable]="true" [sorts]="[{prop: 'id', dir: 'desc'}]">
+          <ngx-datatable-column name="Hotel Name" prop="hotel_name">         
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Check-In" prop="hotel_name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Check-Out" prop="hotel_name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Room Decription" prop="room_description">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="No of Rooms" prop="hotel_name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Markup Price" prop="markup_price">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Supplier Price" prop="supplier_price">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Supplier Code" prop="supplier_code">
+          </ngx-datatable-column>
+          <!-- for delete -->
+          <!-- <ngx-datatable-column name="Delete" prop="created">
+          </ngx-datatable-column> -->
+      </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>

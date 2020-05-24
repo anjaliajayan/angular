@@ -1,0 +1,364 @@
+.outer {
+    margin: 0px 20px 0px 15px;
+}
+
+.outer__add-pos__title {
+    margin: 0;
+    color: #4F4F4F;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+}
+
+.ui.top.attached.tabular.menu {
+    margin-top: 25px;
+}
+
+.ui.top.attached.menu>.item {
+    border-radius: .28571429rem 0 0 0;
+    border-top-right-radius: 15px !important;
+}
+
+.ui.bottom.attached.active.tab.segment {
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+.tab.segment {
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+hr {
+    box-sizing: border-box;
+    overflow: visible;
+    border: 0.5px solid #E0E0E0;
+}
+
+.tourCode_btn,
+.addTogg_btn {
+    border-radius: 3px;
+    background-color: #3867B1;
+}
+
+.tourCode_text,
+.addTogg_text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+}
+
+.corporate_input__placeholder-icon {
+    position: relative;
+    width: 18px;
+    bottom: 28px;
+    left: 9px;
+}
+
+// .outer-form,
+// .outer_corpForm {
+//     box-sizing: border-box;
+//     border-radius: 5px;
+//     border: 0.5px solid #808080;
+//     margin: 45px 32px 111px 25px;
+// }
+// .ui.form.pos_basic_form {
+//     margin: 17px 23px 25px 22px;
+// }
+div.upload {
+    box-sizing: border-box;
+    height: 15px;
+    width: 123px;
+    border-radius: 3px;
+    background-color: #FFF;
+    border: 0.5px solid #808080;
+    box-shadow: 0 0.25px 0.1px 0 rgba(0, 0, 0, 0.5);
+}
+
+div.upload input {
+    display: block !important;
+    width: 123px !important;
+    height: 15px !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+}
+
+.file_choose {
+    position: relative;
+    left: 27px;
+    bottom: 6px;
+    color: #4F4F4F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 9px;
+    line-height: 10px;
+}
+
+.uploadinImg_btn {
+    border-radius: 3px;
+    background-color: #3867B1;
+}
+
+.uploadinImg_btn__text,
+.save-next_btn__text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 12px;
+}
+
+.file_table__img {
+    border: none;
+    background-color: #dfeafb5e;
+}
+
+.save-next_btn {
+    border-radius: 3px;
+    background-color: #3867B1;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.field input::placeholder,
+.input_mat {
+    font-size: 14px;
+}
+
+.ui.pointing.secondary.menu {
+    border: none;
+}
+
+.item.stepper__progress {
+    width: 167px;
+}
+
+.tab.segment.stepper__segment-outline {
+    border: none;
+    box-shadow: none;
+}
+
+.office-info_icon {
+    position: relative;
+    top: 20px;
+    right: 85px;
+}
+
+.pos_access-rights {
+    color: #828282;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    line-height: 12px;
+}
+
+.cancel_btn {
+    border-radius: 3px;
+    background-color: #4F4F4F;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cancel_btn__text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+}
+
+.issue_date {
+    text-indent: 17px;
+}
+
+.wide.field.sale_check {
+    margin-top: 10px;
+}
+
+.assign_btn {
+    border-radius: 3px;
+    background-color: #3867B1;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.assign_btn__text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+}
+
+.circleIcon {
+    height: 20px;
+    width: 20px;
+    background-color: #0D801C;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+.plusIcon {
+    color: #FFF;
+    font-size: 17px;
+    font-weight: 100;
+    line-height: 28px;
+    text-align: center;
+    margin-left: 0px;
+    margin-top: -3px;
+}
+
+::ng-deep.mat-step-icon-content {
+    height: 19px;
+    width: 19px;
+    color: #C8C8C8;
+    background-color: #C8C8C8;
+    border-radius: 50%;
+}
+
+::ng-deep.mat-step-icon-state-number.mat-step-icon.mat-step-icon-selected {
+    border: 1px solid #3867B1;
+}
+
+::ng-deep.mat-horizontal-stepper-header-container {
+    width: 40%;
+}
+
+::ng-deep.mat-step-label {
+    color: #3867b1;
+}
+
+.pos_btn-panel {
+    position: initial;
+    right: 68px;
+    bottom: 97px;
+    text-align: right;
+    .secondary {
+        width: 104.87px;
+        border-radius: 3px;
+        background-color: #4F4F4F;
+        box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    }
+    .primary {
+        width: 124.87px;
+        border-radius: 3px;
+        background-color: #3867B1;
+        box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.field-inline .field {
+    display: inline-block;
+}
+
+.markup-block {
+    margin-top: 50px;
+}
+
+.right.floated.two.wide.column.group_save-btn {
+    display: flex;
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20;
+    margin: 0px 0px 8px;
+}
+
+.ui.form .three.wide.field,
+.ui.form .field>.checkbox-field,
+.ui.form .six.wide.field {
+    margin-bottom: 16px;
+}
+.ui.form .six.wide.field.mb-0 {
+    margin-bottom: 0px;
+}
+
+.mat-form-field-wrapper {
+    padding-bottom: 0px;
+}
+
+.save-btn-block {
+    position: relative;
+    top: 32px;
+    right: -24px;
+    button {
+        float: right;
+        margin-right: 10px;
+        margin-top: -50px;
+    }
+}
+
+.ui.form{
+  .align-markettop{
+    margin-top:8px;
+  }
+}
+
+.align-market{
+    margin-top:8px !important;
+}
+
+@media (max-width: 1440px) {
+    .ui.form {
+        .tourCode_btn {
+            margin-right: 0px;  
+        }
+        .bookings_btn-panel.list-code {
+            padding-left: 0px;
+        }
+        .save-btn-block {
+            width: auto;
+            margin: 0px auto;
+            position: relative;
+            top: 24px;
+            right: -16px;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .result-block {
+        width: auto;
+        margin: 20px;
+    }
+    .listCodeWrapper {
+        padding:0px 10px;
+    }
+    .save-btn-block {
+        button {
+            right: 120px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .field:first-child {
+        margin-bottom: 0px;
+    }
+    .ui.form {
+        .save-btn-block {
+            position: relative;
+            right: 0px;
+            top: auto;
+            button {
+                right: auto;
+                float: right;
+                margin-right: 3.25px;
+                margin-top: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .ui.form .inline.fields.assign_prod {
+        .field {
+            width: 100%;
+        }
+    }
+}

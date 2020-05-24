@@ -1,0 +1,25 @@
+<div class="white-section"></div>
+<div class="item" *ngFor="let item of menuArray; let i = index" [routerLink]="item.route">
+  <img [src]="item.icon" class="menu-indicator icon" *ngIf="!item.hasOwnProperty('children')" />
+
+  <div class="ui left pointing dropdown item" *ngIf="item.hasOwnProperty('children')">
+    <i class="dropdown icon"></i>
+    <img [src]="item.icon" class="menu-indicator" />
+    <div class="menu">
+      <div class="item" *ngFor="let sub of item.children; let i = index">
+        <span *ngIf="!sub.hasOwnProperty('children')" (click)="navigateRoute($event, sub.route)">{{sub.name}}</span>
+        <p class="sidebar-title" *ngIf="sub.hasOwnProperty('children')">
+          {{sub.name}}
+          <img src="./../../../../assets/img/sidebar-icons/add.png" class="dropdown-indicator" />
+        </p>
+        <div class="menu" *ngIf="sub.hasOwnProperty('children')">
+          <div class="item" *ngFor="let item of sub.children; let i = index">
+            <span class="sidebar-title" (click)="navigateRoute($event, item.route)">
+              {{item.name}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

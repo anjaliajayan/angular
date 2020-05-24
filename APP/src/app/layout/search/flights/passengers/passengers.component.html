@@ -1,0 +1,2225 @@
+<div class="card-wrapper animated fadeIn" [class.loading]="pageLoader">
+  <div class="ui grid">
+    <div class="sixteen wide column row row_wrapper">
+      <div class="sixteen wide column head-row">
+        <h3 class="_title">Traveller(s) and Payment</h3>
+        <p class="_subtitle">
+          Please confirm and pay for the following traveller and flight bookings
+        </p>
+      </div>
+      <div class="ui grid itenary-grid">
+        <div class="twelve wide column flights_detail_block">
+          <h4>Flight Details</h4>
+          <div class="ui grid">
+            <div class="row flight_details-row">
+              <div class="column flight_list card-section">
+                <div
+                  *ngFor="let fprsDetails of paxTicketDetails | keyvalue"
+                  class="Suppliers"
+                  [ngClass]="{
+                    'supplier-list': fprsDetails.key == 'DataLists'
+                  }"
+                >
+                  <div *ngIf="fprsDetails.key == 'DataLists'">
+                    <div *ngFor="let ondFP of fprsDetails.value | keyvalue">
+                      <div
+                        *ngIf="ondFP.key == 'OriginDestinationList'"
+                        class="OriginDestinations pax-page"
+                      >
+                        <div
+                          class="sixteen wide column row airline-tickets _oneway"
+                        >
+                          <div
+                            *ngFor="let ondFP2 of ondFP.value | keyvalue"
+                            class="items"
+                          >
+                            <div
+                              *ngIf="{
+                                flightValue: ondFP2.value['attributes'].refs
+                              } as variable"
+                            >
+                              <div
+                                *ngIf="{
+                                  segFlight:
+                                    fprsDetails.value['FlightList'][
+                                      variable.flightValue
+                                    ].attributes['refs'],
+                                  flightValue: ondFP2.value['attributes'].refs
+                                } as variable"
+                              >
+                                <div
+                                  *ngFor="
+                                    let segment of variable.segFlight?.split(
+                                      ' '
+                                    )
+                                  "
+                                  class="flight-border-list"
+                                >
+                                  <div
+                                    class="ui sixteen wide column grid border-grid"
+                                  >
+                                    <div
+                                      class="ui sixteen wide column grid no-ptb mt-15"
+                                    >
+                                      <div class="one wide column"></div>
+                                      <div class="three wide column pt-10">
+                                        <img
+                                          src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{
+                                            fprsDetails.value[
+                                              'FlightSegmentList'
+                                            ][segment].OperatingCarrier[
+                                              'AirlineID'
+                                            ].text
+                                          }}.png"
+                                          class="airline-tickets_airline-logo"
+                                        />
+                                        <div class="airline-tickets_title">
+                                          {{
+                                            fprsDetails.value[
+                                              "FlightSegmentList"
+                                            ][segment].MarketingCarrier["Name"]
+                                              .text
+                                          }}
+                                        </div>
+                                        <div class="craft-title">
+                                          ({{
+                                            fprsDetails.value[
+                                              "FlightSegmentList"
+                                            ][segment].MarketingCarrier[
+                                              "AirlineID"
+                                            ].text
+                                          }}-{{
+                                            fprsDetails.value[
+                                              "FlightSegmentList"
+                                            ][segment].MarketingCarrier[
+                                              "FlightNumber"
+                                            ].text
+                                          }})
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="ui eight wide column grid plane-grid flight_duration"
+                                      >
+                                        <div class="three wide column">
+                                          <div class="airline-tickets_title">
+                                            <b>
+                                              {{
+                                                fprsDetails.value[
+                                                  "FlightSegmentList"
+                                                ][segment].Departure["Time"]
+                                                  .text
+                                              }}
+                                            </b>
+                                          </div>
+                                          <div class="airline-tickets_airport">
+                                            {{
+                                              fprsDetails.value[
+                                                "FlightSegmentList"
+                                              ][segment].Departure[
+                                                "AirportCode"
+                                              ].text
+                                            }}
+                                          </div>
+                                        </div>
+                                        <div class="ten wide column">
+                                          <div class="_crafts-border">
+                                            <div class="_craft _craft-up">
+                                              <img
+                                                src="./../../../../../../assets/img/blue-up.svg"
+                                              />
+                                            </div>
+                                            <span>
+                                              <!-- {{fprsDetails.value['FlightList'][variable.flightValue].Journey['Time'].text}} -->
+                                              <!-- {{fprsDetails.value['FlightList'][variable.flightValue].Journey['Time'].text | FlightTimeParser}} -->
+                                              <!-- 1 hour -->
+                                            </span>
+                                            <div class="_craft _craft-down">
+                                              <img
+                                                src="./../../../../../../assets/img/blue-down.svg"
+                                              />
+                                            </div>
+                                            <hr />
+                                          </div>
+                                          <div *ngIf="segment.length > 0">
+                                            <p class="flight-type _highlight">
+                                              Non Stop
+                                            </p>
+                                          </div>
+                                          <div *ngIf="segment.length == 0">
+                                            <p class="flight-type _highlight">
+                                              Non Stop
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="three wide column">
+                                          <div class="airline-tickets_title">
+                                            <b>
+                                              {{
+                                                fprsDetails.value[
+                                                  "FlightSegmentList"
+                                                ][segment].Arrival["Time"].text
+                                              }}</b
+                                            >
+                                          </div>
+                                          <div class="airline-tickets_airport">
+                                            {{
+                                              fprsDetails.value[
+                                                "FlightSegmentList"
+                                              ][segment].Arrival["AirportCode"]
+                                                .text
+                                            }}
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="four wide column pt-10 _grid flight-button"
+                                      >
+                                        <button
+                                          class="ui primary button seat_btn"
+                                          title="Seat Map"
+                                          (click)="showSeatMapModal('seat-map')"
+                                        >
+                                          <img
+                                            src="./../../../../../assets/icons/seat-blue.svg"
+                                            Alt="Seap map icon"
+                                          />
+                                        </button>
+                                        <button
+                                          class="ui primary button seat_btn brand"
+                                          title="Brand Disclosure"
+                                          (click)="
+                                            showBrandDisclosure(
+                                              'brand_disclosure'
+                                            )
+                                          "
+                                        >
+                                          <img
+                                            src="./../../../../../assets/icons/plane.svg"
+                                            Alt="Brand Disclosure icon"
+                                          />
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ui grid">
+                          <div class="sixteen wide column row">
+                            <div class="twelve wide column">
+                              <div class="ancillary-section">
+                                <p class="add-anc-text">
+                                  Add Alacarte Services:
+                                </p>
+                                <a (click)="showMealModal('meal-modal')">
+                                  <span>+ Meal</span>
+                                </a>
+                                <a (click)="showBaggageModal('baggage-modal')">
+                                  <span>+ Baggage</span>
+                                </a>
+                                <a
+                                  (click)="
+                                    showDisabilityModal('disability-modal')
+                                  "
+                                >
+                                  <span>+ Special Assistance</span>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="four wide column fare-detail-link">
+                              <a (click)="showFareDetails('fare_details')"
+                                >Fare & Baggage Details</a
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui grid pax-detail-wrapper">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column" style="padding: 0px;">
+                  <form
+                    [formGroup]="paxProfileForm"
+                    (ngSubmit)="profileFormSubmit()"
+                    class="passenger-detail-form"
+                  >
+                    <h4 class="_pax-title">Passenger details</h4>
+                    <div class="ui grid card-section">
+                      <div class="pax-grid pass-grid">
+
+                        <div class="ui styled accordion">
+                          <div
+                          formArrayName="paxForm"
+                          class="sixteen wide column row"
+                          *ngFor="
+                            let pax of paxProfileForm.get('paxForm')[
+                              'controls'
+                            ];
+                            let p = index
+                          "
+                        >
+                     
+                          <div [formGroupName]="p">
+                            <div 
+                              [hidden]="pax['controls']['paxType'].value == ''" 
+                            >
+                              <div class="title active">
+                                <h3>
+                                  Passenger -
+                                  {{ pax["controls"]["paxType"].value }}
+                                </h3>
+                                <i class="dropdown icon"></i>
+                              </div>
+                              <div class="content active">
+                                <div class="ui grid personal-info">
+                                  <p class="mt-0">Personal Information</p>
+                                  <div class="sixteen wide column row">
+                                    <div class="two wide column">
+                                      <label>Title</label>
+                                      <select
+                                        class="ui fluid dropdown"
+                                        formControlName="salutation"
+                                      >
+                                        <option value="Mr">Mr</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Master">Master</option>
+                                        <option value="Mrs">Miss</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Dr">Dr</option>
+                                      </select>
+                                    </div>
+                                    <div class="four wide column">
+                                      <label
+                                        >First Name
+                                        <span class="mandatory">*</span>
+                                      </label>
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="firstName"
+                                          formControlName="firstName"
+                                          placeholder="First Name"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="four wide column">
+                                      <label>Middle Name</label>
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="middleName"
+                                          formControlName="middleName"
+                                          placeholder="Middle Name"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="four wide column">
+                                      <label
+                                        >Last Name
+                                        <span class="mandatory">*</span>
+                                      </label>
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="lastName"
+                                          formControlName="lastName"
+                                          placeholder="Last Name"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="sixteen wide column row">
+                                    <div class="two wide column">
+                                      <label>Gender</label>
+                                      <select
+                                        class="ui fluid dropdown"
+                                        formControlName="sex"
+                                      >
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                      </select>
+                                    </div>
+                                    <div class="four wide column">
+                                      <label>Date of Birth</label>
+                                      <div class="ui left icon input">
+                                        <input type="date" placeholder="Date Of birth" formControlName="dob" name="dob" class="dob"
+                                          id="dob" value="" required />
+                                        <i class="icon">
+                                          <img src="./../../../../../assets/icons/calendar.svg"
+                                          class="pass_input__placeholder-icon cal" />
+                                        </i>
+                                    </div>
+
+
+                                      
+                                    </div>
+                                    <div class="four wide column">
+                                      <label>Nationality</label>
+                                      <select
+                                        class="ui fluid search dropdown"
+                                        formControlName="nationality"
+                                      >
+                                        <option
+                                          *ngFor="let country of countries"
+                                          value="{{ country.country_code }}"
+                                        >
+                                          {{ country.country }}</option
+                                        >
+                                      </select>
+                                    </div>
+                                  </div>
+
+                                  <p>Identity Document</p>
+                                  <div class="sixteen wide column row">
+                                    <div class="six wide column">
+                                      <label>Identification</label>
+                                      <select
+                                        class="ui fluid dropdown"
+                                        formControlName="identification"
+                                        (change)="passIdentification($event.target.value, p)">
+                                        <option value="Passport">Passport</option>
+                                        <option value="Resident Identity">
+                                          Resident Identity/Iqama</option
+                                        >
+                                        <option value="National ID">National ID</option>
+                                      </select>
+                                    </div>
+                                    <div class="six wide column">
+                                      <label
+                                        >{{ identifactionType }} Number</label
+                                      >
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="passportNo"
+                                          formControlName="passportNo"
+                                          placeholder="{{
+                                            identifactionType
+                                          }} Number"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="sixteen wide column row">
+                                    <div class="six wide column">
+                                      <label
+                                        >Issuing Country<span
+                                          class="mandatory"
+                                        ></span
+                                      ></label>
+                                      <select
+                                        class="ui fluid search dropdown"
+                                        formControlName="issuingCountry"
+                                      >
+                                        <option value="">
+                                          Issuing Country</option
+                                        >
+                                        <option
+                                          *ngFor="let country of countries"
+                                          value="{{ country.country_code }}"
+                                        >
+                                          {{ country.country }}</option
+                                        >
+                                      </select>
+                                    </div>
+                                    <div class="six wide column">
+                                      <ng-template [ngIf]="showExpiryDate && Pflag == p">
+                                        <label>Expiry Date</label>
+                                        <div class="ui left icon input">
+                                          <input
+                                            type="date"
+                                            placeholder="Expiry Date"
+                                            formControlName="expiryDate"
+                                            name="expiryDate"
+                                            value=""
+                                            required
+                                          />
+                                          <i class="icon">
+                                            <img
+                                              src="./../../../../../assets/icons/calendar.svg"
+                                              class="pass_input__placeholder-icon cal"
+                                            />
+                                          </i>
+                                        </div>
+                                      </ng-template>
+                                    </div>
+                                  </div>
+                                  <p>Frequent Flyer</p>
+                                  <div class="sixteen wide column row p-t-0">
+                                    <div class="six wide column">
+                                      <label>Frequent Flyer Airline List</label>
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="freqFlyerType"
+                                          formControlName="freqFlyerType"
+                                          placeholder="Frequent Flyer Type"
+                                        />
+                                        <!-- <select name="" name="freqFlyerType" formControlName="freqFlyerType" class="ui fluid dropdown">
+                                            <option value="">Select</option>
+                                            <option value="AF">AFGHANISTAN</option>
+                                            <option value="AL">ALBANIA</option>
+                                            <option value="DZ">ALGERIA</option>
+                                            <option value="AS">AMERICAN SAMOA</option>
+                                            <option value="AD">ANDORRA</option>
+                                            <option value="AO">ANGOLA</option>
+                                            <option value="AI">ANGUILLA</option>
+                                            <option value="AQ">ANTARCTICA</option>
+                                            <option value="AG">ANTIGUA AND BARBUDA</option>
+                                            <option value="AR">ARGENTINA</option>
+                                            <option value="AM">ARMENIA</option>
+                                            <option value="AW">ARUBA</option>
+                                            <option value="AU">AUSTRALIA</option>
+                                            <option value="AT">AUSTRIA</option>
+                                            <option value="AZ">AZERBAIJAN</option>
+                                            <option value="BS">BAHAMAS</option>
+                                            <option value="BH">BAHRAIN</option>
+                                            <option value="BD">BANGLADESH</option>
+                                            <option value="BB">BARBADOS</option>
+                                            <option value="BY">BELARUS</option>
+                                            <option value="BE">BELGIUM</option>
+                                            <option value="BZ">BELIZE</option>
+                                            <option value="BJ">BENIN</option>
+                                            <option value="BM">BERMUDA</option>
+                                            <option value="BT">BHUTAN</option>
+                                            <option value="BO">BOLIVIA</option>
+                                            <option value="BA">BOSNIA AND HERZEGOWINA</option>
+                                            <option value="BW">BOTSWANA</option>
+                                            <option value="BV">BOUVET ISLAND</option>
+                                            <option value="BR">BRAZIL</option>
+                                            <option value="IO">BRITISH INDIAN OCEAN TERRITORY</option>
+                                            <option value="BN">BRUNEI DARUSSALAM</option>
+                                            <option value="BG">BULGARIA</option>
+                                            <option value="BF">BURKINA FASO</option>
+                                            <option value="BI">BURUNDI</option>
+                                            <option value="KH">CAMBODIA</option>
+                                            <option value="CM">CAMEROON</option>
+                                            <option value="CA">CANADA</option>
+                                            <option value="CV">CAPE VERDE</option>
+                                            <option value="KY">CAYMAN ISLANDS</option>
+                                            <option value="CF">CENTRAL AFRICAN REPUBLIC</option>
+                                            <option value="TD">CHAD</option>
+                                            <option value="CL">CHILE</option>
+                                            <option value="CN">CHINA</option>
+                                            <option value="CX">CHRISTMAS ISLAND</option>
+                                            <option value="CC">COCOS (KEELING) ISLANDS</option>
+                                            <option value="CO">COLOMBIA</option>
+                                            <option value="KM">COMOROS</option>
+                                            <option value="CG">CONGO</option>
+                                            <option value="CD">CONGO, THE DRC</option>
+                                            <option value="CK">COOK ISLANDS</option>
+                                            <option value="CR">COSTA RICA</option>
+                                            <option value="CI">COTE D`IVOIRE</option>
+                                            <option value="HR">CROATIA (local name: Hrvatska)</option>
+                                            <option value="CU">CUBA</option>
+                                            <option value="CY">CYPRUS</option>
+                                            <option value="CZ">CZECH REPUBLIC</option>
+                                            <option value="DK">DENMARK</option>
+                                            <option value="DJ">DJIBOUTI</option>
+                                            <option value="DM">DOMINICA</option>
+                                            <option value="DO">DOMINICAN REPUBLIC</option>
+                                            <option value="TP">EAST TIMOR</option>
+                                            <option value="EC">ECUADOR</option>
+                                            <option value="EG">EGYPT</option>
+                                            <option value="SV">EL SALVADOR</option>
+                                            <option value="GQ">EQUATORIAL GUINEA</option>
+                                            <option value="ER">ERITREA</option>
+                                            <option value="EE">ESTONIA</option>
+                                            <option value="ET">ETHIOPIA</option>
+                                            <option value="FK">FALKLAND ISLANDS (MALVINAS)</option>
+                                            <option value="FO">FAROE ISLANDS</option>
+                                            <option value="FJ">FIJI</option>
+                                            <option value="FI">FINLAND</option>
+                                            <option value="FR">FRANCE</option>
+                                            <option value="FX">FRANCE, METROPOLITAN</option>
+                                            <option value="GF">FRENCH GUIANA</option>
+                                            <option value="PF">FRENCH POLYNESIA</option>
+                                            <option value="TF">FRENCH SOUTHERN TERRITORIES</option>
+                                            <option value="GA">GABON</option>
+                                            <option value="GM">GAMBIA</option>
+                                            <option value="GE">GEORGIA</option>
+                                            <option value="DE">GERMANY</option>
+                                            <option value="GH">GHANA</option>
+                                            <option value="GI">GIBRALTAR</option>
+                                            <option value="GR">GREECE</option>
+                                            <option value="GL">GREENLAND</option>
+                                            <option value="GD">GRENADA</option>
+                                            <option value="GP">GUADELOUPE</option>
+                                            <option value="GU">GUAM</option>
+                                            <option value="GT">GUATEMALA</option>
+                                            <option value="GN">GUINEA</option>
+                                            <option value="GW">GUINEA-BISSAU</option>
+                                            <option value="GY">GUYANA</option>
+                                            <option value="HT">HAITI</option>
+                                            <option value="HM">HEARD AND MC DONALD ISLANDS</option>
+                                            <option value="VA">HOLY SEE (VATICAN CITY STATE)</option>
+                                            <option value="HN">HONDURAS</option>
+                                            <option value="HK">HONG KONG</option>
+                                            <option value="HU">HUNGARY</option>
+                                            <option value="IS">ICELAND</option>
+                                            <option value="IN" selected="selected">INDIA</option>
+                                            <option value="ID">INDONESIA</option>
+                                            <option value="IR">IRAN (ISLAMIC REPUBLIC OF)</option>
+                                            <option value="IQ">IRAQ</option>
+                                            <option value="IE">IRELAND</option>
+                                            <option value="IS">ISRAEL</option>
+                                            <option value="IT">ITALY</option>
+                                            <option value="JM">JAMAICA</option>
+                                            <option value="JP">JAPAN</option>
+                                            <option value="JO">JORDAN</option>
+                                            <option value="KZ">KAZAKHSTAN</option>
+                                            <option value="KE">KENYA</option>
+                                            <option value="KI">KIRIBATI</option>
+                                            <option value="KP">KOREA, D.P.R.O.</option>
+                                            <option value="KR">KOREA, REPUBLIC OF</option>
+                                            <option value="KW">KUWAIT</option>
+                                            <option value="KG">KYRGYZSTAN</option>
+                                            <option value="LA">LAOS</option>
+                                            <option value="LV">LATVIA</option>
+                                            <option value="LB">LEBANON</option>
+                                            <option value="LS">LESOTHO</option>
+                                            <option value="LR">LIBERIA</option>
+                                            <option value="LY">LIBYAN ARAB JAMAHIRIYA</option>
+                                            <option value="LI">LIECHTENSTEIN</option>
+                                            <option value="LT">LITHUANIA</option>
+                                            <option value="LU">LUXEMBOURG</option>
+                                            <option value="MO">MACAU</option>
+                                            <option value="MK">MACEDONIA</option>
+                                            <option value="MG">MADAGASCAR</option>
+                                            <option value="MW">MALAWI</option>
+                                            <option value="MY">MALAYSIA</option>
+                                            <option value="MV">MALDIVES</option>
+                                            <option value="ML">MALI</option>
+                                            <option value="MT">MALTA</option>
+                                            <option value="MH">MARSHALL ISLANDS</option>
+                                            <option value="MQ">MARTINIQUE</option>
+                                            <option value="MR">MAURITANIA</option>
+                                            <option value="MU">MAURITIUS</option>
+                                            <option value="YT">MAYOTTE</option>
+                                            <option value="MX">MEXICO</option>
+                                            <option value="FM">MICRONESIA, FEDERATED STATES OF</option>
+                                            <option value="MD">MOLDOVA, REPUBLIC OF</option>
+                                            <option value="MC">MONACO</option>
+                                            <option value="MN">MONGOLIA</option>
+                                            <option value="ME">MONTENEGRO</option>
+                                            <option value="MS">MONTSERRAT</option>
+                                            <option value="MA">MOROCCO</option>
+                                            <option value="MZ">MOZAMBIQUE</option>
+                                            <option value="MM">MYANMAR (Burma)</option>
+                                            <option value="NA">NAMIBIA</option>
+                                            <option value="NR">NAURU</option>
+                                            <option value="NP">NEPAL</option>
+                                            <option value="NL">NETHERLANDS</option>
+                                            <option value="AN">NETHERLANDS ANTILLES</option>
+                                            <option value="NC">NEW CALEDONIA</option>
+                                            <option value="NZ">NEW ZEALAND</option>
+                                            <option value="NI">NICARAGUA</option>
+                                            <option value="NE">NIGER</option>
+                                            <option value="NG">NIGERIA</option>
+                                            <option value="NU">NIUE</option>
+                                            <option value="NF">NORFOLK ISLAND</option>
+                                            <option value="MP">NORTHERN MARIANA ISLANDS</option>
+                                            <option value="NO">NORWAY</option>
+                                            <option value="OM">OMAN</option>
+                                            <option value="PK">PAKISTAN</option>
+                                            <option value="PW">PALAU</option>
+                                            <option value="PS">PALESTINE</option>
+                                            <option value="PA">PANAMA</option>
+                                            <option value="PG">PAPUA NEW GUINEA</option>
+                                            <option value="PY">PARAGUAY</option>
+                                            <option value="PE">PERU</option>
+                                            <option value="PH">PHILIPPINES</option>
+                                            <option value="PN">PITCAIRN</option>
+                                            <option value="PL">POLAND</option>
+                                            <option value="PT">PORTUGAL</option>
+                                            <option value="PR">PUERTO RICO</option>
+                                            <option value="QA">QATAR</option>
+                                            <option value="RE">REUNION</option>
+                                            <option value="RO">ROMANIA</option>
+                                            <option value="RU">RUSSIAN FEDERATION</option>
+                                            <option value="RW">RWANDA</option>
+                                            <option value="KN">SAINT KITTS AND NEVIS</option>
+                                            <option value="LC">SAINT LUCIA</option>
+                                            <option value="VC">SAINT VINCENT AND THE GRENADINES</option>
+                                            <option value="WS">SAMOA</option>
+                                            <option value="SM">SAN MARINO</option>
+                                            <option value="ST">SAO TOME AND PRINCIPE</option>
+                                            <option value="SA">SAUDI ARABIA</option>
+                                            <option value="SN">SENEGAL</option>
+                                            <option value="RS">SERBIA</option>
+                                            <option value="SC">SEYCHELLES</option>
+                                            <option value="SL">SIERRA LEONE</option>
+                                            <option value="SG">SINGAPORE</option>
+                                            <option value="SK">SLOVAKIA (Slovak Republic)</option>
+                                            <option value="SI">SLOVENIA</option>
+                                            <option value="SB">SOLOMON ISLANDS</option>
+                                            <option value="SO">SOMALIA</option>
+                                            <option value="ZA">SOUTH AFRICA</option>
+                                            <option value="GS">SOUTH GEORGIA AND SOUTH S.S.</option>
+                                            <option value="SS">SOUTH SUDAN</option>
+                                            <option value="ES">SPAIN</option>
+                                            <option value="LK">SRI LANKA</option>
+                                            <option value="SH">ST. HELENA</option>
+                                            <option value="PM">ST. PIERRE AND MIQUELON</option>
+                                            <option value="SD">SUDAN</option>
+                                            <option value="SR">SURINAME</option>
+                                            <option value="SJ">SVALBARD AND JAN MAYEN ISLANDS</option>
+                                            <option value="SZ">SWAZILAND</option>
+                                            <option value="SE">SWEDEN</option>
+                                            <option value="CH">SWITZERLAND</option>
+                                            <option value="SY">SYRIAN ARAB REPUBLIC</option>
+                                            <option value="TW">TAIWAN, PROVINCE OF CHINA</option>
+                                            <option value="TJ">TAJIKISTAN</option>
+                                            <option value="TZ">TANZANIA, UNITED REPUBLIC OF</option>
+                                            <option value="TH">THAILAND</option>
+                                            <option value="TG">TOGO</option>
+                                            <option value="TK">TOKELAU</option>
+                                            <option value="TO">TONGA</option>
+                                            <option value="TT">TRINIDAD AND TOBAGO</option>
+                                            <option value="TN">TUNISIA</option>
+                                            <option value="TR">TURKEY</option>
+                                            <option value="TM">TURKMENISTAN</option>
+                                            <option value="TC">TURKS AND CAICOS ISLANDS</option>
+                                            <option value="TV">TUVALU</option>
+                                            <option value="UM">U.S. MINOR ISLANDS</option>
+                                            <option value="UG">UGANDA</option>
+                                            <option value="UA">UKRAINE</option>
+                                            <option value="AE">UNITED ARAB EMIRATES</option>
+                                            <option value="GB">UNITED KINGDOM</option>
+                                            <option value="US">UNITED STATES</option>
+                                            <option value="UY">URUGUAY</option>
+                                            <option value="UZ">UZBEKISTAN</option>
+                                            <option value="VU">VANUATU</option>
+                                            <option value="VE">VENEZUELA</option>
+                                            <option value="VN">VIET NAM</option>
+                                            <option value="VG">VIRGIN ISLANDS (BRITISH)</option>
+                                            <option value="VI">VIRGIN ISLANDS (U.S.)</option>
+                                            <option value="WF">WALLIS AND FUTUNA ISLANDS</option>
+                                            <option value="EH">WESTERN SAHARA</option>
+                                            <option value="YE">YEMEN</option>
+                                            <option value="ZM">ZAMBIA</option>
+                                            <option value="ZW">ZIMBABWE</option>
+                                        </select> -->
+                                      </div>
+                                    </div>
+                                    <div class="six wide column">
+                                      <label>Frequent Flyer Number</label>
+                                      <div class="ui input fluid">
+                                        <input
+                                          type="text"
+                                          name="freqFlyerVendorCode"
+                                          formControlName="freqFlyerVendorCode"
+                                          placeholder="Frequent Flyer Vendor Code"
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                       
+                        </div>
+                        </div>
+
+                        
+
+                        <!-- END of FormArray -->
+                        <div class="ui grid add-info phone-field">
+                          <div class="sixteen wide column row">
+                            <div class="sixteen wide column">
+                              <h4 class="_pax-title">
+                                Customer Contact Details
+                              </h4>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row p-t-0">
+                            <div class="six wide column">
+                              <label>Email</label>
+                              <div class="ui input fluid">
+                                <input type="text" name="cust_email" formControlName="cust_email" placeholder="Email" 
+                                  class="email"
+                                />
+                              </div>
+                            </div>
+                            <div class="five wide column">
+                              <label>Origin Phone Number</label>
+                              <div class="ui input">
+                                <!-- <input type="text" name="cust_origin_phone_code" class="phone-code"
+                                  formControlName="cust_origin_phone_code" placeholder="Code" maxlength="3" size="3" /> -->
+                                <select name="cust_origin_phone_code" class="phone-code dropdown"
+                                  formControlName="cust_origin_phone_code" placeholder="Code">
+                                  <option data-countryCode="" value="" selected>Select Code</option>
+                                  <option data-countryCode="GB" value="44" >UK (+44)</option>
+                                  <option data-countryCode="US" value="1">USA (+1)</option>
+                                  <optgroup label="Other countries">
+                                    <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                                    <option data-countryCode="AD" value="376">Andorra (+376)</option>
+                                    <option data-countryCode="AO" value="244">Angola (+244)</option>
+                                    <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
+                                    <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
+                                    <option data-countryCode="AR" value="54">Argentina (+54)</option>
+                                    <option data-countryCode="AM" value="374">Armenia (+374)</option>
+                                    <option data-countryCode="AW" value="297">Aruba (+297)</option>
+                                    <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                    <option data-countryCode="AT" value="43">Austria (+43)</option>
+                                    <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
+                                    <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
+                                    <option data-countryCode="BH" value="973">Bahrain (+973)</option>
+                                    <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                    <option data-countryCode="BB" value="1246">Barbados (+1246)</option>
+                                    <option data-countryCode="BY" value="375">Belarus (+375)</option>
+                                    <option data-countryCode="BE" value="32">Belgium (+32)</option>
+                                    <option data-countryCode="BZ" value="501">Belize (+501)</option>
+                                    <option data-countryCode="BJ" value="229">Benin (+229)</option>
+                                    <option data-countryCode="BM" value="1441">Bermuda (+1441)</option>
+                                    <option data-countryCode="BT" value="975">Bhutan (+975)</option>
+                                    <option data-countryCode="BO" value="591">Bolivia (+591)</option>
+                                    <option data-countryCode="BA" value="387">Bosnia Herzegovina (+387)</option>
+                                    <option data-countryCode="BW" value="267">Botswana (+267)</option>
+                                    <option data-countryCode="BR" value="55">Brazil (+55)</option>
+                                    <option data-countryCode="BN" value="673">Brunei (+673)</option>
+                                    <option data-countryCode="BG" value="359">Bulgaria (+359)</option>
+                                    <option data-countryCode="BF" value="226">Burkina Faso (+226)</option>
+                                    <option data-countryCode="BI" value="257">Burundi (+257)</option>
+                                    <option data-countryCode="KH" value="855">Cambodia (+855)</option>
+                                    <option data-countryCode="CM" value="237">Cameroon (+237)</option>
+                                    <option data-countryCode="CA" value="1">Canada (+1)</option>
+                                    <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
+                                    <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
+                                    <option data-countryCode="CF" value="236">Central African Republic (+236)</option>
+                                    <option data-countryCode="CL" value="56">Chile (+56)</option>
+                                    <option data-countryCode="CN" value="86">China (+86)</option>
+                                    <option data-countryCode="CO" value="57">Colombia (+57)</option>
+                                    <option data-countryCode="KM" value="269">Comoros (+269)</option>
+                                    <option data-countryCode="CG" value="242">Congo (+242)</option>
+                                    <option data-countryCode="CK" value="682">Cook Islands (+682)</option>
+                                    <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
+                                    <option data-countryCode="HR" value="385">Croatia (+385)</option>
+                                    <option data-countryCode="CU" value="53">Cuba (+53)</option>
+                                    <option data-countryCode="CY" value="90392">Cyprus North (+90392)</option>
+                                    <option data-countryCode="CY" value="357">Cyprus South (+357)</option>
+                                    <option data-countryCode="CZ" value="42">Czech Republic (+42)</option>
+                                    <option data-countryCode="DK" value="45">Denmark (+45)</option>
+                                    <option data-countryCode="DJ" value="253">Djibouti (+253)</option>
+                                    <option data-countryCode="DM" value="1809">Dominica (+1809)</option>
+                                    <option data-countryCode="DO" value="1809">Dominican Republic (+1809)</option>
+                                    <option data-countryCode="EC" value="593">Ecuador (+593)</option>
+                                    <option data-countryCode="EG" value="20">Egypt (+20)</option>
+                                    <option data-countryCode="SV" value="503">El Salvador (+503)</option>
+                                    <option data-countryCode="GQ" value="240">Equatorial Guinea (+240)</option>
+                                    <option data-countryCode="ER" value="291">Eritrea (+291)</option>
+                                    <option data-countryCode="EE" value="372">Estonia (+372)</option>
+                                    <option data-countryCode="ET" value="251">Ethiopia (+251)</option>
+                                    <option data-countryCode="FK" value="500">Falkland Islands (+500)</option>
+                                    <option data-countryCode="FO" value="298">Faroe Islands (+298)</option>
+                                    <option data-countryCode="FJ" value="679">Fiji (+679)</option>
+                                    <option data-countryCode="FI" value="358">Finland (+358)</option>
+                                    <option data-countryCode="FR" value="33">France (+33)</option>
+                                    <option data-countryCode="GF" value="594">French Guiana (+594)</option>
+                                    <option data-countryCode="PF" value="689">French Polynesia (+689)</option>
+                                    <option data-countryCode="GA" value="241">Gabon (+241)</option>
+                                    <option data-countryCode="GM" value="220">Gambia (+220)</option>
+                                    <option data-countryCode="GE" value="7880">Georgia (+7880)</option>
+                                    <option data-countryCode="DE" value="49">Germany (+49)</option>
+                                    <option data-countryCode="GH" value="233">Ghana (+233)</option>
+                                    <option data-countryCode="GI" value="350">Gibraltar (+350)</option>
+                                    <option data-countryCode="GR" value="30">Greece (+30)</option>
+                                    <option data-countryCode="GL" value="299">Greenland (+299)</option>
+                                    <option data-countryCode="GD" value="1473">Grenada (+1473)</option>
+                                    <option data-countryCode="GP" value="590">Guadeloupe (+590)</option>
+                                    <option data-countryCode="GU" value="671">Guam (+671)</option>
+                                    <option data-countryCode="GT" value="502">Guatemala (+502)</option>
+                                    <option data-countryCode="GN" value="224">Guinea (+224)</option>
+                                    <option data-countryCode="GW" value="245">Guinea - Bissau (+245)</option>
+                                    <option data-countryCode="GY" value="592">Guyana (+592)</option>
+                                    <option data-countryCode="HT" value="509">Haiti (+509)</option>
+                                    <option data-countryCode="HN" value="504">Honduras (+504)</option>
+                                    <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
+                                    <option data-countryCode="HU" value="36">Hungary (+36)</option>
+                                    <option data-countryCode="IS" value="354">Iceland (+354)</option>
+                                    <option data-countryCode="IN" value="91">India (+91)</option>
+                                    <option data-countryCode="ID" value="62">Indonesia (+62)</option>
+                                    <option data-countryCode="IR" value="98">Iran (+98)</option>
+                                    <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                                    <option data-countryCode="IE" value="353">Ireland (+353)</option>
+                                    <option data-countryCode="IL" value="972">Israel (+972)</option>
+                                    <option data-countryCode="IT" value="39">Italy (+39)</option>
+                                    <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
+                                    <option data-countryCode="JP" value="81">Japan (+81)</option>
+                                    <option data-countryCode="JO" value="962">Jordan (+962)</option>
+                                    <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
+                                    <option data-countryCode="KE" value="254">Kenya (+254)</option>
+                                    <option data-countryCode="KI" value="686">Kiribati (+686)</option>
+                                    <option data-countryCode="KP" value="850">Korea North (+850)</option>
+                                    <option data-countryCode="KR" value="82">Korea South (+82)</option>
+                                    <option data-countryCode="KW" value="965">Kuwait (+965)</option>
+                                    <option data-countryCode="KG" value="996">Kyrgyzstan (+996)</option>
+                                    <option data-countryCode="LA" value="856">Laos (+856)</option>
+                                    <option data-countryCode="LV" value="371">Latvia (+371)</option>
+                                    <option data-countryCode="LB" value="961">Lebanon (+961)</option>
+                                    <option data-countryCode="LS" value="266">Lesotho (+266)</option>
+                                    <option data-countryCode="LR" value="231">Liberia (+231)</option>
+                                    <option data-countryCode="LY" value="218">Libya (+218)</option>
+                                    <option data-countryCode="LI" value="417">Liechtenstein (+417)</option>
+                                    <option data-countryCode="LT" value="370">Lithuania (+370)</option>
+                                    <option data-countryCode="LU" value="352">Luxembourg (+352)</option>
+                                    <option data-countryCode="MO" value="853">Macao (+853)</option>
+                                    <option data-countryCode="MK" value="389">Macedonia (+389)</option>
+                                    <option data-countryCode="MG" value="261">Madagascar (+261)</option>
+                                    <option data-countryCode="MW" value="265">Malawi (+265)</option>
+                                    <option data-countryCode="MY" value="60">Malaysia (+60)</option>
+                                    <option data-countryCode="MV" value="960">Maldives (+960)</option>
+                                    <option data-countryCode="ML" value="223">Mali (+223)</option>
+                                    <option data-countryCode="MT" value="356">Malta (+356)</option>
+                                    <option data-countryCode="MH" value="692">Marshall Islands (+692)</option>
+                                    <option data-countryCode="MQ" value="596">Martinique (+596)</option>
+                                    <option data-countryCode="MR" value="222">Mauritania (+222)</option>
+                                    <option data-countryCode="YT" value="269">Mayotte (+269)</option>
+                                    <option data-countryCode="MX" value="52">Mexico (+52)</option>
+                                    <option data-countryCode="FM" value="691">Micronesia (+691)</option>
+                                    <option data-countryCode="MD" value="373">Moldova (+373)</option>
+                                    <option data-countryCode="MC" value="377">Monaco (+377)</option>
+                                    <option data-countryCode="MN" value="976">Mongolia (+976)</option>
+                                    <option data-countryCode="MS" value="1664">Montserrat (+1664)</option>
+                                    <option data-countryCode="MA" value="212">Morocco (+212)</option>
+                                    <option data-countryCode="MZ" value="258">Mozambique (+258)</option>
+                                    <option data-countryCode="MN" value="95">Myanmar (+95)</option>
+                                    <option data-countryCode="NA" value="264">Namibia (+264)</option>
+                                    <option data-countryCode="NR" value="674">Nauru (+674)</option>
+                                    <option data-countryCode="NP" value="977">Nepal (+977)</option>
+                                    <option data-countryCode="NL" value="31">Netherlands (+31)</option>
+                                    <option data-countryCode="NC" value="687">New Caledonia (+687)</option>
+                                    <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
+                                    <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
+                                    <option data-countryCode="NE" value="227">Niger (+227)</option>
+                                    <option data-countryCode="NG" value="234">Nigeria (+234)</option>
+                                    <option data-countryCode="NU" value="683">Niue (+683)</option>
+                                    <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
+                                    <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
+                                    <option data-countryCode="NO" value="47">Norway (+47)</option>
+                                    <option data-countryCode="OM" value="968">Oman (+968)</option>
+                                    <option data-countryCode="PW" value="680">Palau (+680)</option>
+                                    <option data-countryCode="PA" value="507">Panama (+507)</option>
+                                    <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
+                                    <option data-countryCode="PY" value="595">Paraguay (+595)</option>
+                                    <option data-countryCode="PE" value="51">Peru (+51)</option>
+                                    <option data-countryCode="PH" value="63">Philippines (+63)</option>
+                                    <option data-countryCode="PL" value="48">Poland (+48)</option>
+                                    <option data-countryCode="PT" value="351">Portugal (+351)</option>
+                                    <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option>
+                                    <option data-countryCode="QA" value="974">Qatar (+974)</option>
+                                    <option data-countryCode="RE" value="262">Reunion (+262)</option>
+                                    <option data-countryCode="RO" value="40">Romania (+40)</option>
+                                    <option data-countryCode="RU" value="7">Russia (+7)</option>
+                                    <option data-countryCode="RW" value="250">Rwanda (+250)</option>
+                                    <option data-countryCode="SM" value="378">San Marino (+378)</option>
+                                    <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option>
+                                    <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
+                                    <option data-countryCode="SN" value="221">Senegal (+221)</option>
+                                    <option data-countryCode="CS" value="381">Serbia (+381)</option>
+                                    <option data-countryCode="SC" value="248">Seychelles (+248)</option>
+                                    <option data-countryCode="SL" value="232">Sierra Leone (+232)</option>
+                                    <option data-countryCode="SG" value="65">Singapore (+65)</option>
+                                    <option data-countryCode="SK" value="421">Slovak Republic (+421)</option>
+                                    <option data-countryCode="SI" value="386">Slovenia (+386)</option>
+                                    <option data-countryCode="SB" value="677">Solomon Islands (+677)</option>
+                                    <option data-countryCode="SO" value="252">Somalia (+252)</option>
+                                    <option data-countryCode="ZA" value="27">South Africa (+27)</option>
+                                    <option data-countryCode="ES" value="34">Spain (+34)</option>
+                                    <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
+                                    <option data-countryCode="SH" value="290">St. Helena (+290)</option>
+                                    <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option>
+                                    <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option>
+                                    <option data-countryCode="SD" value="249">Sudan (+249)</option>
+                                    <option data-countryCode="SR" value="597">Suriname (+597)</option>
+                                    <option data-countryCode="SZ" value="268">Swaziland (+268)</option>
+                                    <option data-countryCode="SE" value="46">Sweden (+46)</option>
+                                    <option data-countryCode="CH" value="41">Switzerland (+41)</option>
+                                    <option data-countryCode="SI" value="963">Syria (+963)</option>
+                                    <option data-countryCode="TW" value="886">Taiwan (+886)</option>
+                                    <option data-countryCode="TJ" value="7">Tajikstan (+7)</option>
+                                    <option data-countryCode="TH" value="66">Thailand (+66)</option>
+                                    <option data-countryCode="TG" value="228">Togo (+228)</option>
+                                    <option data-countryCode="TO" value="676">Tonga (+676)</option>
+                                    <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option>
+                                    <option data-countryCode="TN" value="216">Tunisia (+216)</option>
+                                    <option data-countryCode="TR" value="90">Turkey (+90)</option>
+                                    <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
+                                    <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
+                                    <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)
+                                    </option>
+                                    <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
+                                    <option data-countryCode="UG" value="256">Uganda (+256)</option>
+                                    <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                    <option data-countryCode="UA" value="380"
+                                      >Ukraine (+380)</option
+                                    >
+                                    <option data-countryCode="AE" value="971"
+                                      >United Arab Emirates (+971)</option
+                                    >
+                                    <option data-countryCode="UY" value="598"
+                                      >Uruguay (+598)</option
+                                    >
+                                    <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                    <option data-countryCode="UZ" value="7"
+                                      >Uzbekistan (+7)</option
+                                    >
+                                    <option data-countryCode="VU" value="678"
+                                      >Vanuatu (+678)</option
+                                    >
+                                    <option data-countryCode="VA" value="379"
+                                      >Vatican City (+379)</option
+                                    >
+                                    <option data-countryCode="VE" value="58"
+                                      >Venezuela (+58)</option
+                                    >
+                                    <option data-countryCode="VN" value="84"
+                                      >Vietnam (+84)</option
+                                    >
+                                    <option data-countryCode="VG" value="84"
+                                      >Virgin Islands - British (+1284)</option
+                                    >
+                                    <option data-countryCode="VI" value="84"
+                                      >Virgin Islands - US (+1340)</option
+                                    >
+                                    <option data-countryCode="WF" value="681"
+                                      >Wallis &amp; Futuna (+681)</option
+                                    >
+                                    <option data-countryCode="YE" value="969"
+                                      >Yemen (North)(+969)</option
+                                    >
+                                    <option data-countryCode="YE" value="967"
+                                      >Yemen (South)(+967)</option
+                                    >
+                                    <option data-countryCode="ZM" value="260"
+                                      >Zambia (+260)</option
+                                    >
+                                    <option data-countryCode="ZW" value="263"
+                                      >Zimbabwe (+263)</option
+                                    >
+                                  </optgroup></select
+                                >
+
+                                <input
+                                  type="text"
+                                  name="cust_origin_phone_number"
+                                  class="phone-no"
+                                  formControlName="cust_origin_phone_number"
+                                  placeholder="Number"
+                                />
+                              </div>
+                            </div>
+                            <div class="five wide column">
+                              <label>Destination Phone Number</label>
+                              <div class="ui input">
+                                <!-- <input type="text" name="cust_dest_phone_code" formControlName="cust_dest_phone_code"
+                                  class="phone-code" placeholder="Code" maxlength="3" size="3" /> -->
+                                <select name="cust_dest_phone_code" formControlName="cust_dest_phone_code"
+                                  class="phone-code dropdown" placeholder="Code">
+                                  <option data-countryCode="" value="" selected>Select Code</option>
+                                  <option data-countryCode="GB" value="44">UK (+44)</option>
+                                  <option data-countryCode="US" value="1">USA (+1)</option>
+                                  <optgroup label="Other countries">
+                                    <option data-countryCode="DZ" value="213">Algeria (+213)</option>
+                                    <option data-countryCode="AD" value="376">Andorra (+376)</option>
+                                    <option data-countryCode="AO" value="244">Angola (+244)</option>
+                                    <option data-countryCode="AI" value="1264">Anguilla (+1264)</option>
+                                    <option data-countryCode="AG" value="1268">Antigua &amp; Barbuda (+1268)</option>
+                                    <option data-countryCode="AR" value="54">Argentina (+54)</option>
+                                    <option data-countryCode="AM" value="374">Armenia (+374)</option>
+                                    <option data-countryCode="AW" value="297">Aruba (+297)</option>
+                                    <option data-countryCode="AU" value="61">Australia (+61)</option>
+                                    <option data-countryCode="AT" value="43">Austria (+43)</option>
+                                    <option data-countryCode="AZ" value="994">Azerbaijan (+994)</option>
+                                    <option data-countryCode="BS" value="1242">Bahamas (+1242)</option>
+                                    <option data-countryCode="BH" value="973">Bahrain (+973)</option>
+                                    <option data-countryCode="BD" value="880">Bangladesh (+880)</option>
+                                    <option data-countryCode="BB" value="1246">Barbados (+1246)</option>
+                                    <option data-countryCode="BY" value="375">Belarus (+375)</option>
+                                    <option data-countryCode="BE" value="32">Belgium (+32)</option>
+                                    <option data-countryCode="BZ" value="501">Belize (+501)</option>
+                                    <option data-countryCode="BJ" value="229">Benin (+229)</option>
+                                    <option data-countryCode="BM" value="1441">Bermuda (+1441)</option>
+                                    <option data-countryCode="BT" value="975">Bhutan (+975)</option>
+                                    <option data-countryCode="BO" value="591">Bolivia (+591)</option>
+                                    <option data-countryCode="BA" value="387">Bosnia Herzegovina (+387)</option>
+                                    <option data-countryCode="BW" value="267">Botswana (+267)</option>
+                                    <option data-countryCode="BR" value="55">Brazil (+55)</option>
+                                    <option data-countryCode="BN" value="673">Brunei (+673)</option>
+                                    <option data-countryCode="BG" value="359">Bulgaria (+359)</option>
+                                    <option data-countryCode="BF" value="226">Burkina Faso (+226)</option>
+                                    <option data-countryCode="BI" value="257">Burundi (+257)</option>
+                                    <option data-countryCode="KH" value="855">Cambodia (+855)</option>
+                                    <option data-countryCode="CM" value="237">Cameroon (+237)</option>
+                                    <option data-countryCode="CA" value="1">Canada (+1)</option>
+                                    <option data-countryCode="CV" value="238">Cape Verde Islands (+238)</option>
+                                    <option data-countryCode="KY" value="1345">Cayman Islands (+1345)</option>
+                                    <option data-countryCode="CF" value="236">Central African Republic (+236)</option>
+                                    <option data-countryCode="CL" value="56">Chile (+56)</option>
+                                    <option data-countryCode="CN" value="86">China (+86)</option>
+                                    <option data-countryCode="CO" value="57">Colombia (+57)</option>
+                                    <option data-countryCode="KM" value="269">Comoros (+269)</option>
+                                    <option data-countryCode="CG" value="242">Congo (+242)</option>
+                                    <option data-countryCode="CK" value="682">Cook Islands (+682)</option>
+                                    <option data-countryCode="CR" value="506">Costa Rica (+506)</option>
+                                    <option data-countryCode="HR" value="385">Croatia (+385)</option>
+                                    <option data-countryCode="CU" value="53">Cuba (+53)</option>
+                                    <option data-countryCode="CY" value="90392">Cyprus North (+90392)</option>
+                                    <option data-countryCode="CY" value="357">Cyprus South (+357)</option>
+                                    <option data-countryCode="CZ" value="42">Czech Republic (+42)</option>
+                                    <option data-countryCode="DK" value="45">Denmark (+45)</option>
+                                    <option data-countryCode="DJ" value="253">Djibouti (+253)</option>
+                                    <option data-countryCode="DM" value="1809">Dominica (+1809)</option>
+                                    <option data-countryCode="DO" value="1809">Dominican Republic (+1809)</option>
+                                    <option data-countryCode="EC" value="593">Ecuador (+593)</option>
+                                    <option data-countryCode="EG" value="20">Egypt (+20)</option>
+                                    <option data-countryCode="SV" value="503">El Salvador (+503)</option>
+                                    <option data-countryCode="GQ" value="240">Equatorial Guinea (+240)</option>
+                                    <option data-countryCode="ER" value="291">Eritrea (+291)</option>
+                                    <option data-countryCode="EE" value="372">Estonia (+372)</option>
+                                    <option data-countryCode="ET" value="251">Ethiopia (+251)</option>
+                                    <option data-countryCode="FK" value="500">Falkland Islands (+500)</option>
+                                    <option data-countryCode="FO" value="298">Faroe Islands (+298)</option>
+                                    <option data-countryCode="FJ" value="679">Fiji (+679)</option>
+                                    <option data-countryCode="FI" value="358">Finland (+358)</option>
+                                    <option data-countryCode="FR" value="33">France (+33)</option>
+                                    <option data-countryCode="GF" value="594">French Guiana (+594)</option>
+                                    <option data-countryCode="PF" value="689">French Polynesia (+689)</option>
+                                    <option data-countryCode="GA" value="241">Gabon (+241)</option>
+                                    <option data-countryCode="GM" value="220">Gambia (+220)</option>
+                                    <option data-countryCode="GE" value="7880">Georgia (+7880)</option>
+                                    <option data-countryCode="DE" value="49">Germany (+49)</option>
+                                    <option data-countryCode="GH" value="233">Ghana (+233)</option>
+                                    <option data-countryCode="GI" value="350">Gibraltar (+350)</option>
+                                    <option data-countryCode="GR" value="30">Greece (+30)</option>
+                                    <option data-countryCode="GL" value="299">Greenland (+299)</option>
+                                    <option data-countryCode="GD" value="1473">Grenada (+1473)</option>
+                                    <option data-countryCode="GP" value="590">Guadeloupe (+590)</option>
+                                    <option data-countryCode="GU" value="671">Guam (+671)</option>
+                                    <option data-countryCode="GT" value="502">Guatemala (+502)</option>
+                                    <option data-countryCode="GN" value="224">Guinea (+224)</option>
+                                    <option data-countryCode="GW" value="245">Guinea - Bissau (+245)</option>
+                                    <option data-countryCode="GY" value="592">Guyana (+592)</option>
+                                    <option data-countryCode="HT" value="509">Haiti (+509)</option>
+                                    <option data-countryCode="HN" value="504">Honduras (+504)</option>
+                                    <option data-countryCode="HK" value="852">Hong Kong (+852)</option>
+                                    <option data-countryCode="HU" value="36">Hungary (+36)</option>
+                                    <option data-countryCode="IS" value="354">Iceland (+354)</option>
+                                    <option data-countryCode="IN" value="91">India (+91)</option>
+                                    <option data-countryCode="ID" value="62">Indonesia (+62)</option>
+                                    <option data-countryCode="IR" value="98">Iran (+98)</option>
+                                    <option data-countryCode="IQ" value="964">Iraq (+964)</option>
+                                    <option data-countryCode="IE" value="353">Ireland (+353)</option>
+                                    <option data-countryCode="IL" value="972">Israel (+972)</option>
+                                    <option data-countryCode="IT" value="39">Italy (+39)</option>
+                                    <option data-countryCode="JM" value="1876">Jamaica (+1876)</option>
+                                    <option data-countryCode="JP" value="81">Japan (+81)</option>
+                                    <option data-countryCode="JO" value="962">Jordan (+962)</option>
+                                    <option data-countryCode="KZ" value="7">Kazakhstan (+7)</option>
+                                    <option data-countryCode="KE" value="254">Kenya (+254)</option>
+                                    <option data-countryCode="KI" value="686">Kiribati (+686)</option>
+                                    <option data-countryCode="KP" value="850">Korea North (+850)</option>
+                                    <option data-countryCode="KR" value="82">Korea South (+82)</option>
+                                    <option data-countryCode="KW" value="965">Kuwait (+965)</option>
+                                    <option data-countryCode="KG" value="996">Kyrgyzstan (+996)</option>
+                                    <option data-countryCode="LA" value="856">Laos (+856)</option>
+                                    <option data-countryCode="LV" value="371">Latvia (+371)</option>
+                                    <option data-countryCode="LB" value="961">Lebanon (+961)</option>
+                                    <option data-countryCode="LS" value="266">Lesotho (+266)</option>
+                                    <option data-countryCode="LR" value="231">Liberia (+231)</option>
+                                    <option data-countryCode="LY" value="218">Libya (+218)</option>
+                                    <option data-countryCode="LI" value="417">Liechtenstein (+417)</option>
+                                    <option data-countryCode="LT" value="370">Lithuania (+370)</option>
+                                    <option data-countryCode="LU" value="352">Luxembourg (+352)</option>
+                                    <option data-countryCode="MO" value="853">Macao (+853)</option>
+                                    <option data-countryCode="MK" value="389">Macedonia (+389)</option>
+                                    <option data-countryCode="MG" value="261">Madagascar (+261)</option>
+                                    <option data-countryCode="MW" value="265">Malawi (+265)</option>
+                                    <option data-countryCode="MY" value="60">Malaysia (+60)</option>
+                                    <option data-countryCode="MV" value="960">Maldives (+960)</option>
+                                    <option data-countryCode="ML" value="223">Mali (+223)</option>
+                                    <option data-countryCode="MT" value="356">Malta (+356)</option>
+                                    <option data-countryCode="MH" value="692">Marshall Islands (+692)</option>
+                                    <option data-countryCode="MQ" value="596">Martinique (+596)</option>
+                                    <option data-countryCode="MR" value="222">Mauritania (+222)</option>
+                                    <option data-countryCode="YT" value="269">Mayotte (+269)</option>
+                                    <option data-countryCode="MX" value="52">Mexico (+52)</option>
+                                    <option data-countryCode="FM" value="691">Micronesia (+691)</option>
+                                    <option data-countryCode="MD" value="373">Moldova (+373)</option>
+                                    <option data-countryCode="MC" value="377">Monaco (+377)</option>
+                                    <option data-countryCode="MN" value="976">Mongolia (+976)</option>
+                                    <option data-countryCode="MS" value="1664">Montserrat (+1664)</option>
+                                    <option data-countryCode="MA" value="212">Morocco (+212)</option>
+                                    <option data-countryCode="MZ" value="258">Mozambique (+258)</option>
+                                    <option data-countryCode="MN" value="95">Myanmar (+95)</option>
+                                    <option data-countryCode="NA" value="264">Namibia (+264)</option>
+                                    <option data-countryCode="NR" value="674">Nauru (+674)</option>
+                                    <option data-countryCode="NP" value="977">Nepal (+977)</option>
+                                    <option data-countryCode="NL" value="31">Netherlands (+31)</option>
+                                    <option data-countryCode="NC" value="687">New Caledonia (+687)</option>
+                                    <option data-countryCode="NZ" value="64">New Zealand (+64)</option>
+                                    <option data-countryCode="NI" value="505">Nicaragua (+505)</option>
+                                    <option data-countryCode="NE" value="227">Niger (+227)</option>
+                                    <option data-countryCode="NG" value="234">Nigeria (+234)</option>
+                                    <option data-countryCode="NU" value="683">Niue (+683)</option>
+                                    <option data-countryCode="NF" value="672">Norfolk Islands (+672)</option>
+                                    <option data-countryCode="NP" value="670">Northern Marianas (+670)</option>
+                                    <option data-countryCode="NO" value="47">Norway (+47)</option>
+                                    <option data-countryCode="OM" value="968">Oman (+968)</option>
+                                    <option data-countryCode="PW" value="680">Palau (+680)</option>
+                                    <option data-countryCode="PA" value="507">Panama (+507)</option>
+                                    <option data-countryCode="PG" value="675">Papua New Guinea (+675)</option>
+                                    <option data-countryCode="PY" value="595">Paraguay (+595)</option>
+                                    <option data-countryCode="PE" value="51">Peru (+51)</option>
+                                    <option data-countryCode="PH" value="63">Philippines (+63)</option>
+                                    <option data-countryCode="PL" value="48">Poland (+48)</option>
+                                    <option data-countryCode="PT" value="351">Portugal (+351)</option>
+                                    <option data-countryCode="PR" value="1787">Puerto Rico (+1787)</option>
+                                    <option data-countryCode="QA" value="974">Qatar (+974)</option>
+                                    <option data-countryCode="RE" value="262">Reunion (+262)</option>
+                                    <option data-countryCode="RO" value="40">Romania (+40)</option>
+                                    <option data-countryCode="RU" value="7">Russia (+7)</option>
+                                    <option data-countryCode="RW" value="250">Rwanda (+250)</option>
+                                    <option data-countryCode="SM" value="378">San Marino (+378)</option>
+                                    <option data-countryCode="ST" value="239">Sao Tome &amp; Principe (+239)</option>
+                                    <option data-countryCode="SA" value="966">Saudi Arabia (+966)</option>
+                                    <option data-countryCode="SN" value="221">Senegal (+221)</option>
+                                    <option data-countryCode="CS" value="381">Serbia (+381)</option>
+                                    <option data-countryCode="SC" value="248">Seychelles (+248)</option>
+                                    <option data-countryCode="SL" value="232">Sierra Leone (+232)</option>
+                                    <option data-countryCode="SG" value="65">Singapore (+65)</option>
+                                    <option data-countryCode="SK" value="421">Slovak Republic (+421)</option>
+                                    <option data-countryCode="SI" value="386">Slovenia (+386)</option>
+                                    <option data-countryCode="SB" value="677">Solomon Islands (+677)</option>
+                                    <option data-countryCode="SO" value="252">Somalia (+252)</option>
+                                    <option data-countryCode="ZA" value="27">South Africa (+27)</option>
+                                    <option data-countryCode="ES" value="34">Spain (+34)</option>
+                                    <option data-countryCode="LK" value="94">Sri Lanka (+94)</option>
+                                    <option data-countryCode="SH" value="290">St. Helena (+290)</option>
+                                    <option data-countryCode="KN" value="1869">St. Kitts (+1869)</option>
+                                    <option data-countryCode="SC" value="1758">St. Lucia (+1758)</option>
+                                    <option data-countryCode="SD" value="249">Sudan (+249)</option>
+                                    <option data-countryCode="SR" value="597">Suriname (+597)</option>
+                                    <option data-countryCode="SZ" value="268">Swaziland (+268)</option>
+                                    <option data-countryCode="SE" value="46">Sweden (+46)</option>
+                                    <option data-countryCode="CH" value="41">Switzerland (+41)</option>
+                                    <option data-countryCode="SI" value="963">Syria (+963)</option>
+                                    <option data-countryCode="TW" value="886">Taiwan (+886)</option>
+                                    <option data-countryCode="TJ" value="7">Tajikstan (+7)</option>
+                                    <option data-countryCode="TH" value="66">Thailand (+66)</option>
+                                    <option data-countryCode="TG" value="228">Togo (+228)</option>
+                                    <option data-countryCode="TO" value="676">Tonga (+676)</option>
+                                    <option data-countryCode="TT" value="1868">Trinidad &amp; Tobago (+1868)</option>
+                                    <option data-countryCode="TN" value="216">Tunisia (+216)</option>
+                                    <option data-countryCode="TR" value="90">Turkey (+90)</option>
+                                    <option data-countryCode="TM" value="7">Turkmenistan (+7)</option>
+                                    <option data-countryCode="TM" value="993">Turkmenistan (+993)</option>
+                                    <option data-countryCode="TC" value="1649">Turks &amp; Caicos Islands (+1649)
+                                    </option>
+                                    <option data-countryCode="TV" value="688">Tuvalu (+688)</option>
+                                    <option data-countryCode="UG" value="256">Uganda (+256)</option>
+                                    <!-- <option data-countryCode="GB" value="44">UK (+44)</option> -->
+                                    <option data-countryCode="UA" value="380"
+                                      >Ukraine (+380)</option
+                                    >
+                                    <option data-countryCode="AE" value="971"
+                                      >United Arab Emirates (+971)</option
+                                    >
+                                    <option data-countryCode="UY" value="598"
+                                      >Uruguay (+598)</option
+                                    >
+                                    <!-- <option data-countryCode="US" value="1">USA (+1)</option> -->
+                                    <option data-countryCode="UZ" value="7"
+                                      >Uzbekistan (+7)</option
+                                    >
+                                    <option data-countryCode="VU" value="678"
+                                      >Vanuatu (+678)</option
+                                    >
+                                    <option data-countryCode="VA" value="379"
+                                      >Vatican City (+379)</option
+                                    >
+                                    <option data-countryCode="VE" value="58"
+                                      >Venezuela (+58)</option
+                                    >
+                                    <option data-countryCode="VN" value="84"
+                                      >Vietnam (+84)</option
+                                    >
+                                    <option data-countryCode="VG" value="84"
+                                      >Virgin Islands - British (+1284)</option
+                                    >
+                                    <option data-countryCode="VI" value="84"
+                                      >Virgin Islands - US (+1340)</option
+                                    >
+                                    <option data-countryCode="WF" value="681"
+                                      >Wallis &amp; Futuna (+681)</option
+                                    >
+                                    <option data-countryCode="YE" value="969"
+                                      >Yemen (North)(+969)</option
+                                    >
+                                    <option data-countryCode="YE" value="967"
+                                      >Yemen (South)(+967)</option
+                                    >
+                                    <option data-countryCode="ZM" value="260"
+                                      >Zambia (+260)</option
+                                    >
+                                    <option data-countryCode="ZW" value="263"
+                                      >Zimbabwe (+263)</option
+                                    >
+                                  </optgroup></select
+                                >
+
+                                <input
+                                  type="text"
+                                  name="cust_dest_phone_number"
+                                  class="phone-no"
+                                  formControlName="cust_dest_phone_number"
+                                  placeholder="Number"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ui grid add-info">
+                          <div class="sixteen wide column row">
+                            <div class="sixteen wide column">
+                              <div class="ui styled accordion add-accord">
+                                <div class="title">
+                                  Address Details
+                                  <i class="dropdown icon"></i>
+                                </div>
+                                <div class="content">
+                                  <div class="ui grid">
+                                    <div class="sixteen wide column row">
+                                      <div class="six wide column">
+                                        <label>Address</label>
+                                        <div class="ui input fluid">
+                                          <input
+                                            type="text"
+                                            name="payAddress"
+                                            formControlName="payAddress"
+                                            placeholder="Address"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="six wide column">
+                                        <label>Street Name/Number</label>
+                                        <div class="ui input fluid">
+                                          <input
+                                            type="text"
+                                            name="payStreetNameNo"
+                                            formControlName="payStreetNameNo"
+                                            placeholder="Street Name / Number"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="sixteen wide column row">
+                                      <div class="six wide column">
+                                        <label>City</label>
+                                        <div class="ui input fluid">
+                                          <input
+                                            type="text"
+                                            name="payCity"
+                                            formControlName="payCity"
+                                            placeholder="City"
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="six wide column">
+                                        <label>State / Province</label>
+                                        <div class="ui input fluid">
+                                          <input
+                                            type="text"
+                                            name="payStateProvince"
+                                            formControlName="payStateProvince"
+                                            placeholder="State/Province"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="sixteen wide column row">
+                                      <div
+                                        class="six wide column billing_country"
+                                      >
+                                        <label>Country</label>
+                                        <select
+                                          class="ui fluid search dropdown"
+                                          formControlName="country"
+                                        >
+                                          <option
+                                            *ngFor="let country of countries"
+                                            value="{{ country.country_code }}"
+                                          >
+                                            {{ country.country }}</option
+                                          >
+                                        </select>
+                                      </div>
+                                      <div class="three wide column">
+                                        <label>Zip Code</label>
+                                        <div class="ui input fluid">
+                                          <input
+                                            type="text"
+                                            name="payPostalCode"
+                                            formControlName="payPostalCode"
+                                            placeholder="Postal Code"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="sixteen wide column row">
+                          <div class="thirteen wide column"></div>
+                          <div
+                            class="three wide column text-right bookings_btn-panel"
+                            style="float: right;"
+                          >
+                            <button
+                              class="ui primary button pax-grid_primary-btn"
+                              style="margin-bottom: 10px; margin-right: 15px;"
+                              type="submit" [class.loading]="bookNowLoader"
+                            >
+                              Book Now
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ui grid card-section">
+                      <div class="pax-grid payment-grid ui styled accordion">
+                        <div class="sixteen wide column row title">
+                          Payment information
+                          <i class="dropdown icon"></i>
+                        </div>
+                        <div class="content sixteen wide column row">
+                          <div class="ui grid">
+                            <p>Form of payment</p>
+                            <div class="sixteen wide column row">
+                              <div class="six wide column">
+                                <label>Mode of payment</label>
+                                <div class="ui selection dropdown fluid">
+                                  <input type="hidden" name="gender" />
+                                  <i class="dropdown icon"></i>
+                                  <div class="default text">Please Select</div>
+                                  <div class="menu">
+                                    <div
+                                      class="item"
+                                      (click)="setPaymentForm('cash')"
+                                      [attr.data-value]="1"
+                                    >
+                                      Cash
+                                    </div>
+                                    <div
+                                      class="item"
+                                      (click)="setPaymentForm('credit card')"
+                                      [attr.data-value]="0"
+                                    >
+                                      Credit Card
+                                    </div>
+                                    <div
+                                      class="item"
+                                      (click)="setPaymentForm('cash')"
+                                      [attr.data-value]="0"
+                                    >
+                                      Cheque
+                                    </div>
+                                    <div
+                                      class="item"
+                                      (click)="setPaymentForm('cash')"
+                                      [attr.data-value]="0"
+                                    >
+                                      Non ref
+                                    </div>
+                                    <div
+                                      class="item"
+                                      (click)="setPaymentForm('cash')"
+                                      [attr.data-value]="0"
+                                    >
+                                      Non remit
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="six wide column">
+                                <label>Tax / GST</label>
+                                <div class="ui input fluid">
+                                  <input
+                                    type="text"
+                                    name="taxGst"
+                                    formControlName="taxGst"
+                                    placeholder="Tax / GST"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                              <div class="four wide column">
+                                <label>Tax Number</label>
+                                <div class="ui input fluid">
+                                  <input
+                                    type="text"
+                                    name="taxNumber"
+                                    formControlName="taxNumber"
+                                    placeholder="Tax number"
+                                  />
+                                </div>
+                              </div>
+                              <div class="four wide column">
+                                <label>Email Address</label>
+                                <div class="ui input fluid">
+                                  <input
+                                    type="text"
+                                    name="taxEmail"
+                                    formControlName="taxEmail"
+                                    placeholder="Email address"
+                                    class="email"
+                                  />
+                                </div>
+                              </div>
+                              <div class="four wide column">
+                                <label>AgentReference</label>
+                                <div class="ui input fluid">
+                                  <input
+                                    type="text"
+                                    name="agentReference"
+                                    formControlName="agentReference"
+                                    placeholder="AgentReference"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- <hr class="pax-grid_pax-sep" /> -->
+                        <div class="sixteen wide column row">
+                          <div class="ui grid">
+                            <!-- <p>Billing address</p>
+                            <div class="ui checkbox mar-right-15px outer-checkbox">
+                              <input type="checkbox" name="same-check">
+                              <label for="same-check">
+                                Same as above
+                              </label>
+                            </div> -->
+                            <div class="sixteen wide column row">
+                              <div class="sixteen wide column">
+                                <label>Remarks</label>
+                                <div class="ui input fluid">
+                                  <textarea></textarea>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                              <div class="sixteen wide column terms_cond_block">
+                                <label>Terms and Conditions</label>
+                                <div class="ui checkbox">
+                                  <input
+                                    type="checkbox"
+                                    checked
+                                    title="Accept conditions"
+                                    name="terms_accept"
+                                  />
+                                  <label for="terms_accept"
+                                    >I have read and accept the rules and
+                                    restrictions.(Please check the box to click
+                                    continue)</label
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ui grid flights_footer-btn ">
+                          <div
+                            class="sixteen wide column row bookings_btn-panel"
+                          >
+                            <div
+                              class="sixteen  wide column text-right btn-panel"
+                            >
+                              <button
+                                type="button"
+                                class="ui secondary button"
+                                (click)="backToFlightHome()"
+                              >
+                                <i class="chevron left icon"></i> Back to Search
+                              </button>
+                              <button
+                                type="button"
+                                class="ui reset button"
+                                (click)="reset()"
+                              >
+                                Reset
+                              </button>
+                              <!-- <button type="submit" class="ui primary button" [disabled]="bookNowLoader">
+                                <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                                  *ngIf="bookNowLoader" />
+                                Send Reservation Request
+                              </button> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngFor="let fprsDetailsF of paxTicketDetails | keyvalue"
+              style="display: none"
+            >
+              <div *ngIf="fprsDetailsF.key == 'AirlineOffer'">
+                <div></div>
+                <div
+                  *ngFor="let ondFP of fprsDetailsF.value | keyvalue"
+                  class=" itenary-grid_border-left"
+                >
+                  <h6></h6>
+                  <div class="fares-break" (click)="showFaresBreakDown()">
+                    <p>Fare Breakdown</p>
+                    <img src="./../../../../../assets/img/arrow-down.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="four wide column fare_detail_block">
+          <form class="fare-summary-form">
+            <h4>Fare Summary</h4>
+            <div class="ui grid card-section">
+              <div *ngFor="let fprsDetails of paxTicketDetails | keyvalue">
+                <div *ngFor="let fprsDetails1 of fprsDetails.value | keyvalue">
+                  <div
+                    *ngFor="
+                      let fprsDetails2 of fprsDetails1.value['PricedOffer']
+                        ?.OfferPrice | keyvalue
+                    "
+                  >
+                    <div class="pax-grid _passenger">
+                      <div class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <div
+                            *ngFor="
+                              let pax1 of fprsDetails2.value['RequestedDate']
+                                .Associations | keyvalue
+                            "
+                          >
+                            <div
+                              *ngIf="
+                                pax1.value[
+                                  'AssociatedTraveler'
+                                ].TravelerReferences['text'].split(' ').length >
+                                1
+                              "
+                            >
+                              <div
+                                *ngFor="
+                                  let pax4 of pax1.value[
+                                    'AssociatedTraveler'
+                                  ].TravelerReferences['text'].split(' ')
+                                    | keyvalue
+                                "
+                              >
+                                ---
+                                {{
+                                  paxTicketDetails["DataLists"]
+                                    .AnonymousTravelersList[pax4.value].PTC[
+                                    "text"
+                                  ]
+                                }}
+                              </div>
+                            </div>
+                            <div
+                              *ngIf="{
+                                pax:
+                                  pax1.value['AssociatedTraveler']
+                                    .TravelerReferences['text']
+                              } as variable"
+                            >
+                              <p>
+                                <strong>
+                                  {{
+                                    (paxTicketDetails["DataLists"]
+                                      .AnonymousTravelersList[variable.pax]
+                                      ?.PTC)["text"]
+                                  }}
+                                </strong>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="ui grid detail-section">
+                          <div class="sixteen wide column row pb-0">
+                            <div class="nine wide column">
+                              <p>Base Fare</p>
+                            </div>
+                            <div class="seven wide column">
+                              <p>
+                                {{
+                                  fprsDetails2.value["RequestedDate"]
+                                    .PriceDetail["BaseAmount"].attributes[
+                                    "Code"
+                                  ]
+                                }}
+                                {{
+                                  fprsDetails2.value["RequestedDate"]
+                                    .PriceDetail["BaseAmount"].text
+                                    | number: "1.1-1"
+                                }}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row pb-0">
+                            <div class="nine wide column">
+                              <p>Fee & Taxes</p>
+                            </div>
+                            <div
+                              class="seven wide column"
+                              *ngFor="
+                                let taxFP of fprsDetails2.value['RequestedDate']
+                                  .PriceDetail['Taxes'] | keyvalue
+                              "
+                            >
+                              <p>
+                                {{ taxFP.value["Total"].attributes["Code"] }}
+                                {{
+                                  taxFP.value["Total"].text | number: "1.1-1"
+                                }}
+                              </p>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row pb-0">
+                            <div class="nine wide column">
+                              <p>
+                                <strong>Total</strong>
+                              </p>
+                            </div>
+                            <div class="seven wide column">
+                              <p>
+                                <strong
+                                  >{{
+                                    fprsDetails2.value["RequestedDate"]
+                                      .PriceDetail["TotalAmount"]
+                                      .DetailCurrencyPrice["Total"].attributes[
+                                      "Code"
+                                    ]
+                                  }}
+                                  {{
+                                    fprsDetails2.value["RequestedDate"]
+                                      .PriceDetail["TotalAmount"]
+                                      .DetailCurrencyPrice["Total"].text
+                                      | number: "1.1-1"
+                                  }}</strong
+                                >
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="pax-grid bookings_btn-panel">
+                <button class="ui primary button">Book</button>
+              </div> -->
+            </div>
+          </form>
+        </div>
+        <div class="ui grid" style="display: none">
+          <div
+            class="thirteen wide column mb-p-0"
+            *ngFor="let fprsDetails of paxTicketDetails | keyvalue"
+          >
+            <div class="row" *ngIf="fprsDetails.key == 'AirlineOffer'">
+              <div
+                class="sixteen wide column"
+                *ngFor="let ondFP of fprsDetails.value | keyvalue"
+              >
+                <div class="ui blue message fares-panel hidden">
+                  <h4>Fare Breakdown</h4>
+                  <span>
+                    <strong
+                      >Flight price: (For all passengers, including taxes)
+                    </strong></span
+                  >
+                  <table class="ui tablet stackable table">
+                    <thead>
+                      <tr>
+                        <th>Pax type</th>
+                        <th>Quantity</th>
+                        <th>Base Amount</th>
+                        <th>Tax</th>
+                        <th>Total to be paid</th>
+                      </tr>
+                    </thead>
+                    <!-- <tbody>
+                      <tr *ngFor="let ondFP1 of ondFP.value['PricedOffer'].OfferPrice | keyvalue">
+                        <td>
+                          <div
+                            *ngIf="{paxType : ondFP1.value['RequestedDate'].Associations[0].AssociatedTraveler['TravelerReferences'].text?.split(' ')[0]} as variable">
+                            <div *ngFor="let fprsDetails of paxTicketDetails | keyvalue">
+                              <div *ngIf="fprsDetails.key == 'DataLists' ">
+                                {{fprsDetails.value['AnonymousTravelersList'][variable.paxType].PTC['text']}}
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          {{ondFP1.value['RequestedDate'].Associations[0].AssociatedTraveler['TravelerReferences'].text?.split(' ').length}}
+                        </td>
+                        <td>
+                          {{ondFP1.value['RequestedDate'].PriceDetail.BaseAmount['text'] | number:'1.1-1'}}
+                          {{ondFP1.value['RequestedDate'].PriceDetail.BaseAmount['attributes'].Code}}
+                        </td>
+                        <td>
+                          {{ondFP1.value['RequestedDate'].PriceDetail.Taxes[0].Total['text'] | number:'1.1-1'}}
+                          {{ondFP1.value['RequestedDate'].PriceDetail.Taxes[0].Total['attributes'].Code}}
+                        </td>
+                        <td>
+                          {{ondFP1.value['RequestedDate'].PriceDetail['TotalAmount'].DetailCurrencyPrice['Total'].text | number:'1.1-1'}}
+                          {{ondFP1.value['RequestedDate'].PriceDetail['TotalAmount'].DetailCurrencyPrice['Total'].attributes['Code']}}
+
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong>Total</strong>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                          <strong>
+                            {{ondFP.value['TotalPrice'].DetailCurrencyPrice['Total'].text | number:'1.1-1'}}
+                            {{ondFP.value['TotalPrice'].DetailCurrencyPrice['Total'].attributes['Code']}}
+                          </strong>
+                        </td>
+                      </tr>
+                    </tbody> -->
+                  </table>
+                  <span
+                    >* Additional fees may apply depending on your selected form
+                    of payment</span
+                  >
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="twelve wide column">
+                        <div class="ancillary-section">
+                          <p class="add-anc-text">Add Alacarte Services1:</p>
+                          <a (click)="showMealModal('meal-modal')">
+                            <span>+ Meal</span>
+                          </a>
+                          <a (click)="showBaggageModal('baggage-modal')">
+                            <span>+ Baggage</span>
+                          </a>
+                          <a (click)="showDisabilityModal('disability-modal')">
+                            <span>+ Special Assistance</span>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="four wide column fare-detail-link">
+                        <a (click)="showFareDetails('fare_details')"
+                          >Fare & Baggage Details</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              *ngFor="let fprsDetails of paxTicketDetails | keyvalue"
+              style="display: none"
+            >
+              <div *ngIf="fprsDetails.key == 'AirlineOffer'">
+                <div></div>
+                <div
+                  *ngFor="let ondFP of fprsDetails.value | keyvalue"
+                  class=" itenary-grid_border-left"
+                >
+                  <h6></h6>
+                  <div class="fares-break" (click)="showFaresBreakDown()">
+                    <p>Fare Breakdown</p>
+                    <img src="./../../../../../assets/img/arrow-down.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <jw-modal id="brand_disclosure" class="modal brand_disclosure">
+    <div class="ui">
+      <h2>Fare & Baggage Details</h2>
+      <i class="close icon" (click)="closeModal('brand_disclosure')"></i>
+      <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Checked Bag
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Carry Bag
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Changes
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Refund
+          </div>
+          <div class="eight wide column right">
+            <span class="price">&#36;</span>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Seating
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Meals
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Wi-Fi
+          </div>
+          <div class="eight wide column right">
+            <span class="price">&#36;</span>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Miles Accural
+          </div>
+          <div class="eight wide column right">
+            <div class="ui checkbox">
+              <input type="checkbox" checked title="Free" />
+              <label></label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="eight wide column">
+            Lounge
+          </div>
+          <div class="eight wide column right">
+            <span class="price">&#36;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <jw-modal id="fare_details" class="modal fare_details">
+    <div class="ui">
+      <h2>Fare & Baggage Details</h2>
+      <i class="close icon" (click)="closeModal('fare_details')"></i>
+      <div class="ui top attached tabular menu">
+        <div class="active item mini-fare-tab" data-tab="mini-fare-tab">
+          Mini Fare Rules
+        </div>
+        <div class="item baggage-tab" data-tab="baggage-tab">Baggage</div>
+        <div class="item fare-tab" data-tab="fare-tab">Fare Rules</div>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="baggage-tab">
+        <div class="ui fluid container">
+          <div class="outer-form">
+            <div class="ui styled accordion">
+              <div class="title">
+                DXB - COK
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content">
+                <table class="single line table ui">
+                  <thead>
+                    <tr>
+                      <td>Passenger Type</td>
+                      <td>Check-in Baggage</td>
+                      <td>Cabin Baggage</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ADT</td>
+                      <td>30Kg</td>
+                      <td>7Kg</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="title">
+                COK - DXB
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content">
+                <table class="single line table ui">
+                  <thead>
+                    <tr>
+                      <td>Passenger Type</td>
+                      <td>Check-in Baggage</td>
+                      <td>Cabin Baggage</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ADT</td>
+                      <td>30Kg</td>
+                      <td>7Kg</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="total-fare-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column">
+                    <span class="total">Total Trip Fare: </span>
+                    <span class="amt">AED 1840.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui bottom attached tab segment" data-tab="fare-tab">
+        <div class="ui fluid container">
+          <div class="outer-form">
+            <div class="ui styled accordion">
+              <div class="title">
+                DXB - COK
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content">
+                <div class="rules-block">
+                  <h3>Fare Rules and Other Conditions</h3>
+                  <p>
+                    NOTE THE FOLLOWING TEXT IS INFORMATIONAL AND NOT VALIDATED
+                    FOR AUTOPRICING. ETIHAD AIRWAYS FARES PUBLIC TACTICAL
+                    AUHT107 APPLICATION AREA THESE FARES APPLY FROM UNITED ARAB
+                    EMIRATES. CLASS OF SERVICE THESE FARES APPLY FOR
+                    BUSINESS/ECONOMY CLASS SERVICE. TYPES OF TRANSPORTATION THIS
+                    RULE GOVERNS ROUNDTRIP FARES. FARES GOVERNED BY THIS RULE
+                    CAN BE USED TO CREATE ROUNDTRIP/CIRCLETRIP/OPENJAW JOURNEYS.
+                    FULL AND SEQUENTIAL USE OF FLIGHT COUPONS THE TICKET /OR
+                    ELECTRONIC TICKET/ IS NOT VALID IF THE FIRST COUPON HAS NOT
+                    BEEN USED AND WILL NOT BE HONORED IF ALL THE COUPONS ARE NOT
+                    USED IN THE SEQUENCE PROVIDED IN THE TICKET /OR ELECTRONIC
+                    TICKET/. WHERE A ETIHAD TICKET OFFICE OR OUR CALL CENTER
+                    MAKE NEW BOOKING OR MAKE CHANGES TO TICKETS ISSUED BY TRAVEL
+                    AGENCIES OR THROUGH OUR WEBSITE OR IN RESPECT OF ANY TICKET
+                    REFUND A GLOBAL SERVICE FEE GSF WILL BE APPLIED DEPENDING ON
+                    THE FARE CHOICE SELECTED AND ON THE COUNTRY OF DEPARTURE AND
+                    DESTINATION. CURRENTLY THE GSF FOR TICKETING RANGES FROM 25
+                    TO 100 USD FOR TICKET CHANGES IT RANGES FROM 20 TO 60 USD
+                    AND FOR REFUND ADMINISTRATION THE FEE RANGE IS 20 TO 35 USD.
+                    THE GSF IS NONREFUNDABLE AND THE EXACT GSF APPLICABLE TO
+                    YOUR TICKET IS AVAILABLE ON REQUEST. CAPACITY LIMITATIONS
+                    THE CARRIER SHALL LIMIT THE NUMBER OF PASSENGERS CARRIED ON
+                    ANY ONE FLIGHT AT FARES GOVERNED BY THIS RULE AND SUCH FARES
+                    WILL NOT NECESSARILY BE AVAILABLE ON ALL FLIGHTS.
+                  </p>
+                </div>
+              </div>
+              <div class="title">
+                COK - DXB
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content">
+                <div class="rules-block">
+                  <h3>Fare Rules and Other Conditions</h3>
+                  <p>
+                    NOTE THE FOLLOWING TEXT IS INFORMATIONAL AND NOT VALIDATED
+                    FOR AUTOPRICING. ETIHAD AIRWAYS FARES PUBLIC TACTICAL
+                    AUHT107 APPLICATION AREA THESE FARES APPLY FROM UNITED ARAB
+                    EMIRATES. CLASS OF SERVICE THESE FARES APPLY FOR
+                    BUSINESS/ECONOMY CLASS SERVICE. TYPES OF TRANSPORTATION THIS
+                    RULE GOVERNS ROUNDTRIP FARES. FARES GOVERNED BY THIS RULE
+                    CAN BE USED TO CREATE ROUNDTRIP/CIRCLETRIP/OPENJAW JOURNEYS.
+                    FULL AND SEQUENTIAL USE OF FLIGHT COUPONS THE TICKET /OR
+                    ELECTRONIC TICKET/ IS NOT VALID IF THE FIRST COUPON HAS NOT
+                    BEEN USED AND WILL NOT BE HONORED IF ALL THE COUPONS ARE NOT
+                    USED IN THE SEQUENCE PROVIDED IN THE TICKET /OR ELECTRONIC
+                    TICKET/. WHERE A ETIHAD TICKET OFFICE OR OUR CALL CENTER
+                    MAKE NEW BOOKING OR MAKE CHANGES TO TICKETS ISSUED BY TRAVEL
+                    AGENCIES OR THROUGH OUR WEBSITE OR IN RESPECT OF ANY TICKET
+                    REFUND A GLOBAL SERVICE FEE GSF WILL BE APPLIED DEPENDING ON
+                    THE FARE CHOICE SELECTED AND ON THE COUNTRY OF DEPARTURE AND
+                    DESTINATION. CURRENTLY THE GSF FOR TICKETING RANGES FROM 25
+                    TO 100 USD FOR TICKET CHANGES IT RANGES FROM 20 TO 60 USD
+                    AND FOR REFUND ADMINISTRATION THE FEE RANGE IS 20 TO 35 USD.
+                    THE GSF IS NONREFUNDABLE AND THE EXACT GSF APPLICABLE TO
+                    YOUR TICKET IS AVAILABLE ON REQUEST. CAPACITY LIMITATIONS
+                    THE CARRIER SHALL LIMIT THE NUMBER OF PASSENGERS CARRIED ON
+                    ANY ONE FLIGHT AT FARES GOVERNED BY THIS RULE AND SUCH FARES
+                    WILL NOT NECESSARILY BE AVAILABLE ON ALL FLIGHTS.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="total-fare-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column">
+                    <span class="total">Total Trip Fare: </span>
+                    <span class="amt">AED 1840.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ui bottom attached active tab segment"
+        data-tab="mini-fare-tab"
+      >
+        <div class="ui fluid container">
+          <div class="outer-form">
+            <div class="ui styled accordion">
+              <div class="title active">
+                DXB - COK
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content active">
+                <table class="single line table ui">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Before Departure</td>
+                      <td>No-Show</td>
+                      <td>After Departure</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fee">Cancellation Fee*</td>
+                      <td>AED 190.00</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                    </tr>
+                    <tr>
+                      <td class="fee">Change Fee*</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="title">
+                COK - DXB
+                <i class="dropdown icon"></i>
+              </div>
+              <div class="content">
+                <table class="single line table ui">
+                  <thead>
+                    <tr>
+                      <td></td>
+                      <td>Before Departure</td>
+                      <td>No-Show</td>
+                      <td>After Departure</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="fee">Cancellation Fee*</td>
+                      <td>AED 190.00</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                    </tr>
+                    <tr>
+                      <td class="fee">Change Fee*</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                      <td>AED 240.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="total-fare-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column">
+                    <span class="total">Total Trip Fare: </span>
+                    <span class="amt">AED 1840.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <app-meal-service></app-meal-service>
+  <app-baggage-service></app-baggage-service>
+  <app-disability-service></app-disability-service>
+  <jw-modal id="seat-map" class="seat-map">
+    <i class="close icon" (click)="closeModal('seat-map')"></i>
+    <app-seat-map></app-seat-map>
+  </jw-modal>
+</div>

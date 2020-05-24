@@ -1,0 +1,248 @@
+<div class="outer-segment">
+  <div class="users_list">
+    <h3 class="user_title">List All Users</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item b2b_title" data-tab="first">B2B/B2C</div>
+  </div>
+  <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+      <div class="ui segment">
+    <div class="ui fluid container">
+      <div class="ui form">
+        <form [formGroup]="filterForm" (ngSubmit)="filterFormSubmit()" class="ui form ">
+          <div class="four fields search-field-section">
+            <div class="four wide field">
+              <select class="ui fluid search dropdown" formControlName="organisation_id">
+                <option value="all">All Organisation</option>
+                <option *ngFor="let organization of organizations;" value="{{organization.organisation_id}}">
+                  <!-- {{organization.name +' - '+organization.agent_code}} -->
+                  {{organization.name}}
+                </option>
+              </select>
+            </div>
+            <div class="three wide field">
+              <input type="text" placeholder="Username/ Name/ Email/ Agent code" formControlName="usernameAndAgentCode">
+            </div>
+            <div class="seven wide field bookings_btn-panel">
+              <button class="ui primary button">
+                Filter UserList
+              </button>
+              <button class="ui secondary reset button" (click)="filterFormReset()">
+                Reset Filter
+              </button>
+            </div>
+            <div class="two wide field">
+              <div class="upload_add_print">
+                <div class="addUser_img" title="Add New User">
+                  <a routerLink="/user-role-management/create-user"><img class="ui image "
+                      src="./../../../../assets/img/add-user.png" /></a>
+                </div>
+                <!-- <div class="print_img" title="Export" (click)="exportData()"><img class="ui image"
+                    src="./../../../../assets/img/download.png" />
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="ui segment">
+          <div class="two fields search-section">
+            <div class="eight wide field">
+              <h4 class="ui small header main_head">User List</h4>
+            </div>
+            <div class="eight wide field bookings_btn-panel">
+              <button class="ui export button" (click)="exportData()" title="Export">
+                  Export
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class=" result-block">
+          <div class="user-table-list b2c-list-user-table user-loader">
+            <div class="ui active inverted dimmer user-loader" *ngIf="userLoader">
+              <div class="ui text loader">Loading Users ...</div>
+            </div>
+            <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              [rowHeight]="'auto'" [rows]='users' [sortType]="'multi'" [reorderable]="true" [externalPaging]="true"
+              [count]="totalUsers" [offset]="page" [sorts]="[{prop: 'created', dir: 'desc'}]"
+              (page)="pageCallback($event)">
+              <ngx-datatable-column name="User Type" prop="organisation">
+                <ng-template ngx-datatable-cell-template let-value="value">{{value.name}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Name" prop="first_name">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Username" prop="username">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Date&Time Created" prop="created">
+                <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}</ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Email" prop="email">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <a class="nav-link edit" (click)="viewUser(row)" title="Preview User">
+                    {{row.email}}
+                    <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->
+                  </a>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Agent Code" prop="agent_code">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Status" prop="is_active">
+                <!-- <ng-template ngx-datatable-cell-template let-value="value" let-row="row"  >
+                  <span *ngIf="value == 1" (click)="statusToggle(row)"><i class="icon" title="Active">
+                      <img src="./.././../../../assets/icons/tick.png" class="bookings_input__placeholder-icon cal" />
+                    </i></span>
+                  <span *ngIf="value != 1" (click)="statusToggle(row)">
+                    <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i>
+                  </span>
+                </ng-template> -->
+                <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                  <span *ngIf="value == 1" (click)="statusToggle(row)"><i class="icon" title="click to deactivate">
+                      <img src="./../../../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i></span>
+                  <span *ngIf="value != 1" (click)="statusToggle(row)">
+                    <i class="icon" title="click to activate">
+                      <img src="./../../../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i>
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Action">
+                <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                  <a class="nav-link edit" (click)="editUser(row)" title="Edit User">
+                    <i class="icon">
+                      <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                    </i>
+                  </a>
+                  &nbsp;
+                  <a class="nav-link edit" (click)="deleteUser(row)" title="Delete User">
+                    <i class="icon">
+                      <img src="./../../../../../assets/icons/delete-button.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i>
+                  </a>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment tabContent-block" data-tab="second">
+    <div class="ui fluid container">
+      <div class="ui form">
+        <div class="four fields">
+          <div class="four wide field">
+            <select class="ui dropdown">
+              <option value="">All Corporate</option>
+              <option value="1">-----</option>
+              <option value="0">-----</option>
+            </select>
+          </div>
+          <div class="three wide field">
+            <input type="text" placeholder="Username/Employee ID">
+          </div>
+          <div class="three wide field">
+            <button class="ui left floated button search_btn" tabindex="0">
+              <span class="search_text">Search</span>
+            </button>
+          </div>
+          <div class="four wide field">
+            <div class="ui test small toggle checkbox staff-btn-toggle">
+              <input type="checkbox" name="public" checked="checked">
+              <label>Awaiting approval</label>
+            </div>
+          </div>
+          <div class="three wide field">
+            <div class="upload_add_print">
+              <div class="upload_img"><img class="ui image" src="./../../../../assets/img/upload.png" />
+              </div>
+              <div class="addUser_img"><img class="ui image" src="./../../../../assets/img/add-user.png" /></div>
+              <div class="print_img"><img class="ui image" src="./../../../../assets/img/download.png" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user-table-list b2c-list-user-table">
+          <table class="ui stackable celled table">
+            <thead>
+              <tr class="center aligned">
+                <th>S/no</th>
+                <th>Department</th>
+                <th>Name</th>
+                <th>Username/Employee ID</th>
+                <th>Email</th>
+                <th>Corporate</th>
+                <th>Register Date</th>
+                <th>Last Login</th>
+                <th>Balance</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="department">----</td>
+                <td data-label="name">------</td>
+                <td data-label="username">------</td>
+                <td data-label="email">------</td>
+                <td data-label="corporate">-------</td>
+                <td data-label="registerDate">-------</td>
+                <td data-label="lastLogin">-----</td>
+                <td data-label="balance">-----</td>
+                <td data-label="action">
+                  <i class="icon"><img class="flights_input__placeholder-icon"
+                      src="./../../../../assets/img/edit.png" /></i>
+                  <i class="icon"><img class="flights_input__placeholder-icon"
+                      src="./../../../../assets/img/check-mark.png" /></i>
+                  <i class="icon"><img class="flights_input__placeholder-icon"
+                      src="./../../../../assets/img/delete-button.png" /></i>
+                </td>
+              </tr>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="department">----</td>
+                <td data-label="name">------</td>
+                <td data-label="username">------</td>
+                <td data-label="email">------</td>
+                <td data-label="corporate">-------</td>
+                <td data-label="registerDate">-------</td>
+                <td data-label="lastLogin">-----</td>
+                <td data-label="balance">-----</td>
+                <td data-label="action">-----</td>
+              </tr>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="department">----</td>
+                <td data-label="name">------</td>
+                <td data-label="username">------</td>
+                <td data-label="email">------</td>
+                <td data-label="corporate">-------</td>
+                <td data-label="registerDate">-------</td>
+                <td data-label="lastLogin">-----</td>
+                <td data-label="balance">-----</td>
+                <td data-label="action">-----</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="10">
+                  <div class="ui right floated pagination menu">
+                    <a class="icon item"><i class="left chevron icon"></i></a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">3</a>
+                    <a class="item">4</a>
+                    <a class="icon item"><i class="right chevron icon"></i></a>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

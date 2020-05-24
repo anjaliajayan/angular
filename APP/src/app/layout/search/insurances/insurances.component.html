@@ -1,0 +1,233 @@
+<div class="insurance card-wrapper animated fadeInUp">
+    <div class="container">
+        <h3 class="insurance_title">Insurance</h3>
+    </div>
+    <div class="ui bottom attached active tab segment">
+        <form [formGroup]="searchForm" *ngIf="!isSearchCompleted" (ngSubmit)="btnSearchHandler()">
+            <div class="conatiner-fluid">
+                <div class="ui grid">
+                    <div class="sixteen wide column row">
+                        <div class="sixteen wide column insurance-grid">
+                            <div class="ui grid insurance-search-block">
+                                <div class="sixteen wide column row">
+                                    <div class="eight wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.country.errors}">
+                                        <label>Departure Country<span class="mandatory">*</span></label>
+                                        <select class="ui fluid search dropdown" formControlName="country" required>
+                                            <option value=""> Select Country</option>
+                                            <option *ngFor="let country of countries" value="{{country.country}}">
+                                                {{country.country}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="eight wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.depart_country.errors}">
+                                        <label>Destination Country<span class="mandatory">*</span></label>
+                                        <select class="ui fluid search dropdown" formControlName="depart_country" required>
+                                            <option value=""> Select Country</option>
+                                            <option *ngFor="let country of countries" value="{{country.country}}">
+                                                {{country.country}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="eight wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.startDate.errors}">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="twelve wide column">
+                                                    <label>Date of Departure<span class="mandatory">*</span></label>
+                                                    <div class="ui left icon input fluid">
+                                                        <input type="text" placeholder="Date of Departure" autocomplete="off"
+                                                            formControlName="startDate" name="startDate" value=""
+                                                            required />
+                                                        <i class="icon">
+                                                            <img src="./../../../../../assets/icons/calendar.svg"
+                                                                class="pass_input__placeholder-icon cal" />
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eight wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.endDate.errors}">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="twelve wide column">
+                                                    <label>Date of Return <span class="mandatory">*</span></label>
+                                                    <div class="ui left icon input fluid">
+                                                        <input type="text" placeholder="Date of Return" autocomplete="off"
+                                                            formControlName="endDate" name="endDate" value=""
+                                                            required />
+                                                        <i class="icon">
+                                                            <img src="./../../../../../assets/icons/calendar.svg"
+                                                                class="pass_input__placeholder-icon cal" />
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="eight wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="twelve wide column">
+                                                    <label>Plan Type</label>
+                                                    <select class="ui fluid search dropdown" formControlName="plan" >
+                                                        <option class="item" value="">All</option>
+                                                        <option class="item" value="SHWALL">All</option>
+                                                        <option value="HJUPNA">Hajj &amp; Umrah Plan A</option>
+                                                        <option value="HJUPNB">Hajj &amp; Umrah Plan B</option>
+                                                        <option value="STDGLD">Student Gold</option>
+                                                        <option value="STDSVR">Student Silver</option>
+                                                        <option value="STDPTN">Student Platinum</option>
+                                                        <option value="STDBNZ">Student Bronze</option>
+                                                        <option value="DMCGLD">Domestic Gold</option>
+                                                        <option value="DMCSVR">Domestic Silver</option>
+                                                        <option value="DMCPTN">Domestic Platinum</option>
+                                                        <option value="DMCBNZ">Domestic Bronze</option>
+                                                        <option value="ZRTPNA">Ziarat Plan A</option>
+                                                        <option value="ZRTPNB">Ziarat Plan B</option>
+                                                        <option value="HMETRP" label="Home Trip">Home Trip</option>
+                                                        <option value="REFWRD" label="Rest Of The World">Rest Of The World</option>
+                                                        <option value="INTRNL" label="International">International</option>
+                                                        <option value="SCHNGN" label="Schengen">Schengen</option>
+                                                        <option value="NOICNG" label="No Icing">No Icing</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="eight wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="twelve wide column">
+                                                    <label>Policy Type </label>
+                                                    <!-- <div class="ui selection dropdown select"> -->
+                                                    <select class="ui fluid search dropdown" formControlName="product"    >
+                                                  <option class="item" value="">Individual</option>
+                                                        <option class="item" value="020107" selected>Individual</option>
+                                                        <option class="item" value="020108">Family</option>
+                                                    </select>
+                                                      
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                <div class="sixteen wide column row adult-child-wrapper">
+                                <div class="eight wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.birthDate.errors}" >
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="twelve wide column">
+                                                <label>Date of Birth <span class="mandatory">*</span></label>
+                                                <div class="ui left icon input fluid">
+                                                    <input type="text" placeholder="Date Of birth" autocomplete="off"
+                                            formControlName="birthDate" name="birthDate" value=""
+                                            required />
+                                                    <i class="icon">
+                                                        <img src="./../../../../../assets/icons/calendar.svg"
+                                                            class="pass_input__placeholder-icon cal" />
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                   <div class="eight wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="five wide column" *ngIf="searchForm.controls['product'].value === '020108'">
+                                                    <label>Adult</label>
+                                                <div>
+                                                        <select class="ui fluid search dropdown"
+                                                            formControlName="adult" required>
+                                                          
+                                                            <option value="1" >1</option>
+                                                            <option value="2"
+                                                            
+                                                            
+                                                         >2</option>
+
+                                                           
+                                                    </select>
+                                                </div>
+                                                </div>
+                                              <div class="five wide column" *ngIf="searchForm.controls['product'].value === '020108'
+                                              && searchForm.controls['plan'].value != 'STDGLD' 
+                                              && searchForm.controls['plan'].value != 'STDSVR' 
+                                              && searchForm.controls['plan'].value != 'STDPTN' 
+                                              && searchForm.controls['plan'].value != 'STDBNZ'
+                                              && searchForm.controls['plan'].value != 'HJUPNA'
+                                              && searchForm.controls['plan'].value != 'HJUPNB'
+                                          " >
+                                                    <label>Child</label>
+                                                    <div>
+                                                        <select class="ui fluid search dropdown" formControlName="child" >
+                                                            <!-- <option value="">Child</option> -->
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                            <option value="3">3</option>
+                                                            <option value="4">4</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                                <div class="sixteen wide column row nation-block">
+                                    <div class="eight wide column">
+                                        <label>Multi</label>
+                                        <select placeholder="Select option"  class="ui dropdownThree fluid search multiple_search"
+                                         multiple=""  formControlName="benefit">     
+                                          <!-- <option value="" disabled selected>Select option</option> -->
+                                          <option value="000000" label="No Extras" selected>No Extras</option>                            
+						                  <option value="HZDWSP" label="Hazardous & Winter Sports">Hazardous & Winter Sports</option> 
+                                          <option value="TEROSM" label="Terrorism">Terrorism</option>                            
+                                          <option value="TRMWSP" label="Terrorism & Winter Sports">Terrorism & Winter Sports</option>  
+                                        </select>
+                                    </div>
+                                    <div class="eight wide column">
+                                        <div class="ui grid markup-wrapper">
+                                            <div class="sixteen wide column row">
+                                             
+
+                                                <div class="six wide column">
+                                                    <label>Markup By</label>
+                                                    <select   class="ui dropdownThree fluid search "
+                                                       formControlName="markupby">     
+                                                      <!-- <option value="" disabled selected>Select option</option> -->
+                                                      
+                                                      <option value="by_amount" selected>Amount</option>                            
+                                                      <option value="by_percentage">Percentage</option>  
+                                                    </select>
+                                                </div>
+                                                <div class="six wide column">
+                                                    <label>Markup Value</label>
+                                                    <div class="ui input fluid">
+                                                        <input type="number" placeholder="Markup Value"
+                                                            formControlName="markupvalue" name="markupvalue" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="sixteen wide column bookings_btn-panel">
+                                        <button class="ui primary button">
+                                            <i *ngIf="searchInsuranceSpinner" class="fa fa-spinner fa-spin"></i>Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<app-insurance-list [insuranceSearchCriteria]="insuranceSearchCriteria" *ngIf="isSearchCompleted"
+    [insuranceList]="insuranceList"></app-insurance-list>

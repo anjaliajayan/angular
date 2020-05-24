@@ -1,0 +1,204 @@
+<app-reshop-results *ngIf="displayReshopResult" [preReshopObj]="preReshopPersistentObj"></app-reshop-results>
+<ng-container *ngIf="!displayReshopResult">
+  <h3><span class="booking-header">Your Previous Booking</span></h3>
+  <div class="ui fluid container">
+    <div class="outer-basic animated fadeIn">
+      <div class="outer-basicForm">
+        <div class="ui grid">
+          <div class="sixteen wide column row bookings-header">
+            <div class="one wide column">
+            </div>
+            <div class="ui thirteen wide column grid">
+              <div class="one wide column">
+                &nbsp;
+              </div>
+              <div class="five wide column">
+                <p class="bookings-header_title">From</p>
+              </div>
+              <div class="five wide column">
+                <p class="bookings-header_title">To</p>
+              </div>
+              <div class="two wide column">
+                <p class="bookings-header_title">Date</p>
+              </div>
+              <div class="one wide column">
+                <p class="bookings-header_title">Class</p>
+              </div>
+              <div class="two wide column">
+                <p class="bookings-header_title">Cabin</p>
+              </div>
+            </div>
+            <div class="two wide column"></div>
+          </div>
+
+          <!-- Here is a loop on segments -->
+          <div class="sixteen wide row bookings-column"
+            *ngFor="let prevBooking of prevBookingList; let prevBookingIndex = index">
+            <div class="one wide column">
+              <div class="ui checkbox">
+                <input type="checkbox" id="reshop-previous-{{prevBookingIndex}}" name="flight_search"
+                  [checked]="prevBooking.checked" (change)="toggleSelection(prevBookingList)">
+                <label></label>
+              </div>
+            </div>
+            <div class="ui thirteen wide column grid _border" [ngClass]="prevBooking.checked?' _active':''"
+              (click)="toggleSelection(prevBookingList)">
+              <div class="sixteen wide row bookings-column"
+                *ngFor="let segment of prevBooking.SegmentList; let segmentIndex = index">
+                <div class="one wide column">
+                  <img src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{segment.logo}}.png">
+                </div>
+                <div class="five wide column">
+                  <p class="bookings-column_title">{{ segment.Departure.AirportName }}</p>
+                </div>
+                <div class="five wide column">
+                  <p class="bookings-column_title">{{ segment.Arrival.AirportName }}</p>
+                </div>
+                <div class="two wide column">
+                  <p class="bookings-column_title">{{ segment.Departure.Date }}</p>
+                </div>
+                <div class="one wide column">
+                  <p class="bookings-column_title">{{ segment.classCode }}</p>
+                </div>
+                <div class="two wide column">
+                  <p class="bookings-column_title">{{ segment.className }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <button class="ui primary button" [ngClass]="prevBooking.checked?'':' basic'"
+                (click)="toggleSelection(prevBookingList)">{{ prevBooking.checked?'Selected':'Select' }}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-container *ngIf="newBookingList.length > 0">
+    <h3><span class="booking-header">Flight Criteria</span></h3>
+    <div class="ui fluid container reshop-mod">
+      <div class="outer-basic reshop-card animated fadeIn delay-1s">
+        <div class="outer-basicForm">
+          <!-- <div class="ui grid">
+            <div class="sixteen wide column row flight-reshop">
+              <div class="one wide column"></div>
+              <div class="four wide column">
+                <p class="flight-reshop_title">From</p>
+              </div>
+              <div class="four wide column">
+                <p class="flight-reshop_title">To</p>
+              </div>
+              <div class="three wide column date">
+                <p class="flight-reshop_title">Date</p>
+              </div>
+              <div class="two wide column">
+                <p class="flight-reshop_title">Cabin</p>
+              </div>
+            </div>
+          </div> -->
+          <form [formGroup]="reshopFlightSearchForm">
+            <div class="ui grid flights_pickers" formArrayName="ondArr"
+              *ngFor="let ond of reshopFlightSearchForm.get('ondArr')['controls']; let i = index">
+              <div class="sixteen wide column row" [formGroupName]="i">
+                <div class="one wide column"></div>
+                <div class="four wide column">
+                  <label class="flights_label">Departure airport</label>
+                  <div class="ui right action labeled left icon input">
+                    <i class="icon depart"><img class="flights_input__placeholder-icon"
+                        src="./../../../../assets/icons/airline-dep.svg" /></i>
+                    <div class="ui selection dropdown border-right-0" (click)="filterDepartures(i)"
+                      [ngClass]="{error: isSubmitted && ond['controls']['departure'].invalid}">
+                      <mat-form-field class="airport-dropdown">
+                        <input (click)="checkPlaceHolderDeparture(ond['controls']['departure'].value)"
+                          (blur)="checkPlaceHolderDeparture(ond['controls']['departure'].value)"
+                          placeholder="{{ depPlaceHolder }}" formControlName="departure" matInput
+                          [value]="OndAirport[i].departure.airportname" [matAutocomplete]="departure" type="text" />
+                        <mat-autocomplete #departure="matAutocomplete" [displayWith]="displayAirportName">
+                          <mat-option *ngFor="let option of filteredDepartures | async; let i = index" [value]="option"
+                            (change)="airportChanged()">
+                            <img src="./../../../../assets/img/straight-plane-icon.png"
+                              class="airport-dropdown_plane-icon" />
+                            {{ option.airportname }} ({{ option.airportcode }})
+                            <p>{{ option.countrycode }}</p>
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="flights_label">Arrival airport</label>
+                  <div class="ui right action labeled left icon input">
+                    <i class="icon arrival">
+                      <img class="flights_input__placeholder-icon" src="./../../../../assets/icons/airline-arr.svg" />
+                    </i>
+                    <div class="ui selection dropdown border-right-0" (click)="filterArrivals(i)" [ngClass]="{error: isSubmitted && ond['controls']['arrival'].invalid}">
+                      <mat-form-field class="airport-dropdown">
+                        <input (click)="checkPlaceHolderArrival(ond['controls']['arrival'].value)" (blur)="checkPlaceHolderArrival(ond['controls']['arrival'].value)" placeholder="{{ arrPlaceHolder }}" formControlName="arrival" matInput
+                          [matAutocomplete]="arrival" [value]="OndAirport[i].arrival.airportname" type="text" />
+                        <mat-autocomplete #arrival="matAutocomplete" [displayWith]="displayAirportName">
+                          <mat-option *ngFor="let option of filteredArrivals | async; let i = index" [value]="option">
+                            <img src="./../../../../assets/img/straight-plane-icon.png"
+                              class="airport-dropdown_plane-icon" />
+                            {{ option.airportname }} ({{ option.airportcode }})
+                            <p>{{ option.countrycode }}</p>
+                          </mat-option>
+                        </mat-autocomplete>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="three wide column date">
+                  <label class="flights_label">Date</label>
+                  <div class="ui left icon fluid input flights_datepicker"
+                    [ngClass]="{'error': ( isSubmitted && ond['controls']['flightDate'].invalid )}">
+                    <input readonly type="text" autocomplete="off" name="flightDate_{{i}}" id="flightDate_{{i}}"
+                      formControlName="flightDate" placeholder="Date" value="" (click)="$event.stopPropagation();" />
+                    <i class="icon">
+                      <img src="./../../../../assets/icons/calendar.svg" class="flights_input__placeholder-icon cal" />
+                    </i>
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="flights_label">Cabin</label>
+                  <select formControlName="cabinType" class="ui selection dropdown width-full">
+                    <option class="item" *ngFor="let elem of cabinTypeArr; let i = index;" value="{{elem.value}}">
+                      {{elem.label}}</option>
+                  </select>
+                  <!-- <div class="ui right action labeled left fluid icon input">
+                    <div class="ui fluid selection dropdown ml-1 flights_cabin-dropdown"
+                      [ngClass]="{'error': ( isSubmitted && ond['controls']['cabinType'].invalid )}">
+                      <input type="hidden" name="cabinType"
+                        value="{{ond['controls']['cabinType'].value ? ond['controls']['cabinType'].value.code : 'Y'}}">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">
+                        {{ond['controls']['cabinType'].value ? ond['controls']['cabinType'].value.name : 'Economy/Coach'}}
+                      </div>
+                      <div class="menu">
+                        <div class="item" (click)="setCabinType('all')" [attr.data-value]="'all'">All</div>
+                        <div class="item" (click)="setCabinType('Y')" [attr.data-value]="'Y'">Economy/Coach</div>
+                        <div class="item" (click)="setCabinType('F')" [attr.data-value]="'F'">First Class</div>
+                        <div class="item" (click)="setCabinType('C')" [attr.data-value]="'C'">Business</div>
+                        <div class="item" (click)="setCabinType('W')" [attr.data-value]="'W'">Premium Economy</div>
+                        <div class="item" (click)="setCabinType('O')" [attr.data-value]="'O'">Euro Traveller</div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+                <span *ngIf="i > 0" (click)="removeOndArr(i)" class="bin-icon"><i class="icon trash"></i></span>
+              </div>
+            </div>
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column text-right">
+                  <button class="ui primary button search-button active" (click)="searchFlights()"
+                  [class.loading]="reshopLoader">Search</button>
+                </div> 
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

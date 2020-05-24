@@ -1,0 +1,422 @@
+[
+    {
+        "label": "Mauritius ALL (MRU-Sir Seewoosagur Ramgoolam Intl.)",
+        "city_id": 2000002714,
+        "parentregionid": "601771",
+        "flag": "mu",
+        "location": null,
+        "latitude": "-20.431759",
+        "longitude": "57.67684",
+        "level": "1"
+    },
+    {
+        "label": "Chandigarh (all), India",
+        "city_id": 6135780,
+        "parentregionid": "6049925",
+        "flag": "in",
+        "location": "30.733315,76.779418",
+        "latitude": "30.733315",
+        "longitude": "76.77942",
+        "level": "1"
+    },
+    {
+        "label": "Chandigarh, India (IXC)",
+        "city_id": 2000005462,
+        "parentregionid": "6135780",
+        "flag": "in",
+        "location": null,
+        "latitude": "30.676601",
+        "longitude": "76.78928",
+        "level": "2"
+    },
+    {
+        "label": "Shimla, India (SLV)",
+        "city_id": 2000000359,
+        "parentregionid": "6135780",
+        "flag": "in",
+        "location": null,
+        "latitude": "31.086458",
+        "longitude": "77.06652",
+        "level": "2"
+    },
+    {
+        "label": "Chandigarh, India",
+        "city_id": 1653,
+        "parentregionid": "6135780",
+        "flag": "in",
+        "location": "30.733315,76.779418",
+        "latitude": "30.733315",
+        "longitude": "76.77942",
+        "level": "2"
+    },
+    {
+        "label": "Chandigarh, India",
+        "city_id": 6135781,
+        "parentregionid": "6135780",
+        "flag": "in",
+        "location": "30.7018973,76.822",
+        "latitude": "30.7018973",
+        "longitude": "76.822",
+        "level": "2"
+    },
+    {
+        "label": "Chandigarh, India",
+        "city_id": 1653,
+        "parentregionid": "6135780",
+        "flag": "in",
+        "location": "30.733315,76.779418",
+        "latitude": "30.733315",
+        "longitude": "76.77942",
+        "level": "2"
+    },
+    {
+        "label": "Coorg (district), India",
+        "city_id": 6126348,
+        "parentregionid": "6049936",
+        "flag": "in",
+        "location": "12.424421,75.738186",
+        "latitude": "12.42442",
+        "longitude": "75.73818",
+        "level": "1"
+    },
+    {
+        "label": "Cochin (all), India",
+        "city_id": 6053337,
+        "parentregionid": "6137012",
+        "flag": "in",
+        "location": "9.931233,76.267304",
+        "latitude": "9.931232",
+        "longitude": "76.2673",
+        "level": "1"
+    },
+    {
+        "label": "Corbett National Park, India",
+        "city_id": 6053524,
+        "parentregionid": "6049950",
+        "flag": "in",
+        "location": "29.530014,78.77466",
+        "latitude": "29.530014",
+        "longitude": "78.77466",
+        "level": "1"
+    },
+    {
+        "label": "Kadapa, India (CDP)",
+        "city_id": 2000001197,
+        "parentregionid": "6584",
+        "flag": "in",
+        "location": null,
+        "latitude": "14.511637",
+        "longitude": "78.773865",
+        "level": "1"
+    },
+    {
+        "label": "Kozhikode, India (CCJ-Calicut Intl.)",
+        "city_id": 2000001142,
+        "parentregionid": "6234125",
+        "flag": "in",
+        "location": null,
+        "latitude": "11.136803",
+        "longitude": "75.95244",
+        "level": "1"
+    },
+    {
+        "label": "Cochin, India (COK-Cochin Intl.)",
+        "city_id": 2000001567,
+        "parentregionid": "6053337",
+        "flag": "in",
+        "location": null,
+        "latitude": "10.152915",
+        "longitude": "76.3912",
+        "level": "1"
+    },
+    {
+        "label": "Chennai (all), India",
+        "city_id": 181449,
+        "parentregionid": "6049947",
+        "flag": "in",
+        "location": "13.08268,80.270718",
+        "latitude": "13.08268",
+        "longitude": "80.27072",
+        "level": "1"
+    },
+    {
+        "label": "Chennai, India (MAA-Chennai Intl.)",
+        "city_id": 2000002285,
+        "parentregionid": "181449",
+        "flag": "in",
+        "location": null,
+        "latitude": "12.983817",
+        "longitude": "80.16483",
+        "level": "1"
+    },
+    {
+        "label": "Delhi (all), India",
+        "city_id": 180000,
+        "parentregionid": "6049927",
+        "flag": "in",
+        "location": "28.613939,77.209021",
+        "latitude": "28.61394",
+        "longitude": "77.20902",
+        "level": "1"
+    },
+    {
+        "label": "Delhi, India (DEL-Indira Gandhi Intl.)",
+        "city_id": 2000002112,
+        "parentregionid": "180000",
+        "flag": "in",
+        "location": null,
+        "latitude": "28.55574",
+        "longitude": "77.08614",
+        "level": "2"
+    },
+    {
+        "label": "Dwarka, New Delhi, India",
+        "city_id": 6175187,
+        "parentregionid": "180000",
+        "flag": "in",
+        "location": "28.59214,77.046048",
+        "latitude": "28.59214",
+        "longitude": "77.04605",
+        "level": "2"
+    },
+    {
+        "label": "Punjabibagh, Delhi, India",
+        "city_id": 6003746,
+        "parentregionid": "180000",
+        "flag": "in",
+        "location": "28.673751,77.127338",
+        "latitude": "28.673752",
+        "longitude": "77.127335",
+        "level": "2"
+    },
+    {
+        "label": "Gurgaon, India",
+        "city_id": 6050413,
+        "parentregionid": "180000",
+        "flag": "in",
+        "location": null,
+        "latitude": null,
+        "longitude": null,
+        "level": "2"
+    },
+    {
+        "label": "North Delhi, India",
+        "city_id": 6050415,
+        "parentregionid": "180000",
+        "flag": "in",
+        "location": null,
+        "latitude": null,
+        "longitude": null,
+        "level": "2"
+    },
+    {
+        "label": "Diamond Harbour (all), India",
+        "city_id": 6139810,
+        "parentregionid": "6049951",
+        "flag": "in",
+        "location": null,
+        "latitude": null,
+        "longitude": null,
+        "level": "1"
+    },
+    {
+        "label": "Coorg (district), India",
+        "city_id": 6126348,
+        "parentregionid": "6049936",
+        "flag": "in",
+        "location": "12.424421,75.738186",
+        "latitude": "12.42442",
+        "longitude": "75.73818",
+        "level": "1"
+    },
+    {
+        "label": "Thiruvananthapuram District, India",
+        "city_id": 6053345,
+        "parentregionid": "602187",
+        "flag": "in",
+        "location": "8.530698,77.10249",
+        "latitude": "8.530698",
+        "longitude": "77.10249",
+        "level": "1"
+    },
+    {
+        "label": "Kozhikode District, India",
+        "city_id": 6053342,
+        "parentregionid": "602187",
+        "flag": "in",
+        "location": "11.258753,75.78041",
+        "latitude": "11.258753",
+        "longitude": "75.78041",
+        "level": "1"
+    },
+    {
+        "label": "Kannur District, India",
+        "city_id": 6137014,
+        "parentregionid": "602187",
+        "flag": "in",
+        "location": "11.970947,75.620809",
+        "latitude": "11.970947",
+        "longitude": "75.62081",
+        "level": "1"
+    },
+    {
+        "label": "Tehri Garhwal (district), India",
+        "city_id": 6139758,
+        "parentregionid": "6049950",
+        "flag": "in",
+        "location": "30.301186,78.566085",
+        "latitude": "30.301186",
+        "longitude": "78.566086",
+        "level": "1"
+    },
+    {
+        "label": "Thrissur District, India",
+        "city_id": 6129328,
+        "parentregionid": "602187",
+        "flag": "in",
+        "location": "10.414597,76.363728",
+        "latitude": "10.414597",
+        "longitude": "76.36373",
+        "level": "1"
+    },
+    {
+        "label": "Daman, India (NMB)",
+        "city_id": 2000003201,
+        "parentregionid": "9004",
+        "flag": "in",
+        "location": null,
+        "latitude": "20.433287",
+        "longitude": "72.84502",
+        "level": "1"
+    },
+    {
+        "label": "Dubai Emirate, United Arab Emirates",
+        "city_id": 1079,
+        "parentregionid": "189",
+        "flag": "ae",
+        "location": "25.253175,55.365673",
+        "latitude": "25.253174",
+        "longitude": "55.365673",
+        "level": "1"
+    },
+    {
+        "label": "Discovery Gardens, Dubai, United Arab Emirates",
+        "city_id": 6142655,
+        "parentregionid": "1079",
+        "flag": "ae",
+        "location": "25.037394,55.144844",
+        "latitude": "25.037394",
+        "longitude": "55.144844",
+        "level": "2"
+    },
+    {
+        "label": "Endurance City, United Arab Emirates",
+        "city_id": 6144511,
+        "parentregionid": "1079",
+        "flag": "ae",
+        "location": "24.818115,55.251087",
+        "latitude": "24.818115",
+        "longitude": "55.251087",
+        "level": "2"
+    },
+    {
+        "label": "The Greens, Dubai, United Arab Emirates",
+        "city_id": 6142669,
+        "parentregionid": "1079",
+        "flag": "ae",
+        "location": "25.093364,55.171389",
+        "latitude": "25.093365",
+        "longitude": "55.17139",
+        "level": "2"
+    },
+    {
+        "label": "Al Shindagha, Dubai, United Arab Emirates",
+        "city_id": 6142680,
+        "parentregionid": "1079",
+        "flag": "ae",
+        "location": "25.271741,55.292387",
+        "latitude": "25.27174",
+        "longitude": "55.292385",
+        "level": "2"
+    },
+    {
+        "label": "Al Baraha, Dubai, United Arab Emirates",
+        "city_id": 6142688,
+        "parentregionid": "1079",
+        "flag": "ae",
+        "location": "25.28292,55.31806",
+        "latitude": "25.28292",
+        "longitude": "55.31806",
+        "level": "2"
+    },
+    {
+        "label": "Abu Dhabi Emirate, United Arab Emirates",
+        "city_id": 6053838,
+        "parentregionid": "189",
+        "flag": "ae",
+        "location": "24.42271,54.434316",
+        "latitude": "24.42271",
+        "longitude": "54.434315",
+        "level": "1"
+    },
+    {
+        "label": "Abu Dhabi, United Arab Emirates (XBW-Abu Dhabi City Bus Terminal)",
+        "city_id": 2000003681,
+        "parentregionid": "453",
+        "flag": "ae",
+        "location": null,
+        "latitude": "24.493538",
+        "longitude": "54.383965",
+        "level": "1"
+    },
+    {
+        "label": "Abu Dhabi, United Arab Emirates (AZI-Al Bateen Air Base)",
+        "city_id": 2000005903,
+        "parentregionid": "453",
+        "flag": "ae",
+        "location": null,
+        "latitude": "24.424156",
+        "longitude": "54.457436",
+        "level": "1"
+    },
+    {
+        "label": "Abu Dhabi, United Arab Emirates (AUH-Abu Dhabi Intl.)",
+        "city_id": 2000005816,
+        "parentregionid": "453",
+        "flag": "ae",
+        "location": null,
+        "latitude": "24.427109",
+        "longitude": "54.646175",
+        "level": "1"
+    },
+    {
+        "label": "Dubai, United Arab Emirates (DWC-Al Maktoum Intl.)",
+        "city_id": 2000002501,
+        "parentregionid": "6053839",
+        "flag": "ae",
+        "location": null,
+        "latitude": "24.885817",
+        "longitude": "55.15879",
+        "level": "1"
+    },
+    {
+        "label": "Dubai, United Arab Emirates (DXB-Dubai Intl.)",
+        "city_id": 2000002519,
+        "parentregionid": "6053839",
+        "flag": "ae",
+        "location": null,
+        "latitude": "25.249077",
+        "longitude": "55.352795",
+        "level": "1"
+    },
+    {
+        "label": "Abu Dhabi, United Arab Emirates",
+        "city_id": 453,
+        "parentregionid": "6053838",
+        "flag": "ae",
+        "location": "24.466667,54.366667",
+        "latitude": "24.466667",
+        "longitude": "54.36667",
+        "level": "1"
+    }
+]

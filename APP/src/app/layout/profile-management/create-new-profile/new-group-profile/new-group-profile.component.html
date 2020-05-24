@@ -1,0 +1,486 @@
+<h3><span class="booking-header">New Group Profile</span></h3>
+<div class="ui fluid container">
+  <div class="ui grid container stepper-grid" #tab>
+    <div class="five wide column stepper-grid_step _active" id="group" (click)="setActiveTab('group')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _group"></div>
+        </div>
+        <label>Group Data</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="five wide column stepper-grid_step" id="member" (click)="setActiveTab('member')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _member"></div>
+        </div>
+        <label>Member Data</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="three wide column stepper-grid_step" id="remarks" (click)="setActiveTab('remarks')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _remarks"></div>
+        </div>
+        <label>Remarks</label>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="newGroupProfileForm" autocomplete="off" class="ui form" #tabContent>
+    <div id="group-content" class="stepper-grid-content animated fadeIn _active">
+      <div class="outer-basic">
+        <div class="outer-basicForm">
+          <div class="ui form-inner grid">
+            <div class="sixteen wide column">
+              <h4>Group Data</h4>
+            </div>
+            <div class="sixteen wide column">
+              <label>General Info</label>
+            </div>
+            <div class="ui sixteen wide column grid">
+              <div class="two wide column">
+                <input type="text" name="groupName" formControlName="group_name" value="" placeholder="Group Name">
+              </div>
+              <div class="four wide column">
+                <input type="text" name="groupDescription" formControlName="group_description" value=""
+                  placeholder="Group Description">
+              </div>
+              <div class="four wide column">
+                <input type="text" name="groupIndex" formControlName="group_index" value="" placeholder="Group Index">
+              </div>
+              <div class="four wide column">
+                <div class="ui fluid search selection dropdown">
+                  <input type="hidden" name="languages" formControlName="languages" value="">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Languages</div>
+                  <div class="menu">
+                    <div class="item" (click)="setDropDownType('Arabic', 'languages')">Arabic</div>
+                    <div class="item" (click)="setDropDownType('English', 'languages')">English</div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui sixteen wide column grid">
+                <div formArrayName="number"
+                  *ngFor="let numberD of newGroupProfileForm.get('number')['controls']; let nIndex = index">
+                  <div [formGroupName]="nIndex" class="ui sixteen wide column grid">
+                    <div class="three wide column newAgency_topAlign">
+                      <div class="ui checkbox">
+                        <input type="checkbox" name="prefered" formControlName="preferedHome" value="">
+                        <label>Preferred</label>
+                      </div>
+                    </div>
+                    <div class="two wide column">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="home" formControlName="home" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Home</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Home 1', 'home')">Home 1</div>
+                          <div class="item" (click)="setDropDownType('Home 2', 'home')">Home 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <input type="text" name="number" formControlName="number" value="" placeholder="Number">
+                    </div>
+                    <div class="five wide column">
+                      <input type="text" name="number_comment" formControlName="number_comment" value=""
+                        placeholder="Comment">
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column">
+                  <div class="ui primary button" (click)="addMoreNumber()">Add Number +</div>
+                </div>
+              </div>
+              <div class="ui sixteen wide column grid">
+                <div formArrayName="email"
+                  *ngFor="let emailD of newGroupProfileForm.get('email')['controls'];let eIndex = index">
+                  <div [formGroupName]="eIndex" class="ui sixteen wide column grid">
+                    <div class="three wide column newAgency_topAlign">
+                      <div class="ui checkbox ">
+                        <input type="checkbox" name="prefered" formControlName="preferedOfficial" value="">
+                        <label>Prefered</label>
+                      </div>
+                    </div>
+                    <div class="two wide column">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="office" formControlName="Official" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Official</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Official 1', 'Official')">
+                            Official 1</div>
+                          <div class="item" (click)="setDropDownType('Official 1', 'Official')">
+                            Official 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <input type="text" name="emailAddress" formControlName="emailAddress" value=""
+                        placeholder="Email Address">
+                    </div>
+                    <div class="five wide column">
+                      <input type="text" name="comment" formControlName="emailAddress_comment" value=""
+                        placeholder="Comment">
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column">
+                  <div class="ui primary button" (click)="addMoreEmail()">Add Email +</div>
+                </div>
+              </div>
+              <div class="ui sixteen wide column grid">
+                <div formArrayName="address" class="sixteen wide column"
+                  *ngFor="let addressD of newGroupProfileForm.get('address')['controls']; let aIndex = index">
+                  <div [formGroupName]="aIndex" class="ui sixteen wide column grid">
+                    <div class="three wide column newAgency_topAlign">
+                      <div class="ui checkbox ">
+                        <input type="checkbox" name="prefered" formControlName="preferedAddress" value="">
+                        <label>Preferred</label>
+                      </div>
+                    </div>
+                    <div class="two wide column">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="office" formControlName="addressList" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Office</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Office 1', 'addressList')">
+                            Office 1</div>
+                          <div class="item" (click)="setDropDownType('Office 2', 'addressList')">
+                            Office 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <input type="text" name="address" formControlName="address" value="" placeholder="Address">
+                    </div>
+                    <div class="three wide column">
+                      <input type="text" name="street" formControlName="street" value="" placeholder="Street">
+                    </div>
+                    <div class="three wide column">
+                      <input type="text" name="city" formControlName="city" value="" placeholder="City">
+                    </div>
+                  </div>
+                  <div class="ui sixteen wide column grid">
+                    <div class="three wide column">
+                      <div class="ui checkbox ">
+                      </div>
+                    </div>
+                    <div class="three wide column">
+                    </div>
+                    <div class="two wide column">
+                      <input type="text" name="state" formControlName="state" value="" placeholder="Region/State">
+                    </div>
+                    <div class="three wide column">
+                      <input type="text" name="postalCode" formControlName="postalCode" value=""
+                        placeholder="Postal Code">
+                    </div>
+                    <div class="three wide column">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="country" formControlName="countryList" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Country</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('USA', 'countryList')">
+                            USA</div>
+                          <div class="item" (click)="setDropDownType('UAE', 'countryList')">
+                            UAE</div>
+                          <div class="item" (click)="setDropDownType('Australia', 'countryList')">
+                            Australia</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="three wide column">
+                      <input type="text" name="company" formControlName="company" value="" placeholder="Company">
+                    </div>
+                  </div>
+                  <div class="ui sixteen wide column grid">
+                    <div class="five wide column">
+                      <input type="text" name="comment" formControlName="address_comment" value=""
+                        placeholder="Comment">
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column">
+                  <div class="ui primary button" (click)="addMoreAddress()">Add Address +</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <button class="ui primary  button" (click)="updateNewGroupProfile();">
+            Update Profile
+          </button> -->
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Agency Info</h4>
+            </div>
+            <div class="fields">
+              <div class="two wide field">
+                <input type="text" name="responsibleOffice" formControlName="responsible_office" value=""
+                  placeholder="Responsible Office">
+              </div>
+              <div class="five wide field">
+                <input type="text" name="deptContactName" formControlName="department_contact_name" value=""
+                  placeholder="Department Contact Name">
+              </div>
+              <div class="five wide field">
+                <input type="text" name="agentContactName" formControlName="agent_contact_name" value=""
+                  placeholder="Agent Contact Name">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="member-content" class="stepper-grid-content animated fadeIn">
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="ui form form-inner">
+            <div class="fields">
+              <h4>Members Data</h4>
+            </div><br>
+            <div class="fields">
+              <label>Group Members</label>
+            </div>
+            <div class="ui sixteen wide column grid">
+              <div class="two wide column newAgency_topAlign">
+                <label>Member 1</label>
+              </div>
+              <div class="sixteen wide column newAgency_topAlign">
+                <div class="ui checkbox">
+                  <input type="checkbox" formControlName="member1" value="" name="explosionIndicator">
+                  <label>Main Contact</label>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div formArrayName="group_members" class="ui sixteen wide column grid">
+              <div
+                *ngFor="let group_membersD of newGroupProfileForm.get('group_members')['controls'];let gIndex = index">
+                <div [formGroupName]="gIndex" class="ui sixteen wide column grid">
+                  <div class="three wide column">
+                    <input type="text" name="recordLocator" placeholder="Record Locator">
+                  </div>
+                  <div class="three wide column">
+                    <input type="text" name="firstName" placeholder="First Name">
+                  </div>
+                  <div class="three wide column">
+                    <input type="text" name="lastName" placeholder="Last Name">
+                  </div>
+                  <div class="three wide column">
+                    <input type="text" name="dob" placeholder="DOB(DD MM YYYY)">
+                  </div>
+                  <div class="ui sixteen wide column grid">
+                    <div class="five wide column">
+                      <input type="text" name="telephone" placeholder="Telephone">
+                    </div>
+                    <div class="five wide column">
+                      <input type="text" name="email" placeholder="Email", class="email">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column">
+                <div class="ui primary button" (click)="addMoreGroup_members()">
+                  Add Member +
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="remarks-content" class="stepper-grid-content animated fadeIn">
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Remarks</h4>
+            </div>
+            <div formArrayName="remarks">
+              <div *ngFor="let remarksD of newGroupProfileForm.get('remarks')['controls']; let remarksIndex = index">
+                <div [formGroupName]="remarksIndex">
+                  <div class="fields">
+                    <div class="three wide field">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" formControlName="remark_type" value="" name="remarkType">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Remark Type</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Type 1', 'remark_type')">
+                            Type 1</div>
+                          <div class="item" (click)="setDropDownType('Type 2', 'remark_type')">
+                            Type 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="three wide field ">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" formControlName="remark_category" value="" name="category">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Category</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Category 1', 'remark_category')">Category
+                            1</div>
+                          <div class="item" (click)="setDropDownType('Category 2', 'remark_category')">Category
+                            2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="six wide field ">
+                      <textarea type="text" name="remark" formControlName="remark" value="" placeholder="Remark"
+                        rows="4" cols="50"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui sixteen wide column grid">
+              <div class="ui primary button btn-sticky" (click)="addMoreRemarks()">
+                Add Remarks +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Profile Notes</h4>
+            </div>
+            <div formArrayName="profile_notes">
+              <div
+                *ngFor="let profile_notesD of newGroupProfileForm.get('profile_notes')['controls']; let notesIndex = index">
+                <div [formGroupName]="notesIndex">
+                  <div class="fields">
+                    <div class="three wide field">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" formControlName="profile_notes_category" value="" name="category">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Category</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Category 1', 'profile_notes_category')">
+                            Category 1</div>
+                          <div class="item" (click)="setDropDownType('Category 1', 'profile_notes_category')">
+                            Category 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="five wide field ">
+                      <input type="text" name="information" formControlName="profile_notes_information" value=""
+                        placeholder="Information">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui primary button btn-sticky" (click)="addMoreProfile_notes()">
+                Add Profile Note +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Priority Lines 1</h4>
+            </div>
+            <!-- <div class="fields"> -->
+            <div formArrayName="priority_lines1">
+              <div
+                *ngFor="let priority_lines1D of newGroupProfileForm.get('priority_lines1')['controls']; let priorityIndex1 = index">
+                <div [formGroupName]="priorityIndex1">
+                  <div class="fields">
+                    <div class="five wide field ">
+                      <input type="text" name="information" formControlName="priorityInformation1" value=""
+                        placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui primary button btn-sticky" (click)="addMorePriority_lines1()">
+                Add Priority Line +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Priority Lines 2</h4>
+            </div>
+            <!-- <div class="fields"> -->
+            <div formArrayName="priority_lines2">
+              <div
+                *ngFor="let priority_lines2D of newGroupProfileForm.get('priority_lines2')['controls']; let priorityIndex2 = index">
+                <div [formGroupName]="priorityIndex2">
+                  <div class="fields">
+                    <div class="five wide field ">
+                      <input type="text" name="information" formControlName="priorityInformation2" value=""
+                        placeholder="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui primary button btn-sticky m-auto" (click)="addMorePriority_lines2()">
+              Add Priority Line +
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Follow Up</h4>
+            </div>
+            <!-- <div class="fields"> -->
+            <div formArrayName="follow_up">
+              <div
+                *ngFor="let follow_upD of newGroupProfileForm.get('follow_up')['controls']; let follow_upIndex = index">
+                <div [formGroupName]="follow_upIndex">
+                  <div class="fields">
+                    <div class="three wide field ">
+                      <input type="text" name="date" formControlName="followUpDate" value=""
+                        placeholder="Date (DDMMYYYY)">
+                    </div>
+                    <div class="three wide field ">
+                      <input type="text" name="action" formControlName="followUpAction" value="" placeholder="Action">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui primary button btn-sticky" (click)="addMoreFollow_up()">
+                Add Follow Up +
+              </div>
+            </div>
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="ui sixteen wide column grid">
+        <button type="button" class="ui positive button m-auto" (click)="createNewGroupProfile()">
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

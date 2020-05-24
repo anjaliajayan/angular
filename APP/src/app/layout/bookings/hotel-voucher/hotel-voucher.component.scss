@@ -1,0 +1,390 @@
+.outer-wrapper {
+    margin: 36px;
+    border: 1px solid rgba(6, 40, 98, 0.2);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+.logo-block {
+    padding: 18px 14px;
+}
+.logo-block img {
+    max-width: 100%;
+    max-height: 85px;
+}
+.detail-table {
+    width: 100%;
+    border: 1px solid rgba(6, 40, 98, 0.2);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+.detail-table td {
+    font-style: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+    padding: 8px 25px 8px;
+    border-right: 1px solid rgba(6, 40, 98, 0.2);
+}
+.detail-table td:last-child {
+    border-right: none;
+}
+.table-content-row td {
+    padding-top: 0px;
+    font-size:15px;
+}
+.table-head-row td {
+    font-weight: bold;
+    font-size:18px;
+}
+.traveller-table {
+    margin: 30px 0px;
+}
+.traveller-table .table-head-row {
+    background: rgba(67, 122, 218, 0.05);
+}
+.traveller-table .table-content-row td {
+    padding-top: 12px;
+}
+.hotel-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    .pax-table{
+        .border-wrapper{
+            border-left: 1px solid rgba(187, 187, 187, 0.25);
+        }
+    }
+}
+.hotel-table {
+    background: #3766B0;
+    padding: 22px 25px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.hotel-table  td {
+    color: #fff;
+    border-right: none;
+    padding-bottom: 14px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 8px 25px 14px;
+}
+.hotel-table .heading td {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 14px 25px 14px;
+}
+.hotel-table  .detail-table td {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+.booking-detail-table {
+    background: rgba(67, 122, 218, 0.05);
+    border: 1px solid rgba(6, 40, 98, 0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+}
+.booking-detail-table tr td {
+    border-bottom: 1px solid rgba(6, 40, 98, 0.2);
+    padding: 20px 25px;
+    border-right: 1px solid rgba(6, 40, 98, 0.2);
+    height: 26px;
+}
+.booking-detail-table tr:last-child td {
+    border-bottom: none;
+}
+.booking-detail-table td:last-child {
+    border-right: none;
+}
+.info-block {
+    width: 100%
+}
+.info-block td {
+    vertical-align: top;
+    padding: 0px 12px 0px 0px;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 26px;
+    color: #000000;
+}
+.info-block .second-block {
+    padding: 0px;
+}
+.info-block td.item {
+    font-weight: 500;
+}
+.info-block td span.confirm {
+    background: rgba(115, 179, 93, 0.4);
+    border-radius: 4px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #007A0C;
+    padding: 8px 20px;
+}
+.layover-head-table {
+    margin: 35px 0px 0px;
+}
+.line p {
+    border: 1px solid rgba(6, 40, 98, 0.2);
+}
+.layover {
+    background: rgba(67, 122, 218, 0.2);
+    border-radius: 54px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 26px;
+    color: #0046C0;
+    padding: 9px 45px 11px;
+    width: 25%;
+    text-align: center;
+}
+.ticket-block {
+    margin-bottom: 35px;
+}
+.ticket-block table {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ticket-block table tr td {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 14px 25px;
+}
+.ticket-block table tr:first-child td {
+    background: #3766B0;
+    border-radius: 10px;
+    padding: 22px 25px;
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.ticket-block .pax-table {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.ticket-block .pax-table tr td {
+    padding: 12px 25px 12px;
+}
+.ticket-block .pax-table tr:first-child td {
+    background: rgba(67, 122, 218, 0.05);
+    width: auto;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 18px 25px;
+}
+.pax-table tr:last-child td {
+    border-top: 1px solid rgba(6, 40, 98, 0.2);
+    padding: 25px 25px 70px;
+}
+.pax-table tr:last-child td {
+    // font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+}
+.pax-table .total span {
+    padding-left: 60px;
+}
+.terms-cond-block .terms-head {
+    background: rgba(67, 122, 218, 0.2);
+    border-radius: 10px;
+    padding: 22px 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #000000;
+    text-transform: capitalize;
+}
+.terms-cond-block ul, .terms-cond-block p {
+    padding: 40px 44px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 160.7%;
+    color: #000000;
+}
+.terms-cond-block ul:last-child {
+    padding-top: 0px;
+    margin-top: 0px;
+}
+.terms-cond-block p {
+    padding: 0px 44px;
+    font-weight: bold;
+}
+.terms-cond-block .remark-content {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 160.7%;
+    color: #000000;
+}
+.terms-cond-block .rest-block {
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.payable-section p {
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.payable-section p:not(:first-child) {
+    margin-top: 8px;
+}
+.payable-section {
+    margin-bottom: 80px;
+}
+.flight-detail {
+    display: inline-block;
+    min-width: 20%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 30px;
+    color: #000000;
+    margin: 0px 12px;
+}
+.flight-detail img {
+    position: relative;
+    top: 40px;
+}
+.flight-detail.line {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: -8px;
+}
+.airport-info .flight-detail {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 15px;
+}
+.flight-detail.flight-name {
+    margin-top: 48px;
+}
+.flight-detail.flight-time {
+    position: relative;
+    top: 36px;
+}
+.flight-detail.flight-dur {
+    position: relative;
+    top: 44px;
+}
+.flight-detail.flight-date {
+    margin-top: 12px;
+}
+.flight-info-section {
+    margin: 0px 0px 80px 40px;
+}
+
+.background-change{
+    background:#fff  !important;
+    border: none !important;
+}
+
+.font-align{
+    font-family: "Roboto", sans-serif !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 22px !important;
+    line-height: 30px !important;
+    padding-left: 25px !important;
+}
+
+.fontStyle{
+    font-family: "Roboto", sans-serif !important;
+    font-style: normal !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
+    line-height: 30px !important;
+}
+
+.column-align{
+    padding-left: 80px !important;
+    padding-top: 40px !important;
+    padding-bottom: 30px !important;
+}
+
+.borderStyle1{
+    border-right:1px solid rgb(236, 232, 232);
+}
+
+.borderStyle2{
+    border-bottom:1px #fff;
+}
+
+.fontinclution{
+    font-family: "Roboto", sans-serif !important;
+    font-style: normal !important;;
+    font-size: 15px !important;
+    padding: 18px 25px;
+    font-weight: normal;
+    line-height: 160.7%;
+    color: #000000;
+    list-style: disc;
+    // line-height: 30px !important;
+}
+
+.guestinfo1{
+    max-width: 140px;
+}
+
+.guestinfo2{
+    padding-top:0px
+}
+.terms-head {
+    background: #3766B0;
+    border-radius: 10px;
+    padding: 22px 25px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color:#fff;
+    text-transform: capitalize;
+}
+.payable-section p {
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.payable-section p:not(:first-child) {
+    margin-top: 8px;
+}
+.payable-section {
+    margin-bottom: 80px;
+}

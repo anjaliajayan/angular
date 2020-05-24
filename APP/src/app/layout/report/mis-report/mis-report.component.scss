@@ -1,0 +1,59 @@
+.tab.segment {
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ui.top.attached.tabular.menu {
+    margin-top: 25px;
+}
+
+.ui.bottom.attached.active.tab.segment {
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+.ui.top.attached.menu>.item {
+    border-radius: .28571429rem 0 0 0;
+    border-top-right-radius: 15px !important;
+}
+
+.area-chart {
+    height: 370px;
+    position: relative;
+}
+
+.mis-report-header {
+    position: relative;
+    left: 32%;
+    color: #0000007a;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+// .ui.fluid.container {
+//     padding: 28px;
+// }
+
+#chartMISPie {
+    height: 370px;
+    width: 100%;
+}
+
+.ui.top.attached.tabular.menu {
+    margin: 24px 0px;
+}
+
+@media (max-width: 800px) {
+    .ui.top.attached.tabular.menu {
+        display: block;
+        .item {
+            padding: 12px 0px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .result-block {
+        margin: 8px !important;
+    }
+}

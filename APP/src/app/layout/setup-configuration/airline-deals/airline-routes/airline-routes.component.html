@@ -1,0 +1,220 @@
+<div class="ui fluid container">
+  <div class="ui form" [ngClass]="{'list-code-ui': (showListCode) }">
+    <div class="ui segment">
+      <div class="two fields search-section">
+        <div class="eight wide field" *ngIf="showAddCode">
+          <h4 class="ui header main_head">Airline Routes</h4>
+        </div>
+        <div class="eight wide field bookings_btn-panel" [ngClass]="{'list-code': (showListCode) }">
+          <button class="ui primary button tourCode_btn" tabindex="0" (click)="onClickAddCode()" *ngIf="showAddCode">
+            Add Airline Routes
+          </button>
+          <a href="javascript:void(0)" class="ui goto_list tourCode_btn" tabindex="0" (click)="onClickListCode()"
+            *ngIf="showListCode">
+            <span class="">
+              <!-- <img src="../../../../../assets/icons/goto_link_arrow.svg" class="goto-link" /> -->
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              Go to List Airline Routes
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="result-block" [ngClass]="{'list-code-block': (showListCode) }">
+        <div class="user-table-list b2c-list-user-table" *ngIf="showAddCode">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [rows]='allAirlineRoutes'
+            [externalPaging]="true" [count]="totalCount" [offset]="offset" (page)="pageCallback($event)">
+            <!-- <ngx-datatable-column name="User ID" prop="created_by">
+                            </ngx-datatable-column> -->
+
+            <ngx-datatable-column name="Trip Type" prop="trip_type">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Origin">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div *ngFor="let rows of row.origin">
+                  {{rows.text}}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Destination">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div *ngFor="let rows of row.destination">
+                  {{rows.text}}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Preferred Airline">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div *ngFor="let rows of row.routes">
+                  {{rows.name}}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Created" prop="created">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status" prop="is_active">
+              <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                <span *ngIf="value == true" (click)="statusToggle(row)">
+                  <i class="fa fa-check-circle" aria-hidden="true"></i>
+                  <!-- <i class="icon">
+                    <img src="./.././../../../assets/icons/checkmark.png"
+                      class="bookings_input__placeholder-icon cal" />
+                  </i> -->
+                </span>
+                <span *ngIf="value == false" (click)="statusToggle(row)">
+                  <i class="fa fa-times" aria-hidden="true"></i>
+                  <!-- <i class="icon">
+                    <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                  </i> -->
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Edit">
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <span class="action" title="Edit Details" (click)="editAirlineRoutes(row)">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <!-- <i class="icon">
+                    <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                  </i> -->
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Delete">
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <ng-container *ngIf="row.is_deleted == 0">
+                  <span class="action" title="Delete Details">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <!-- <i class="icon" (click)="deleteAirlineRoutes(row)">
+                      <img src="./../../../../../assets/icons/delete-button.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                </ng-container>
+                <ng-container *ngIf="row.is_deleted == 1">
+                  <span class="action" title="Delete">
+                    ---
+                  </span>
+                </ng-container>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+        <div class="listCodeWrapper" *ngIf="showListCode">
+          <form class="ui form" #Form="ngForm" [formGroup]="addAirlineRoutesForm">
+            <div class="six fields list-head-block">
+              <div class="six wide field">
+                <label>Organisations</label>
+                <select class="ui fluid search dropdown6" formControlName="organisation_id" name="organisation_id">
+                  <option class="item" *ngFor="let organisation of allPos" value="{{organisation.organisation_id}}">
+                    {{organisation.name}}</option>
+                </select>
+              </div>
+              <div class="five wide field">
+                <label>Supplier</label>
+                <select class="ui fluid search dropdown2 multiple_search" formControlName="supplier" name="supplier"
+                  multiple="">
+                  <option class="item" *ngFor="let supplier of suppliers" value="{{supplier.name}}">
+                    {{supplier.name}}</option>
+                </select>
+              </div>
+              <div class="five wide field">
+                <label>Trip Type</label>
+                <select class="ui fluid search dropdown" formControlName="trip_type">
+                  <option class="item" value="">Trip Type</option>
+                  <option class="item" value="All">All</option>
+                  <option class="item" value="One way">One way</option>
+                  <option class="item" value="Round Trip">Round Trip</option>
+                  <option class="item" value="Multi Trip">Multi Trip</option>
+                </select>
+              </div>
+            </div>
+            <!-- <h3>You can add multiple tourcodes from here on clicking add more button</h3> -->
+            <div class="ui segment detail-segment">
+              <div class="six fields">
+                <div class="six wide field" [ngClass]="{ 'is-invalid': isSubmitted && f.origin.errors }">
+                  <label>
+                    Origin Airport
+                    <i class="fa fa-exclamation-circle tooltip">
+                      <span class="tooltiptext">
+                        Comma-separated list of airport code e.g. DXB, JED, LHR (Upper Case Only). Default ALL will be
+                        selected.
+                      </span>
+                    </i>
+                  </label>
+                  <select class="ui fluid search dropdown4 multiple_search" formControlName="origin" required
+                    multiple="">
+                    <option class="item" *ngFor="let org of origins" value="{{org.AirportCode}}">
+                      {{org.AirportCode}}
+                    </option>
+                  </select>
+                </div>
+                <div class="six wide field" [ngClass]="{ 'is-invalid': isSubmitted && f.destination.errors }">
+                  <label>
+                    Destination Airport
+                    <i class="fa fa-exclamation-circle tooltip">
+                      <span class="tooltiptext">
+                        Comma-separated list of airport code e.g. DXB, JED, LHR (Upper Case Only). Default ALL will be
+                        selected.
+                      </span>
+                    </i>
+                  </label>
+                  <select class="ui fluid search dropdown5 multiple_search" formControlName="destination" required
+                    multiple="">
+                    <option class="item" *ngFor="let dest of destinations" value="{{dest.AirportCode}}">
+                      {{dest.AirportCode}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="six fields"> -->
+                <!-- <div class="six wide field">
+                  <label>
+                    Airline
+                    <i class="fa fa-exclamation-circle tooltip">
+                      <span class="tooltiptext">
+                        Comma-separated list of class services e.g. N or N, Q, K (Upper Case Only). Default ALL will be
+                        selected.
+                      </span>
+                    </i>
+                  </label>
+                  <select class="ui fluid search dropdown3" formControlName="airline" name="airline">
+                    <option class="item" *ngFor="let airline of airlines" value="{{airline.name}}">{{airline.name}}
+                    </option>
+                  </select>
+                </div> -->
+              <!-- </div> -->
+              <div class="fields">
+                <div class="six wide field input-tagbased mb-0 pref-airline-field">
+                  <label>Preferred Airlines</label>
+                  <mat-form-field style="width: 100%;top: -10px;" class="example-chip-list">
+                    <mat-chip-list #chipList>
+                      <mat-chip *ngFor="let val of this.addAirlineRoutesForm.value.routes" [selectable]="selectable"
+                        [removable]="removable" (removed)="remove(val,1)">
+                        {{val.name |uppercase}}
+                        <mat-icon matChipRemove *ngIf="removable">x</mat-icon>
+                      </mat-chip>
+                    </mat-chip-list>
+                    <input [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                      [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event,1)">
+                    <mat-error>Atleast 1 name need to be added</mat-error>
+                  </mat-form-field>
+                </div>
+
+              </div>
+            </div>
+            <div class="bookings_btn-panel save-btn-block" *ngIf="showListCode">
+              <button class="ui primary button tourCode_btn fluid" *ngIf="showSaveBtn" (click)="saveAirlineRoutes()">
+                <span class="tourCode_text">Save</span>
+              </button>
+              <button class="ui primary button tourCode_btn fluid" *ngIf="!showSaveBtn" (click)="updateAirlineRoutes()">
+                <span class="tourCode_text">Update</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

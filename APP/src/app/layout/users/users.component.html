@@ -1,0 +1,149 @@
+<h3><span class="update-header">List of Users</span></h3>
+
+<!-- organizationTypes -->
+<div class="ui fluid container">
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <!-- <form (ngSubmit)="searchFormSubmit()" class="ui form search-field-wrapper" [formGroup]="searchUserForm">
+        <div class="four fields main-wrapper">
+          <div class="three wide field outer-wrapper">
+            <select class="ui fluid dropdown2" formControlName="corporate_type">
+     
+           <option *ngFor="let item of organizations" value="{{item.organisation_id}}">{{item.name}} </option>
+            </select>
+          </div>
+          <div class="three wide field outer-wrapper">
+            <input type="text" placeholder="Office Name/Office Id" formControlName="nameAndOfficeId">
+ 
+          </div>
+          <div class="eight wide field inner-wrapper">
+            <button class="ui button filter_btn">
+              <span class="filter_list">Search</span>
+            </button>
+            <button class="ui button filter_btn_reset" (click)="searchUserForm.reset({})">
+              <span class="filter_list">Reset</span>
+            </button>
+          </div>
+          <div class="three wide field text-right mb-1 inner-wrapper">
+            <button (click)="addNewUser()" class="ui button primary">Add new User</button>
+          </div>
+        </div>
+      </form> -->
+
+<!-- 
+      <table class="ui celled table">
+        <thead class="table-head">
+          <tr>
+            <th>Organisation</th>
+            <th>Role</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Contact Info</th>
+            <th width="120">&nbsp;</th>
+          </tr>
+        </thead>
+
+        <tr *ngFor="let user of users; let i = index">
+          <td calss="table-body word-wrapper">
+            <span class="head-name">Organisation:</span>
+            <span>{{ user.organisation ? user.organisation.name : null }}</span>
+          </td>
+          <td class="word-wrapper"><span class="head-name">Role:</span>
+            <span *ngIf="user.admin">Admin</span>
+            <span *ngIf="user.agent">Agent</span>
+          </td>
+          <td class="word-wrapper">
+            <span class="head-name">Name</span>
+            <span>{{ user.first_name }} {{ user.last_name }}</span></td>
+            <td class="word-wrapper">
+              <span class="head-name">Username</span>
+              <span>{{ user.username }}</span></td>
+          <td class="word-wrapper">
+            <span class="head-name">Email</span>
+            <span>{{ user.email }}</span></td>
+          <td class="word-wrapper">
+            <span class="head-name ">Contact-Info</span>
+            <span>{{ user.mobile }}</span></td>
+          <td class="text-center item-wrapper">
+            <div class="ui buttons">
+              <a {{value |date: 'dd/MM/yyyy h:mm a'}}class="ui button"><i
+                  class="fa fa-edit"></i></a>
+              <a class="ui button" [routerLink]="['targets', user.users_id]" routerLinkActive="router-link-active"><i
+                  class="fa fa-dollar"></i></a>
+              <button class="ui button"><i class="fa fa-trash"></i></button>
+            </div>
+
+          </td>
+        </tr>
+
+      </table> -->
+
+      <div class="currency-list b2c-list-user-table user-table-list">
+        <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'" [limit]="10" [rows]='usersList'  [reorderable]="true"
+          [externalPaging]="true" [count]="totalListOfUsers" 
+          [sorts]="[{prop: 'from', dir: 'desc'}]"  (page)="pageCallback($event)">
+          <ngx-datatable-column name="Organisation" prop="organisation">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value.name}}</ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Name" prop="first_name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Username" prop="username">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span title="Username" class="email">
+                {{row.username}}
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Date&Time Created" prop="created">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}</ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Email" prop="email">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span class="nav-link edit email" (click)="viewUser(row)" title="Preview User">
+                {{row.email}}
+                <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Agent Code" prop="agent_code">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" prop="is_active">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              <span *ngIf="value == 1" (click)="statusToggle(row)">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <!-- <i class="icon" title="click to deactivate">
+                  <img src="./../../../../../assets/icons/checkmark.png"
+                    class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+              <span *ngIf="value != 1" (click)="statusToggle(row)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <!-- <i class="icon" title="click to activate">
+                  <img src="./../../../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                </i> -->
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Action">
+            <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+              <a  [routerLink]="['targets', row.users_id]" routerLinkActive="router-link-active" title="Target User">
+                <i class="fa fa-dollar"></i>
+              </a>
+              &nbsp;
+              <a [routerLink]="['edit', row.users_id]" routerLinkActive="router-link-active" title="Edit User">
+                <i class="fa fa-edit"></i>
+              </a>
+              &nbsp;
+              <a class="nav-link edit" (click)="deleteUser(row)" title="Delete User">
+                <i class="fa fa-trash"></i>
+              </a>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+
+    </div>
+  </div>
+</div>

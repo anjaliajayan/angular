@@ -1,0 +1,182 @@
+<div class="outer-wrapper">
+    <div class="logo-block">
+        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+    </div>
+    <table class="detail-table fontinclution">
+        <tr class="table-head-row">
+            <td class="border-block">Guest Name</td>
+            <td class="right-block">Trip ID</td>
+            <td>Supplier Ref.No</td>
+            <td>Booking Date</td>
+        </tr>
+        <tr class="table-content-row background-change">
+            <td class="border-block">Username</td>
+            <td *ngIf="voucherDetails.trip_id">{{voucherDetails.trip_id}} </td>
+            <td>{{carInfo.supplier_code}}</td>
+            <td>{{carBookingInfo.created | date:'EEEE, dd MMM yyyy'}}</td>
+        </tr>
+    </table>
+    <div class="hotel-wrapper">
+        <table class="pax-table  text-center">
+            <tr class="heading">
+                <td>PICK-UP</td>
+                <td>DROP-OFF</td>
+            </tr>
+            <tr class ="background-change guestinfo1">
+                <td class ="background-change loc-blk">
+                    <i class="icon">
+                        <img src="./../../../../assets/icons/pin-drop.svg"
+                        class="pass_input__placeholder-icon cal"/>
+                            <!-- <i class="fa fa-map-marker-alt"></i> -->
+                    </i>
+                    <span>
+                        <p class="background-change font-align">{{searchCriteria.pickUp}}</p>
+                    </span>
+                </td>
+                <td class ="background-change loc-blk">
+                    <i class="icon">
+                        <img src="./../../../../assets/icons/pin-drop.svg"
+                        class="pass_input__placeholder-icon cal"/>
+                            <!-- <i class="fa fa-map-marker-alt"></i> -->
+                    </i>
+                    <span>
+                        <p class="background-change font-align text-center">{{searchCriteria.dropOff}}</p>
+                    </span>
+                </td>
+            </tr>
+            <tr class="location-align">
+                <td class ="background-change guestinfo2 loc-blk">
+                    <i class="icon">
+                        <img src="./../../../../../assets/icons/calendar.svg"
+                                class="pass_input__placeholder-icon cal"/>
+                    </i>
+                    <span>
+                        <p class="background-change space">{{searchCriteria.startDate | date:'dd MMM yyyy'}}</p>
+                    </span>
+                    <i class="icon">
+                        <img src="./../../../../../assets/icons/time-icon.svg"
+                            class="pass_input__placeholder-icon cal"/>
+                    </i>
+                    <span>
+                        <p class="background-change">{{searchCriteria.startTime}}</p>
+                    </span>
+                </td>
+                <td class ="background-change guestinfo2 loc-blk">
+                    <i class="icon">
+                        <img src="./../../../../../assets/icons/calendar.svg"
+                                class="pass_input__placeholder-icon cal"/>
+                        </i>
+                    <span>
+                        <p class="background-change">{{searchCriteria.endDate | date:'dd MMM yyyy'}}</p>
+                    </span>
+                    <i class="icon">
+                        <img src="./../../../../../assets/icons/time-icon.svg"
+                            class="pass_input__placeholder-icon cal"/>
+                    </i>
+                    <span>
+                        <p class="background-change">{{searchCriteria.endTime}}</p>
+                    </span>
+                </td>
+                <!-- <span>
+                <table  class="pax-table">
+                    <tr class ="background-change borderStyle2">
+                    <td class="column-align">
+                        <tr class = "fontStyle">Check In:</tr>
+                        <tr class = "fontStyle">Sat, 04 Jan 2020</tr>
+                    </td>
+                    <td class="column-align">
+                        <tr class = "fontStyle">Check Out:</tr>
+                        <tr class = "fontStyle">Sat, 04 Jan 2020 </tr>
+                    </td>
+                    </tr>
+                    <tr class ="background-change">
+                    <td class="column-align borderStyle1">
+                        <tr class = "fontStyle">Night(s): </tr>
+                        <tr class = "fontStyle">1</tr>
+                    </td>
+                    <td class="column-align">
+                        <tr class = "fontStyle">Total Guest: </tr>
+                        <tr class = "fontStyle">1</tr>
+                    </td>
+                    </tr>
+                </table>
+            </span> -->
+            </tr>
+        </table>
+    </div>
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>CAR DETAILS</td>
+                </tr>
+            </table>
+            <table class="pax-table fontinclution">
+                <tr>
+                    <td>Car</td>
+                    <td>Company Name</td>
+                    <td>Car Class</td>
+                    <td>Transmission</td>
+                    <td>Luggage</td>
+                    <td>AC</td>
+                </tr>
+                <tr class="borderBottom">
+                    <td>{{carInfo.carName}} </td>
+                    <td>{{carInfo.carCompanyName}}</td>
+                    <td>{{carInfo.carClass}}</td>
+                    <td>{{carInfo.transmission}}</td>
+                    <td>{{carInfo.luggageLarge}} Larger <span *ngIf="carInfo.luggageSmall"> + {{carInfo.luggageSmall}} Small</span></td>
+                    <td>{{carAC}}</td>
+                </tr>
+                <tr></tr>
+            </table>
+        </div>
+
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>FARE INFORMATION</td>
+                </tr>
+            </table>
+            <table class="pax-table fontinclution">
+                <tr>
+                    <td>Pax</td>
+                    <td>Tax & Charges</td>
+                    <td>VAT</td>
+                    <td>Pay at Pickup</td>
+                    <td>Total</td>
+                </tr>
+                <tr>
+                    <td>Adult X {{carBookingInfo.adult}}</td>
+                    <td>{{carInfo.currency}} {{carInfo.Programs.Program.mandatoryFees.appliedTotalTax}}</td>
+                    <td>{{carInfo.currency}} {{carInfo.Programs.Program.mandatoryFees.appliedTotalTax}}</td>
+                    <td>{{carInfo.currency}} {{carInfo.Programs.Program.mandatoryFees.value}}</td>
+                    <td>{{carInfo.currency}} {{carInfo.Programs.Program.mandatoryFees.value+carInfo.markupPrice}}</td>
+                </tr>
+                <tr class="borderBottom">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total Amount:</td>
+                    <td>{{carInfo.currency}} {{carInfo.Programs.Program.mandatoryFees.value+carInfo.markupPrice+carInfo.Programs.Program.mandatoryFees.appliedTotalTax}}</td>
+                </tr>
+                <tr></tr>
+            </table>
+        </div>
+
+
+
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>PAYABLE THROUGH</td>
+            </tr>
+        </table>
+          <div class="fontinclution ft-block">
+              <p>TPConnects - Sales</p>
+              <br/>
+              <p class="inner-loop">For assistance regarding your booking, please contact the following:</p>
+              <p>Description goes her</p>
+            </div>
+         </div>
+    </div>
+<!-- </div> -->

@@ -1,0 +1,124 @@
+.flight-rate-info {
+    img {
+        width: 26px;
+        height: 24px;
+        display: block;
+        margin: 0 auto 8px;
+    }
+    .rate {
+        font-weight: 700;
+    }
+}
+.ui.grid>.column.row>[class*="one wide"].column, .ui.grid>.row>[class*="one wide"].column {
+    width: 4.25% !important;
+}
+.cal-block {
+    position: relative;
+}
+// .head-wrap {
+//     .seg-label {
+//         padding-bottom: 14px;
+//     }
+// }
+.seg-label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    color: #1B1F26;
+    &.vert {
+        align-items: center;
+        display: flex;
+        height: 56px;
+        left: 52px;
+        min-width: 500px;
+        position: absolute;
+        top: 50%;
+        transform: rotate(270deg);
+        transform-origin: bottom left;
+    }
+}
+// .table-wrapper {
+//     padding-left: 36px;
+// }
+table {
+    th, .main-cell {
+        background: rgba(196, 196, 196, 0.1);
+    }
+    th.blank {
+        background: #fff;
+    }
+    tr td:hover, tr td.active {
+        background: rgba(67, 122, 218, 0.1);
+        .rate {
+            color: #448C31;
+        }
+    }
+}
+.rate-info-block {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 0px;
+    h4 {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16px;
+        color: #000000;
+        text-transform: uppercase;
+    }
+    p {
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 17px;
+        color: #000000;
+    }
+    .arrow {
+        position: relative;
+        top: -1px;
+        font-size: 13px;
+    }
+    .route-time {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        text-align: center;
+        color: #181B20;
+    }
+    .route-seg {
+        font-size: 16px;
+        line-height: 19px;
+        text-align: center;
+        color: rgba(24, 27, 32, 0.6);
+    }
+    .route-dur {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #181B20;
+    }
+    .route-line:after {
+        content: "";
+        width: 2px;
+        position: absolute;
+        top: -28px;
+        bottom: 0rem;
+        left: 58px;
+        z-index: 1;
+        background: rgba(67, 122, 218, 0.6);
+        transform: rotate(90deg);
+        height: 110px;
+    }
+    .route-flight-info {
+        p {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+            color: rgba(24, 27, 32, 0.6);
+            margin: 18px 6px;
+        }
+    }
+    .route-seg-detail:first-child {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        min-height: 250px;
+    }
+}

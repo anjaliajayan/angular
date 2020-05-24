@@ -1,0 +1,680 @@
+
+<div><button class="ui primary button" (click)="exportToPdf()" style="float: right; position: absolute; top:50px;right:90px">Export to PDF</button></div>
+<div><i class="fa fa-chevron-left" style="position: absolute; top:20px;left:50px; color: #437ADA; font-size:25px" (click)="back()"><i class="fa fa-chevron-left"></i></i>
+<div class="outer-wrapper" *ngIf="voucherDetails != undefined">
+    <div class="logo-block">
+        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects" />
+    </div>
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking Status:</td>
+            <td>Last Ticketing Date: </td>
+            <td>Agent Reference:</td>
+            <td>Booked by User:</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{voucherDetails.booking_status}}</td>
+            <td>{{voucherDetails.created | date:medium}}</td>
+            <td>{{voucherDetails.agent_reference}}</td>
+            <td>{{voucherDetails.user.username}}</td>
+        </tr>
+    </table>
+    <div id="content">
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking Date:</td>
+            <td>Trip ID: </td>
+            <td>PNR No:</td>
+            <td>Airline Ref No:</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{voucherDetails.created | date:medium}}</td>
+            <td>{{voucherDetails.trip_id}}</td>
+            <td>{{voucherDetails.bookings_flights[0].pnr_no.split('-')[1]}}</td>
+            <td>{{airlinePnr}}</td>
+        </tr>
+    </table>
+    <table class="detail-table traveller-table">
+        <tr class="table-head-row">
+            <td>Traveller(s) Name</td>
+            <td>Passenger Type</td>
+            <td>Primary / Destination Contact</td>
+            <td>Email</td>
+            <td>Identification Number</td>
+            <td>Identification Type</td>
+        </tr>
+        <tr class="table-content-row" *ngFor="let paxInfo of voucherDetails.passenger_details">
+            <td>{{paxInfo.pax_title}} {{paxInfo.pax_first_name}} {{paxInfo.pax_middle_name}} {{paxInfo.pax_last_name}}</td>
+            <td>{{paxInfo.pax_type}}</td>
+            <td>{{paxInfo.pax_mobile}}  
+                </td>
+            <td>{{paxInfo.pax_email}}</td>
+            <td>{{paxInfo.pax_passport_number}}</td>
+            <td>{{paxInfo.pax_ID_type}}</td>
+        </tr>
+    </table>
+    
+        <!-- <div class="flight-info-section">
+            <div>
+                <div class="right flight-detail flight-time">16:35</div>
+                <div class="center flight-detail flight-dur">2h 55m</div>
+                <div class="flight-detail flight-time">18:30</div>
+                <div class="center flight-detail flight-logo">
+                    <img src="./../../../../assets/img/emirates-logo.svg" />
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail">Doha</div>
+                <div class="center flight-detail line"></div>
+                <div class="flight-detail">Amman</div>
+                <div class="center flight-detail flight-name">
+                    Emirates
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Hamad International Airport</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Queen Alia International Airport</div>
+                <div class="center flight-detail flight-number">
+                    (777 SV 115) <span>EK 996</span>
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Terminal
+                     1</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Terminal 3</div>
+                <div class="center flight-detail flight-number">
+
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail"></div>
+                <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail flight-type">
+                    Business
+                </div>
+            </div>
+        </div>
+        <table class="info-block">
+            <tr>
+                <td>
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Cabin Baggage:</td>
+                            <td>7 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Check-in Baggage:</td>
+                            <td>30 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Seat:</td>
+                            <td>22 A</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Equipment:</td>
+                            <td>EK-650(Airbus Industrie A321)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="second-block">
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Meal:</td>
+                            <td>Vegan Vegetarian Meal</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Wheel Chair:</td>
+                            <td>Wheelchair-1-BA-Arranged</td>
+                        </tr>
+                        <tr>
+                            <td class="item">FF Number:</td>
+                            <td>EK12345</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Fare Basis:</td>
+                            <td>RRJSPL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table> -->
+    
+    <!-- <div class="flight-wrapper">
+        <table class="flight-table">
+            <tr class="heading">
+                <td>Flight Details (INBOUND)</td>
+            </tr>
+            <tr class="details">
+                <td>Berlin to Doha</td>
+                <td>Tue, 18th Feb 2020</td>
+                <td class="right">Total Trip Duration: 11h 45m</td>
+            </tr>
+        </table>
+        <div class="flight-info-section">
+            <div>
+                <div class="right flight-detail flight-time">16:35</div>
+                <div class="center flight-detail flight-dur">2h 55m</div>
+                <div class="flight-detail flight-time">18:30</div>
+                <div class="center flight-detail flight-logo">
+                    <img src="./../../../../assets/img/emirates-logo.svg" />
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail">Doha</div>
+                <div class="center flight-detail line"></div>
+                <div class="flight-detail">Amman</div>
+                <div class="center flight-detail flight-name">
+                    Emirates
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Hamad International Airport</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Queen Alia International Airport</div>
+                <div class="center flight-detail flight-number">
+                    (777 SV 115) <span>EK 996</span>
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Terminal 1</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Terminal 3</div>
+                <div class="center flight-detail flight-number">
+
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail"></div>
+                <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail flight-type">
+                    Business
+                </div>
+            </div>
+        </div>
+        <table class="info-block">
+            <tr>
+                <td>
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Cabin Baggage:</td>
+                            <td>7 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Check-in Baggage:</td>
+                            <td>30 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Seat:</td>
+                            <td>22 A</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Equipment:</td>
+                            <td>EK-650(Airbus Industrie A321)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="second-block">
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Meal:</td>
+                            <td>Vegan Vegetarian Meal</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Wheel Chair:</td>
+                            <td>Wheelchair-1-BA-Arranged</td>
+                        </tr>
+                        <tr>
+                            <td class="item">FF Number:</td>
+                            <td>EK12345</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Fare Basis:</td>
+                            <td>RRJSPL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="layover-head-table">
+            <tr>
+                <td class="line">
+                    <p></p>
+                </td>
+                <td class="layover">Layover Time: 1h 15m</td>
+                <td class="line">
+                    <p></p>
+                </td>
+            </tr>
+        </table>
+        <div class="flight-info-section">
+            <div>
+                <div class="right flight-detail flight-time">16:35</div>
+                <div class="center flight-detail flight-dur">2h 55m</div>
+                <div class="flight-detail flight-time">18:30</div>
+                <div class="center flight-detail flight-logo">
+                    <img src="./../../../../assets/img/emirates-logo.svg" />
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail">Doha</div>
+                <div class="center flight-detail line"></div>
+                <div class="flight-detail">Amman</div>
+                <div class="center flight-detail flight-name">
+                    Emirates
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Hamad International Airport</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Queen Alia International Airport</div>
+                <div class="center flight-detail flight-number">
+                    (777 SV 115) <span>EK 996</span>
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Terminal 1</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Terminal 3</div>
+                <div class="center flight-detail flight-number">
+
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail"></div>
+                <div class="flight-detail flight-date">Sat, 1st Feb 2020</div>
+                <div class="center flight-detail flight-type">
+                    Business
+                </div>
+            </div>
+        </div>
+        <table class="info-block">
+            <tr>
+                <td>
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Cabin Baggage:</td>
+                            <td>7 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Check-in Baggage:</td>
+                            <td>30 KG for MR IFEANYI NWAONICHA</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Seat:</td>
+                            <td>22 A</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Equipment:</td>
+                            <td>EK-650(Airbus Industrie A321)</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="second-block">
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Meal:</td>
+                            <td>Vegan Vegetarian Meal</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Wheel Chair:</td>
+                            <td>Wheelchair-1-BA-Arranged</td>
+                        </tr>
+                        <tr>
+                            <td class="item">FF Number:</td>
+                            <td>EK12345</td>
+                        </tr>
+                        <tr>
+                            <td class="item">Fare Basis:</td>
+                            <td>RRJSPL</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div> -->
+    <!-- <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Alacarte Service</td>
+            </tr>
+        </table>
+        <table class="pax-table">
+            <tr>
+                <td>Traveller</td>
+                <td>Services Type</td>
+                <td>Airline</td>
+                <td>EMD Number</td>
+                <td>Route</td>
+                <td>Price</td>
+            </tr>
+            <tr>
+                <td>MR IFEANYI NWAONICHA</td>
+                <td>Baggage</td>
+                <td>Emirates</td>
+                <td>258963</td>
+                <td>DOH-AMM</td>
+                <td>80.00</td>
+            </tr>
+            <tr>
+                <td>MR IFEANYI NWAONICHA</td>
+                <td>Meal</td>
+                <td>Emirates</td>
+                <td>58963</td>
+                <td>DOH-AMM</td>
+                <td>30.00</td>
+            </tr>
+            <tr>
+
+                <td>MR IFEANYI NWAONICHA</td>
+                <td>Seat</td>
+                <td>Emirates</td>
+                <td>58963</td>
+                <td>DOH-AMM</td>
+                <td>30.00</td>
+            </tr>
+            <tr></tr>
+        </table>
+    </div> -->
+
+
+    <div class="flight-wrapper" *ngFor="let flightInfo of voucherDetails.trip_detail.segment_details;let i=index">
+        <table class="flight-table">
+            <tr class="heading">
+                <td>Flight Details</td>
+            </tr>
+            <tr class="details">
+                <td style="font-size:20px">{{flightInfo.segment_departure_airport_name}} To {{flightInfo.segment_arrival_airport_name}}</td>
+                <td  style="font-size:20px">{{flightInfo.segment_departure_date}}</td>
+                <td  style="font-size:20px" class="right">Total Trip Duration: {{flightInfo.segment_flight_duration }}</td>
+            </tr>
+        </table>
+        <div class="flight-info-section">
+            <div>
+                <div class="right flight-detail flight-time">{{flightInfo.segment_departure_time}}</div>
+                <div class="center flight-detail flight-dur">{{flightInfo.segment_flight_duration   }} </div>
+                <div class="flight-detail flight-time">{{flightInfo.segment_arrival_time ? flightInfo.segment_arrival_time : "-" }}
+                </div>
+                <div class="center flight-detail flight-logo">
+                    <!-- <img src="./../../../../assets/img/emirates-logo.svg" /> -->
+                    <img
+                    src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{SupplierCodeImage}}.png"
+                    class="airline-tickets_airline-logo" />
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail">{{flightInfo.segment_departure_airport_code}}</div>
+                <div class="center flight-detail line"></div>
+                <div class="flight-detail">{{flightInfo.segment_arrival_airport_code}}</div>
+                <div class="center flight-detail flight-name">
+                    {{flightInfo.segment_marketing_airline_name}}
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport" style="max-width: 200px; display:inline-block">{{flightInfo.segment_departure_airport_name}}</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail" style="max-width: 200px; display:inline-block">{{flightInfo.segment_arrival_airport_name}}</div>
+                <div class="center flight-detail flight-number">
+                    <!-- ({{flightInfo.equipment_name}} {{flightInfo.segment_airline_id.split('\"')}} -->
+                    <!-- {{flightInfo.segment_marketing_flight_number}}) -->
+                    <!-- <span>{{flightInfo.segment_airline_id.split('\"')}}
+                        {{flightInfo.segment_flight_number}}</span> -->
+                      {{SupplierCodeImage}}
+                        {{flightInfo.segment_marketing_flight_number}}
+                        
+                </div>
+            </div>
+            <div class="airport-info">
+                <div class="right flight-detail airport">Terminal {{flightInfo.segment_departure_terminal}}</div>
+                <div class="flight-detail"></div>
+                <div class="flight-detail">Terminal {{flightInfo.segment_arrival_terminal}}</div>
+                <div class="center flight-detail flight-number">
+
+                </div>
+            </div>
+            <div>
+                <div class="right flight-detail flight-date">{{flightInfo.segment_departure_date  | date }}</div>
+                <div class="center flight-detail"></div>
+                <div class="flight-detail flight-date">{{flightInfo.segment_arrival_date |date}}</div>
+                <div class="center flight-detail flight-type">
+                 {{classOfService[i]}} 
+                </div>
+            </div>
+        </div>
+        <table class="layover-head-table">
+            <tr>
+                <td class="line">
+                    <p></p>
+                </td>
+                <td class="layover">Layover Time: {{flightInfo.segment_flight_duration }}</td>
+                <td class="line">
+                    <p></p>
+                </td>
+            </tr>
+        </table>
+        <table class="info-block">
+            <tr>
+                <td>
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Cabin Baggage:</td>
+                            <td>
+                               <span *ngFor="let name of voucherDetails.passenger_details" style="display: block;">
+                                 7 KG for {{name.pax_first_name}} {{name.pax_last_name}}</span>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                            <td class="item">Check-in Baggage:</td>
+                            <td>
+                                <span *ngFor="let name of voucherDetails.passenger_details"style="display:block;">
+                                    30 KG for {{name.pax_first_name}} {{name.pax_last_name}}</span>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td class="item">Seat:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="item">Equipment:</td>
+                            <td>{{flightInfo.equipment_name}}</td>
+                        </tr>
+                    </table>
+                </td>
+                <td class="second-block">
+                    <table class="booking-detail-table">
+                        <tr>
+                            <td class="item">Meal:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="item">Wheel Chair:</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="item">FF Number:</td>
+                            <td><span *ngFor="let ffNumber of ffNum" style="display: block;">{{ffNumber}}</span></td>
+                        </tr>
+                        <tr>
+                            <td class="item">Fare Basis:</td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Ticket Details</td>
+            </tr>
+            <tr>
+              
+                <!-- <td><span *ngFor="let detailsOfTicketAndName of name_ticket" style="display: block;">
+                    
+                    {{detailsOfTicketAndName.ticketNumber}} 
+                    For {{detailsOfTicketAndName.name}}</span></td> -->
+                    <td >
+                        <span *ngFor="let data of this.voucherDetails.passenger_details;let i=index" style="display: block;">
+                            <img
+                            src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{SupplierCodeImage}}.png"
+                            class="airline-tickets_airline-logo" style="margin: 0 5px;"/>
+                          <div style="display: inline;" *ngIf="voucherDetails.bookings_flights[0].flight_tickets.length == 0 ">
+                            <span class="pulse" > No Ticket  
+                            </span><span> for {{data.pax_first_name}}</span>
+                        </div>
+                          <div style="display: inline;" *ngIf="voucherDetails.bookings_flights[0].flight_tickets.length != 0 ">
+                         <span class="pulse" > E-Ticket  
+                             </span> {{voucherDetails.bookings_flights[0].flight_tickets[i].ticket_number}} is
+                             ({{voucherDetails.bookings_flights[0].flight_tickets[i].ticket_status}})
+                            for {{data.pax_first_name}} 
+                        </div>
+                    </span>
+                   
+                      
+                    </td>
+             
+            </tr>
+        </table>
+
+    </div>
+    <div class="ticket-block" *ngIf="!displayVoucherWithoutPrice">
+        <table>
+            <tr>
+                <td>Price Details ({{voucherDetails.booking_currency}})</td>
+            </tr>
+        </table>
+        <table class="pax-table" >
+            <tr>
+                <td>Passenger Type</td>
+                <td>Base Fare</td>
+                <td>Tax</td>
+                <td>Service Fee</td>
+                <td class="right">Total</td>
+            </tr>
+            
+            <tr *ngFor="let data of PriceDetails">
+                <td>{{data.paxType}}</td>
+                <td>{{data.baseFare |number : '1.2-2'}}</td>
+                <td>{{data.tax |number : '1.2-2'}}</td>
+                <td>-</td>
+                <td class="right">{{data.total |number : '1.2-2'}}</td>
+            </tr>
+            <tr *ngIf="voucherDetails.bookings_flights[0].flight_ticket_emds.length != 0">
+                <td>Baggage</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="right"></td>
+            </tr>
+            <tr *ngIf="voucherDetails.bookings_flights[0].flight_ticket_emds.length != 0">
+                <td>Meal</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="right"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="total right">Total Flight Price: <span>{{voucherDetails.amount |number : '1.2-2'}}</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="terms-cond-block ticket-block">
+        <div class="terms-head">Remarks</div>
+        <p class="remark-content">
+            Remarks block content
+        </p>
+    </div>
+    <div class="terms-cond-block ticket-block">
+        <div class="terms-head">Terms and Conditions</div>
+        <ul>
+            <li>
+                In addition to Airline charges , charges a service fee of OMR:1 for each pax/ticket for all
+                cancellations and changes/rescheduling.
+            </li>
+            <li>
+                Please be at the check-in counter at least 3 -4hours prior to departure of International Flights.
+            </li>
+            <li>
+                Please reconfirm your onward or return reservation if you break your journey at any point.
+            </li>
+            <li>
+                If there is a change in your travel plans, ensure that your reservations are cancelled. Failure to do so
+                may result in automatic cancellation of your entire itinerary.
+            </li>
+            <li>
+                Please ensure you have Valid Passport and visa, Insurance, Vaccination certificate (if required).
+            </li>
+            <li>
+                Cancellation of tickets can be done either by emailing on mayank@tpconnects.com (offline) or directly
+                calling the airline.
+            </li>
+            <li>
+                If you are cancelling or rescheduling your flight within 24 hours of its departure time, kindly contact
+                the airline directly. Please note that the booking can only be cancelled till 12 hours before the
+                departure of the flight as per common fare rule.
+            </li>
+            <li>
+                If you have cancelled your booking with the airline directly, kindly inform us by calling our Customer
+                Care helpline or emailing on mayank@tpconnects.com to enable us to process your refund.
+            </li>
+        </ul>
+        <p>Dangerous Goods & Restricted Articles</p>
+        <p class="rest-block">
+            These objects can be extremely dangerous on the aircraft. If you have any dangerous goods or restricted
+            articles. Please declare them. Carrying these objects may be on offence and may result in prosecution.
+        </p>
+        <ul>
+            <li>
+                For safety reasons, dangerous goods as defined in the IATA Dangerous Goods Regulations, such as those
+                listed below, shall not be carried in or as passenger checked or carry-on baggage.
+            </li>
+            <li>
+                Briefcases and security type attache cases with installed alarm devices; or incorporative lithium
+                batteries and / or pyrotechnic material. • Explosives, munitions, fireworks and flares.
+            </li>
+            <li>
+                Gases (flammable, non-flammable deeply refrigerated and poisonous) such as camping gas. Radioactive
+                materials.
+            </li>
+            <li>
+                Corrosives (such as mercury, acids, alkalis and wet cell batteries).
+            </li>
+            <li>
+                Magnetized materials and miscellaneous dangerous goods.
+            </li>
+            <li>
+                Oxidizing substances (such as bleaching powder and peroxides). Poisonous (toxic) and infectious
+                substances
+            </li>
+            <li>
+                Flammable liquids, such as lighter fuels, paints and thinner.
+            </li>
+            <li>
+                Flammable solids, such as MATCHES and articles which are easily ignited; substances liable to
+                spontaneous combustion; substances which on contact with water emit flammable gases.
+            </li>
+        </ul>
+        <div class="terms-head">Payable Through</div>
+        <div class="payable-section">
+            <p>
+                {{voucherDetails.user.username}}
+            </p>
+            <p><strong>For assistance regarding your booking, please contact the following:</strong></p>
+            <p>THE Direct Number (24x7) : {{voucherDetails.user.mobile}}</p>
+            <p>Thank you for booking with Mayank Test travel Agency Our Support Team is always ready to assist you.
+                Please contact us at {{voucherDetails.user.email}}</p>
+        </div>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,1301 @@
+<h3 class="booking-header">New Traveller Profile</h3>
+<div class="ui fluid container scrolling">
+  <div class="ui grid container move stepper-grid scrolling stepper-wrapper-grid" #tab>
+    <div class="three wide column stepper-grid_step stepper-wrapper scrolling" (click)="generatePersonal()">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _user"></div>
+        </div>
+        <label class="bground">
+          Personal<br>
+          Traveller Details
+        </label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="three wide column stepper-grid_step stepper-wrapper" (click)="generateDocuments()">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _payment"></div>
+        </div>
+        <label class="bground">Documents<br>
+          Details
+        </label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="three wide column stepper-grid_step stepper-wrapper" *ngIf="showCompanyid" (click)="generateCompany()">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _remarks"></div>
+        </div>
+        <label class="background">Company Details</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="three wide column stepper-grid_step stepper-wrapper" (click)="generatePreference()">
+      <!-- <a href="#DivIdToScroll" pageScroll > -->
+      <div class="stepper-grid_step__step-icon ">
+        <div>
+          <div class="image _airline"></div>
+        </div>
+        <label class="bground"> Preferences<br>Traveller Service </label>
+      </div>
+      <!-- </a> -->
+      <div class="stepper-grid_step__step-border">
+      </div>
+    </div>
+  </div>
+  <form #f="ngForm" autocomplete="off"[formGroup]="newTravellerProfileForm" class="ui form">
+    <div id="user-content" class="stepper-grid-content animated fadeIn _active">
+      <div class="outer-basic">
+        <div class="outer-basicForm">
+          <div class="ui form-inner grid ">
+            <div class="ui sixteen wide column grid " id="personal">
+              <h4>Traveller Details</h4>
+            </div>
+            <div class="ui sixteen wide column grid info-block">
+              <div class="ui grid p-0">
+                <div class="sixteen wide column row">
+                  <div class="two wide column title-traveller">
+                    <div class="three wide column second-wrapper"   [ngClass]="{'is-invalid': isSubmitted && gfc.salutation.invalid}">
+                      <label>Title<span class="mandatory">*</span></label>
+                      <select class="ui fluid dropdown" formControlName="salutation" name="salutation">
+                        <option value="">Title</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Master">Master</option>
+                        <option value="Mrs.">Mrs.</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms.">Ms.</option>
+                        <option value="Dr.">Dr.</option>  
+                      </select>
+                    </div>
+                  </div>
+                  <div class="five wide column"  [ngClass]="{'is-invalid': isSubmitted && gfc.first_name.invalid}">
+                    <label class="profile-label">First name<span class="mandatory">*</span></label>
+                    <input type="text" class="text-colour" formControlName="first_name" name="first_name"
+                      placeholder="First Name" required>
+                      <!-- <div *ngIf="isSubmitted && gfc.first_name.invalid" class="invalid-feedback">
+                        <div class="validations" *ngIf="gfc.first_name.invalid">
+                          First name required.
+                        </div>
+                      </div> -->
+                  </div>
+                  <div class="four wide column" >
+                    <label class="profile-label">middle name</label>
+                    <input type="text" class="text-colour" formControlName="middle_name" name="middle_name"
+                      placeholder="Middle Name">
+                      <!-- <div *ngIf="isSubmitted && gfc.first_name.invalid" class="invalid-feedback">
+                        <div class="validations" *ngIf="gfc.first_name.invalid">
+                          Middle name required.
+                        </div>
+                      </div> -->
+                  </div>
+                  <div class="five wide column"  [ngClass]="{'is-invalid': isSubmitted && gfc.last_name.invalid}">
+                    <label class="profile-label">Last name<span class="mandatory">*</span></label>
+                  <input type="text" class="text-colour" placeholder="Last Name" formControlName="last_name"
+                    name="last_name" required>
+                    <!-- <div *ngIf="isSubmitted && gfc.last_name.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.last_name.invalid">
+                        Last name required.
+                      </div>
+                    </div> -->
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="four wide column radio-block" >
+                    <label class="profile-label">Gender<span class="mandatory">*</span>
+                     </label>
+                    <div class="sixteen wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.gender.invalid}">
+                      <div class="ui radio checkbox">
+                        <input type="radio" formControlName="gender" value="Male" name="gender">
+                        <label class="gender-label">Male</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                        <input type="radio" formControlName="gender" name="gender" value="Female">
+                        <label class="gender-label">Female</label>
+                      </div>
+                      <div class="ui radio checkbox">
+                        <input type="radio" formControlName="gender" name="gender" value="Other">
+                        <label class="gender-label">Other</label>
+                      </div>
+                      <div *ngIf="isSubmitted && gfc.gender.invalid" class="invalid-feedback">
+                        <div class="validations" *ngIf="gfc.gender.invalid">
+                          Gender required.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="four wide column check-block">
+                    <label class="profile-label">Corporate</label>
+                    <div class="ui  checkbox">
+                      <input type="checkbox" name="corporate" formControlName="corporate"  (change)=showCompany()>
+                      <label class="gender-label">Corporate (Yes/No) </label>
+                    </div>
+                  </div>
+                  <div class="four wide column"  [ngClass]="{'is-invalid': isSubmitted && gfc.a_dob.invalid}">
+                    <label class="profile-label ">Date Of Birth<span class="mandatory">*</span></label>
+                    <div class="ui left icon input reduce-size"
+                      [ngClass]="{'error': ((submitted && f.a_dob.errors) && f.a_dob.errors.required) }">
+                      <i class="icon ">
+                        <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                      </i>
+                      <input type="text" formControlName="a_dob" class="start-form" placeholder="Date of Birth"
+                        autocomplete="off" name="a_dob" />
+                    </div>
+                    <!-- <div *ngIf="isSubmitted && gfc.a_dob.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.a_dob.invalid">
+                        Dob required.
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="four wide column">
+                    <label class="profile-label">Marital Status</label>
+                    <div class="ui fluid  selection dropdown" >
+                      <input type="hidden" formControlName="marital_status" name="marital_status" value="marital_status">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Marital Status</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Married', 'marital_status')">Married
+                        </div>
+                        <div class="item" (click)="setDropDownType('Single', 'marital_status')">Single
+                        </div>
+                        <div class="item" (click)="setDropDownType('Other', 'marital_status')">Other
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="four wide column " [ngClass]="{'is-invalid': isSubmitted && gfc.nationality.invalid}">
+                    <label class="profile-label">Nationality<span class="mandatory">*</span></label>
+                    <!-- <div class="ui fluid  selection dropdown">
+                      <input type="hidden" formControlName="nationality" name="nationality" value="nationality"
+                        name="nationality">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Nationality</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Indian', 'nationality')">Indian</div>
+                        <div class="item" (click)="setDropDownType('Pakistani', 'nationality')">Pakistani</div>
+                        <div class="item" (click)="setDropDownType('Emirati', 'nationality')">Emirati</div>
+                        <div class="item" (click)="setDropDownType('Filipino', 'nationality')">Filipino
+                        </div>
+                      </div>
+                    </div> -->
+                    <select class="ui fluid search dropdown" formControlName="nationality" name="nationality">
+                      <option value=""> Country </option>
+                      <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}} </option>
+                    </select>
+
+                    <!-- <div *ngIf="isSubmitted && gfc.nationality.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.nationality.invalid">
+                        Nationality required.
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="four wide column " [ngClass]="{'is-invalid': isSubmitted && gfc.passenger_type.invalid}">
+                    <label class="profile-label ">Pax Type<span class="mandatory">*</span></label>
+                    <div class="ui fluid  selection dropdown ">
+                      <input type="hidden" formControlName="passenger_type" name="passenger_type" value="passenger_type" required>
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Pax Type</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Adult', 'passenger_type')">Adult
+                        </div>
+                        <div class="item" (click)="setDropDownType('Child', 'passenger_type')">Child
+                        </div>
+                        <div class="item" (click)="setDropDownType('Infant', 'passenger_type')">Infant
+                        </div>
+                        <div class="item" (click)="setDropDownType('YTH', 'passenger_type')">YTH
+                        </div>
+                        <div class="item" (click)="setDropDownType('ITX', 'passenger_type')">ITX
+                        </div>
+                      </div>
+  
+                    </div>
+                    <!-- <div *ngIf="isSubmitted && gfc.passenger_type.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.passenger_type.invalid">
+                        Passenger Type required.
+                      </div>
+                    </div> -->
+                  </div>
+                  <div class="four wide column addrr-block">
+                    <label class="profile-label">Phone number</label>
+                    <!-- <picture>
+                      <source media="(min-width: )" srcset="">
+                      <img src="" alt="">
+                    </picture> -->
+                    <div class="ui input fluid adr">
+                      <input type="number" formControlName="country_code" placeholder="code" name="country_code" class="phone-code">
+                      <input type="number" formControlName="mobile_number" name="mobile_number" placeholder="Mobile" class="phone-no">
+                    </div>
+                    <div class="ui input fluid">
+                      <input type="number" formControlName="country_code" placeholder="code"  name="country_code" class="phone-code">
+                      <input type="number" formControlName="emergency_contact" name="emergency_contact" placeholder="Emergency" class="phone-no">
+                    </div>
+                  </div>
+                  <div class="four wide column addrr-block">
+                    <label class="profile-label">Email<span class="mandatory">*</span></label>
+                    <div class="ui input fluid adr" [ngClass]="{'is-invalid': isSubmitted && gfc.email_address1.errors}">
+                      <input type="text" formControlName="email_address1"  name="email_address1" placeholder="Email Address 1" class="email" required>  
+                    </div>
+                    <div *ngIf="gfc.email_address1.errors" class="invalid-feedback">
+                      <div class="validations phone-valid" *ngIf="gfc.email_address1.errors.pattern">
+                        Email must be a valid email address
+                      </div>
+                    </div>
+                    <div class="ui input fluid" [ngClass]="{'is-invalid': isSubmitted && gfc.email_address2.errors}">
+                      <input type="text" formControlName="email_address2" name="email_address2" placeholder="emailAddress 2">  
+                    </div>
+                    <div *ngIf="gfc.email_address2.errors" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.email_address2.errors.pattern">
+                        Email must be a valid email address
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="four wide column addrr-block">
+                    <label class="profile-label">Address</label>
+                    <div class="ui input fluid adr">
+                      <input type="text" formControlName="address" name="address" placeholder="Address">
+                    </div>
+                    <div class="ui input fluid">
+                      <input type="number" formControlName="postal_code" name="postal_code" placeholder="P.O Box">
+                    </div>
+                  </div>
+                  <div class="four wide column addrr-block">
+                    <label class="profile-label">State</label>
+                    <div class="ui input fluid adr">
+                      <input type="text" placeholder="state" formControlName="state" value="state" name="state">
+                    </div>
+                    <div class="ui input fluid">
+                      <input type="text" formControlName="street" name="street" placeholder="Street">
+                    </div>
+                  </div>
+                  <div class="four wide column addrr-block">
+                    <label class="profile-label">Country</label>
+                    <div class="ui input fluid adr">
+                      <select class="ui fluid search dropdown" formControlName="country_id" (change)="passCountryId($event.target.value)">
+                        <option value=""> Country </option>
+                        <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}} </option>
+                      </select>
+                    </div>
+                    <div class="ui input fluid renew-city">
+                      <select class="ui fluid search dropdown text-colour" formControlName="city_id">
+                        <option value=""> City </option>
+                        <option *ngFor="let city of cities" value="{{city.city_id}}">{{city.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <div class="ui sixteen wide column grid">
+
+              <div class="three wide column">
+                <label class="profile-label">Address</label>
+                <div class="ui sixteen wide column grid resize">
+
+
+                  <input type="text" class="ten wide column adjust" formControlName="address" name="address"
+                    placeholder="Address">
+                </div>
+                <div class="ui sixteen wide column grid renew ">
+
+                  <input type="number" class="ten wide column adjust " formControlName="postal_code" name="postal_code"
+                    placeholder="P.O Box">
+
+                </div>
+
+              </div> -->
+
+              <!-- <div class="two wide column"></div> -->
+
+
+              <!-- <div class="four wide field"
+              [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].contact_country_id.status == 'INVALID')}">
+              <label>Country</label>
+              <select class="ui fluid search dropdown" formControlName="contact_country_id"
+                (change)="passCountryId($event.target.value)">
+                <option value=""> Country </option>
+                <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}}
+                </option>
+              </select>
+            </div>
+            <div class="four wide field"
+              [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].city_id.status == 'INVALID')}">
+              <label>City</label>
+              <select class="ui fluid search dropdown" formControlName="city_id">
+    
+                <option *ngFor="let city of cities" value="{{city.city_id}}">{{city.name}}</option>
+              </select>
+            </div> -->
+              <!-- <div class="two wide column bring-left">
+
+                <label class="profile-label">State</label> -->
+                <!-- <select class="ui fluid search dropdown" formControlName="contact_country_id"
+                (change)="passCountryId($event.target.value)">
+                <option value=""> Country </option>
+                <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}}
+                </option>
+              </select> -->
+
+
+                <!-- <input type="text" placeholder="state" formControlName="state" class="text-colour" value="state"
+                  name="state">
+
+                <div class="ui sixteen wide column grid renew ">
+
+
+                  <input type="text" formControlName="street" class="grid-width" name="street" placeholder="Street">
+
+
+                </div>
+
+              </div>
+
+              <div class="one wide column"></div>
+
+              <div class="three wide column ">
+                <label class="profile-label">Country</label>
+
+                <select class="ui fluid search dropdown text-colour" formControlName="country_id"
+                  (change)="passCountryId($event.target.value)">
+                  <option value=""> Country </option>
+                  <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}}
+                  </option>
+                </select>
+
+
+
+                <div class="ui sixteen wide column grid renew renew-city">
+
+                  <select class="ui fluid search dropdown text-colour" formControlName="city_id">
+                    <option value=""> City </option>
+                    <option *ngFor="let city of cities" value="{{city.city_id}}">{{city.name}}</option>
+                  </select>
+                </div>
+              </div> -->
+              <!-- <div class="two wide column"></div> -->
+
+            <!-- </div> -->
+
+
+            <!-- <div class="ui sixteen wide column grid pull-down  "> -->
+              <!-- <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="eight wide column">
+                    
+              <label class="profile-label">Phone Number<span class="mandatory">*</span></label>
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        
+
+              <div class="four wide column">
+
+                <div class="ui twelve wide column grid resize" >
+
+                  <input type="text" formControlName="country_code" placeholder="code" class="element-set"
+                    name="country_code">
+                </div>
+                
+                <div class="ui sixteen wide column grid renew " >
+
+                  <input type="text" formControlName="country_code" placeholder="code" class="element-set"
+                    name="country_code">
+                </div>
+
+              </div>
+
+              <div class="eight wide column">
+
+
+                <div class="ui sixteen wide column grid resize" >
+
+
+                  <input type="number" class="ten wide column adjust assign_left" formControlName="mobile_number"
+                    name="mobile_number" placeholder="Mobile">
+
+                </div>
+               
+                <div class="ui sixteen wide column grid renew ">
+
+                  <input type="number" class="ten wide column adjust assign_left " formControlName="emergency_contact"
+                    name="emergency_contact" placeholder="Emergency">
+
+                </div>
+
+              </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="eight wide column">
+          
+                    <label class="profile-label">Email<span class="mandatory">*</span></label>
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        <div class="eight wide column ">
+          
+                          <div class="ui sixteen wide column grid resize"
+                            [ngClass]="{'is-invalid': isSubmitted && gfc.email_address1.errors}">
+          
+                            <input type="text" class="ten wide column adjust" formControlName="email_address1"
+                              name="email_address1" placeholder="Email Address 1">
+                            <div *ngIf="isSubmitted && gfc.email_address1.errors" class="invalid-feedback">
+                              <div class="validations" *ngIf="gfc.email_address1.errors.pattern">
+                                Email must be a valid email address
+                              </div>
+                            </div>
+                          </div>
+                          <div class="ui sixteen wide column grid renew "
+                            [ngClass]="{'is-invalid': isSubmitted && gfc.email_address2.errors}">
+          
+                            <input type="text" class="ten wide column adjust" formControlName="email_address2"
+                              name="email_address2" placeholder="emailAddress 2">
+                            <div *ngIf="isSubmitted && gfc.email_address2.errors" class="invalid-feedback">
+                              <div class="validations" *ngIf="gfc.email_address2.errors.pattern">
+                                Email must be a valid email address
+                              </div>
+                            </div>
+                          </div>
+          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <!-- <div class="two wide column"></div> -->
+
+              <!-- <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.email.errors}">
+                <label>Email<span class="mandatory">*</span></label>
+                <input type="email" name="email" formControlName="email" value="" placeholder="Email*">
+                <div *ngIf="isSubmitted && gfc.email.errors" class="invalid-feedback">
+                  <div class="validations" *ngIf="gfc.email.errors.pattern">
+                    Email must be a valid email address
+                  </div>
+                </div>
+              </div> -->
+<!-- 
+              <div class="one wide column"></div>
+
+
+
+
+              <div class="two wide column"></div> -->
+
+
+            <!-- </div> -->
+
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="outer-basic outer-basic_secondary mtb" id="goToDocuments">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields doc-head">
+              <h4>Document Details</h4>
+            </div>
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="two wide column ">
+                  <label class="profile-label">Document Type</label>
+                  <input type="text" name="nationalID_doc" formControlName="nationalID_doc" value="National ID" disabled>
+                  <!-- <div class="ui fluid  selection dropdown">
+                    <input type="hidden" formControlName="document1" name="document1" class="dropdown-resize">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Document Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('nationalId','document1')">National Id</div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="three wide column doc-head">
+                  <label class="profile-label">Document Number</label>
+                  <input type="text" name="national_id" formControlName="national_id" placeholder="Document Number">
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Issue Date</label>
+                  <div class="ui left icon input fluid"
+                    [ngClass]="{'error': ((submitted && f.a_issueDate.errors) && f.a_issueDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" name="national_id_issueDate" autocomplete="off"
+                      formControlName="national_id_issueDate" class="start-form" placeholder="Issue Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Expiry Date</label>
+                  <div class="ui left icon input fluid"
+                    [ngClass]="{'error': ((submitted && f.national_id_expiryDate.errors) && f.national_id_expiryDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" autocomplete="off" autocomplete="off" name="national_id_expiryDate"
+                      formControlName="national_id_expiryDate" class="start-form" placeholder="Expiry Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Place of Issue</label>
+                  <input type="text" name="national_id_placeofissue" formControlName="national_id_placeofissue"
+                    class="padding_in" placeholder="Place of Issue" autocomplete="off" value="">
+                </div>
+                <div class="three wide column ">
+                  <label for="imageFile" class="profile-label">Document Detail</label>
+                  <input #imageFile type="file" id="imageFile" accept='image/*'
+                    (change)="uploadImage(imageFile.files,'imageFile')" />
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label"></label>
+                  <!-- <input type="file"   accept="image/*" > -->
+                  <a class="nav-link edit" (click)="viewUser('custom-modal-1')" title="View Details">
+                    <div class="ui primary button  allign-left">
+                      View
+                    </div>
+                  </a>
+                  <jw-modal id="custom-modal-1" class="register-modal">
+                    <i class="close icon push-right" (click)="closeModal('custom-modal-1');"></i>
+                    <div class="ui" *ngIf="showDetailModal">
+                      <img src="{{ newTravellerProfileForm.controls.image1.value }}" style="width: 95%;" />
+                    </div>
+                  </jw-modal>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="two wide column ">
+                  <label class="profile-label">Document Type</label>
+                  <input type="text" name="passport_doc" formControlName="passport_doc" value="Passport ID" disabled>
+                  <!-- <div class="ui fluid  selection dropdown">
+                    <input type="hidden" formControlName="document2" name="document2" class="dropdown-resize" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Document Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Passport', 'document2')">Passport</div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="three wide column">
+                  <label class="profile-label">Document Number</label>
+                  <input type="text" formControlName="passport" name="passport" placeholder="Document Number" value="">
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Issue Date</label>
+                  <div class="ui left icon input"
+                    [ngClass]="{'error': ((submitted && f.passport_issueDate.errors) && f.passport_issueDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" name="passport_issueDate" autocomplete="off" formControlName="passport_issueDate"
+                      class="start-form" placeholder="Issue Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Expiry Date</label>
+                  <div class="ui left icon input"
+                    [ngClass]="{'error': ((submitted && f.passport_expiryDate.errors) && f.passport_expiryDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" autocomplete="off" name="passport_expiryDate" formControlName="passport_expiryDate"
+                      class="start-form" placeholder="Expiry Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Place of Issue</label>
+                  <input type="text" name="passport_placeofissue" formControlName="passport_placeofissue"
+                    placeholder="Place of Issue" class="padding_in" value="">
+                </div>
+                <div class="three wide column ">
+                  <label for="imageFile2" class="profile-label">Document Detail</label>
+                  <input #imageFile2 type="file" id="imageFile2" accept='image/*'
+                    (change)="uploadImage2(imageFile2.files,'imageFile2')" />
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label"></label>
+                  <!-- <input type="file"   accept="image/*" > -->
+                  <a class="nav-link edit" (click)="viewUser('custom-modal-2')" title="View Details">
+                    <div class="ui primary button  allign-left">
+                      View
+                    </div>
+                  </a>
+                  <jw-modal id="custom-modal-2" class="register-modal">
+                    <i class="close icon push-right" (click)="closeModal('custom-modal-2');"></i>
+                    <div class="ui" *ngIf="showDetailModal">
+                      <img src="{{ newTravellerProfileForm.controls.image2.value }}" style="width: 95%;" />
+                    </div>
+                  </jw-modal>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="two wide column ">
+                  <label class="profile-label">Document Type</label>
+                  <input type="text" name="driving_doc" formControlName="driving_doc" value="Driving ID" disabled>
+                  <!-- <div class="ui fluid  selection dropdown">
+                    <input type="hidden" formControlName="document3" name="document3" class="dropdown-resize" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Document Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('licence', 'document3')">Driving Licence</div>
+                    </div>
+                  </div> -->
+                </div>
+                <div class="three wide column">
+                  <label class="profile-label">Document Number</label>
+                  <input type="text" formControlName="driving_licence" name="driving_licence" placeholder="Document Number"
+                    value="">
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Issue Date</label>
+                  <div class="ui left icon input"
+                    [ngClass]="{'error': ((submitted && f.driving_licence_issueDate.errors) && f.driving_licence_issueDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" autocomplete="off" name="driving_licence_issueDate"
+                      formControlName="driving_licence_issueDate" class="start-form" placeholder="Issue Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Expiry Date</label>
+                  <div class="ui left icon input"
+                    [ngClass]="{'error': ((submitted && f.driving_licence_expiryDate.errors) && f.driving_licence_expiryDate.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" autocomplete="off" name="driving_licence_expiryDate"
+                      formControlName="driving_licence_expiryDate" class="start-form" placeholder="Expiry Date" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label">Place of Issue</label>
+                  <input type="text" name="driving_licence_placeofissue" formControlName="driving_licence_placeofissue"
+                    placeholder="Place of Issue" class="padding_in" value="">
+                </div>
+                <div class="three wide column ">
+                  <label for="imageFile3" class="profile-label">Document Detail</label>
+                  <input #imageFile3 type="file" id="imageFile3" accept='image/*'
+                    (change)="uploadImage3(imageFile3.files,'imageFile3')" />
+                </div>
+                <div class="two wide column">
+                  <label class="profile-label"></label>
+                  <!-- <input type="file"   accept="image/*" > -->
+                  <a class="nav-link edit" (click)="viewUser('custom-modal-3')" title="View Details">
+                    <div class="ui primary button  allign-left">
+                      View
+                    </div>
+                  </a>
+                  <jw-modal id="custom-modal-3" class="register-modal">
+                    <i class="close icon push-right" (click)="closeModal('custom-modal-3');"></i>
+                    <div class="ui" *ngIf="showDetailModal">
+                      <img src="{{ newTravellerProfileForm.controls.image3.value }}" style="width: 95%;" />
+                    </div>
+                  </jw-modal>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="outer-basic outer-basic_secondary mtb" *ngIf="showCompanyid" id="company">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields doc-head">
+              <h4>Company Details</h4>
+            </div>
+            <div class="ui grid ">
+              <div class="sixteen wide column row">
+                <div class="four wide column">
+                  <label class="profile-label">Company Name</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="company_name" formControlName="company_name" placeholder="Company Name" value="">
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Designation</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="designation" formControlName="designation" placeholder="Designation" value="">
+                  </div>
+                </div>
+                <div class="four wide column ">
+                  <label class="profile-label">Employee Id</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="employeeId" formControlName="employeeId" placeholder="Employee Id" value="">
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Traveller Remarks</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="traveller_remarks" formControlName="traveller_remarks" placeholder="Traveller Remarks" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="four wide column">
+                  <label class="profile-label">Department</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="department" formControlName="department" placeholder="Department" value="">
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Company Number</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="company_number" formControlName="company_number" placeholder="Company Number" value="">
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Company EmailId</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="company_emailid" formControlName="company_emailid" placeholder="Company EmailId" value="">
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Other Remarks</label>
+                  <div class="ui input fluid">
+                    <input type="text" name="other_remarks" formControlName="other_remarks" placeholder="Other Remarks" value="">
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="four wide column">
+                  <label class="profile-label">Company Address</label>
+                  <input type="text" name="company_address" formControlName="company_address" placeholder="Company Address" value="">
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Traveller Type</label>
+                  <input type="text" name="traveller_type" placeholder="Traveller Type" formControlName="traveller_type" value="">
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Corporate code</label>
+                  <div formArrayName="corporate_code">
+                    <div *ngFor="let numberD of newTravellerProfileForm.get('corporate_code')['controls']; let nIndex = index">
+                      <div [formGroupName]="nIndex" class="ui grid">
+                        <div class="sixteen wide column row">
+                          <div class="fourteen wide column">
+                            <input type="text" name="corporate_code" formControlName="corporate_code"
+                              placeholder="Corporate code" value="">
+                          </div>
+                          <div class="two wide column">
+                            <i class="icon"><img class="bookings_input__placeholder-icon keep_right"
+                                src="./../../../../assets/img/add-icon.png"  *ngIf="nIndex==(newTravellerProfileForm.get('corporate_code')['controls'].length-1)" (click)="addCorporateCode()" /></i>
+      
+                            <i class="icon"><img class="bookings_input__placeholder-icon resize-left"
+                                src="./../../../../assets/img/delete-button.png" *ngIf="nIndex != 0" tabindex="0"
+                                (click)="removeItem(i)" /></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="ui sixteen wide column row grid"> -->
+                      <!-- <div class="ui secondary  button allign-left" (click)="removeCorporateCode()">
+                    Delete
+                  </div> -->
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Corporate Profile Id</label>
+                  <div formArrayName="corporate_profileid">
+                    <div *ngFor="let numberD of newTravellerProfileForm.get('corporate_profileid')['controls']; let nIndex = index">
+                      <div [formGroupName]="nIndex" class="ui grid">
+                        <div class="sixteen wide column row">
+                          <div class="fourteen wide column">
+                            <input type="text" name="corporate_profileid" formControlName="corporate_profileid"
+                              placeholder="Corporate Id" value="">
+                          </div>
+                          <div class="two wide column">
+                            <i class="icon"><img class="bookings_input__placeholder-icon keep_right"
+                                src="./../../../../assets/img/add-icon.png"  *ngIf="nIndex==(newTravellerProfileForm.get('corporate_profileid')['controls'].length-1)" (click)="addCorporateCode()" /></i>
+                            <i class="icon"><img class="bookings_input__placeholder-icon resize-left"  
+                                src="./../../../../assets/img/delete-button.png"  *ngIf="nIndex != 0"tabindex="0" (click)="removeItem(i)"
+                                /></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="four wide column">
+                  <label class="profile-label">Supplier Id</label>
+                  <div formArrayName="corporate_supplierid">
+                    <div *ngFor="let numberD of newTravellerProfileForm.get('corporate_supplierid')['controls']; let nIndex = index">
+                      <div [formGroupName]="nIndex" class="ui grid">
+                        <div class="sixteen wide column row">
+                          <div class="fourteen wide column">
+                            <input type="text" name="corporate_supplierid" formControlName="corporate_supplierid"
+                              placeholder="Supplier Id" value="">
+                          </div>
+                          <div class="two wide column">
+                            <i class="icon"><img class="bookings_input__placeholder-icon keep_right" *ngIf="nIndex==(newTravellerProfileForm.get('corporate_supplierid')['controls'].length-1)"
+                                src="./../../../../assets/img/add-icon.png" (click)="addCorporateCode()" /></i>
+                            <i class="icon"><img class="bookings_input__placeholder-icon resize-left"
+                                src="./../../../../assets/img/delete-button.png" *ngIf="nIndex!=0" tabindex="0" (click)="removeItem(i)"
+                                /></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb" id="DivIdToScroll">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields doc-head">
+              <h4>Preferences</h4>
+            </div>
+            <div class="fields doc-head">
+              <h4>Airlines</h4>
+            </div>
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="four wide column ">
+                  <label class="profile-label">Cabin Class</label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" name="cabin_class" formControlName="cabin_class" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Cabin Class</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('First Class', 'cabin_class')">First Class</div>
+                      <div class="item" (click)="setDropDownType('Business Class', 'cabin_class')">Business Class</div>
+                      <div class="item" (click)="setDropDownType('Economy', 'cabin_class')">Economy
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Meal Type</label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" name="meal_type" formControlName="meal_type" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Meal Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Non-Veg', 'meal_type')">Non-Veg</div>
+                      <div class="item" (click)="setDropDownType('Veg', 'meal_type')">Veg</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Seat Preference</label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" name="seat_preference" formControlName="seat_preference" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Seat Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('window', 'seat_preference')">Window</div>
+                      <div class="item" (click)="setDropDownType('middle', 'seat_preference')">Middle</div>
+                      <div class="item" (click)="setDropDownType('asile', 'seat_preference')">Aisle</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="four wide column flyer-block">
+                  <div formArrayName="airlinePreferences"  *ngFor="let airPreference of newTravellerProfileForm.get('airlinePreferences')['controls']; let ind = index">
+                    <div [formGroupName]="ind">
+                      <label class="flights_label label-align">Preferred airline</label>
+                      <select formControlName="airlinePreference" class="ui dropdownThree width-full multiple_search" multiple="">
+                        <!-- <option value="">Preferred Airline</option> -->
+                        <option class="item" *ngFor="let elem of airlinesArr; let i = index;" value="{{elem.value}}">
+                          {{elem.name}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <!-- <div class="four wide column flyer-block"> -->
+                  <!-- <div class="ui one column centered grid">
+                    <div class="column"> -->
+                      <!-- <div class="ui fluid  selection dropdown" (click)="showAirlines()">
+                        <input type="hidden">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Frequent Flyer</div>
+                      </div> -->
+                    <!-- </div>
+                  </div> -->
+                <!-- </div> -->
+                <div class="sixteen wide column add-airline"> <!-- *ngIf="showAddAirlines"-->
+                  <label class="profile-label">Frequent Flyer</label>
+                  <div formArrayName="airline_details">
+                    <div *ngFor="let numberD of newTravellerProfileForm.get('airline_details')['controls']; let nIndex = index">
+                      <div [formGroupName]="nIndex" class="ui grid">
+                        <div class="sixteen wide column row">
+                          <div class="four wide column">
+                              <!-- <label class="flights_label label-align">Preferred airline</label>
+                                  <select formControlName="airlinePreference"
+                                      class="ui dropdown width-full multiple_search" multiple="">
+                                      <option value="">Preferred Airline</option>
+                                      <option class="item" *ngFor="let elem of airlinesArr; let i = index;"
+                                          value="{{elem.value}}">{{elem.name}}</option>
+                                  </select> -->
+                              <select class="ui fluid search dropdown" formControlName="airline_option">
+                                <option value=""> Airline </option>
+                                <option class="item" *ngFor="let elem of airlinesArr; let i = index;"
+                                  value="{{elem.value}}">{{elem.name}}</option>
+                              </select>
+                          </div>
+                          <div class="four wide column">
+                            <input type="text" name="frequent_flyersoption" formControlName="frequent_flyersoption" placeholder="Frequent Flyer" value="">
+                          </div>
+                          <div class="eight wide column">
+                            <div class="ui primary button align-left-block" (click)="addMoreAirlines()">
+                              Add
+                            </div>
+                            <div class="ui secondary  button align-left-block" (click)="removeMoreAirlines(nIndex)" *ngIf="nIndex!=0" tabindex="0">
+                              Delete
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="two column centered row">
+                    <div class="column">
+                    </div>
+                    <div class="column">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+
+
+              <!-- <div class="three wide column" formArrayName="airlinePreferences"
+                *ngFor="let airPreference of flightSearchForm.get('airlinePreferences')['controls']; let ind = index">
+                <div [formGroupName]="ind">
+                  <label class="flights_label label-align">Preferred airline</label>
+                  <select formControlName="airlinePreference" class="ui dropdown width-full multiple_search"
+                    multiple="">
+                    <option value="">Preferred Airline</option>
+                    <option class="item" *ngFor="let elem of airlinesArr; let i = index;" value="{{elem.value}}">
+                      {{elem.name}}</option>
+                  </select>
+                </div>
+              </div> -->
+              <!-- <div class="five wide column ">
+                <label class="profile-label">Frequent Flyer</label> -->
+                <!-- <div class="three wide column" formArrayName="airlinePreferences"
+                *ngFor="let airPreference of newTravellerProfileForm.get('airlinePreferences')['controls']; let ind = index">
+                <div [formGroupName]="ind">
+                  <label class="flights_label label-align">Preferred airline</label>
+                  <select   (change)="searchAirline($event.target.value)" formControlName="airlinePreference" class="ui dropdown width-full multiple_search"
+                    multiple="">
+                    <option value="">Preferred Airline</option>
+                    <option class="item" *ngFor="let elem of airlinesArr; let i = index;" value="{{elem.value}}">
+                      {{elem.name}}</option>
+                  </select>
+                </div>
+              </div> -->
+
+            <!-- <div class="ui sixteen wide column grid "> -->
+
+              <!-- <div class="ui one column centered grid">
+
+                  <div class="column">
+
+                    <div class="ui fluid  selection dropdown" (click)="showAirlines()">
+                      <input type="hidden">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Add Preferred Airlines</div>
+
+                    </div>
+                  </div>
+
+
+                  <div class="ui sixteen wide column row grid" *ngIf="showAddAirlines">
+
+
+                    <div formArrayName="airline_details" class="width_format">
+                      <div
+                        *ngFor="let numberD of newTravellerProfileForm.get('airline_details')['controls']; let nIndex = index">
+                        <div [formGroupName]="nIndex">
+                          <div class="ui sixteen wide column row grid">
+                            <div class="eight wide column">
+
+                              <div class="three wide column">
+
+                                <input type="text" name="airline_option" class="element-width"
+                                  formControlName="airline_option" placeholder="Airline" value="">
+                              </div>
+                            </div>
+                            <div class="eight wide column">
+                              <div class="three wide column">
+
+                                <input type="text" name="frequent_flyersoption" formControlName="frequent_flyersoption"
+                                  placeholder="Frequent Flyer" class="element-width" value="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="two column centered row">
+
+                      <div class="column">
+                        <div class="ui primary button allign-left" (click)="addMoreAirlines()">
+                          Add
+                        </div>
+                      </div>
+
+                      <div class="column">
+                        <div class="ui secondary  button allign-left" (click)="removeMoreAirlines()">
+                          Delete
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div> -->
+
+
+            <!-- </div> -->
+
+
+            
+            <div class="fields">
+              <h4 class="hotel">Hotels</h4>
+            </div>
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="four wide column">
+                  <label class="profile-label">Classification</label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" name="classification" formControlName="classification" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Classification</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Five Star', 'classification')">Five Star</div>
+                      <div class="item" (click)="setDropDownType('Four Star', 'classification')">Four Star</div>
+                      <div class="item" (click)="setDropDownType('Three Star', 'classification')">Three Star</div>
+                      <div class="item" (click)="setDropDownType('Two Star', 'classification')">Two Star</div>
+                      <div class="item" (click)="setDropDownType('One Star ', 'classification')">One Star</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="four wide column">
+                  <label class="profile-label">Meal Type</label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" name="meal_type2" formControlName="meal_type2" value="">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Meal Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Non-Veg', 'meal_type2')">Non-Veg</div>
+                      <div class="item" (click)="setDropDownType('Veg', 'meal_type2')">Veg</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column text-right bookings_btn-panel">
+                  <button class="ui primary button pnr-button" type="submit" *ngIf="showProfileId" (click)="onSubmit()">
+                    Save
+                  </button>
+                  <button class="ui primary button pnr-button" type="submit" *ngIf="!showProfileId" (click)="updateTravllerProfile()">Update</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+            <!-- <div class="ui sixteen wide column grid info-block">
+              <div class="sixteen wide column row">
+                <div class="one wide column">
+                  <label class="profile-label">Title<span class="mandatory">*</span></label>
+                  <div class="ui fluid search dropdown ">
+                    <input type="hidden" formControlName="salutation" name="salutation" value="salutation">
+                    <i class="dropdown icon"></i>
+                    <div class="default text"></div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Mr', 'salutation')">Mr</div>
+                      <div class="item" (click)="setDropDownType('Ms', 'salutation')">Ms</div>
+                      <div class="item" (click)="setDropDownType('Mrs','salutation')">Mrs</div>
+                      <div class="item" (click)="setDropDownType('Miss','salutation')">Miss</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="two wide column "  [ngClass]="{'is-invalid': isSubmitted && gfc.first_name.invalid}">
+                  <label class="profile-label">First name<span class="mandatory">*</span></label>
+                  <input type="text" class="text-colour" formControlName="first_name" name="first_name"
+                    placeholder="First Name">
+                    <div *ngIf="isSubmitted && gfc.first_name.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.first_name.invalid">
+                        First name required.
+                      </div>
+                    </div>
+                </div>
+                <div class="two wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.last_name.invalid}"></div>
+                <div class="two wide column">
+                  <label class="profile-label">Last name<span class="mandatory">*</span></label>
+                  <input type="text" class="text-colour" placeholder="Last Name" formControlName="last_name"
+                    name="last_name">
+                    <div *ngIf="isSubmitted && gfc.last_name.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.last_name.invalid">
+                        Last name required.
+                      </div>
+                    </div>
+                </div>
+                <div class="two wide column"></div>
+                <div class="three wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.gender.invalid}">
+                  <label class="profile-label">Gender<span class="mandatory">*</span>
+                   </label>
+                  <div class="sixteen wide column">
+                    <div class="ui radio checkbox">
+                      <input type="radio" formControlName="gender" value="Male" name="gender">
+                      <label class="gender-label">Male</label>
+                    </div>
+                    <div class="ui radio checkbox">
+                      <input type="radio" formControlName="gender" name="gender" value="Female">
+                      <label class="gender-label">Female</label>
+                    </div>
+                    <div class="ui radio checkbox">
+                      <input type="radio" formControlName="gender" name="gender" value="Other">
+                      <label class="gender-label">Other</label>
+                    </div>
+                    <div *ngIf="isSubmitted && gfc.gender.invalid" class="invalid-feedback">
+                      <div class="validations" *ngIf="gfc.gender.invalid">
+                        Gender required.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="one wide column"></div>
+                <div class="two wide column ">
+                  <label class="profile-label">Corporate</label>
+                  <div class="ui  checkbox">
+                    <input type="checkbox" name="corporate" formControlName="corporate"  (change)=showCompany()>
+                    <label class="gender-label">Corporate (Yes/No) </label>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- <div class="ui sixteen wide column grid info-block">
+              <div class="sixteen wide column row">
+                <div class="three wide column " [ngClass]="{'is-invalid': isSubmitted && gfc.a_dob.invalid}">
+                  <label class="profile-label ">Date Of Birth<span class="mandatory">*</span></label>
+                  <div class="ui left icon input reduce-size"
+                    [ngClass]="{'error': ((submitted && f.a_dob.errors) && f.a_dob.errors.required) }">
+                    <i class="icon ">
+                      <img src="./../../../../assets/icons/calendar.svg" class="down" />
+                    </i>
+                    <input type="text" formControlName="a_dob" class="start-form" placeholder="Date of Birth"
+                      autocomplete="off" name="a_dob" />
+                  </div>
+                  <div *ngIf="isSubmitted && gfc.a_dob.invalid" class="invalid-feedback">
+                    <div class="validations" *ngIf="gfc.a_dob.invalid">
+                      Dob required.
+                    </div>
+                  </div>
+                </div>
+                <div class="two wide column ">
+                </div>
+                <div class="two wide column ">
+                  <label class="profile-label">Marital Status</label>
+                  <div class="ui fluid  selection dropdown ">
+                    <input type="hidden" formControlName="marital_status" name="marital_status" value="marital_status"
+                      name="marital_status">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Marital Status</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Married', 'marital_status')">Married
+                      </div>
+                      <div class="item" (click)="setDropDownType('Single', 'marital_status')">Single
+                      </div>
+                      <div class="item" (click)="setDropDownType('Other', 'marital_status')">Other
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="two wide column ">
+                </div>
+                <div class="two wide column " [ngClass]="{'is-invalid': isSubmitted && gfc.nationality.invalid}">
+                  <label class="profile-label">Nationality<span class="mandatory">*</span></label>
+                  <div class="ui fluid  selection dropdown">
+                    <input type="hidden" formControlName="nationality" name="nationality" value="nationality"
+                      name="nationality">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Nationality</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Indian', 'nationality')">Indian</div>
+                      <div class="item" (click)="setDropDownType('Pakistani', 'nationality')">Pakistani</div>
+                      <div class="item" (click)="setDropDownType('Emirati', 'nationality')">Emirati</div>
+                      <div class="item" (click)="setDropDownType('Filipino', 'nationality')">Filipino
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="isSubmitted && gfc.nationality.invalid" class="invalid-feedback">
+                    <div class="validations" *ngIf="gfc.nationality.invalid">
+                      Nationality required.
+                    </div>
+                  </div>
+                </div>
+                <div class="two wide column "></div>
+                <div class="two wide column " [ngClass]="{'is-invalid': isSubmitted && gfc.passenger_type.invalid}">
+                  <label class="profile-label ">Pax Type<span class="mandatory">*</span></label>
+                  <div class="ui fluid  selection dropdown ">
+                    <input type="hidden" formControlName="passenger_type" name="passenger_type" value="passenger_type">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Pax Type</div>
+                    <div class="menu">
+                      <div class="item" (click)="setDropDownType('Adult', 'passenger_type')">Adult
+                      </div>
+                      <div class="item" (click)="setDropDownType('Child', 'passenger_type')">Child
+                      </div>
+                      <div class="item" (click)="setDropDownType('Infant', 'passenger_type')">Infant
+                      </div>
+                      <div class="item" (click)="setDropDownType('YTH', 'passenger_type')">YTH
+                      </div>
+                      <div class="item" (click)="setDropDownType('ITX', 'passenger_type')">ITX
+                      </div>
+                    </div>
+
+                  </div>
+                  <div *ngIf="isSubmitted && gfc.passenger_type.invalid" class="invalid-feedback">
+                    <div class="validations" *ngIf="gfc.passenger_type.invalid">
+                      Passenger Type required.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div> -->
+            <!-- <div class="ui sixteen wide column grid">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="three wide column row">
+                    <label class="profile-label">Address</label>
+                    <input type="text" class="ten wide column adjust" formControlName="address" name="address"
+                    placeholder="Address">
+                  </div>
+                  <div class="three wide column row">
+
+                  </div>
+                </div>
+              </div>
+            </div> -->

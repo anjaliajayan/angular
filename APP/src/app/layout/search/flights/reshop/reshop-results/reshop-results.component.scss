@@ -1,0 +1,718 @@
+@import "./../../../../../../comon-styles/common.scss";
+
+.container {
+  margin: 0 auto;
+}
+
+.dropdown-grid {
+  padding-right: 30px;
+
+  .ui.selection.dropdown {
+    margin-right: 20px;
+    margin-top: 20px;
+    border: 0 !important;
+
+    .text {
+      color: $deep-blue-color;
+      font-weight: 600 !important;
+    }
+  }
+}
+
+h3 {
+  margin-left: 24px;
+}
+
+.airline-header {
+  color: $deep-blue-color;
+  font-size: 15px;
+  font-weight: 600 !important;
+  line-height: 22px;
+  // margin-left: 20px;
+
+  img {
+    display: inline-block;
+    width: 15px;
+    height: auto;
+    vertical-align: middle;
+    margin: 0 6px;
+  }
+}
+
+h3+.ui.container .outer-basic {
+  margin-bottom: 20px !important;
+  padding-top: 15px !important;
+  padding-bottom: 38px !important;
+}
+
+.airline-tickets {
+  text-align: center;
+
+  .pt-10 {
+    padding-top: 10px;
+  }
+
+  .craft-title {
+    color: $deep-blue-color;
+    font-weight: 600 !important;
+  }
+
+  &._oneway {
+    .border-grid {
+      display: flex;
+      align-content: center;
+
+      height: 172px !important;
+
+      .mt-15 {
+        margin-top: 0;
+
+        &+.no-ptb {
+          margin: 0;
+          height: 0;
+        }
+      }
+
+
+      .drop-icon {
+        top: -58px;
+      }
+    }
+  }
+
+  .border-grid {
+    margin-left: 25px !important;
+    margin-right: 0 !important;
+    /*height: 262px;*/
+    margin-top: 15px;
+    box-sizing: border-box;
+    border: 2px solid rgba($secondary-color, .25);
+    border-radius: $border-radius-primary;
+
+    &:hover,
+    &.active {
+      box-shadow: $primary-shadow;
+      border-color: $primary-color;
+      background-color: rgba($color: $primary-color, $alpha: .05);
+      cursor: pointer;
+      transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .mt-15 {
+      margin-top: 15px;
+    }
+
+    .drop-icon {
+      position: relative;
+      top: 0;
+      font-size: 20px;
+    }
+  }
+
+  .airline-tickets_title {
+    font-size: 14px;
+    color: $deep-blue-color;
+    font-weight: 600 !important;
+  }
+
+  .plane-grid {
+    margin-top: 0;
+
+    p.flight-type {
+      color: $voila-green;
+      font-size: 13px;
+      cursor: pointer;
+
+      &._highlight {
+        color: $warning-color;
+
+        &:hover {
+          color: rgba($color: $deep-blue-color, $alpha: .9);
+          transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+          font-weight: 600 !important;
+        }
+      }
+    }
+  }
+
+  .airline-tickets_airport {
+    font-size: 13px;
+    color: $secondary-color;
+    font-weight: 600;
+  }
+
+  ._crafts-border {
+    position: relative;
+    top: 2px;
+
+    ._craft {
+      display: inline-block;
+      position: absolute;
+      width: auto;
+      height: auto;
+
+      &._craft-up {
+        top: 0;
+        left: 0;
+      }
+
+      span {
+        color: $deep-blue-color;
+      }
+
+      &._craft-down {
+        top: 0;
+        right: 0;
+      }
+    }
+
+    hr {
+      border: 1px solid $primary-color;
+      box-shadow: none;
+    }
+  }
+
+  .airline-tickets_airline-logo {
+    width: 38px;
+    height: auto;
+  }
+
+  .booking-class {
+    text-align: left;
+
+    .padd-top-0 {
+      padding-top: 0 !important;
+    }
+
+    .booking-class_item {
+      width: 100%;
+      padding: 5px 15px;
+      border: 2px solid rgba($secondary-color, .25);
+      border-radius: $border-radius-primary;
+      position: relative;
+      min-height: 78px;
+
+      &:hover,
+      &.active {
+        border-color: $primary-color;
+        background-color: rgba($color: $primary-color, $alpha: .05);
+        cursor: pointer;
+      }
+
+      p {
+        font-size: 11px;
+        color: $deep-blue-color;
+
+        &.price {
+          font-size: 15px;
+
+          strong {
+            font-weight: 600 !important;
+
+            i {
+              right: -32px;
+              display: block;
+              position: relative;
+              top: 0;
+            }
+          }
+        }
+
+        strong {
+          font-weight: 400 !important;
+        }
+
+        a {
+          color: $deep-blue-color;
+          font-weight: 600 !important;
+          margin-bottom: 10px;
+        }
+
+        &:last-child() {
+          font-size: 14px;
+
+          strong {
+            font-weight: 400;
+          }
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 15px;
+        margin: 0;
+        padding: 0;
+        right: 5px;
+        display: inline-block;
+        height: 0;
+      }
+
+    }
+  }
+
+  .book-btn {
+    margin: 25px 20px;
+  }
+
+}
+
+.separator-tickets,
+.separator-segment,
+.dashed-separator {
+  display: none !important;
+  box-shadow: none;
+  height: 1px;
+  background-color: rgba($color: $secondary-color, $alpha: .3);
+  width: 100%;
+  margin-left: -10px;
+  margin-right: -10px;
+  border: 0;
+}
+
+.b-class {
+  display: none !important;
+  margin-top: 25px;
+  background-color: rgba($deep-blue-color, .9);
+  color: $pure-white;
+  padding: 33px 20px 40px 40px !important;
+  border-bottom-left-radius: $border-radius-primary;
+  border-bottom-right-radius: $border-radius-primary;
+
+  .grid-separator {
+    box-shadow: none;
+    height: 2px;
+    background-color: none;
+    border: 0;
+    border-bottom: 1px dashed rgba($color: $primary-color, $alpha: .4);
+    width: 100%;
+    margin: 50px -10px 30px !important;
+  }
+
+  ._header-content {
+    padding: 0 0 18px;
+    display: flex;
+    align-items: center;
+
+    h3 {
+      font-weight: 600 !important;
+      font-family: $font-family;
+      margin-top: 0 !important;
+    }
+
+    p {
+      margin-left: 12px;
+      font-size: 14px;
+      font-family: $font-family;
+      font-weight: 600 !important;
+      color: rgba($color: $pure-white, $alpha: .65);
+    }
+  }
+
+  ._footer-content {
+    padding: 18px 0 0;
+    display: flex;
+    align-items: center;
+
+    p {
+      color: $pure-white;
+      margin-top: 8px;
+
+      span {
+        font-size: 18px;
+        font-weight: 600 !important;
+      }
+    }
+  }
+
+  ._body-content {
+    padding: 8px;
+    margin: 0 0 20px;
+    border: 2px solid rgba($color: $primary-color, $alpha: .35);
+    border-radius: $border-radius-primary;
+    display: flex;
+    align-items: center;
+
+    .column {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: $primary-shadow;
+      background-color: rgba($color: $primary-color, $alpha: .05);
+      transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+    }
+  }
+
+  .b-class_placeholder {
+    h4 {
+      margin-top: 28px;
+      color: $pure-white;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    span {
+      color: rgba($color: $secondary-color, $alpha: .8);
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      padding-top: 20px;
+      margin-left: 15px;
+      color: $pure-white;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+  }
+
+  .b-class_card {
+    text-align: center;
+    border: 2px solid rgba($color: $primary-color, $alpha: .25);
+    border-radius: $border-radius-primary;
+
+    &._active,
+    &:hover {
+      border-color: $primary-color;
+      box-shadow: $primary-shadow;
+      background-color: rgba($color: $primary-color, $alpha: .05);
+      transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+      cursor: pointer;
+    }
+
+    h4 {
+      padding-top: 18px;
+      color: $pure-white;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+
+    span {
+      visibility: hidden;
+    }
+
+    &._active {
+      span {
+        visibility: visible;
+        color: rgba($color: $voila-green, $alpha: .8);
+        font-size: 13px;
+      }
+    }
+
+    hr {
+      margin-top: 18px;
+      box-shadow: none;
+      border: 0;
+      width: 100%;
+      height: 1px;
+      background-color: rgba($color: $primary-color, $alpha: .25);
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      padding-top: 15px;
+      color: $pure-white;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+
+    .ui.button {
+      margin-bottom: 18px;
+      height: auto;
+      margin-top: 18px;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.visible.transition {
+  display: block !important;
+}
+
+.hidden.transition {
+  display: none !important;
+}
+
+.flight-segment {
+  display: none !important;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  background-color: rgba($color: $primary-color, $alpha: .09);
+  color: rgba($color: $deep-blue-color, $alpha: .6);
+  padding: 15px 20px 40px 22px !important;
+  border-bottom-left-radius: $border-radius-primary;
+  border-bottom-right-radius: $border-radius-primary;
+
+  .header-box-segment {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border: 1px solid $secondary-color;
+    border-radius: $border-radius-primary;
+
+    .header-box-segment_row {
+      border-top-left-radius: $border-radius-primary;
+      border-top-right-radius: $border-radius-primary;
+      background-color: rgba($color: $deep-blue-color, $alpha: .8);
+      color: white;
+
+      p {
+        font-weight: 600 !important;
+      }
+    }
+
+    .airline-tickets_title {
+      font-size: 14px;
+      color: rgba($color: $deep-blue-color, $alpha: .6);
+      font-weight: 600 !important;
+    }
+
+    .ui.grid {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .header-separator {
+      width: 100%;
+      margin: 0 -15px;
+      background-color: $secondary-color;
+      border: 0;
+      border-bottom: 1px solid rgba($color: $secondary-color, $alpha: .6);
+      height: 0;
+    }
+
+    .layover {
+      width: 100%;
+      max-width: 150px;
+      margin-top: -15px;
+      background-color: $secondary-color;
+      color: white;
+      border-radius: 30px;
+      padding: 4px 0;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      align-content: center;
+      margin: -15px auto 0;
+
+      img {
+        color: white;
+        fill: white;
+        margin-left: 22px;
+        margin-right: 6px;
+      }
+    }
+  }
+
+  .mar-top-12 {
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+
+  .dot {
+    margin: 0 8px;
+    width: 6px;
+    height: 6px;
+    background: rgba($color: $deep-blue-color, $alpha: .6);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .seg-padd {
+    padding-left: 122px;
+  }
+
+  .flight-segment_airport {
+    padding: 12px;
+    text-align: center;
+    background: $primary-color;
+    border-radius: $border-radius-primary;
+    width: 100%;
+    max-width: 100px;
+    margin-bottom: 30px;
+
+    &:last-child {
+      padding: 6px 0;
+    }
+
+    p {
+      margin: 0;
+      color: $pure-white;
+    }
+  }
+
+  .flight-segment_timeline {
+    hr {
+      display: inline-block;
+      border: 0;
+      width: 2px;
+      height: 30px;
+      background: $primary-color;
+      height: 125px;
+      vertical-align: middle;
+      margin: -20px 80px -20px 45px;
+    }
+
+    .flight-segment_timeline-time {
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
+  .flight-segment_text {
+    margin-top: 0;
+
+    .flight-segment_text-flight-logo {
+      margin: 0 auto 0 30px;
+      display: block;
+      width: 45px !important;
+      height: auto;
+    }
+
+    p {
+      padding-top: 16px;
+    }
+  }
+
+  .flight-segment_info {
+    text-align: center;
+    margin-top: -10px;
+
+    img {
+      margin-right: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      width: 18px;
+      height: 18px;
+    }
+
+    hr {
+      background-color: #437ADA;
+      border: 1px solid #437ADA;
+      box-shadow: none;
+      width: 100%;
+      max-width: 350px;
+    }
+  }
+
+  .center-content {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 18px;
+      height: 18px;
+      margin-right: 15px;
+    }
+  }
+}
+
+.dashed-separator {
+  background-color: transparent;
+  display: inline-block !important;
+  margin-right: 10px;
+  border-bottom: 2px dashed rgba($color: $secondary-color, $alpha: .3);
+  width: 100%;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.booking-class_item-n {
+  display: inline-block;
+  width: 10%;
+  padding: 10px 15px;
+  border: 2px solid rgba($secondary-color, .25);
+  border-radius: $border-radius-primary;
+  position: relative;
+
+  &:hover,
+  &.active {
+    box-shadow: $primary-shadow;
+    border-color: $primary-color;
+    background-color: rgba($color: $primary-color, $alpha: .05);
+    cursor: pointer;
+    transition: box-shadow 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  p {
+    font-size: 11px;
+    color: $deep-blue-color;
+
+    &:last-child() {
+      font-size: 14px;
+
+      strong {
+        font-weight: 800;
+      }
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 10px;
+    margin: 0;
+    padding: 0;
+    right: 5px;
+    display: inline-block;
+    height: 0;
+  }
+}
+
+.ui.left.floated {
+  float: left;
+  clear: left;
+}
+
+.ui.right.floated {
+  float: right;
+  clear: right;
+}
+
+
+@media (max-width: 1440px) {
+  .airline-tickets {
+    .booking-class {
+      .booking-class_item {
+        min-height: 84px;
+        p.price {
+          strong {
+            i {
+              right: -12px;
+              top: -18px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1280px) {
+  .airline-tickets {
+    .booking-class {
+      .four.wide.column {
+        width: 32% !important;
+        .booking-class_item {
+          min-height: 84px;
+          p.price {
+            strong {
+              i {
+                right: -12px;
+                top: 0px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .p-0 {
+    padding: 0px !important;
+  }
+}

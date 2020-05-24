@@ -1,0 +1,118 @@
+<h3><span class="update-header">List of Office(s)</span></h3>
+<!-- organizationTypes -->
+<div class="ui fluid container">
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <form [formGroup]="filterForm" autocomplete="off" (ngSubmit)="filterFormSubmit()" class="ui form search-field-wrapper">
+        <div class="four fields">
+          <div class="two wide field main-wrapper">
+            <label>Organisation Type</label>
+            <select class="ui fluid dropdown1" formControlName="corporate_type">
+              <option value="all">All</option>
+              <option value="Agent">Agent</option>
+              <!-- <option value="Corporate">Corporate</option> -->
+              <option value="B2C">B2C</option>
+              <option value="Mobile">Mobile</option>
+              <!-- <option *ngFor="let orgType of organizationTypes;" value="{{orgType}}">
+                {{orgType}}</option> -->
+            </select>
+          </div>
+          <div class="three wide field main-wrapper">
+            <label>Office Name/Office Id</label>
+            <input type="text" placeholder="Office Name/Office Id" formControlName="nameAndOfficeId">
+          </div>
+          <div class="eight wide field bookings_btn-panel main-wrapper button-wrapper">
+            <button class="ui primary button filter_btn">
+              <span class="filter_list">Search</span>
+            </button>
+            <button class="ui reset button filter_btn_reset" (click)="resetFilterPos()">
+              <span class="filter_list">Reset</span>
+            </button>
+          </div>
+        </div>
+      </form>
+      
+      <div class="user-table-list b2c-list-user-table">
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='pointOfSales' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'registration_id', dir: 'desc'}]">
+        <ngx-datatable-column name="Sl No" prop="id">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Office ID" prop="agent_code">
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span *ngIf="value">{{value}}</span>
+            <span *ngIf="!value">---</span>
+          </ng-template>   
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Office Name" prop="name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Office Type" prop="corporate_type">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Credit Limit" prop="credit_limit">
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span *ngIf="value">{{value}}</span>
+            <span *ngIf="!value">---</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Email" prop="email" [cellClass]="'my-custom-cell'" [headerClass]="'my-custom-cell'">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span *ngIf="row.email" title="Preview POS" class="email">
+              {{row.email}}
+              <!-- <i class="fa fa-pencil-square-o" aria-hidden="true"></i> -->
+            </span>
+            <span *ngIf="!row.email">---</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Contact" prop="contact">
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span *ngIf="value">{{value}}</span>
+            <span *ngIf="!value">---</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Created" prop="created">
+          <ng-template ngx-datatable-cell-template let-value="value">
+            <span *ngIf="value">{{value}}</span>
+            <span *ngIf="!value">---</span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="status" prop="is_active">
+          <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span *ngIf="value == 1" (click)="statusToggle(row)">
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              <!-- <i class="icon" title="click to deactivate">
+                <img src="./../../../../../assets/icons/checkmark.png" class="corporate_input__placeholder-icon call" />
+              </i> -->
+            </span> 
+            <span *ngIf="value != 1" (click)="statusToggle(row)">
+              <i class="fa fa-times" aria-hidden="true"></i>
+              <!-- <i class="icon" title="click to activate">
+                <img src="./../../../../../assets/icons/cross.png" class="corporate_input__placeholder-icon call" />
+              </i> -->
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <!-- <ngx-datatable-column name="Org Status" prop="hierarchy_id">
+        </ngx-datatable-column> -->
+        <ngx-datatable-column name="Action">
+          <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+            <a class="nav-link edit" title="Edit Details" (click)="viewPOSPage(row)">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              <!-- <i class="icon">
+                <img src="./../../../../assets/icons/edit.png" class="corporate_input__placeholder-icon call" />
+              </i> -->
+            </a>
+            &nbsp;
+            <a class="nav-link edit" (click)="deleteUser(row)" title="Delete Details">
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <!-- <i class="icon">
+                <img src="./../../../../assets/icons/delete-button.png"
+                  class="corporate_input__placeholder-icon call" />
+              </i> -->
+            </a>
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>  
+      </div>   
+    </div>
+  </div>
+</div>

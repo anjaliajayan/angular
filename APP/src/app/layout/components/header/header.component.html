@@ -1,0 +1,155 @@
+<div class="ui grid header-box outer-wrapper">
+  <div class="thirteen wide column firstone main-wrapper" [ngClass]="{'agencySearchHead': userInfo.isAdmin == 0}">
+    <div class="ui fluid container">
+      <div class="form-inner text-center">
+        <form [formGroup]="searchForm" class="ui form" (ngSubmit)="filterBookings()">
+          <div class="ui left icon input header-box_search-box">
+            <i class="search icon"></i>
+            <input type="text" placeholder="Search Booking / Enter Trip ID" formControlName="trip_id" />
+          </div>
+          <button class="ui button primary header-box_search-box__search-icon">
+            Search
+          </button>
+          <div class="ui compact selection dropdown button default header-box_search-box__dropdown"
+            (click)="loadConfig(); $event.stopPropagation();">
+            <span class="text ui custom btn" style="margin-top: -8px !important;">Advance Search</span>
+            <i class="dropdown icon text ui custom btn"></i>
+            <!-- <div class="ui button">Show flowing popup</div> -->
+          </div>
+          <div class="ui custom fluid popup top left hidden filterModal __advance-filter-modal">
+            <div class="content">
+              <div class="ui form grid advance_display">
+                <div class="row sixteen wide column">
+                  <div class="sixteen wide column">
+                    <label>Agent Reference</label>
+                    <input type="text" class="filterModal-input agent-ref" name="agent-reference"
+                      formControlName="agent_reference" placeholder="Agent Reference" />
+                  </div>
+                </div>
+                <div class="row sixteen wide column">
+                  <div class="eight wide column">
+                    <label>Start Date</label>
+                    <div class="ui left icon fluid input">
+                      <input type="text" class="filterModal-input date-input" placeholder="Start Date"
+                        name="start_date1" formControlName="start_date" value="" (click)="$event.stopPropagation();" />
+                      <i class="icon">
+                        <img src="./../../../../assets/icons/calendar.svg" class="bookings_input__placeholder-icon cal" />
+                      </i>
+                    </div>
+                  </div>
+                  <div class="eight wide column">
+                    <label>End Date</label>
+                    <div class="ui left icon fluid input">
+                      <input type="text" class="filterModal-input date-input" (click)="$event.stopPropagation();"
+                        placeholder="End Date" name="end_date1" formControlName="end_date" value="" />
+                      <i class="icon">
+                        <img src="./../../../../assets/icons/calendar.svg" class="bookings_input__placeholder-icon cal" />
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="row sixteen wide column openTop">
+                  <div class="five wide column">
+                    <label>Products</label>
+                    <select class="ui fluid search dropdown" (click)="$event.stopPropagation();"
+                      formControlName="product_id">
+                      <option value="all">All Products</option>
+                      <option *ngFor="let product of activeProducts">{{
+                            product.key
+                          }}</option>
+                    </select>
+                  </div>
+                  <div class="five wide column">
+                      <label>Status</label>
+                    <select class="ui fluid search dropdown" (click)="$event.stopPropagation();"
+                      formControlName="status">
+                      <option value="all">All Status</option>
+                      <option *ngFor="let bstatus of bookingStatus" value="{{ bstatus }}">{{ bstatus }}</option>
+                    </select>
+                  </div>
+                  <div class="six wide column">
+                      <label>Suppliers</label>
+                    <select class="ui fluid search dropdown" (click)="$event.stopPropagation();"
+                      formControlName="supplier_id">
+                      <option value="all">All Supplier</option>
+                      <option *ngFor="let supplier of suppliers" value="{{ supplier.supplier_code }}">
+                        {{ supplier.name }}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row sixteen wide column">
+                  <div class="sixteen wide column bookings-btn_panel text-right">
+                    <!-- <div class="actions advance_btn-panel"> -->
+                      <button class="ui primary  button" id="filterBookData">
+                        Search
+                      </button>
+                      <button class="ui secondary button" (click)="searchFormReset()">
+                        Reset
+                      </button>
+                    <!-- </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="three wide column padd-top inner-wrapper" [ngClass]="{'agencyUserHead': userInfo.isAdmin == 0}">
+    <!-- <div class="ui inline dropdown">
+      <div class="text"><img class="ui image header-box_notif" src="./../../../../assets/img/notification.png"></div>
+      <div class="menu">
+        <div class="header">Adjust time span</div>
+        <div class="active item" data-text="today">Today</div>
+        <div class="item" data-text="this week">This Week</div>
+        <div class="item" data-text="this month">This Month</div>
+      </div>
+    </div> -->
+
+    <span class="header-box_person-placeholder" *ngIf="userInfo.isAdmin != 0">
+      <!-- <span>{{ userInfo.username }}</span>
+      <span class="log-icon" (click)="logout()" title="Logout"></span> -->
+      <!-- <div class="ui inline dropdown">
+        <div class="text">
+          <img class="ui avatar image" src="./../../../../assets/img/user.png" />
+        </div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">
+            {{ userInfo.username }}
+          </div>
+          <div class="item">
+            {{ userInfo.email }}
+          </div>
+          <div class="item" (click)="logout()">
+            Logout
+          </div>
+        </div>
+      </div> -->
+    </span>
+    <div class="header-box_person-placeholder ui grid"  *ngIf="!userInfo.isAdmin">
+      <div class="sixteen wide column row cred-blck-wraper">
+        <div class="seven wide column cred-wrap">
+          <span class="crd">Balance: <span class="cred-lt">{{ credit_limit +''+userInfo.currencyCode}}</span></span>
+        </div>
+        <div class="nine wide column">
+          <span class="user-name">{{ userInfo.username }}</span>
+          <span class="log-icon" (click)="logout()" title="Logout"></span>
+        </div>
+      </div>
+    </div>
+    <div class="header-box_person-placeholder ui grid"  *ngIf="credit_limit_change !== null">
+      <div class="sixteen wide column row cred-blck-wraper">
+        <div class="seven wide column cred-wrap">
+          <span class="crd">Balance: <span class="cred-lt">{{ credit_limit_change +''+userInfo.currencyCode}}</span></span>
+        </div>
+        <div class="nine wide column">
+          <span class="user-name">{{ userInfo.username }}</span>
+          <span class="log-icon" (click)="logout()" title="Logout"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

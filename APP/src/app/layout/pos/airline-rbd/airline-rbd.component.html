@@ -1,0 +1,51 @@
+<app-pos-edit-button></app-pos-edit-button>
+<div class="ui segment">
+  <div class="outer-form">
+    <form class="ui form pos_basic_form" [formGroup]="airlineRBDForm" (ngSubmit)="saveAirlineRBD()">
+      <!-- Airline RBD part -->
+      <!-- <div class="ui fitted divider"></div> -->
+      <h4 class="ui header spacing">Airline RBD</h4>
+      <div class="fields spacing" formGroupName="pos_rbd">
+        <div class="four wide field branch">
+          <label> Economy </label>
+          <select name="rbd" multiple="" formControlName="economy_rbd" class="ui search fluid dropdown multiple_search">
+            <option class="item" *ngFor="let rbd of rbdArrayList" value="{{rbd}}">
+              {{rbd}}
+            </option>
+          </select>
+        </div>
+        <div class="four wide field branch">
+          <label> Premium Economy </label>
+          <select name="rbd" multiple="" formControlName="pre_economy_rbd"
+            class="ui search fluid dropdown multiple_search">
+            <option class="item" *ngFor="let rbd of rbdArrayList" value="{{rbd}}">
+              {{rbd}}
+            </option>
+          </select>
+        </div>
+        <div class="four wide field branch">
+          <label> Buisness </label>
+          <select name="rbd" multiple="" formControlName="bussiness_rbd"
+            class="ui search fluid dropdown multiple_search">
+            <option class="item" *ngFor="let rbd of rbdArrayList" value="{{rbd}}">
+              {{rbd}}
+            </option>
+          </select>
+        </div>
+        <div class="four wide field branch">
+          <label> First </label>
+          <select name="rbd" multiple="" formControlName="first_rbd" class="ui search fluid dropdown multiple_search">
+            <option class="item" *ngFor="let rbd of rbdArrayList" value="{{rbd}}">
+              {{rbd}}
+            </option>
+          </select>
+        </div>
+        <div class="four wide field button1 buttondiv">
+          <button class="ui button primary button_align" type="submit">Save</button>
+          <button class="ui button reset button_align" (click)="cancelRBDPage()">Cancel</button>
+        </div>
+      </div>
+    
+    </form>
+  </div>
+</div>

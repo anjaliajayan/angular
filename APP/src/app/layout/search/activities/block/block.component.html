@@ -1,0 +1,641 @@
+<div class="outer-wrapper">
+  <div class="container-fluid">
+    <div class="ui grid m-0">
+      <div class="sixteen wide column row">
+        <div class="twelve wide column">
+          <div class="modify-search-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column p-0">
+                  <h3 class="activities_title">Activities</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form [formGroup]="checkoutForm">
+            <div class="search-list-block">
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <div class="ui grid">
+                      <div class="ten wide column">
+                        <h2>
+                          {{single.activityName}}
+                        </h2>
+                        <br/>
+                        <p class="light">
+                          {{single.description}}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="eight wide column">
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        <div class="six wide column">
+                          <p class="label">ADULTS (Age: 14-99)</p>
+                          <p class="info">{{single.adultCount}}</p>
+                        </div>
+                        <div class="five wide column">
+                          <p class="label">Starting Date</p>
+                          <p
+                            class="info">{{getSlice(single.ticketAvailabilityModes.ticketAvailabilityMode.serviceDate)}}</p>
+                        </div>
+                        <div class="five wide column">
+                          <p class="label">Duration</p>
+                          <p class="info">{{single.duration}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-list-block">
+              <h2 class="activities_title title">Passenger Details</h2>
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <div class="ui grid">
+                      <div *ngIf="totalPax>=1" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=1" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                              <select class="ui fluid search dropdown" formControlName="pax1_salutation">
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                              </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax1_firstName.errors}">
+                            <input formControlName="pax1_firstName" name="pax1_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax1_lastName.errors}">
+                            <input formControlName="pax1_lastName" name="pax1_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=2" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=2" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+
+                          <div class="ui selection  fluid">
+
+
+                            <select class="ui fluid search dropdown" formControlName="pax2_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax2_firstName.errors}">
+                            <input formControlName="pax2_firstName" name="pax2_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax2_lastName.errors}">
+                            <input formControlName="pax2_lastName" name="pax2_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div *ngIf="totalPax>=3" class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=3" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax3_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax3_firstName.errors}">
+                            <input formControlName="pax3_firstName" name="pax3_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax3_lastName.errors}">
+                            <input formControlName="pax3_lastName" name="pax3_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=4" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=4" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax4_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax4_firstName.errors}">
+                            <input formControlName="pax4_firstName" name="pax4_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax4_lastName.errors}">
+                            <input formControlName="pax4_lastName" name="pax4_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=5" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=5" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax5_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax5_firstName.errors}">
+                            <input formControlName="pax5_firstName" name="pax5_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax5_lastName.errors}">
+                            <input formControlName="pax5_lastName" name="pax5_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=6" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=6" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax6_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax6_firstName.errors}">
+                            <input formControlName="pax6_firstName" name="pax6_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax6_lastName.errors}">
+                            <input formControlName="pax6_lastName" name="pax6_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=7" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=7" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax7_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax7_firstName.errors}">
+                            <input formControlName="pax7_firstName" name="pax7_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax7_lastName.errors}">
+                            <input formControlName="pax7_lastName" name="pax7_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=8" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Adult)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="totalPax>=8" class="sixteen wide column row">
+                        <div class="two wide column">
+                          <label>Salutation</label>
+                          <div class="ui selection  fluid">
+                            <select class="ui fluid search dropdown" formControlName="pax8_salutation">
+                              <option value="Mr.">Mr.</option>
+                              <option value="Mrs.">Mrs.</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax8_firstName.errors}">
+                            <input formControlName="pax8_firstName" name="pax8_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.pax8_lastName.errors}">
+                            <input formControlName="pax8_lastName" name="pax8_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <div class="ui grid">
+                      <div *ngIf="chdAges.length>=1" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Child)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=1" class="sixteen wide column row">
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch1_firstName.errors}">
+                            <input formControlName="ch1_firstName" name="ch1_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch1_lastName.errors}">
+                            <input formControlName="ch1_lastName" name="ch1_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=2" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Child)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=2" class="sixteen wide column row">
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch2_firstName.errors}">
+                            <input formControlName="ch2_firstName" name="ch2_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch2_lastName.errors}">
+                            <input formControlName="ch2_lastName" name="ch2_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=3" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Child)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=3" class="sixteen wide column row">
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch3_firstName.errors}">
+                            <input formControlName="ch3_firstName" name="ch3_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch3_lastName.errors}">
+                            <input formControlName="ch3_lastName" name="ch3_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=4" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Child)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=4" class="sixteen wide column row">
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch4_firstName.errors}">
+                            <input formControlName="ch4_firstName" name="ch4_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch4_lastName.errors}">
+                            <input formControlName="ch4_lastName" name="ch4_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=5" class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Guest# (Child)</h2>
+                        </div>
+                      </div>
+                      <div *ngIf="chdAges.length>=5" class="sixteen wide column row">
+                        <div class="five wide column">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch5_firstName.errors}">
+                            <input formControlName="ch5_firstName" name="ch5_firstName" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                        <div class="five wide column">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid" [ngClass]="{'is-invalid': formIsSubmitted && gfc.ch5_lastName.errors}">
+                            <input formControlName="ch5_lastName" name="ch5_lastName" placeholder="Last Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="single.cancellationPolicies.size!=0" class="search-list-block">
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                          <h2>Cancellation Policy</h2>
+                        </div>
+                      </div>
+                      <div *ngFor="let cancellationData of single.cancellationPolicies.cacellationPolicy"
+                           class="sixteen wide column row">
+                        <div class="seven wide column">
+                          <label>FROM DATE:</label>
+                          <p><b>{{cancellationData.fromDate}}<!--Feb 9, 2020, 4:46pm--> </b></p>
+                        </div>
+                        <div class="seven wide column">
+                          <label>To DATE:</label>
+                          <p><b>{{cancellationData.toDate}} <!--Feb 26, 2020, 11:59pm--> </b></p>
+                        </div>
+                        <div class="two wide column">
+                          <p><b>{{cancellationData.SCSupplierCurrency}} {{cancellationData.markupPrice}}</b></p>
+                        </div>
+
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="search-list-block">
+              <h2 class="activities_title title">Remarks</h2>
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <p>
+                      {{single.Details.remarks}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="search-list-block">
+              <h2 class="activities_title title">Payment Details</h2>
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        <div class="four wide column">
+                          <label>Mail ID</label>
+                          <div class="ui input fluid">
+                            <input name="email" formControlName="bookingEmail" placeholder="Email Address" type="text">
+                          </div>
+                        </div>
+                        <div class="four wide column">
+                          <label>Agent Reference
+                            <span class="mandatory"></span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input name="agentReference" formControlName="agentReference" placeholder="First Name" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="eight wide column">
+                          <label>Remarks
+                            <span class="mandatory"></span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input name="lastName" formControlName="lastName" placeholder="" type="text">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="four wide column">
+                          <label>Terms & Conditions
+                            <span class="mandatory"></span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row pt-0">
+                        <div class="eight wide column">
+                          <div class="ui checkbox mar-right-15px outer-checkbox">
+                            <input name="same-check" type="checkbox" formControlName="rulesCondition" [(ngModel)]="rulesCondition" value="">
+                            <label for="same-check">
+                              I have read and accept the rules and restrictions.(Please
+                              check the box to continue)
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row pt-0">
+                        <div class="eight wide column">
+                          <div class="ui checkbox mar-right-15px outer-checkbox">
+                            <input name="same-check" type="checkbox"  [(ngModel)]="reserveCondition" value=""
+                                   formControlName="reserveCondition">
+                            <label for="same-check">
+                              Reservation Terms And Cancellation Policy.(Please check the
+                              box to continue)
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="button-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column text-right">
+                    <div class="act-rate">
+                      <p class="info">
+                        Total Amount
+                        <span class="label">(VAT Inclusive)</span>
+                      </p>
+                      <p class="info">{{single.currencyCode}} {{single.markupPrice}}</p>
+                    </div>
+                    <a (click)="bookactivity(single)" [disabled]="!rulesCondition || !reserveCondition || !formIsSubmitted" class="confirm-btn"> CONFIRM </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="four wide column">
+          <div class="fliter-head-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="ten wide column">
+                  <h2>Activities Details</h2>
+                </div>
+                <div class="six wide column right">
+                  <a>Clear All</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Side Filters -->
+          <div class="filter-list-block">
+            <div class="ui grid filter-block">
+              <div class="sixteen wide column row filters">
+                <div class="sixteen wide column">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="ten wide column">
+                        <h4><b>Activities</b></h4>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>Activity</p>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p>{{single.activityName}}</p>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>VAT</p>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p>AED 0.00</p>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0 last-row">
+                      <div class="nine wide column">
+                        <p><b>Total Amount</b></p>
+                        <h6>(GST inclusive)</h6>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p><b>{{single.currencyCode}} {{single.markupPrice}}</b></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

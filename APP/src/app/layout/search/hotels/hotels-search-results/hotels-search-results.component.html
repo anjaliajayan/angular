@@ -1,0 +1,1030 @@
+<div class="outer-wrapper" *ngIf="showSearchResult">
+    <div class="container-fluid">
+        <form>
+            <!----------------------------->
+            
+            <div class="ui grid dynamic-head">
+                <div class="sixteen wide column row search-hotel-head">
+                    <div class="ten wide column">
+                        <h2>{{searchObj.destination}}</h2>
+                        <!-- <div class="list-head-wrapper">
+                            
+                            <h4>
+                                <span class="wrap">
+                                    <span class="head">Check In: </span>{{searchObj.checkin}}
+                                </span>
+                                <span class="wrap">
+                                    <span class="head">Check Out: </span>{{searchObj.checkout}}
+                                </span>
+                            </h4>
+                        </div> -->
+                        <div class="ui grid">
+                            <div class="sixteen wide column row">
+                                <div class="five wide column">
+                                    <div class="check-block">
+                                        <p class="label">Check In:</p>
+                                        <p class="rslt">{{searchObj.checkin}}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-left"><span class="label">Rooms: </span><span  class="rslt">{{searchObj.totalRooms}}</span></p>
+                                        <p class="text-right"><span class="label">Nights: </span><span class="rslt">{{searchObj.Nights}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="five wide column">
+                                    <div class="check-block">
+                                        <p class="label">Check Out:</p>
+                                        <p class="rslt">{{searchObj.checkout}}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-left"><span class="label">Adults: </span><span class="rslt">{{searchObj.adults}}</span></p>
+                                        <p class="text-right"><span class="label">Child: </span><span class="rslt">{{searchObj.child}}</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="four wide column fare-block">
+                    </div> -->
+                    <!-- <div class="three wide column text-center"> 
+                    </div> -->
+                    <div class="six wide column text-right head-btn-block">
+                        <button class="modify-btn" (click)="modifySearch()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                                Modify Search
+                        </button>   
+                        <p>{{totalResult}} Results found</p>
+                    </div>
+                </div>
+            </div>
+            <!------------------------------->
+            <div class="ui grid m-0">
+                <div class="sixteen wide column row">
+                    <div class="twelve wide column">
+                        <div class="modify-search-block">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row">
+                                    
+                                    <div class="eight wide column p-0 text-left">
+                                        <button (click)="showMapView('map-view')">Map View </button>
+                                    </div>
+                                    <div class="eight wide column p-0">
+                                        <!-- <button (click)="modifySearch()">Modify Search</button> -->
+                                        <button (click)="priceFilter($event)">
+                                            <!-- Sort By: Price: Low to High <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8" style="transform:rotate(180)"/> -->
+                                            <span *ngIf="lhPrice =='' || lhPrice == 'LH'">Sort By: Price: Low to High  <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8" /></span>
+                                            <span *ngIf="lhPrice=='HL'">Sort By: Price:  High to Low <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8" style="transform:rotate(180deg);"/></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>                            
+                        </div>                        
+                        <ng-container *ngIf="(hotelList | searchByName:hotelName | searchByRating:ratings:ratingAll:selectedRating | ancillariesPipe:ancillarie:ancAll:selectedAnc:selectedAnc | lowestPrice:lhPrice:selectedPrice | priceRange:minPrice:maxPrice | nearByPlaces:nearbyLoc:placeLat) as hotelResult;  ">
+                            <div class="search-list-block"  *ngFor="let hotel of hotelResult  | slice:0:hotelToShow;" >                           
+                            <div class="ui grid item-block">
+                                <div class="sixteen wide column row">
+                                    <div class="six wide column item-image"  [ngStyle]="{'background-image':'url(' + hotel.image + ')', 'background-repeat': 'no-repeat', 'background-size': 'cover' }" onerror="this.src='default-image.jpg';" >
+                                        <!-- <img src="{{hotel.image}}" title="Royalton Hotel Dubai" />  -->                                       
+                                    </div>
+                                    
+                                    <div class="ten wide column item-details">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="eight wide column">
+                                                    <h2 >{{hotel.hotel_name}} </h2>
+                                                    <p class="light">{{hotel.address}} | <strong>Supplier </strong> {{hotel.supplier_code}} </p>
+                                                </div>
+                                                <div class="eight wide column price-block">
+                                                    <span>Starting form</span>
+                                                    <p>{{hotel.markup_price}} {{hotel.rate_info.currency}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="eight wide column rating-details">
+                                                    <!-- {{hotel.amenity}} -->
+                                                    <span [innerHtml]="printRating(hotel)"></span>
+                                                    <span> . </span>
+                                                    <span [innerHtml]="tripRating(hotel)"></span>                                               
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="ten wide column">
+                                                    <p class="desc">{{hotel.overview}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="eight wide column amenities-block">
+                                                    <ng-container *ngIf="hotel.amenity">
+                                                    <a title="Wifi" [class]="hotel.amenity.indexOf('FRWF') > - 1 ? 'active-anc' : 'deactive-anc'" >
+                                                        <img src="./../../../../../assets/icons/wifi-icon.svg" />
+                                                    </a>
+                                                    <a title="Pool"  [class]="hotel.amenity.indexOf('SWOT') > - 1 ? 'active-anc' : 'deactive-anc'">
+                                                        <img src="./../../../../../assets/icons/pool-icon.svg" />
+                                                    </a>
+                                                    <a title="Restaurant"  [class]="hotel.amenity.indexOf('REST') > - 1 ? 'active-anc' : 'deactive-anc'">
+                                                        <img src="./../../../../../assets/icons/meal-icon.svg" />
+                                                    </a>
+                                                    <a title="Mini Bar"  [class]="hotel.amenity.indexOf('BALG') > - 1 ? 'active-anc' : 'deactive-anc'">
+                                                        <img src="./../../../../../assets/icons/drinks-icon.svg" />
+                                                    </a>
+                                                    <a title="Gym"  [class]="hotel.amenity.indexOf('UNFC') > - 1 ? 'active-anc' : 'deactive-anc'">
+                                                        <img src="./../../../../../assets/icons/double-arrow.svg" />
+                                                    </a>
+                                                    <a title="Parking"  [class]="hotel.amenity.indexOf('ACPK') > - 1 ? 'active-anc' : 'deactive-anc'">
+                                                        <img src="./../../../../../assets/icons/park-icon.svg" />
+                                                    </a>
+                                                </ng-container>
+                                                <ng-container *ngIf="!hotel.amenity">
+                                                    <a title="Wifi" class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/wifi-icon.svg" />
+                                                    </a>
+                                                    <a title="Pool"  class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/pool-icon.svg" />
+                                                    </a>
+                                                    <a title="Restaurant" class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/meal-icon.svg" />
+                                                    </a>
+                                                    <a title="Mini Bar" class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/drinks-icon.svg" />
+                                                    </a>
+                                                    <a title="Gym" class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/double-arrow.svg" />
+                                                    </a>
+                                                    <a title="Parking" class="deactive-anc">
+                                                        <img src="./../../../../../assets/icons/park-icon.svg" />
+                                                    </a>
+                                                </ng-container>
+                                                </div>
+                                                <div class="eight wide column right">
+                                                    <div class="bookings_btn-panel">
+                                                        <button class="ui export button" (click)="showFurtherDetails(hotel)" [disabled]="selected_panel == hotel.supplier_hotel_id && showRoomDisabled == true">
+                                                            <i *ngIf="selected_panel == hotel.supplier_hotel_id && showRoomSpinner == true" class="fa fa-spinner fa-spin"></i>Show Rooms
+                                                            <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row furtherdetails" *ngIf="showfurtherDetails && selected_panel == hotel.supplier_hotel_id">
+                                    <div *ngIf="ListOfRooms.length > 0 && showfurtherDetails" class="detail-tab-wrapp">
+                                    <div class="ui top attached tabular menu">
+                                        <div class="item active " id="room-tab-{{hotel.supplier_hotel_id}}" (click)="roomDetailsTab(hotel.supplier_hotel_id)" data-tab="room-tab">Room Details</div>
+                                        <div class="item"  id="desc-tab-{{hotel.supplier_hotel_id}}" (click)="DescriptionTab(hotel.supplier_hotel_id)" data-tab="desc-tab">Description</div>
+                                        <div class="item "  id="review-tab-{{hotel.supplier_hotel_id}}" (click)="ReviewsTab(hotel.supplier_hotel_id)" data-tab="review-tab">Reviews</div>
+                                        <div class="item "  id="map-tab-{{hotel.supplier_hotel_id}}" (click)="MapsTab(hotel.supplier_hotel_id)" data-tab="map-tab">Maps</div>
+                                        <div class="item "  id="photo-tab-{{hotel.supplier_hotel_id}}" (click)="PhotosTab(hotel.supplier_hotel_id)" data-tab="photo-tab">Photos</div>
+                                    </div>
+                                    <div id="tab-room-{{hotel.supplier_hotel_id}}" class="ui bottom attached active tab segment" data-tab="room-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid" >
+                                                <ng-container *ngIf="(ListOfRooms | mealPlanFilter:boardTypeArray:selectedBoardType:selectRoomAll) as roomList;" >
+                                                <div class="sixteen wide column row furtherdetails-row" *ngFor="let room of roomList | slice:0:roomToShow;">
+                                                    <div class="five wide column">
+                                                        <!-- {{room | json}} -->
+                                                        <h4><strong>{{room.room_description}}</strong></h4>
+                                                        <ul>
+                                                            <li class="fac-type" *ngIf="room.board_type != null ">{{boardType(room.board_type)}} </li>
+                                                            <li><a (click)="showRateModal('rate-modal',room)" > Rates & Policies </a></li>
+                                                            <li><a (click)="showCancelPolicy('cancel-modal',room)" > Cancellation Policy </a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="two wide column">
+                                                        <p class="supp_name">{{room.supplier_name }}</p>
+                                                    </div>
+                                                    <div class="three wide column price" style="text-align: right;">
+                                                        <p>{{room.markup_price |  number:'1.2-2'}} {{room.currency_code}}</p>
+                                                    </div>
+                                                    <div class="three wide column add-widget-block" >
+                                                        <button *ngIf="room.supplier_name != hotel.supplier_code">Add to Widget </button>
+                                                    </div> <!----&& selected_room_panel == room.room.id-->
+                                                    <div class="three wide column select-room bookings_btn-panel" >
+                                                        <button class="ui primary button" (click)="blockRoom(room)"><i *ngIf="blockRoomSpinner && blockRoomId == room.booking_code" class="fa fa-spinner fa-spin"></i>Select Room</button>
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column row search-more" *ngIf="roomList.length>5 && roomBtnShow == true">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="sixteen wide column text-center">
+                                                                    <a (click)="displayAllRooms(roomList.length)">
+                                                                        Show more ({{roomList.length-5}}) 
+                                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column row search-more" *ngIf="roomBtnShow == false && roomList.length >0">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="sixteen wide column text-center">
+                                                                    <a (click)="displayLessRooms(roomList.length)">
+                                                                        Show less 
+                                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" />
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>                                           
+                                                    <div class="ui grid sixteen wide column row search-more ">
+                                                      <div class="sixteen wide column row">
+                                                        <div class="sixteen wide column warning-block">
+                                                            <div *ngIf="roomList.length == 0" class="warning-text">
+                                                               <h2>No Result Found For Filtered Criteria</h2>
+                                                            </div>
+                                                            <!-- <div *ngIf="roomList.length > 0">
+                                                                <p>Count: <b>{{roomList.length}}</b></p>
+                                                            </div> -->
+                                                           
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                               
+                                               </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                                    <div id="tab-desc-{{hotel.supplier_hotel_id}}" class="ui bottom attached tab segment" data-tab="desc-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row desc-tab-block">
+                                                    <div class="sixteen wide column" *ngIf="hotel_desription != undefined">
+                                                        <div *ngFor="let desc of hotel_desription.hotelDetails | keyvalue">
+                                                            <h5 > {{desc.key}}</h5>
+                                                            <p>
+                                                                {{desc.value}}
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-review-{{hotel.supplier_hotel_id}}" class="ui bottom attached tab segment" data-tab="review-tab">
+                                        <div class="ui fluid container">
+                                          <div class="outer-form">
+                                              <!-- {{hotel | json}} -->
+                                                      <h5>Trip Advisor id: {{hotel.tripAdvisorId}} | Trip Advisor Ranking:  {{hotel.tripAdvisorRanking}}</h5>
+                                                      <div class="sixteen wide column row pt-0">
+                                                        <div class="eight wide column rating-details">                                                    
+                                                            <span [innerHtml]="printRating(hotel)"></span>
+                                                            <span> . </span>
+                                                            <span [innerHtml]="tripRating(hotel)"></span>  
+                                                        </div>
+                                                        <iframe width="100%" height="300" frameborder="0" style="border:0" [src]="(hotel | tripadvisor)" *ngIf="hotel.supplier_code == 'inhouse'"></iframe>
+                                                    </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-map-{{hotel.supplier_hotel_id}}"  class="ui bottom attached tab segment map-tab" data-tab="map-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.0464441905224!2dhotel.latitute!3dhotel.longitute!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f434a9026f7f5%3A0x311f5f52996b33ed!2shotel.hotel_name!5e0!3m2!1sen!2sae!4v1581487088482!5m2!1sen!2sae" 
+                                                        width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe> -->
+                                                        <!-- <agm-map [latitude]="hotel.latitute" [longitude]="hotel.longitute"></agm-map> -->
+                                                        <agm-map 
+                                                        [latitude]="hotel.latitute"
+                                                        [longitude]="hotel.longitute"   
+                                                        minZoom="10"                                               
+                                                        [zoom]="10"
+                                                        [mapZoom]="5"
+                                                        [disableDefaultUI]="false"
+                                                        [zoomControl]="false"
+                                                        (mapClick)="mapClicked($event)">
+                                                      
+                                                        <agm-marker 
+                                                            (markerClick)="clickedMarker(hotel.hotel_name,1)"
+                                                            [latitude]="hotel.latitute"
+                                                            [longitude]="hotel.longitute"
+                                                            [label]="hotel.hotel_name"
+                                                            [markerDraggable]="hotel.draggable"
+                                                            (dragEnd)="markerDragEnd(hotel, $event)">
+                                                            
+                                                          <agm-info-window>
+                                                            <strong>hotel.hotel_name</strong>
+                                                          </agm-info-window>
+                                                          
+                                                        </agm-marker>
+                                                        
+                                                        <!-- <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+                                                            [radius]="5000"
+                                                            [fillColor]="'red'"
+                                                            [circleDraggable]="true"
+                                                            [editable]="true">
+                                                        </agm-circle> -->
+                                                      
+                                                      </agm-map>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="tab-photo-{{hotel.hotel_id}}" class="ui bottom attached tab segment" data-tab="photo-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid m-0">
+                                                <div class="sixteen wide column row pt-0" *ngIf="hotel_desription != undefined"> <!--*ngIf="hotel.description.HotelResultInfo.hotelImages; let images" -->
+                                                    <div class="three wide column image-wrapper" *ngFor="let img of hotel_desription.hotelImages.hotelImage" > <!-- *ngFor="let image of images"-->
+                                                        <div class="image-thumb">
+                                                            <!-- <img [src]="img" /> -->
+                                                            <figure>
+                                                                <img [src]="img.thumbnailUrl" alt="img.caption" style="width:100%">
+                                                                <figcaption>{{img.caption}}</figcaption>
+                                                              </figure>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div> <!---------------search block list------>                          
+                  
+                        <div class="sixteen wide column row search-more" *ngIf="hotelResult.length>0 && hotelBtnShow ==true ">
+                            <div class="sixteen wide column">
+                                <div class="ui grid">
+                                    <div class="sixteen wide column row">
+                                        <div class="sixteen wide column text-center">
+                                            <a (click)="displayAllHotels(hotelResult.length-hotelToShow)">
+                                                Show more 
+                                                <img src="./../../../../../assets/icons/downArrow-blue.svg" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="animated fadeInUp" >
+                            <div class="ui grid">
+                              <div class="sixteen wide column row">
+                                <div class="sixteen wide column warning-block">
+                                    <div *ngIf="hotelResult.length == 0; " class="warning-text">
+                                       <h2>No Result Found For Filtered Criteria {{resultCount(hotelResult.length)}}</h2>
+                                    </div>
+                                    <div *ngIf="hotelResult.length > 0">
+                                        <p>Count: <b>{{hotelResult.length }} {{resultCount(hotelResult.length)}}</b></p>
+                                    </div>
+                                   
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        </ng-container>
+                        <!-- <p class="search-list-block" *ngIf="!(hotelList | searchByName:hotelName | searchByRating:ratings:ratingAll:selectedRating | ancillariesPipe:ancillarie:ancAll:selectedAnc | lowestPrice:lhPrice:selectedPrice | priceRange:minPrice:maxPrice | nearByPlaces:nearbyLoc:placeLat)?.length)">No results found</p> -->
+                    </div>
+                    <div class="four wide column">
+                        <div class="fliter-head-block">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row">
+                                    <div class="ten wide column">
+                                        <h2>Filters</h2>
+                                    </div>
+                                    <!-- <div class="six wide column right">
+                                        <a>Clear All</a>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-list-block">
+                            <div class="ui grid filter-block">
+                                <div class="sixteen wide column row filters">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Specify Hotel</h4>
+                                                </div>
+                                                <!-- <div class="six wide column right">
+                                                    <a>Clear</a>
+                                                </div> -->
+                                            </div>
+                                    
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="sixteen wide column">
+                                                    <div class="ui input fluid">
+                                                        <input type="text" [value]="hotelName" [(ngModel)]="hotelName" [ngModelOptions]="{standalone: true}" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row filters">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Star Rating</h4>
+                                                </div>
+                                                <!-- <div class="six wide column right">
+                                                    <a>Clear All</a>
+                                                </div> -->
+                                            </div>
+                                            <div class="sixteen wide column row pt-0 star-rating-block">
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[5].selected"  (checked)="ratings[5].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(5)">
+                                                        <label for="fivestar">
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fourstar" [(ngModel)]="ratings[4].selected"  (checked)="ratings[4].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(4)">
+                                                        <label for="fourstar">
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="threestar" [(ngModel)]="ratings[3].selected"  (checked)="ratings[3].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(3)">
+                                                        <label for="threestar">
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="twostar" [(ngModel)]="ratings[2].selected"  (checked)="ratings[2].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(2)">
+                                                        <label for="twostar">
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="onestar" [(ngModel)]="ratings[1].selected"  (checked)="ratings[1].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(1)" > 
+                                                        <label for="onestar">
+                                                            <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="uncategorized" [(ngModel)]="ratings[0].selected" (checked)="ratings[0].selected" [ngModelOptions]="{standalone: true}" (click)="setRating(0)" >
+                                                        <label for="uncategorized" class="uncategorised">Uncategorized</label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="ratingAll" [(ngModel)]="ratingAll" [ngModelOptions]="{standalone: true}" (click)="selectRatings()" >
+                                                        <label for="ratingAll"> ALL
+                                                            <!-- <img src="./../../../../../assets/icons/rating-star-yellow.svg"/> -->
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row filters">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid price-fliter-block">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Price range</h4>
+                                                    <!-- <p class="price-desc">320 AED - 840 AED</p> -->
+                                                </div>
+                                                <!-- <div class="six wide column right">
+                                                    <a>Clear All</a>
+                                                </div> -->
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="sixteen wide column">
+                                                    <input type="text" value="AED 620" [(ngModel)]="minPrice" [ngModelOptions]="{standalone: true}" />
+                                                    <input type="text" value="AED 2400" [(ngModel)]="maxPrice" [ngModelOptions]="{standalone: true}"/>
+                                                    <button class="go" (click)="rangeFilter()" style="width: 70px !important;">Reset </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row filters meal-block" *ngIf="showfurtherDetails">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Meal Plan</h4>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0 star-rating-block">
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="selectRoomAll" [(ngModel)]="selectRoomAll" [ngModelOptions]="{standalone: true}"  (click)="selectBoardType()">
+                                                        <!-- <label for="selectAll" class="text">
+                                                            Select All
+                                                        </label> -->
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="roomOnly"  [(ngModel)]="boardTypeArray[0].selected"  (checked)="boardTypeArray[0].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(0)">
+                                                        <label for="roomOnly" class="text">
+                                                            Room Only
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="bed"  [(ngModel)]="boardTypeArray[1].selected"  (checked)="boardTypeArray[1].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(1)" >
+                                                        <label for="bed" class="text">
+                                                            Bed and Breakfast
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="half"  [(ngModel)]="boardTypeArray[2].selected"  (checked)="boardTypeArray[2].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(2)">
+                                                        <label for="half" class="text">
+                                                            Half Board
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="bed"  [(ngModel)]="boardTypeArray[3].selected"  (checked)="boardTypeArray[3].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(3)">
+                                                        <label for="bed" class="text">
+                                                           Full Board
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="bed"  [(ngModel)]="boardTypeArray[4].selected"  (checked)="boardTypeArray[4].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(4)" >
+                                                        <label for="bed" class="text">
+                                                          All Inclusive
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="bed"  [(ngModel)]="boardTypeArray[5].selected"  (checked)="boardTypeArray[5].selected"  [ngModelOptions]="{standalone: true}" (click)="setBoardType(5)">
+                                                        <label for="bed" class="text">
+                                                          Self Catering
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row filters facility-block">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Facilities</h4>
+                                                </div>
+                                                <!-- <div class="six wide column right">
+                                                    <a>Select All</a>
+                                                </div> -->
+                                            </div>
+                                            <div class="sixteen wide column row pt-0 star-rating-block">
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui grid">
+                                                        <div class="sixteen wide column row">
+                                                            <div class="eight wide column">
+                                                                <div class="ui checkbox">                                            
+                                                                    <input type="checkbox" name="breakfast" [(ngModel)]="ancillarie[0].selected"  (checked)="ancillarie[0].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(0)">
+                                                                    <label for="breakfast" class="text">
+                                                                        Restaurant
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="eight wide column">
+                                                                <div class="ui checkbox">
+                                                                    <input type="checkbox" name="parking" [(ngModel)]="ancillarie[1].selected"  (checked)="ancillarie[1].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(1)">
+                                                                    <label for="parking" class="text">
+                                                                        Parking
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui grid">
+                                                        <div class="sixteen wide column row">
+                                                            <div class="eight wide column">
+                                                                <div class="ui checkbox">
+                                                                    <input type="checkbox" name="pool" [(ngModel)]="ancillarie[2].selected"  (checked)="ancillarie[2].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(2)">
+                                                                    <label for="pool" class="text">
+                                                                        Pool
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="eight wide column">
+                                                                <div class="ui checkbox">
+                                                                    <input type="checkbox" name="wifi" [(ngModel)]="ancillarie[3].selected"  (checked)="ancillarie[3].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(3)">
+                                                                    <label for="wifi" class="text">
+                                                                        Wifi
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="bar" [(ngModel)]="ancillarie[4].selected"  (checked)="ancillarie[4].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(4)">
+                                                        <label for="bar" class="text">
+                                                            Bar
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="gym" [(ngModel)]="ancillarie[5].selected"  (checked)="ancillarie[5].selected"  [ngModelOptions]="{standalone: true}"  (click)="setAncel(5)">
+                                                        <label for="gym" class="text">
+                                                            Gym
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="ancAll" [(ngModel)]="ancAll" [ngModelOptions]="{standalone: true}"  (click)="selectAnceType()">
+                                                        <label for="all" class="text">
+                                                            All
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row filters location-block">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Nearest Location</h4>
+                                                </div>  
+                                                <!-- <div class="six wide column right">
+                                                    <a  (click)="resetNearBy()">Select All</a>
+                                                </div>                                          -->
+                                            </div>
+                                            <div class="sixteen wide column row pt-0 star-rating-block">
+                                                <div class="sixteen wide column rating-list-block">
+                                                    <div class="ui checkbox">
+                                                        <input type="radio" name="1" (click)="nearbyPlace()" >
+                                                        <label for="loc1" class="text">
+                                                          All
+                                                        </label>
+                                                    </div> 
+                                                    <div class="ui checkbox"  *ngFor="let place of popPlaces; let i = index; ">
+                                                        <input type="radio" name="1" (click)="nearbyPlace(place,$event)" id="place_{{place.latitude}}" >
+                                                        <label for="loc1" class="text">
+                                                            {{place.regionnamelong}}
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<jw-modal id="map-view" class="map-view">
+    <div class="ui grid">
+    <div  class="sixteen wide column row">
+            <div class="seven wide column row">
+                <div class="ui grid">
+                 <div class="sixteen wide column">
+                      <input type="text" placeholder="Search By Name" class="search"  [(ngModel)]="labelSearch">
+                 </div>
+                </div>
+        </div>
+       
+        <div class="nine wide column">
+            <div class="modify-search-block">
+                <div class="ui grid">
+            <div class="sixteen wide column p-0">
+                <div class="filter-seg text-right">
+                <button  (click)="priceFilter($event)">Sort By: Price: Low to High <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8"/></button>
+                <button (click)="showStarFilter()" style="position:raltive">
+                <i class="fa fa-filter img-filter"></i>
+                 Filter
+                </button>
+                <div class="airline-filter timing-block text-left" *ngIf="starFilter">
+                    <div class="head">
+                      <h4>Filter by Star</h4>
+                      <!-- <a>Clear</a> -->
+                    </div>
+                    <div class="detail star-rating-block">
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="fivestar" [(ngModel)]="ratings[5].selected"  (checked)="ratings[5].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(5)">
+                            <label for="fivestar">
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="fourstar" [(ngModel)]="ratings[4].selected"  (checked)="ratings[4].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(4)">
+                            <label for="fourstar">
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="threestar" [(ngModel)]="ratings[3].selected"  (checked)="ratings[3].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(3)">
+                            <label for="threestar">
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="twostar" [(ngModel)]="ratings[2].selected"  (checked)="ratings[2].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(2)">
+                            <label for="twostar">
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="onestar" [(ngModel)]="ratings[1].selected"  (checked)="ratings[1].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(1)">
+                            <label for="onestar">
+                                <img src="./../../../../../assets/icons/rating-star-yellow.svg"/>
+                            </label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="uncategorized" [(ngModel)]="ratings[0].selected"  (checked)="ratings[0].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(0)">
+                            <label for="uncategorized" class="text uncategorised">Uncategorized</label>
+                        </div>
+                        <br/>
+                        <div class="ui checkbox rating-list-block">
+                            <input type="checkbox" name="ratingAll" [(ngModel)]="ratingAll" [ngModelOptions]="{standalone: true}" (click)="selectRatings()" >
+                            <label for="ratingAll"> ALL
+                                <!-- <img src="./../../../../../assets/icons/rating-star-yellow.svg"/> -->
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sub-detail bookings_btn-panel text-right">
+                        <button class="ui button reset text-left">Cancel</button>
+                        <button class="ui button primary">Apply</button>
+                    </div>
+                  </div>
+            </div>
+             </div>
+          </div>
+       </div>
+    </div>
+</div>
+        <div class="sixteen wide column row">
+            <div class="sixteen wide column">
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  minZoom="12"                                               
+  [zoom]="12"
+  [mapZoom]="12"
+  [disableDefaultUI]="false"
+  [zoomControl]="false"
+  (mapClick)="mapClicked($event)">
+
+  <agm-marker 
+      *ngFor="let m of (markers| labelFilter:labelSearch) ; let i = index"
+      (markerClick)="clickedMarker(m.label, i)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [markerDraggable]="m.draggable"
+      (dragEnd)="markerDragEnd(m, $event)">
+      
+    <agm-info-window>
+      <strong>{{m.label}}</strong> |  <strong>  {{m.price}} {{m.currency}}</strong>
+    </agm-info-window>
+    
+  </agm-marker>
+  
+  <agm-circle [latitude]="lat + 0.3" [longitude]="lng" 
+      [radius]="5000"
+      [fillColor]="'red'"
+      [circleDraggable]="true"
+      [editable]="true">
+  </agm-circle>
+
+</agm-map> 
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="rate-modal" class="rate-modal modal">
+    <div class="ui grid">
+        <div class="sixteen wide column row p-0">
+            <div class="sixteen wide column">
+                <h2>Rates Breakup</h2>
+                <i class="close icon" (click)="closeModal('rate-modal')"></i>
+            </div>
+        </div>
+        <div class="sixteen wide column row border-block">
+            <div class="sixteen wide column p-0">
+                <div class="ui grid m-12">
+                    <div class="sixteen wide column row">
+                        <div class="eight wide column">
+                            <h4>{{ratePolicyRoom.hotel_name}} </h4>
+                            <div class="ui grid m-0">
+                                <div class="sixteen wide column row detail-block">
+                                    <div class="five wide column detail-label">
+                                        <p>Check in:  </p>
+                                        <p>{{(searchCriteria.checkInUnix *1000) | date:'medium' }} </p>
+                                    </div>
+                                    <div class="five wide column detail-label">
+                                        <p>Check out:</p>
+                                        <p>{{(searchCriteria.checkOutUnix *1000) | date:'medium' }}</p>
+                                    </div>
+                                    <div class="six wide column detail-label">
+                                        <p>No.Of Nights</p>
+                                        <p>{{numberOfNights(searchCriteria.checkInUnix, searchCriteria.checkOutUnix) }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="eight wide column">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row total-row">
+                                    <div class="eight wide column right">
+                                        <h4>Total:</h4>
+                                        <p>(Inclusive of tax)</p>
+                                    </div>
+                                    <div class="eight wide column">
+                                        <div class="tot-price">{{ratePolicyRoom.currency_code}} {{ratePolicyRoom.markup_price}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                        <div class="sixteen wide column">
+                            <table class="ui celled table">
+                                <thead>
+                                    <tr>
+                                        <th class="date-row">ROOMS</th>
+                                        <th *ngFor="let room of ratePolicyRoom.splitRoom; let i = index" >
+                                            Room {{i+1}} 
+                                            <!-- <span>(2 Adult)</span> -->
+                                           {{room.roomName}} <small>{{boardType(room.boardType)}}</small>
+                                        </th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let rate of roomDates; let i = index"  >
+                                        <td  data-label="date" class="date-row">
+                                            <p>{{getDay(rate)}}</p>
+                                            <p>{{getDate(rate)}}</p>
+                                        </td>
+                                        <td  *ngFor="let room of ratePolicyRoom.splitRoom; let i = index" >{{getPrice(rate)}}</td>                                       
+                                    </tr>                                  
+                                    <tr>
+                                        <td  data-label="date" class="date-row">
+                                            <p>Total</p>
+                                            <p>(Inclusive Of Tax)</p>
+                                        </td>
+                                        <td  *ngFor="let room of ratePolicyRoom.splitRoom; let i = index" >{{ratePolicyRoom.currency_code}} {{room.totalMarkupPrice}}</td>
+                                   
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="sixteen wide column row p-0 cancellation-policy">
+                        <div class="sixteen wide column">
+                            <h2>Cancellation Policy (Timezone: {{ratePolicyRoom.timezone}} )</h2>
+                        </div>
+                    </div>
+                    <div class="sixteen wide column row border-block cancel-block">
+                        <div class="sixteen wide column p-0">
+                            <div class="ui grid m-12"> 
+                                <div class="sixteen wide column row borderBottom" *ngFor="let policy of ratePolicyRoom.cancel_policy">
+                                    <div class="twelve wide column">
+                                        <div class="ui grid m-12">
+                                            <div class="sixteen wide column row borderLeft">
+                                                <div class="eight wide column">
+                                                    <div class="label">From Date:</div>
+                                                    <div class="date">{{(policy.fromUnix *1000) | date:'medium' }}  </div>
+                                                </div>
+                                                <div class="eight wide column">
+                                                    <div class="label">To Date:</div>
+                                                    <div class="date">{{(policy.toUnix *1000) | date:'medium' }} </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="four wide column">
+                                        <div class="price-total">{{policy.currencyCode}} {{policy.markup_price}}</div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="sixteen wide column">
+                                        <div class="policy-detail">
+                                            <h3>Inclusion</h3>
+                                            <p *ngFor="let inclusion of ratePolicyRoom.inclusion" >                                              
+                                                   {{inclusion}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+
+<jw-modal id="cancel-modal" class="cancel-modal modal">
+    <div class="ui grid">
+        <div class="sixteen wide column row p-0">
+            <div class="sixteen wide column">
+                <h2>Cancellation Policy (Timezone: {{ratePolicyRoom.timezone}})</h2>
+                <i class="close icon" (click)="closeModal('cancel-modal')"></i>
+            </div>
+        </div>
+        <div class="sixteen wide column row border-block cancel-block">
+            <div class="sixteen wide column p-0">
+                <div class="ui grid m-12">
+                    <div class="sixteen wide column row borderBottom" *ngFor="let policy of ratePolicyRoom.cancel_policy">
+                        <div class="twelve wide column">
+                            <div class="ui grid m-12">
+                                <div class="sixteen wide column row borderLeft">
+                                    <div class="eight wide column">
+                                        <div class="label">From Date:</div>
+                                        <div class="date">{{(policy.fromUnix *1000) | date:'medium' }}  </div>
+                                    </div>
+                                    <div class="eight wide column">
+                                        <div class="label">To Date:</div>
+                                        <div class="date">{{(policy.toUnix *1000) | date:'medium' }} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="four wide column">
+                            <div class="price-total">{{policy.currencyCode}} {{policy.markup_price}}</div>
+                        </div>
+                    </div>
+                    <div class="sixteen wide column row">
+                        <div class="sixteen wide column">
+                            <div class="policy-detail">
+                                <h3>Inclusion</h3>
+                                <p>
+                                   {{ratePolicyRoom.inclusion}}
+                                </p>
+                                <!-- <p>
+                                    Eating and drinking facilities include coffee shop or café and barbecue grill(s).
+                                </p>
+                                <p>
+                                    If a compulsory city tax is applicable for the hotel the guests has to pay this tax directly at the hotel before the end of the stay.
+                                </p> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>
+<app-hotel-passenger-details *ngIf="showPassengerDetail" [blockedRoom]="blockedRoom" [selectedHotel]="selectedHotel" ></app-hotel-passenger-details>

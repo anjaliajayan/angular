@@ -1,0 +1,111 @@
+<div class="ui segment">
+  <div class="ui fluid container search-log-container">
+    <div class="outer-basics">
+      <form [formGroup]="searchActivityLogForm" (ngSubmit)="activitySearchLog()"
+        class="ui form report-form">
+        <div class="field">
+          <div class="outer-basicForm">
+            <div class="form-inner">
+              <div class="fields">
+                <!-- <div class="one wide field"></div> -->
+                <div class="six wide field">
+                  <label>Agents</label>
+                  <select class="ui fluid search dropdown" formControlName="organisation_id">
+                    <option value="">Agents</option>
+                    <option class="item" *ngFor="let orgs of orgNames" value="{{orgs.organisation_id}}">{{orgs.name}}
+                    </option>
+                  </select>
+                </div>
+                <!-- <div class="one wide field"></div> -->
+                <div class="five wide field bookings_pickers"
+                  [ngClass]="{'error': ((submitted && f.start_date.errors) && f.start_date.errors.required) }">
+                  <label>Start Date<span class="mandatory">*</span></label>
+                  <div class="ui left icon input">
+                    <input type="text" placeholder="Start Date" formControlName="start_date" name="start_date"
+                      value="" required />
+                    <i class="icon">
+                      <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                    </i>
+                  </div>
+                </div>
+                <div class="five wide field bookings_pickers"
+                  [ngClass]="{'error': ((submitted && f.end_date.errors) && f.end_date.errors.required) }">
+                  <label>End Date<span class="mandatory">*</span></label>
+                  <div class="ui left icon input">
+                    <input type="text" placeholder="End Date" formControlName="end_date" name="end_date" value=""
+                      required />
+                    <i class="icon">
+                      <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="fields text-right">
+                <div class="sixteen wide field btn-wrapper">
+                  <div class="bookings_btn-panel">
+                    <button class="ui primary reset button" (click)="reset()" title="Reset">
+                      <i class="undo icon"></i>
+                    </button>
+                    <button class="ui primary  button" type="submit">
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- <div class="fields agent-name-booking">
+          <div class="eight wide field ui small header">Hotel Search Log</div> -->
+      <!-- <div class="ui divider"></div> -->
+      <!-- <div class="eight wide field bookings_btn-panel">
+            <button class="ui export button" title="Export">
+              Export
+            </button>
+          </div> -->
+      <!-- </div> -->
+      <div class="result-block">
+        <div class="user-table-list b2c-list-user-table">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [limit]="10" [rows]='NewActivitySearchLog' [sortType]="'multi'" [reorderable]="true"
+            [externalPaging]="true" [count]="totalActivitySearchLog" [offset]="activitySearchPage"
+            [sorts]="[{prop: 'created', dir: 'asc'}]" (page)="pageCallback($event)">
+            <ngx-datatable-column name="AgencyName">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngIf="row.organisation">
+                  {{row.organisation.name}}
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Username">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <span *ngIf="row.user">
+                  {{row.user.username}}
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Start Date" prop="startDate">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="End Date" prop="endDate">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Adult Count" prop="adultCount">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Child Count" prop="childCount">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Currency" prop="currency">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Date" prop="created_at">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy, h:mm a'}}
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

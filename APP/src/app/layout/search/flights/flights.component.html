@@ -1,0 +1,1734 @@
+<div class="flights card-wrapper animated fadeInUp">
+  <div class="container-fluid">
+    <div class="ui grid" *ngIf="!displayBookScreen">
+      <div
+        class="sixteen wide column row"
+        [ngClass]="{ 'dynamic-head': searchResult || searchLoader }"
+      >
+        <div class="ten wide column">
+          <h3 class="flights_title" *ngIf="!searchResult && !searchLoader">{{ screenTitle }}</h3>
+          <div class="ui grid" *ngIf="searchResult || searchLoader">
+            <div class="sixteen wide column row search-flight-head">
+              <div class="sixteen wide column">
+                <div class="list-head-wrapper">
+                  <h2 *ngFor="let place of flightSearchObj.destinations">
+                    {{ place.departure }} - {{ place.arrival }}
+                  </h2>
+                  <h4>
+                    Adult(s): {{ flightSearchObj.quantityADT }} Child:
+                    {{ flightSearchObj.quantityCHD }} Infant(s):
+                    {{ flightSearchObj.quantityINF }}
+                  </h4>
+                </div>
+                <p *ngIf="!searchLoader">26 Results found</p>
+                <div class="fare-block">
+                  <p>
+                    Fare Preference:
+                    {{ flightSearchObj.farePreferences.pref.name }}
+                  </p>
+                </div>
+              </div>
+              <!-- <div class="four wide column fare-block">
+                <p>
+                  Fare Preference:
+                  {{ flightSearchObj.farePreferences.pref.name }}
+                </p>
+              </div> -->
+              <!-- <div class="four wide column fare-block">
+                <p>Behalf of Booking: TpConnects</p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+        <div class="six wide column text-right" *ngIf="searchResult">
+          <div class="ui grid">
+            <!-- <div class="sixteen wide column row">
+              <div class="sixteen wide column date-label text-right">
+                <a>
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                </a>
+                <button
+                  class="date"
+                  *ngFor="let date of flightSearchObj.destinations"
+                >
+                  {{ date.flightDate }}
+                </button>
+                <a>
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+                <button
+                  class="calendar-btn"
+                  (click)="showCalendarSearch('calendar-modal')"
+                >
+                  <img
+                    src="./../../../../../assets/icons/calendar.svg"
+                    class="filter-icons"
+                  />
+                  Calendar Search
+                </button>
+              </div>
+            </div> -->
+            <div class="sixteen wide column row">
+              <div class="sixteen wide column">
+                <button class="modify-btn" (click)="modifySearch()">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                  Modify Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-passengers
+      *ngIf="displayAncillary || displayBookScreen"
+      [showAncModal]="displayAncillary"
+      (dispFlightSearchEmitter)="setSearchResult($event)"
+      [paxTicketDetails]="paxTicketDetails"
+    ></app-passengers>
+    <!-- <app-passengers [showAncModal]="displayAncillary" (dispFlightSearchEmitter)="setSearchResult($event)"
+            [paxTicketDetails]="paxTicketDetails"></app-passengers> -->
+    <!-- <app-passengers></app-passengers> -->
+  </div>
+  <div
+    class="ui bottom attached active tab segment"
+    *ngIf="flightsContainer && !searchLoader"
+    
+    [ngClass]="{ 'flight-list-tab pt-0': searchResult }"
+  >
+    <div *ngIf="modify" [ngClass]="{'modify-wrapper': modifySearchView}">
+      <form [formGroup]="flightSearchForm">
+        <!-- (ngSubmit)="searchFlights()"  *ngIf="!searchLoader" -->
+        <!-- <div class="container-fluid" [hidden]="searchResult"> -->
+        <div class="container-fluid">
+          <div class="ui grid option-block">
+            <div class="eight wide column radio-inline">
+              <!-- <label class="inline-radio"><input type="radio" name="optradio">One way</label>
+                            <label class="inline-radio"><input type="radio" name="optradio">Round trip</label>
+                            <label class="inline-radio"><input type="radio" name="optradio">Multi city</label> -->
+              <div class="ui radio checkbox">
+                <input
+                  type="radio"
+                  id="one-way"
+                  value="One way"
+                  (click)="oneWay()"
+                  name="optradio"
+                  class="hidden"
+                  checked
+                />
+                <label for="one-way">One way</label>
+              </div>
+              <div class="ui radio checkbox">
+                <input
+                  type="radio"
+                  id="round-trip"
+                  value="Round Trip"
+                  (click)="twoWay()"
+                  name="optradio"
+                  [checked]="sameDayReturnFlag"
+                  class="hidden"
+                />
+                <label for="round-trip">Round Trip</label>
+              </div>
+              <div class="ui radio checkbox">
+                <input
+                  type="radio"
+                  id="multi-city"
+                  value="Multi city"
+                  (click)="multiCity()"
+                  name="optradio"
+                  class="hidden"
+                />
+                <label for="multi-city">Multi city</label>
+              </div>
+              <!-- <div class="seven wide column flights_multi-city">
+                                <span (click)="addOndArr()">+ Add City</span>
+                            </div> -->
+            </div>
+            <div class="eight wide column more_opt">
+              <div class="ui dropdown">
+                {{ numberOfStops }}
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" (click)="setStops('All')">All</div>
+                  <div class="item" (click)="setStops('non-stop')">
+                    Non-stop
+                  </div>
+                  <!-- <div class="item">1 Stop</div>
+                                    <div class="item">2 Stops</div> -->
+                  <div class="item" (click)="setStops('multi')">
+                    Multi Stops
+                  </div>
+                </div>
+              </div>
+              <div class="ui checkbox checked">
+                <input
+                  type="checkbox"
+                  name="example"
+                  (click)="sameDayReturn()"
+                  id="same-day"
+                />
+                <label for="same-day">Same day return</label>
+              </div>
+              <div class="ui checkbox checked">
+                <input
+                  type="checkbox"
+                  name="example"
+                  (change)="handleSelected($event)"
+                  id="flex-day"
+                  formControlName="calendarDays"
+                />
+                <label for="flex-day">Flexible dates +/- 3 Days</label>
+              </div>
+              <!-- <div class="ui checkbox ml-2">
+                                <input type="checkbox" name="example">
+                                <label>Calendar</label>
+                            </div>
+                            <div class="ui checkbox ml-2">
+                                <input type="checkbox" name="example">
+                                <label>No Baggage</label>
+                            </div> -->
+            </div>
+          </div>
+
+          <div
+            class="ui grid flights_pickers"
+            formArrayName="ondArr"
+            *ngFor="
+              let ond of flightSearchForm.get('ondArr')['controls'];
+              let i = index
+            "
+          >
+            <div class="row date-picker-flight" [formGroupName]="i">
+              <div class="five wide column">
+                <label class="flights_label">Departure airport</label>
+                <div class="ui right action labeled left icon input">
+                  <i class="icon depart"
+                    ><img
+                      class="flights_input__placeholder-icon"
+                      src="./../../../../assets/icons/airline-dep.svg"
+                  /></i>
+                  <div
+                    class="ui selection dropdown border-right-0"
+                    (click)="filterDepartures(i)"
+                    [ngClass]="{
+                      error: isSubmitted && ond['controls']['departure'].invalid
+                    }"
+                  >
+                    <mat-form-field class="airport-dropdown">
+                      <input
+                        (click)="
+                          checkPlaceHolderDeparture(
+                            ond['controls']['departure'].value
+                          )
+                        "
+                        (blur)="
+                          checkPlaceHolderDeparture(
+                            ond['controls']['departure'].value
+                          )
+                        "
+                        placeholder="{{ depPlaceHolder }}"
+                        formControlName="departure"
+                        matInput
+                        [value]="OndAirport[i].departure.airportname"
+                        [matAutocomplete]="departure"
+                        type="text"
+                      />
+                      <!--  (click)="checkPlaceHolder()" (blur)="checkPlaceHolder()" -->
+                      <!-- <div class="mat-autocomplete-panel"
+                                            [ngClass]="(flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value !== null
+                                        && flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value !== 'null'
+                                        && flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['city']) ? 'mat-autocomplete-visible':'display-none'">
+                                            <mat-option class="mat-option">
+                                                <span class="mat-option-text">
+                                                    <strong class="airport-dropdown_header"><i
+                                                            class="building icon"></i>
+                                                        {{flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['city']}}
+                                                        All Airports</strong>
+                                                    <img class="airport-dropdown_plane-icon"
+                                                        src="./../../../../assets/img/straight-plane-icon.png">
+                                                    {{flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['airport']}}
+                                                    ({{flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['airport_code']}})
+                                                    <i
+                                                        *ngIf="(flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['popular'])">-
+                                                        Most Popular</i>
+                                                    <p>{{flightSearchForm.get('ondArr')['controls'][i]['controls']['departure'].value['country']}}
+                                                    </p>
+                                                </span>
+                                                <div class="mat-option-ripple mat-ripple"></div>
+                                            </mat-option>
+                                        </div> -->
+                      <mat-autocomplete
+                        #departure="matAutocomplete"
+                        [displayWith]="displayAirportName"
+                      >
+                        <mat-option
+                          *ngFor="
+                            let option of filteredDepartures | async;
+                            let i = index
+                          "
+                          [value]="option"
+                          (change)="airportChanged()"
+                        >
+                          <!-- <strong class="airport-dropdown_header" *ngIf="i == 0">
+                                                        <i class="building icon"></i>
+                                                        {{option.city}} All Airports
+                                                    </strong> -->
+                          <img
+                            src="./../../../../assets/img/straight-plane-icon.png"
+                            class="airport-dropdown_plane-icon"
+                          />
+                          {{ option.airportname }} ({{ option.airportcode }})
+                          <!--<i *ngIf="option.popular">- Most Popular</i>-->
+                          <p>{{ option.countrycode }}</p>
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+                  <!-- <div class="ui basic floating dropdown button flights_time-range">
+                                        <div class="text">Time Range</div>
+                                        <div class="menu">
+                                            <div id="time-range">
+                                                <p>Time Range</p>
+                                                <span>Departure</span>
+                                                <div class="sliders_step1">
+                                                    <div id="slider-range"></div>
+                                                </div>
+                                                <div class="ui grid">
+                                                    <div class="eight wide column">
+                                                        <div class="ui input fluid">
+                                                            <input type="text" placeholder="9:00 AM"
+                                                                class="slider-time">
+                                                        </div>
+                                                    </div>
+                                                    <div class="eight wide column">
+                                                        <div class="ui input fluid">
+                                                            <input type="text" placeholder="9:00 PM"
+                                                                class="slider-time2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                9:00
+                                            </div>
+                                        </div>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="one wide column swap-wrapper">
+                <div class="swap-btn-block">
+                  <button (click)="swap(i)">
+                    <i class="fa fa-exchange" aria-hidden="true"></i>
+                    <!-- <i class="fa fa-exchange-alt"></i>
+                                        <i class="fas fa-exchange-alt"></i> -->
+                    <!-- <svg width="14" height="11" viewBox="0 0 14 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13 5H1L3.06897 1" stroke="black" />
+                      <path d="M1 7H13L10.931 10" stroke="black" />
+                    </svg> -->
+                  </button>
+                </div>
+              </div>
+              <div class="five wide column">
+                <label class="flights_label">Arrival airport</label>
+                <div class="ui right action labeled left icon input">
+                  <i class="icon arrival">
+                    <img
+                      class="flights_input__placeholder-icon"
+                      src="./../../../../assets/icons/airline-arr.svg"
+                    />
+                  </i>
+                  <div
+                    class="ui selection dropdown border-right-0"
+                    (click)="filterArrivals(i)"
+                    [ngClass]="{
+                      error: isSubmitted && ond['controls']['arrival'].invalid
+                    }"
+                  >
+                    <mat-form-field class="airport-dropdown">
+                      <input
+                        (click)="
+                          checkPlaceHolderArrival(
+                            ond['controls']['arrival'].value
+                          )
+                        "
+                        (blur)="
+                          checkPlaceHolderArrival(
+                            ond['controls']['arrival'].value
+                          )
+                        "
+                        placeholder="{{ arrPlaceHolder }}"
+                        formControlName="arrival"
+                        matInput
+                        [matAutocomplete]="arrival"
+                        [value]="OndAirport[i].arrival.airportname"
+                        type="text"
+                      />
+
+                      <!-- <div class="mat-autocomplete-panel"
+                                            [ngClass]="(flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value !== null
+                                        && flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value !== 'null'
+                                        && flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['city']) ? 'mat-autocomplete-visible':'display-none'">
+                                            <mat-option class="mat-option">
+                                                <span class="mat-option-text">
+                                                    <strong class="airport-dropdown_header"><i
+                                                            class="building icon"></i>
+                                                        {{flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['city']}}
+                                                        All Airports</strong>
+                                                    <img class="airport-dropdown_plane-icon"
+                                                        src="./../../../../assets/img/straight-plane-icon.png">
+                                                    {{flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['airport']}}
+                                                    ({{flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['airport_code']}})
+                                                    <i
+                                                        *ngIf="(flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['popular'])">-
+                                                        Most Popular</i>
+                                                    <p>{{flightSearchForm.get('ondArr')['controls'][i]['controls']['arrival'].value['country']}}
+                                                    </p>
+                                                </span>
+                                                <div class="mat-option-ripple mat-ripple"></div>
+                                            </mat-option>
+                                        </div> -->
+                      <mat-autocomplete
+                        #arrival="matAutocomplete"
+                        [displayWith]="displayAirportName"
+                      >
+                        <mat-option
+                          *ngFor="
+                            let option of filteredArrivals | async;
+                            let i = index
+                          "
+                          [value]="option"
+                        >
+                          <!-- <strong class="airport-dropdown_header" *ngIf="i == 0">
+                                                        <i class="building icon"></i>
+                                                        {{option.city}} All Airports
+                                                    </strong> -->
+                          <img
+                            src="./../../../../assets/img/straight-plane-icon.png"
+                            class="airport-dropdown_plane-icon"
+                          />
+                          {{ option.airportname }} ({{ option.airportcode }})
+                          <!--<i *ngIf="option.popular">- Most Popular</i>-->
+                          <p>{{ option.countrycode }}</p>
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </div>
+                  <!-- <div class="ui basic floating dropdown button flights_time-range">
+                                        <div class="text">Time Range</div>
+                                        <div class="menu">
+                                            <div id="time-range">
+                                                <p>Time Range</p>
+                                                <span>Arrival</span>
+                                                <div class="sliders_step1">
+                                                    <div id="slider-range2"></div>
+                                                </div>
+                                                <div class="ui grid">
+                                                    <div class="eight wide column">
+                                                        <div class="ui input fluid">
+                                                            <input type="text" placeholder="9:00 AM"
+                                                                class="arrival-slider-time">
+                                                        </div>
+                                                    </div>
+                                                    <div class="eight wide column">
+                                                        <div class="ui input fluid">
+                                                            <input type="text" placeholder="9:00 PM"
+                                                                class="arrival-slider-time2">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="item">
+                                                9:00
+                                            </div>
+                                        </div>
+                                    </div> -->
+                </div>
+              </div>
+              <div class="five wide column">
+                <label class="flights_label">Date</label>
+                <div
+                  class="ui left icon input flights_datepicker"
+                  [ngClass]="{
+                    error: isSubmitted && ond['controls']['flightDate'].invalid
+                  }"
+                  (change)="airportChanged(i)"
+                >
+                  <!-- <input type="text" autocomplete="off" name="departureDate_{{i}}" id="datepicker_flights_{{i}}" formControlName="departureDate"
+                                    placeholder="Departure Date" value=""
+                                    (click)="$event.stopPropagation();"
+                                    *ngIf="i == 0 || i < (flightSearchForm.get('ondArr')['controls'].length - 1)" readonly
+                                    /> -->
+                  <!-- <input type="text" autocomplete="off"  name="departureDate_{{i}}" id="datepicker_flights_{{i}}" formControlName="departureDate"
+                                    placeholder="Departure Date" value=""
+                                    *ngIf="i == 0 || i < (flightSearchForm.get('ondArr')['controls'].length - 1)"
+                                    (click)="$event.stopPropagation();"
+                                    />
+
+                                    <input type="text" autocomplete="off" name="returnDate_{{i}}"  id="datepicker_flights_{{i}}" formControlName="returnDate" placeholder="Choose Return Date"
+                                    value="" *ngIf="i !== 0 && i == (flightSearchForm.get('ondArr')['controls'].length - 1)"
+                                    (click)="$event.stopPropagation();"
+                                    /> -->
+
+                  <!-- <input type="text" id="towMonthsCal"
+                    value="" name="myDate" /> -->
+
+                  <input
+                    type="text"
+                    autocomplete="off"
+                    name="flightDate_name_{{ i }}"
+                    id="flightDate_id_{{ i }}"
+                    formControlName="flightDate"
+                    placeholder="Date"
+                    [value]="ondArray.controls[i].value.flightDate"
+                  />
+
+                  <i class="icon">
+                    <img
+                      src="./../../../../assets/icons/calendar.svg"
+                      class="flights_input__placeholder-icon cal"
+                    />
+                  </i>
+                </div>
+                <span *ngIf="i > 0" (click)="removeOndArr(i, i)"
+                  ><i class="icon trash"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui grid" *ngIf="addFlight">
+          <div class="seven wide column flights_multi-city">
+            <button (click)="addOneFlight()">
+              <span>Add Flight +</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="ui grid">
+          <div class="sixteen wide column row flights_group-input">
+            <div class="two wide column">
+              <label class="flights_label">
+                Adult <span class="pass-info">(Above 12 Years)</span>
+              </label>
+              <select
+                formControlName="quantityADT"
+                class="ui selection dropdown flights_airline-dropdown"
+                [ngClass]="{
+                  error:
+                    isSubmitted &&
+                    flightSearchForm['controls'].quantityADT.invalid
+                }"
+              >
+                <option
+                  *ngFor="
+                    let in of counter(
+                      10 - flightSearchForm.controls.quantityCHD.value,
+                      0
+                    );
+                    let i = index
+                  "
+                  [selected]="flightSearchForm.controls.quantityADT.value === i"
+                  [value]="i"
+                  >{{ i }}
+                </option>
+              </select>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label label-align">
+                Child <span class="pass-info">(Between 2-12 Years)</span>
+              </label>
+              <select
+                formControlName="quantityCHD"
+                class="ui selection dropdown flights_airline-dropdown"
+              >
+                <option
+                  *ngFor="
+                    let in of counter(
+                      10 - flightSearchForm.controls.quantityADT.value,
+                      0
+                    );
+                    let i = index
+                  "
+                  [selected]="flightSearchForm.controls.quantityCHD.value === i"
+                  [value]="i"
+                >
+                  {{ i }}</option
+                >
+              </select>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label label-align">
+                Infant <span class="pass-info">(Below 2 Years)</span>
+              </label>
+              <select
+                formControlName="quantityINF"
+                class="ui selection dropdown flights_airline-dropdown"
+              >
+                <option
+                  *ngFor="
+                    let in of counter(
+                      flightSearchForm.controls.quantityADT.value,
+                      1
+                    );
+                    let i = index
+                  "
+                  [selected]="flightSearchForm.controls.quantityINF.value === i"
+                  [value]="i"
+                >
+                  {{ i }}</option
+                >
+              </select>
+            </div>
+            <div class="two wide column adjust-pos">
+              <label class="flights_label label-align">Cabin Type</label>
+              <select
+                formControlName="cabinType"
+                class="ui selection dropdown width-full"
+              >
+                <option
+                  class="item"
+                  *ngFor="let elem of cabinTypeArr; let i = index"
+                  value="{{ elem.value }}"
+                >
+                  {{ elem.label }}</option
+                >
+              </select>
+            </div>
+            <div class="three wide column adjust-pos behalf-wrap">
+              <label class="flights_label">Behalf of booking</label>
+<!--              selection dropdown-->
+              <div class="ui width-full min-width">
+                <input type="hidden" name="gender" />
+<!--                <i class="dropdown icon"></i>-->
+<!--                <div class="default text">Behalf of Booking</div>-->
+                <div class="menu">
+                  <select class="ui dropdown fluid" (change)="onbehalfchange($event)" formControlName="bookingFor">
+                    <option value="">Select</option>
+                    <option *ngFor="let organization of organizations" [value]="organization.organisation_id">
+                      {{ organization.name  }}</option>
+                  </select>
+<!--                  <div class="item" data-value="Dubai Travels">-->
+<!--                    Dubai Travels-->
+<!--                  </div>-->
+<!--                  <div class="item" data-value="ABC Travels">ABC Travels</div>-->
+<!--                  <div class="item" data-value="Global Tours">Global Tours</div>-->
+<!--                  <div class="item" data-value="Deira Travels">-->
+<!--                    Deira Travels-->
+<!--                  </div>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ui grid">
+          <div class="sixteen wide column row flights_custom-width custom-pref">
+            <div
+              class="three wide column"
+              formArrayName="airlinePreferences"
+              *ngFor="
+                let airPreference of flightSearchForm.get('airlinePreferences')[
+                  'controls'
+                ];
+                let ind = index
+              "
+            >
+              <div [formGroupName]="ind">
+                <label class="flights_label label-align"
+                  >Preferred airline</label
+                >
+                <select
+                  formControlName="airlinePreference"
+                  class="ui fluid search dropdown width-full multiple_search prefdropdown"
+                  multiple=""
+                >
+                  <option value="" selected disabled>Preferred Airline</option>
+                  <option
+                    class="item"
+                    *ngFor="let elem of airlinesArr; let i = index"
+                    value="{{ elem.value }}"
+                  >
+                    {{ elem.name }}</option
+                  >
+                </select>
+              </div>
+            </div>
+            <div class="three wide column">
+              <label class="flights_label label-align">Exclude airline</label>
+              <select
+                class="ui dropdown width-full multiple_search"
+                multiple=""
+              >
+                <option value="">Exclude Airline</option>
+                <option
+                  class="item"
+                  *ngFor="let elem of airlinesArr; let i = index"
+                  value="{{ elem.value }}"
+                >
+                  {{ elem.name }}</option
+                >
+              </select>
+            </div>
+            <!-- <div class="three wide column">
+              <label class="flights_label label-align">Cabin Type</label>
+              <select formControlName="cabinType" class="ui selection dropdown width-full">
+                <option class="item" *ngFor="let elem of cabinTypeArr; let i = index;" value="{{elem.value}}">
+                  {{elem.label}}</option>
+              </select>
+            </div> -->
+            <div class="three wide column">
+              <label class="flights_label label-align"
+                >Exclude connections via</label
+              >
+              <select
+                class="ui dropdown width-full multiple_search"
+                multiple=""
+              >
+                <option value="">Exclude Airline</option>
+                <option
+                  class="item"
+                  *ngFor="let elem of exlConArr; let i = index"
+                  value="{{ elem.airportcode }}"
+                >
+                  {{ elem.airportname }}</option
+                >
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="ui grid">
+                        <div class="sixteen wide column row flights_custom-width">
+                            <div class="two wide column">
+                                <label class="flights_label label-align">Specify RBD</label>
+                                <div class="ui selection dropdown width-full min-width">
+                                    <select formcontrolname="rbd">
+                                        <input placeholder="Specify RBD" type="text">
+                                    </select>
+                                    <i class="dropdown icon"></i>
+                                    <div class="text"></div>
+                                    <div class="menu" tabindex="-1"></div>
+                                </div>
+                            </div>
+                            <div class="three wide column">
+                                <label class="flights_label label-align">Frequent flyer number</label>
+                                <div class="ui input width-full">
+                                    <input type="text" placeholder="Frequent Flyer Number">
+                                </div>
+                            </div>
+                            <div class="three wide column qualifier-col">
+                                <label class="flights_label">Qualifier Code</label>
+                                <div class="ui fluid input">
+                                    <input type="text" name="qualifierCode" formControlName="qualifierCode"
+                                        placeholder="Qualifier Code">
+                                </div>
+                            </div>
+                            <div class="three wide column fare-column pl-0">
+                                <label class="flights_label label-align">Fare Preference</label>
+                                <select class="ui selection dropdown fluid">
+                                    <option (click)="setFarePref('759-0', 'Lowest Fare')">Lowest Fare</option>
+                                    <option (click)="setFarePref('754-0', 'Flexible Fare')">Flexible Fare</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div> -->
+        <div class="ui grid">
+          <div class="sixteen wide column row flights_custom-width">
+            <div class="three wide column">
+              <label class="flights_label label-align"
+                >Nego Fare Preference</label
+              >
+              <div class="ui selection dropdown">
+                <input
+                  type="hidden"
+                  name="nego-fare"
+                  formControlName="negoFarePreference"
+                />
+                <i class="dropdown icon"></i>
+                <div class="default text">Published and Private Fares</div>
+                <div class="menu">
+                  <div class="item">Published and Private Fares</div>
+                  <div
+                    class="item"
+                    (click)="setNegoFare('758-0', 'Published Only')"
+                  >
+                    Published Only
+                  </div>
+                  <div class="item" (click)="setNegoFare('758-3', 'Private')">
+                    Private Only
+                  </div>
+                  <div
+                    class="item"
+                    (click)="setNegoFare('758-1', 'Tour Operator Deferred')"
+                  >
+                    Tour Operator Deferred
+                  </div>
+                  <div
+                    class="item"
+                    (click)="
+                      setNegoFare('758-6', 'Tour Operator Semi Deferred')
+                    "
+                  >
+                    Tour Operator Semi Deferred
+                  </div>
+                  <div class="item" (click)="setNegoFare('758-4', 'Marine')">
+                    Marine
+                  </div>
+                  <div class="item">Military</div>
+                  <div class="item">Nego Fare</div>
+                  <div
+                    class="item"
+                    (click)="setNegoFare('758-5', 'Humanitarian')"
+                  >
+                    Humanitarian
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide column">
+              <label class="flights_label label-align">Fare Preference</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="nego-fare" />
+                <i class="dropdown icon"></i>
+                <div class="default text">Lowest Fare</div>
+                <div class="menu">
+                  <div class="item">Lowest Fare</div>
+                  <div class="item">Flexible Fare</div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label label-align">Private Fare</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="private-fare" />
+                <i class="dropdown icon"></i>
+                <div class="default text">On</div>
+                <div class="menu">
+                  <div class="item">On</div>
+                  <div class="item">Off</div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide column">
+              <label class="flights_label">Corporate Code</label>
+              <div
+                class="ui input minWidth"
+                [ngClass]="{
+                  error:
+                    isSubmitted &&
+                    flightSearchForm['controls'].corporateCode.invalid
+                }"
+              >
+                <input
+                  type="number"
+                  name="corporateCode"
+                  formControlName="corporateCode"
+                  placeholder="Corporate Code"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="sixteen wide column row flight-markup">
+            <div class="two wide column">
+              <label class="flights_label label-align">Markup by</label>
+              <div class="ui selection dropdown">
+                <input type="hidden" name="gender" />
+                <i class="dropdown icon"></i>
+                <div class="default text">Markup by</div>
+                <div class="menu">
+                  <div
+                    class="item"
+                    data-value="Amount"
+                    (click)="setMarkup('amount')"
+                  >
+                    Amount
+                  </div>
+                  <div
+                    class="item"
+                    data-value="Percentage"
+                    (click)="setMarkup('percentage')"
+                  >
+                    Percentage
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label">Markup {{ markupLabel }}</label>
+              <div
+                class="ui input"
+                [ngClass]="{
+                  error:
+                    isSubmitted &&
+                    flightSearchForm['controls'].markupValue.invalid
+                }"
+              >
+                <input
+                  type="number"
+                  name="markupValue"
+                  formControlName="markupValue"
+                  placeholder="Markup Value"
+                />
+              </div>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label label-align"
+                >Currency Selection</label
+              >
+              <div class="ui selection dropdown">
+                <input type="hidden" name="gender" />
+                <i class="dropdown icon"></i>
+                <div class="default text">US Dollars (USD)</div>
+                <div class="menu">
+                  <div class="item" data-value="Dubai Travels">
+                    UAE Dirhams (AED)
+                  </div>
+                  <div class="item" data-value="ABC Travels">
+                    Indian Rupees (INR)
+                  </div>
+                  <div class="item" data-value="Global Tours">
+                    Pound Sterlings (GBP)
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <label class="flights_label label-align"
+                >Search by Kilometers</label
+              >
+              <div class="ui basic floating dropdown button flights_dist-range">
+                <div class="text">Kilometer Range</div>
+                <div class="menu">
+                  <div id="dist-range">
+                    <p>Kilometer Range</p>
+                    <span>Departure</span>
+                    <div class="sliders_step1">
+                      <!-- <div id="slider-range"></div> -->
+                      <mat-slider (input)="0" thumbLabel max="30" value="10">
+                      </mat-slider>
+                    </div>
+                    <div class="ui grid">
+                      <div class="eight wide column">
+                        <div class="ui input fluid">
+                          <input
+                            type="text"
+                            placeholder="1800"
+                            class="slider-time"
+                            formControlName="kilometerDeparture"
+                          />
+                        </div>
+                      </div>
+                      <div class="eight wide column">
+                        <div class="ui input fluid">
+                          <input
+                            type="text"
+                            placeholder="20000"
+                            class="slider-time2"
+                            formControlName="kilometerArrival"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    1800
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide column">
+              <label class="flights_label label-align"
+                >Search by Alliance</label
+              >
+              <div class="ui selection dropdown minWidth">
+                <input type="hidden" name="alliance" />
+                <i class="dropdown icon"></i>
+                <div class="default text">Star Alliance</div>
+                <div class="menu">
+                  <div class="item" data-value="Star Alliance">
+                    Star Alliance
+                  </div>
+                  <div class="item" data-value="One World">One World</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui grid flights_footer-btn">
+          <div class="column flights_btn-panel text-right">
+            <!-- <button class="ui secondary button">
+                                Fare Search
+                            </button>
+                            <button class="ui secondary button">
+                                Air Availability
+                            </button>
+                            <button class="ui secondary button">
+                                Fare Quote
+                            </button> -->
+            <button
+              class="ui primary button searchButton"
+              (click)="searchFlights()"
+            ><i *ngIf="searchFlightsSpinner" class="fa fa-spinner fa-spin"></i>
+              Search
+            </button>
+          </div>
+        </div>
+
+        <!-- <div class="ui grid flights_adv-opt-block">
+                    <div class="column">
+                        <button class="ui button" (click)="showAdvanceOptions()">
+                            Advance Search Option
+                            <span class="down arrow" *ngIf="!showAdvOption"><img
+                                    src="../../../../assets/icons/downArrow-black.svg" /></span>
+                            <span class="up arrow" *ngIf="showAdvOption"><img
+                                    src="../../../../assets/icons/upArrow-black.svg" /></span>
+                        </button>
+                    </div>
+                </div> -->
+
+        <div class="ui grid" [ngClass]="{ 'adv-opt-block': !showAdvOption }">
+          <!--*ngIf="showAdvOption"-->
+          <!-- <div class="sixteen wide colum row"> -->
+          <!-- <div class="eight wide column">
+                        <label class="flights_label">Search Options</label>
+                        <label class="clear-label text-right">More </label>
+                        <div class="ui grid flights_chck-grid">
+                            <div class="sixteen wide column row">
+                                <div class="eight wide column fare-type-block">
+                                    <div class="fare-type-col">
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example" id="public-fare">
+                                            <label for="public-fare">Public Fares</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example" id="private-fare">
+                                            <label for="private-fare">Private Fares</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example" id="nego-fare">
+                                            <label for="nego-fare">Negotiated Fares</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example" id="mil-fare">
+                                            <label for="mil-fare">Military Fares</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example" id="corp-fare">
+                                            <label for="corp-fare">Corporate Fares</label>
+                                        </div>
+                                        <div class="ui input flights_chck-grid__code-input">
+                                                <input type="text" placeholder="" />
+                                            </div>
+                                        <p class="flights_chck-grid__more-opt">More search options</p>
+                                        <div
+                                            class="ui custom popup top left transition hidden flights_chck-grid__popup">
+                                            <p class="popup_title">Select more search options</p>
+                                            <span class="popup_subtitle">Please select the search options you want to
+                                                see:</span>
+                                            <div class="ui grid">
+                                                <div class="row popup_grid">
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Date and Times</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="cal-view">
+                                                            <label for="cal-view">Calendar View</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="dep-time">
+                                                            <label for="dep-time">Departure Time</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="arr-time">
+                                                            <label for="arr-time">Arrival Time</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="time-range">
+                                                            <label for="time-range">Time Range</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Other Fare Types</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="pub-fare">
+                                                            <label for="pub-fare">Public Fares</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="n-fare">
+                                                            <label for="n-fare">Negotiated Fares</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Passenger Details</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="pass-typ">
+                                                            <label for="pass-typ">Passenger Type Codes (PTC)</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row popup_grid">
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Airline Information</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="air">
+                                                            <label for="air">Airline(s)</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="more-air">
+                                                            <label for="more-air">More Airline(s)</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="exc-air">
+                                                            <label for="exc-air">Excluded Airline(s)</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Fare Types</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="corp-code">
+                                                            <label for="corp-code">Corporate codes</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="p-fare">
+                                                            <label for="p-fare">Public fares</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="neg-fare">
+                                                            <label for="neg-fare">Negotiated fares</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Cabin</p>
+                                                        <div class="ui checkbox">
+                                                            <div class="ui checkbox">
+                                                                <input type="checkbox" name="example" for="cab">
+                                                                <label for="cab">Cabin</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row popup_grid">
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Flight Information</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="no-stop">
+                                                            <label for="no-stop">Non-stop flights</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Taxes and Fees</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="with-hold-tax">
+                                                            <label for="with-hold-tax">Withhold taxes</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example"
+                                                                id="with-hold-surcharg">
+                                                            <label for="with-hold-surcharg">Withhold surcharges</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="five wide column">
+                                                        <p class="popup_grid__title">Passenger Details</p>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="curr-conv">
+                                                            <label for="curr-conv">Currency conversion</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="one-way-fare">
+                                                            <label for="one-way-fare">One Way fares</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="psr">
+                                                            <label for="psr">PSR</label>
+                                                        </div>
+                                                        <div class="ui checkbox">
+                                                            <input type="checkbox" name="example" id="fare-rest">
+                                                            <label for="fare-rest">Fare Restrictions</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row popup_footer">
+                                                    <div class="sixteen wide column bookings_btn-panel">
+                                                        <a>Reset to Default</a>
+                                                        <button class="ui reset button">Cancel</button>
+                                                        <button class="ui primary button">Apply</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="eight wide column">
+                                    <div class="fare-type-col">
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example">
+                                            <label>No Advance Purchase</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example">
+                                            <label>No Pending</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example">
+                                            <label>No Restriction</label>
+                                        </div>
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="example">
+                                            <label>Refundable</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+          <div class="sixteen wide column flight-options">
+            <!-- <label class="flights_label opt-head">Options</label> -->
+            <div class="ui styled flights_accordion">
+              <!-- <div class="option-group">
+                                        <div class="title active" (click)="activeOption('price-option')"
+                                            [class.active]="optionStatus && optName=='price-option'">
+                                            Pricing Options
+                                            <i class="icon float-right"><img
+                                                    src="./../../../../assets/icons/down-arrow.svg" /></i>
+                                        </div>
+                                        <div class="content active"
+                                            [class.active]="optionStatus && optName=='price-option'">
+                                            <button class="clear-label text-right"
+                                                (click)="closeOption('price-option')">Clear</button>
+                                            <div class="ui grid flights_pricing-grid">
+                                                <div class="seven wide column">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Published Fares</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Contract Fares</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Both</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Best Available</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Check / Un-Check All</label>
+                                                    </div>
+                                                </div>
+                                                <div class="eight wide column">
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Advance Purchase</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Allow Purchase</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Minimum Stay</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>Maximum Stay</label>
+                                                    </div>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="example">
+                                                        <label>No Restriction Refundability</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+              <div class="option-group">
+                <div
+                  class="title"
+                  (click)="activeOption('fareQuote-option')"
+                  [class.active]="optionStatus && optName == 'fareQuote-option'"
+                >
+                  <!-- <i class="icon">+</i>  -->
+                  Fare Quote Overide
+                  <i class="icon float-right"
+                    ><img src="./../../../../assets/icons/down-arrow.svg"
+                  /></i>
+                </div>
+                <div
+                  class="content fare-quote-over"
+                  [class.active]="optionStatus && optName == 'fareQuote-option'"
+                >
+                  <button
+                    class="clear-label text-right"
+                    (click)="closeOption('fareQuote-option')"
+                  >
+                    Clear
+                  </button>
+                  <div class="ui grid">
+                    <div class="six wide column">
+                      <div class="ui checkbox">
+                        <input type="checkbox" name="example" id="publish" />
+                        <label for="publish">Published Fares</label>
+                      </div>
+                    </div>
+                    <div class="nine wide column">
+                      <p>Currency Selection</p>
+                      <div class="ui selection dropdown">
+                        <input type="hidden" name="gender" />
+                        <i class="dropdown icon"></i>
+                        <div class="default text">US Dollars (USD)</div>
+                        <div class="menu">
+                          <div class="item" data-value="Dubai Travels">
+                            UAE Dirhams (AED)
+                          </div>
+                          <div class="item" data-value="ABC Travels">
+                            Indian Rupees (INR)
+                          </div>
+                          <div class="item" data-value="Global Tours">
+                            Pound Sterlings (GBP)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="option-group">
+                                        <div class="title" (click)="activeOption('travel-option')"
+                                            [class.active]="optionStatus && optName=='travel-option'">
+                                            Travelers
+                                            <i class="icon float-right"><img
+                                                    src="./../../../../assets/icons/down-arrow.svg" /></i>
+                                        </div>
+                                        <div class="content flights_pricing-grid__travel"
+                                            [class.active]="optionStatus && optName=='travel-option'">
+                                            <button class="clear-label text-right"
+                                                (click)="closeOption('travel-option')">Clear</button>
+                                            <div formArrayName="travellersType"
+                                                *ngFor="let type of flightSearchForm.get('travellersType')['controls']; let tIndex = index">
+                                                <div class="ui grid" [formGroupName]="tIndex">
+                                                    <div class="eight wide column">
+                                                        <p>Type</p>
+                                                        <div class="ui selection dropdown">
+                                                            <input type="hidden" formControlName="type" name="gender">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">ADT</div>
+                                                            <div class="menu">
+                                                                <div class="item" data-value="Dubai Travels"
+                                                                    *ngFor="let type of paxTypesArr">{{type.type}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="eight wide column">
+                                                        <p>Count</p>
+                                                        <div class="ui input">
+                                                            <input type="number" placeholder="Number">
+                                                            <i class="trash icon" *ngIf="tIndex > 0"
+                                                                (click)="removeTravellerType(tIndex)"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="flights_pricing-grid__title link" (click)="addTravellerType()">+
+                                                Travelers
+                                            </p>
+                                        </div>
+                                    </div> -->
+              <div class="option-group">
+                <div
+                  class="title"
+                  (click)="activeOption('fareSel-option')"
+                  [class.active]="optionStatus && optName == 'fareSel-option'"
+                >
+                  Fare Selection
+                  <i class="icon float-right"
+                    ><img src="./../../../../assets/icons/down-arrow.svg"
+                  /></i>
+                </div>
+                <div
+                  class="content flights_fareSel"
+                  [class.active]="optionStatus && optName == 'fareSel-option'"
+                >
+                  <button
+                    class="clear-label text-right"
+                    (click)="closeOption('fareSel-option')"
+                  >
+                    Clear
+                  </button>
+                  <div class="ui grid">
+                    <div class="fourteen wide column ticket">
+                      <p>Ticket Designator</p>
+                      <div class="ui input">
+                        <input type="text" placeholder="Search..." />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="option-group">
+                                        <div class="title" (click)="activeOption('qual-option')"
+                                            [class.active]="optionStatus && optName=='qual-option'">
+                                            Qualifiers
+                                            <i class="icon float-right"><img
+                                                    src="./../../../../assets/icons/down-arrow.svg" /></i>
+                                        </div>
+                                        <div class="content flights_qualf"
+                                            [class.active]="optionStatus && optName=='qual-option'">
+                                            <button class="clear-label text-right"
+                                                (click)="closeOption('qual-option')">Clear</button>
+                                            <div formArrayName="qualifiersArr"
+                                                *ngFor="let ql of flightSearchForm.get('qualifiersArr')['controls']; let qlIndex=index">
+                                                <div class="ui grid" [formGroupName]="qlIndex">
+                                                    <div class="seven wide column">
+                                                        <p>Type</p>
+                                                        <div class="ui selection dropdown fluid">
+                                                            <input type="hidden" formControlName="type">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Choose</div>
+                                                            <div class="menu">
+                                                                <div class="item" data-value="Contract ID">Contract ID</div>
+                                                                <div class="item" data-value="Corporate ID">Corporate ID
+                                                                </div>
+                                                                <div class="item" data-value="Promo Code">Promo Code</div>
+                                                                <div class="item" data-value="Loyalty Program">Loyalty
+                                                                    Program
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="seven wide column">
+                                                        <p>Code</p>
+                                                        <div class="ui input fluid">
+                                                            <input type="input" formControlName="code" placeholder="Code">
+                                                        </div>
+                                                    </div>
+                                                    <div class="seven wide column">
+                                                        <p>Name</p>
+                                                        <div class="ui selection dropdown fluid">
+                                                            <input type="hidden" formControlName="name">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Choose</div>
+                                                            <div class="menu">
+                                                                <div class="item" data-value="Dubai Travels">No options
+                                                                    available.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="seven wide column">
+                                                        <p>Airline</p>
+                                                        <div class="ui selection dropdown fluid">
+                                                            <input type="hidden" formControlName="airlines">
+                                                            <i class="dropdown icon"></i>
+                                                            <div class="default text">Choose</div>
+                                                            <div class="menu">
+                                                                <div class="item" data-value="Dubai Travels">BA - British
+                                                                    Airways</div>
+                                                                <div class="item" data-value="ABC Travels">LH - Lufthansa
+                                                                </div>
+                                                                <div class="item" data-value="Global Tours">SU - Saudi Gulf
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="one wide column">
+                                                        <i class="trash icon" *ngIf="qlIndex > 0"
+                                                            (click)="removeQualifiers(qlIndex)"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <p class="flights_qualf__title link" (click)="addQualifiers()">+ Qualifiers</p>
+                                        </div>
+                                    </div> -->
+              <div class="option-group">
+                <div
+                  class="title"
+                  (click)="activeOption('tax-option')"
+                  [class.active]="optionStatus && optName == 'tax-option'"
+                >
+                  <!-- <i class="icon">+</i>  -->
+                  Tax Exempt
+                  <i class="icon float-right"
+                    ><img src="./../../../../assets/icons/down-arrow.svg"
+                  /></i>
+                </div>
+                <div
+                  class="content flight_tax_exempt"
+                  [class.active]="optionStatus && optName == 'tax-option'"
+                >
+                  <button
+                    class="clear-label text-right"
+                    (click)="closeOption('tax-option')"
+                  >
+                    Clear
+                  </button>
+                  <div class="ui grid">
+                    <div class="three wide column">
+                      <p>Government Body</p>
+                      <div class="ui selection dropdown fluid">
+                        <input type="hidden" name="gender" />
+                        <i class="dropdown icon"></i>
+                        <div class="default text">ADT</div>
+                        <div class="menu">
+                          <div class="item" data-value="Dubai Travels">CHD</div>
+                          <div class="item" data-value="ABC Travels">INF</div>
+                          <div class="item" data-value="Global Tours">ADT</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <p>Country</p>
+                      <select class="ui search dropdown fluid">
+                        <option value="">State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                    <div class="six wide column">
+                      <p>Province (CA)</p>
+                      <div class="ui input fluid">
+                        <input type="text" placeholder="Search..." />
+                      </div>
+                    </div>
+                    <div class="six wide column">
+                      <p>Country</p>
+                      <select class="ui search dropdown fluid">
+                        <option value="">State</option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                      </select>
+                    </div>
+                    <div class="four wide column">
+                      <p>Tax Code</p>
+                      <div class="ui input fluid">
+                        <input type="text" />
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <p>Tax Type(s)</p>
+                      <div class="ui input fluid">
+                        <input type="text" />
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <p>Currency Selection</p>
+                      <div class="ui selection dropdown fluid">
+                        <input type="hidden" name="gender" />
+                        <i class="dropdown icon"></i>
+                        <div class="default text">US Dollars (USD)</div>
+                        <div class="menu">
+                          <div class="item" data-value="Dubai Travels">
+                            UAE Dirhams (AED)
+                          </div>
+                          <div class="item" data-value="ABC Travels">
+                            Indian Rupees (INR)
+                          </div>
+                          <div class="item" data-value="Global Tours">
+                            Pound Sterlings (GBP)
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <p>Taxes and Fees</p>
+                      <div class="ui checkbox">
+                        <input type="checkbox" name="example" id="hold-tax" />
+                        <label for="hold-tax">Withhold Taxes</label>
+                      </div>
+                      <div class="ui checkbox">
+                        <input
+                          type="checkbox"
+                          name="example"
+                          id="hold-surcharg"
+                        />
+                        <label for="hold-surcharg">Withhold Surcharges</label>
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <div class="ui checkbox mt-32">
+                        <input type="checkbox" name="example" id="exempt-all" />
+                        <label for="exempt-all">Exempt All</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="option-group">
+                                        <div class="title" (click)="activeOption('service-option')"
+                                            [class.active]="optionStatus && optName=='service-option'">
+                                            Services Filter
+                                            <i class="icon float-right"><img
+                                                    src="./../../../../assets/icons/down-arrow.svg" /></i>
+                                        </div>
+                                        <div class="content flights_filter"
+                                            [class.active]="optionStatus && optName=='service-option'">
+                                            <button class="clear-label text-right"
+                                                (click)="closeOption('service-option')">Clear</button>
+                                            <div class="ui grid" formArrayName="servicesArr"
+                                                *ngFor="let srv of flightSearchForm.get('servicesArr')['controls']; let sIndex = index">
+                                                <div class="sixteen wide column row" [formGroupName]="sIndex">
+                                                    <div class="seven wide column">
+                                                        <p>Group</p>
+                                                        <select class="ui dropdown fluid" formControlName="group">
+                                                            <option value=""></option>
+                                                            <option value="1" *ngFor="let grp of serviceGroupsArr">
+                                                                {{grp.code}}
+                                                                - {{grp.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="seven wide column">
+                                                        <p>Sub Group</p>
+                                                        <select class="ui dropdown fluid" formControlName="sub_group">
+                                                            <option value=""></option>
+                                                            <option value="1" *ngFor="let grp of serviceSubGroupsArr">
+                                                                {{grp.code}} - {{grp.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="one wide column"><i class="trash icon" *ngIf="sIndex > 0"
+                                                            (click)="removeServicesGroups(sIndex)"></i></div>
+                                                </div>
+                                            </div>
+                                            <p class="flights_filter__title link" (click)="addServicesGroups()">+ Services
+                                                Filter</p>
+                                        </div>
+                                    </div> -->
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+        <!-- </div> -->
+      </form>
+    </div>
+    <!-- [flightSearchResults]="flightResults" -->
+    <app-dynamic-search-results
+      *ngIf="searchResult"
+      (dispAncillaryEmitter)="updateAncillary($event)"
+      (dispBookNowScreenEmitter)="setBookScreen($event)"
+      [preSearchObj]="preSearchPersistentObj"
+      (emitTicketPaxDetails)="setPaxTicket($event)"
+    >
+    </app-dynamic-search-results>
+  </div>
+
+  <jw-modal id="calendar-modal" class="modal calendar-modal">
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column head-block">
+          <h2>Calendar Search</h2>
+          <div class="text-right close-icon">
+            <i class="close icon" (click)="closeModal('calendar-modal')"></i>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column">
+          <app-calendar-search></app-calendar-search>
+        </div>
+      </div>
+    </div>
+  </jw-modal>
+
+  <app-structure-loader *ngIf="searchLoader"></app-structure-loader>
+
+</div>

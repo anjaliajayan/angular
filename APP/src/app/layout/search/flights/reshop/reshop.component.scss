@@ -1,0 +1,228 @@
+@import "./../../../../../comon-styles/common.scss";
+
+.booking-header {
+  color: $deep-blue-color;
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 22px;
+  margin-left: 26px;
+}
+
+.bookings-header {
+  .bookings-header_title {
+    color: $secondary-color;
+    font-weight: 600;
+  }
+}
+
+.bookings-column {
+  ._border {
+    border: 1.5px solid $secondary-color;
+    border-radius: $border-radius-primary;
+
+    &:hover {
+      cursor: pointer;
+      border: 1.5px solid $primary-color;
+      box-shadow: $light-shadow;
+    }
+  }
+
+  ._active {
+    border: 1.5px solid $primary-color;
+    border-radius: $border-radius-primary;
+  }
+
+  .ui.checkbox {
+    margin-top: 18px;
+  }
+
+  .ui.primary.button {
+    margin-left: 18px;
+  }
+
+  .ui.primary.button,
+  .ui.secondary.button {
+    margin-top: 8px;
+    min-width: calc(50% - 15px);
+  }
+
+  .bookings-column_title {
+    color: $deep-blue-color;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 4px 0;
+  }
+}
+
+.reshop-card {
+  margin-bottom: 340px;
+
+  label {
+    display: block;
+    color: $deep-blue-color !important;
+    font-size: 12px !important;
+    font-family: $font-family;
+    margin-bottom: 8px;
+    font-weight: 600 !important;
+  }
+
+  .bin-icon {
+    display: flex;
+    align-items: center;
+    height: 28px;
+    position: relative;
+    right: -124px;
+    .icon {
+      display: inline-block;
+      margin: auto;
+
+      color: $secondary-color;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    z-index: 100;
+
+    .flights_input__placeholder-icon {
+      width: 20px;
+      height: auto;
+      display: block;
+      margin: auto;
+
+      &.cal {
+        width: 14px;
+      }
+    }
+  }
+
+  .flight-reshop {
+    .flight-reshop_title {
+      color: $secondary-color;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 4px 0;
+    }
+
+    .ui.selection.dropdown {
+      background: $body-base;
+      border: 0 !important;
+      border-radius: $border-radius-primary !important;
+
+      input {
+        border: 0 !important;
+        font-size: 12px;
+      }
+    }
+
+    .mat-form-field-label {
+      color: $deep-blue-color !important;
+      font-size: 12px !important;
+      display: none !important;
+    }
+
+    .ui.input.flights_datepicker {
+      input {
+        border: 2px solid rgba($deep-blue-color, .2) !important;
+
+        @include placeholder {
+          color: $deep-blue-color;
+          font-size: 12px;
+          font-weight: 800;
+        }
+      }
+
+      .icon {
+        top: 12px;
+        opacity: 1;
+
+        img {
+          width: 16px !important;
+        }
+      }
+    }
+
+    .ui.selection.dropdown.flights_cabin-dropdown {
+      background-color: transparent !important;
+      border: 2px solid rgba($deep-blue-color, .2) !important;
+
+      .text {
+        font-size: 12px;
+        color: $deep-blue-color;
+      }
+
+      input {
+        @include placeholder {
+          color: $deep-blue-color;
+          font-size: 12px;
+          font-weight: 400;
+        }
+      }
+    }
+
+    &._last {
+      margin-bottom: 30px;
+    }
+  }
+
+  .mat-form-field input {
+    height: auto !important;
+    position: relative;
+    top: 4px;
+    text-overflow: ellipsis;
+    border: none !important;
+  }
+  
+  
+  .result-block {
+    padding-bottom: 72px !important;
+  }
+  
+  
+  // .search-button {
+  //   position: relative;
+  //   top: -22px;
+  //   }
+}
+
+.ui.checkbox .box::after,
+.ui.checkbox label::after {
+  position: absolute;
+  font-size: 14px;
+  top: 3px;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  color: white !important;
+}
+
+.ui.checkbox .box::before,
+.ui.checkbox label::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+}
+
+.ui.checkbox input:checked~.box::before,
+.ui.checkbox input:checked~label::before {
+  background: $primary-color;
+  border-color: none;
+  border-radius: $border-radius-secondary;
+}
+
+.ui.fluid.container {
+  padding: 24px !important;
+}
+
+.reshoppad{
+  margin-right: -96px;
+}
+
+.date{
+  margin-right: 10px;
+}

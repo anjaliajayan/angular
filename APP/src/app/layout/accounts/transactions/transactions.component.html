@@ -1,0 +1,618 @@
+<div class="outer-segment">
+  <div class="user">
+    <h3 class="user_title">My Transactions</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item create_tab_title" data-tab="first">Transaction
+    </div>
+    <div class="item corporate_staff" data-tab="second">Top Up</div>
+    <div class="item corporate_staff" data-tab="third">Floating Deposit</div>
+  </div>
+  <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+    <div class="ui fluid container">
+      <div class="outer-form result-block">
+        <form class="ui form b2b_basic_form" autocomplete="off" [formGroup]="filterTransactionForm" (ngSubmit)="filterData()">
+          
+          <div class="ui dropdown  primary button bookings_btn-panel pnr-button">
+            <div class="text">Add New Transaction</div>
+            <i class="dropdown icon"></i>
+            <div class="menu">
+              <div class="item" (click)="openModal('agent-transaction')">Agent</div>
+              <!-- <div class="item" (click)="openModal('corporate-transaction')">Corporate</div> -->
+            </div>
+          </div>
+          <div class="field top-field-wrapper">
+            <div class="two fields">
+              <div class="three wide field org-field">
+                <label>Organisation Name</label>
+                <input type="text" placeholder="Name" disabled value="{{organisationAccount.name}}">
+              </div>
+              <div class="three wide field deposit-field">
+                <label>Deposit A/C Balance</label>
+                <input type="text" placeholder="Deposit A/C Balance" disabled value="{{depost +' '+ currencyCode }}">
+              </div>
+              <!-- <div class="three wide field">
+                <input type="text" placeholder="Credit A/C Balance" disabled
+                  value="{{organisationAccount['currency.code'] +' '+ organisationAccount['organisation_account.due_credit'] }}">
+              </div> -->
+              <!-- <div *appCanAccess="['account', 'topup','add']" class="ui dropdown  primary button bookings_btn-panel pnr-button"> -->
+            </div>
+          </div>
+          <!-- <div class="field">
+            <hr>
+          </div> -->
+          <h4 class="ui header main_head">Related Transaction</h4>
+          <div class="field">
+            <div class="fields transac-field-wrapper">
+              <div class="three wide field agent-field">
+                <label>Agent / Corporate</label>
+                <select class="ui fluid search dropdown" formControlName="organisation_id">
+                  <option value="all">All Agent/Corporate</option>
+                  <option *ngFor="let agent of agentAndCorporates" value="{{agent.organisation_id}}">
+                    {{agent.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="two wide field trip-field">
+                <label>Trip ID</label>
+                <input type="text" name="trip-id" placeholder="Trip Id" formControlName="trip_id">
+              </div>
+              <div class="three wide field payment-field">
+                <label>Payment Type</label>
+                <select class="ui fluid search dropdown" formControlName="payment_type">
+                  <option value="all">Credit / Debit</option>
+                  <option value="credit" selected>Credit</option>
+                  <option value="debit" selected>Debit</option>
+                </select>
+              </div>
+              <div class="two wide field bookings_pickers startDate-field">
+                <label>Start Date</label>
+                <div class="ui left icon input">
+                  <input type="text" placeholder="Start Date" name="start_date" formControlName="start_date" />
+                  <i class="icon">
+                    <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                  </i>
+                </div>
+              </div>
+              <div class="two wide field bookings_pickers endDate-field">
+                <label>End Date</label>
+                <div class="ui left icon input">
+                  <input type="text" placeholder="End Date" name="end_date" formControlName="end_date" />
+                  <i class="icon">
+                    <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                  </i>
+                </div>
+              </div>
+              <div class="bookings_btn-panel btn-field">
+                <button class="ui primary  button" type="submit">
+                  Search
+                </button>
+                <button class="ui secondary reset button" (click)="filterFormReset()">
+                  Reset
+                </button>
+              </div>
+              <!-- <div class="download-img" title="Export" (click)="exportData()"><img class="ui image download-img_icon"
+                  src="./../../../../assets/img/download.png" /></div> -->
+            </div>
+          </div>
+          <!-- <div class="field">
+            <hr>
+          </div> -->
+          <div class="ui segment">
+            <div class="fields">
+              <div class="eight wide field ui small header">Transactions Log</div>
+              <!-- <div class="ui divider"></div> -->
+              <div class="eight wide field bookings_btn-panel">
+                <button class="ui export button" (click)="exportData()" title="Export">
+                  Export
+                </button>
+              </div>
+            </div>
+            <div class="user-table-list b2c-list-user-table">
+              <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                [rowHeight]="'auto'" [rows]='transactions' [externalPaging]="true" [count]="totalTransaction"
+                [offset]="offsetTransaction" (page)="pageCallback($event)">
+                <ngx-datatable-column name="Agent/Corporate" prop="organisation.name">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Trip ID" prop="trip_id">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Date&Time" prop="created">
+                  <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Comments" prop="transaction_comments">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Account Type" prop="payment_type">
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Amount" prop="amount">
+                  <ng-template ngx-datatable-cell-template let-row="row">
+                    <span *ngIf="row.amount && row.currency ">
+                      {{(row.amount | number) +" "+row.currency.currency_code}}
+                    </span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="CR/DR" prop="transaction_type">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value =='credit'">CR</span>
+                    <span *ngIf="value =='debit'">DR</span>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment tabContent-block" data-tab="second">
+    <div class="ui fluid container">
+      <div class="outer_corpForm result-block">
+        <div class="user-table-list b2c-list-user-table">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [rows]='toptupList' [sortType]="'multi'" [reorderable]="true" [externalPaging]="true"
+            [count]="totalTopup" [offset]="offsetTopup" (page)="pageTopCallback($event)">
+            <ngx-datatable-column name="IATA" prop="agency_iata_num">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Agency Name" prop="agency_name">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Type" prop="topup_type">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Sub Type" prop="topup_subtype">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Amount" prop="payment_amount">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Bank Charge" prop="bank_charge">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Reference" prop="request_no">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Booked Date" prop="created_date">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <div class="recConfirm {{(row.topup_status=='1')?'Confirm':'hold'}}">
+                  {{(row.topup_status=='1')?'Confirm':'Hold'}}</div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Action">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <!-- <div *appCanAccess="['account', 'topup', 'edit']">
+                  <a *ngIf="row.topup_status!=1" class="nav-link edit" (click)="editTopup(row,'custom-modal-1',1)"
+                    title="Edit Details">
+                    <i class="icon">
+                      <img src="./../../../../assets/icons/edit.png" class="edit-icon-img"
+                        [ngStyle]="{'width.px':13}" />
+                    </i>
+                  </a>
+                </div> -->
+                <div>
+                  <a (click)="editTopup(row,'custom-modal-1',1)" title="Edit Details">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../assets/icons/edit.png" class="edit-icon-img"
+                        [ngStyle]="{'width.px':13}" />
+                    </i> -->
+                  </a>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Attachment">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <a class="nav-link edit" target="__blank" href="{{row.attachment}}" *ngIf="row.attachment"
+                  title="View Document">
+                  <i class="eye icon eye-icon"></i>
+                </a>
+                <a class="nav-link edit" target="__blank" href="{{row.attachment}}" *ngIf="!row.attachment"
+                  title="View Document">
+                  ---
+                </a>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment tabContent-block" data-tab="third">
+    <div class="ui fluid container">
+      <div class="outer_corpForm result-block">
+        <div class="user-table-list b2c-list-user-table">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [limit]="10" [rows]='floatingDepositList' [sortType]="'multi'" [reorderable]="true"
+            [externalPaging]="true" [count]="totalFloating" [offset]="offsetFloating"
+            (page)="pageFloatingCallback($event)">
+            <ngx-datatable-column name="IATA" prop="agency_iata_num">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Agency Name" prop="agency_name">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Type" prop="topup_type">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Sub Type" prop="topup_subtype">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Amount" prop="payment_amount">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Bank Charge" prop="bank_charge">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Reference" prop="request_no">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Supplier" prop="request_no">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Booked Date" prop="created_date">
+              <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Status">
+              <ngx-datatable-column name="Status">
+                <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                  <div class="recConfirm {{(row.topup_status=='1')?'Confirm':'hold'}}">
+                    {{(row.topup_status=='1')?'Confirm':'Hold'}}</div>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Action">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <div>
+                  <a (click)="editTopup(row,'custom-modal-1',2)" title="View Details">
+                    <i class="eye icon eye-icon" title="View details"></i>
+                  </a>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Attachment">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <a class="nav-link edit" target="__blank" *ngIf="row.attachment" href="{{row.attachment}}"
+                  title="View Attachment">
+                  <i class="eye icon eye-icon" title="View Document"></i>
+                </a>
+                <a class="nav-link edit" target="__blank" *ngIf="!row.attachment" title="View Attachment">
+                  ---
+                </a>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="custom-modal-1" class="topUp-custom-modal">
+  <div class="ui" *ngIf="showDetailModal">
+    <i class="close icon" (click)="closeModal('custom-modal-1');"></i>
+    <div class="header head">
+      <ng-container *ngIf="!getInfo.isFloatingDeposit"><b>Top-Up Request</b></ng-container>
+      <ng-container *ngIf="getInfo.isFloatingDeposit"><b>Floating Deposit Request</b></ng-container>
+    </div>
+    <div class="ui fluid container">
+      <div class="form-inner">
+        <h4 class="ui  header"><span class="basic-header">Agency Details</span></h4>
+        <div class="field">
+          <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>IATA</th>
+                <th>Agency Name</th>
+                <th>Agency Country</th>
+                <th>Agency Currency</th>
+                <th>Top-Up Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span>IATA:</span>
+                  <span>{{getInfo.agency_iata_num}}</span>
+                </td>
+                <td>
+                  <span>Agency Name:</span>
+                  <span>{{getInfo.agency_name}}</span>
+                </td>
+                <td>
+                  <span>Agency Country:</span>
+                  <span>{{getInfo.agency_country}}</span>
+                </td>
+                <td>
+                  <span>Agency Currency:</span>
+                  <span>{{getInfo.agency_currency}}</span>
+                </td>
+                <td>
+                  <span>Top-Up Type:</span>
+                  <span>{{getInfo.topup_type}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="ui  header"><span class="basic-header">Top-Up Details</span></h4>
+        <div class="field">
+          <table class="ui celled table">
+            <thead>
+              <tr>
+                <th>Sub Type</th>
+                <th>Purpose</th>
+                <th>Bank Name</th>
+                <th>Bank Account Number</th>
+                <th>Payment Date</th>
+                <th>Payment Currency</th>
+                <th>Payment Type</th>
+                <th>Payment Amount</th>
+                <th>Reference Number</th>
+                <th>Deposited By</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span>Sub Type:</span>
+                  <span>{{getInfo.topup_subtype}}</span>
+                </td>
+                <td>
+                  <span>Purpose:</span>
+                  <span>{{getInfo.topup_purpose}}</span>
+                </td>
+                <td>
+                  <span>Bank Name:</span>
+                  <span>{{getInfo.bank_name}}</span>
+                </td>
+                <td>
+                  <span>Bank Account Number:</span>
+                  <span>{{getInfo.bank_account_no}}</span>
+                </td>
+                <td>
+                  <span>Payment Date:</span>
+                  <span>{{getInfo.payment_date}}</span>
+                </td>
+                <td>
+                  <span>Payment Currency:</span>
+                  <span>{{getInfo.payment_currency}}</span>
+                </td>
+                <td>
+                  <span>Payment Type:</span>
+                  <span>{{getInfo.payment_type}}</span>
+                </td>
+                <td>
+                  <span>Payment Amount:</span>
+                  <span>{{getInfo.payment_amount}}</span>
+                </td>
+                <td>
+                  <span>Reference Number:</span>
+                  <span>{{getInfo.request_no}}</span>
+                </td>
+                <td>
+                  <span>Deposited By:</span>
+                  <span>{{getInfo.request_initiator}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ng-container *ngIf="!getInfo.isFloatingDeposit">
+          <h4 class="ui  header"><span class="basic-header">Update Topup Request</span></h4>
+          <form class="ui form" autocomplete="off" [formGroup]="updateTopupForm" (ngSubmit)="updateTopupRequest('custom-modal-1')">
+            <div class="form-inner">
+              <div class="fields">
+                <div class="three wide field"
+                  [ngClass]="{'error': ((submitted && f.bank_charge_currency.errors) && f.bank_charge_currency.errors.required) }">
+                  <select class="ui fluid search dropdown" formControlName="bank_charge_currency">
+                    <option value="" selected>Select Currency</option>
+                    <option *ngFor="let currency of currencies" value="{{currency.code}}">
+                      {{currency.code}}</option>
+                  </select>
+                </div>
+                <div class="three wide field"
+                  [ngClass]="{'error': ((submitted && f.bank_charge.errors) && f.bank_charge.errors.required) }">
+                  <input type="number" name="bank_charge" formControlName="bank_charge" min="0"
+                    placeholder="Bank charge">
+                </div>
+                <div class="three wide field"
+                  [ngClass]="{'error': ((submitted && f.topup_status.errors) && f.topup_status.errors.required) }">
+                  <select class="ui fluid search dropdown" formControlName="topup_status">
+                    <option value="">Select</option>
+                    <option value="1">Confirm</option>
+                  </select>
+                </div>
+              </div>
+              <div class="fields">
+                <div class="bookings_btn-panel">
+                  <button class="ui primary  button">
+                    Update
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="corporate-transaction">
+  <div class="ui" *ngIf="showCorporateModal">
+    <i class="close icon" (click)="closeModal('corporate-transaction');"></i>
+    <div class="header">
+      <b>Corporate Transaction : Make Payment</b>
+    </div>
+    <div class="ui fluid container">
+      <div class="form-inner">
+        <form  autocomplete="off" class="ui form" [formGroup]="corporateTransactionForm"
+          (ngSubmit)="submitCorporateTransaction('corporate-transaction')">
+          <div class="form-inner">
+            <div class="fields">
+              <div class="three wide field"
+                [ngClass]="{'error': ((submittedCorp && fc.organisation_id.errors) && fc.organisation_id.errors.required) }">
+                <label>Corporate</label>
+                <select class="ui fluid search dropdown" formControlName="organisation_id"
+                  (change)="getTransactionDetails($event)" required>
+                  <option value="" selected>Select Corporate</option>
+                  <option *ngFor="let corp of childCoporates" value="{{corp.organisation_id}}">
+                    {{corp.name}}</option>
+                </select>
+              </div>
+              <div class="three wide field"
+                [ngClass]="{'error': ((submittedCorp && fc.staff_id.errors) && fc.staff_id.errors.required) }">
+                <label>Staff</label>
+                <select class="ui fluid search dropdown" formControlName="staff_id"
+                  (change)="getTransactionDetails($event)" required>
+                  <option value="" selected>Select Staff</option>
+                  <option *ngFor="let staff of staffList" value="">
+                    {{staff.employee_id}}</option>
+                </select>
+              </div>
+              <div class="three wide field">
+                <input type="number" name="payment_type" formControlName="payment_type" readonly min="0"
+                  placeholder="Bank charge">
+              </div>
+              <div class="field sexRadio">
+                <div class="ui radio checkbox">
+                  <input type="radio" id="credit" value="credit" name="transaction_type"
+                    formControlName="transaction_type" class="hidden">
+                  <label for="credit">Credit</label>
+                </div>
+                <div class="ui radio checkbox">
+                  <input type="radio" id="debit" value="debit" name="transaction_type"
+                    formControlName="transaction_type" class="hidden">
+                  <label for="debit">Debit</label>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="three wide field"
+                [ngClass]="{'error': ((submittedCorp && fc.amount.errors) && fc.amount.errors.required) }">
+                <label>Transaction Amount (<b
+                    *ngIf="(agentDetails && agentDetails.currency != 'undefined')">{{agentDetails.currency}}</b>)</label>
+                <input type="number" name="amount" formControlName="amount" min="0"
+                  placeholder="Transaction AMount (AED)">
+              </div>
+              <div class="three wide field"
+                [ngClass]="{'error': ((submittedCorp && fc.available_deposit.errors) && fc.available_deposit.errors.required) }">
+                <label>Available deposit ( Corporate )</label>
+                <input type="number" name="available_deposit" formControlName="available_deposit" min="0"
+                  placeholder="Available deposit">
+              </div>
+              <div class="three wide field"
+                [ngClass]="{'error': ((submittedCorp && fc.available_deposit.errors) && fc.available_deposit.errors.required) }">
+                <label>Comments</label>
+                <textarea type="number" name="transaction_comments" formControlName="transaction_comments" min="0"
+                  placeholder="Comments"></textarea>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="bookings_btn-panel">
+                <button class="ui primary  button">
+                  Make Transaction
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+<jw-modal id="agent-transaction">
+  <div class="ui" *ngIf="showAgentModal">
+    <i class="close icon" (click)="closeModal('agent-transaction');"></i>
+    <br>
+    <div class="header">
+      <b>Agent Transaction : Make Payment</b>
+    </div>
+    <br>
+    <div class="ui fluid container">
+      <div class="form-inner">
+        <form class="ui form" autocomplete="off" [formGroup]="agentTransactionForm"
+          (ngSubmit)="submitAgentTransaction('agent-transaction')">
+          <div class="form-inner">
+            <div class="fields">
+              <div class="sixteen wide field">
+                <label>Check by Agent and Trip</label>
+                <div class="ui radio checkbox select_chkBox">
+                  <input type="radio" id="Agent" value="1" name="selectType" formControlName="selectType"
+                    class="hidden">
+                  <label for="Agent">Agent</label>
+                </div>&nbsp;
+                <div class="ui radio checkbox select_chkBox">
+                  <input type="radio" id="Trip" value="2" name="selectType" formControlName="selectType" class="hidden">
+                  <label for="Trip">Trip ID</label>
+                </div>
+              </div>
+            </div>
+            <div class="fields" *ngIf="agentTransactionForm.controls.selectType.value==1">
+              <div class="sixteen wide field"
+                [ngClass]="{'error': ((submittedAgent && fa.organisation_id.errors) && fa.organisation_id.errors.orgIdRequire) }">
+                <label>Agent</label>
+                <select class="ui fluid search dropdown" formControlName="organisation_id"
+                  (change)="getTransactionDetails($event)">
+                  <option value="" selected>Select Agent</option>
+                  <option *ngFor="let agent of childAgents" value="{{agent.organisation_id}}">
+                    {{agent.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="fields" *ngIf="agentTransactionForm.controls.selectType.value==2">
+              <div class="sixteen wide field"
+                [ngClass]="{'error': ((submittedAgent && fa.trip_id.errors) && fa.trip_id.errors.tripIdRequire) }">
+                <label>Trip Id</label>
+                <input type="text" name="trip_id" formControlName="trip_id" placeholder="Trip Id">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="field sixteen wide sexRadio">
+                <label>Transaction Type</label>
+                <div class="ui radio checkbox">
+                  <input type="radio" id="credit" value="credit" name="transaction_type"
+                    formControlName="transaction_type" class="hidden">
+                  <label for="credit">Credit Amount</label>
+                </div>
+                <div class="ui radio checkbox">
+                  <input type="radio" id="debit" value="debit" name="transaction_type"
+                    formControlName="transaction_type" class="hidden">
+                  <label for="debit">Debit Amount</label>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="eight wide field avail-dep-field"><label>Payment Towards</label>
+                <input type="text" name="payment_type" formControlName="payment_type" readonly
+                  placeholder="payment_type">
+              </div>
+              <div class="eight wide field" *ngIf="agentTransactionForm.controls.selectType.value==1">
+                <label>Available deposit</label>
+                <input type="text" name="available_deposit" formControlName="available_deposit"
+                  placeholder="Available deposit" readonly>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="eight wide field"
+                [ngClass]="{'error': ((submittedAgent && fa.amount.errors) && fa.amount.errors.required) }">
+                <label>Transaction Amount (<b
+                    *ngIf="(agentDetails && agentDetails.currency != 'undefined')">{{agentDetails.currency}}</b>)</label>
+                <input type="number" name="amount" formControlName="amount" min="0" placeholder="Transaction Amount">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="sixteen wide field"
+                [ngClass]="{'error': ((submittedAgent && fa.transaction_comments.errors) && fa.transaction_comments.errors.required) }">
+                <label>Comments</label>
+                <textarea name="transaction_comments" formControlName="transaction_comments"
+                  placeholder="Comments"></textarea>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="bookings_btn-panel">
+                <button class="ui primary  button">
+                  Make Transaction
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</jw-modal>

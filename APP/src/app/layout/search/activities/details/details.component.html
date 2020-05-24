@@ -1,0 +1,327 @@
+<div class="outer-wrapper">
+    <div class="container-fluid">
+
+        <div class="ui grid dynamic-head">
+            <div class="sixteen wide column row search-hotel-head">
+                <div class="sixteen wide column">
+                    <h2>{{ActivitySearchCriteria.destinationName}}</h2>
+                    <!-- <div class="list-head-wrapper">
+                        
+                        <h4>
+                            <span class="wrap">
+                                <span class="head">Check In: </span>{{searchObj.checkin}}
+                            </span>
+                            <span class="wrap">
+                                <span class="head">Check Out: </span>{{searchObj.checkout}}
+                            </span>
+                        </h4>
+                    </div> -->
+                    <div class="ui grid">
+                        <div class="sixteen wide column row">
+                            <div class="two wide column">
+                                <div class="check-block">
+                                    <p class="label">Start date:</p>
+                                    <p class="rslt">{{ActivitySearchCriteria.startDate}}</p>
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <div class="check-block">
+                                    <p class="label">End date:</p>
+                                    <p class="rslt">{{ActivitySearchCriteria.endDate}}</p>
+                                </div>
+                            </div>
+                            <div class="two wide column">
+                                <div class="trvl-room-block">
+                                    <p>Adults: <span>  {{ActivitySearchCriteria.adultCount}}</span></p>
+                                    <p>Child: <span> {{ActivitySearchCriteria.childCount}}</span></p>
+                                    <!-- <p>Infant: <span> {{insuranceSearchCriteria.infant}}</span></p> -->
+                                </div>
+                            </div>
+                            <div class="ten wide column text-right head-btn-block">
+                                <button class="modify-btn" (click)="modifySearch()">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                        Modify Search
+                                </button>   
+                                <p>{{activity.length}} Results found</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="four wide column fare-block">
+                </div> -->
+                <!-- <div class="three wide column text-center"> 
+                </div> -->
+              
+            </div>
+        </div>
+
+      <!-- <div class="ui grid dynamic-head">
+        <div class="sixteen wide column row search-hotel-head">
+          <div class="six wide column">
+            <div class="list-head-wrapper">
+              <h2>{{ActivitySearchCriteria.destinationName}}</h2>
+              <h4>
+<span>
+<span class="head">Start Date: </span>{{ActivitySearchCriteria.startDate}}
+</span>
+                <span>
+<span class="head">End Date: </span>{{ActivitySearchCriteria.endDate}}
+</span>
+              </h4>
+            </div>
+          </div>
+          <div class="four wide column fare-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="eight wide column">
+                  <p>
+                    <span>Adults: </span>
+                    {{ActivitySearchCriteria.adultCount}}
+                  </p>
+                  <p>
+                    <span>Child: </span>
+                    {{ActivitySearchCriteria.childCount}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide column text-center">
+            <p>{{activity.length}} Results found</p>
+          </div>
+          <div class="three wide column text-right">
+            <button (click)="modifySearch()" class="modify-btn">
+              <i class="fa fa-search" aria-hidden="true"></i>
+              Modify Search
+            </button>
+          </div>
+        </div>
+      </div> -->
+        <div class="ui grid">
+            <div class="sixteen wide column row">
+                <div class="twelve wide column">
+                    <div class="modify-search-block">
+                        <div class="ui grid m-0">
+                            <div class="sixteen wide column row">
+                                <div class="eight wide column p-0 text-left">
+                                </div>
+                                <div class="eight wide column p-0">
+<!--                                    <button (click)="modifySearch()" >Modify Search</button>-->
+                                    <!-- <button>Sort By: Price: Low to High <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8"/></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngFor="let activityData of (activity | namefilter:activityNamefilter); let i = index;" class="search-list-block">
+                        <div class="ui grid item-block">
+                            <div class="sixteen wide column row">
+                                <div class="three wide column item-image image-display" [ngStyle]="{'background-image': 'url(' + activityData.imageURL + ')'}">
+
+                                </div>
+                                <div class="thirteen wide column item-details">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h2>{{activityData.activityName}}</h2>
+                                                <p class="light">
+                                                    {{activityData.description}}
+                                                </p>
+                                            </div>
+                                            <div class="six wide column price-block">
+                                                <span>Price Per Unit: </span>
+                                                <p>{{activityData.currencyCode}} {{activityData.unitPrice | number:'1.2-2'}}</p>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <div class="">
+                                                    <button  [disabled]="currentActivityBlock==activityData.activityCode && showDetailsDisabled == true" class="ui export button" (click)="ShowActivityDetails(activityData,ActivitySearchCriteria)">
+                                                      <i *ngIf="detailsActivitySpinner && currentShowActivityBlock == activityData.activityCode" class="fa fa-spinner fa-spin"></i>
+                                                        Show Details
+                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row" *ngIf="showDetailsDisabled  && currentActivityBlock==activityData.activityCode">
+                                <div class="sixteen wide column">
+                                  <div *ngIf="blockActivity && showfurtherDetails && currentActivityBlock==activityData.activityCode" class="detail-tab-wrapp">
+                                    <div class="ui top attached tabular menu">
+                                        <div class="item active" id="activity-tab-{{activityData.activityCode}}" (click)="activityTab(activityData.activityCode)" data-tab="activity-tab-{{activityData.activityCode}}">Activities</div>
+                                        <div class="item" id="summary-tab-{{activityData.activityCode}}" (click)="summaryTab(activityData.activityCode)" data-tab="summary-tab-{{activityData.activityCode}}">Summary</div>
+                                        <div class="item " id="photos-tab-{{activityData.activityCode}}" (click)="photosTab(activityData.activityCode)" data-tab="photos-tab-{{activityData.activityCode}}">Photos</div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment active" id="tab-activity-{{activityData.activityCode}}"  data-tab="activity-tab-{{activityData.activityCode}}">
+                                        <div class="ui fluid container">
+                                            <form [formGroup]="activityBookForm">
+                                                <div class="ui grid" *ngIf="blockActivity.ticketAvailabilityModes">
+                                                    <div class="sixteen wide column row seperator main-block" *ngFor="let ticketsData of blockActivity.ticketAvailabilityModes.ticketAvailabilityMode; let resultInd = index">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>{{ticketsData.name}}</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>{{blockActivity.supplierCode}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column" *ngIf="!blockActivity.ageBands[0]">
+                                                                        <label>{{blockActivity.ageBands.pluralDescription}}: <span>Age({{blockActivity.ageBands.ageFrom}}-{{blockActivity.ageBands.ageTo}})</span></label>
+                                                                        <select formControlName="ageBandCount0" [(ngModel)]="blockActivity.ageBands.ageFrom" class="ui fluid search dropdown">
+                                                                            <option value="" *ngIf="blockActivity.ageBands.pluralDescription != 'Adults' ">0</option>
+                                                                          <option value="1">1</option>
+                                                                          <option value="2">2</option>
+                                                                          <option value="3">3</option>
+                                                                          <option value="4">4</option>
+                                                                          <option value="5">5</option>
+                                                                          <option value="6">6</option>
+                                                                          <option value="7">7</option>
+                                                                          <option value="8">8</option>
+                                                                        </select>
+                                                                    </div>
+                                                                  <div *ngIf="blockActivity.ageBands[0]">
+                                                                    <div class="five wide column" *ngFor="let ageBinData of blockActivity.ageBands; let i = index; ">
+                                                                        <label>{{ageBinData.pluralDescription}}: <span>Age({{ageBinData.ageFrom}}-{{ageBinData.ageTo}})</span></label>
+                                                                        <select formControlName="ageBandCount{{i}}" [(ngModel)]="ageBinData.count" class="ui fluid search dropdown">
+                                                                            <option value="" *ngIf="ageBinData.pluralDescription != 'Adults'">0</option>
+                                                                          <option value="1">1</option>
+                                                                          <option value="2">2</option>
+                                                                          <option value="3">3</option>
+                                                                          <option value="4">4</option>
+                                                                          <option value="5">5</option>
+                                                                          <option value="6">6</option>
+                                                                          <option value="7">7</option>
+                                                                          <option value="8">8</option>
+                                                                        </select>
+                                                                    </div>
+                                                                  </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+
+                                                                            <select name="repeatSelect"  class="ui fluid search dropdown" (change)="updateCheckedOptions(resultInd, $event,blockActivity,ticketsData.code)" formControlName="sel_date">
+                                                                                <option *ngFor="let option of ticketsData.OperationDates" value="{{option.operationDate}}">{{getSlice(option.operationDate)}} </option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>{{markupPrice}} {{blockActivity.currencyCode}}</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button [disabled]="blockLoader" class="ui primary button" *ngIf="resultInd==selectedDateBook" (click)="activityBlocking(blockActivity,ticketsData.code)">
+                                                                  <!--<i *ngIf="bookActivitySpinner" class="fa fa-spinner fa-spin"></i>--> Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" id="tab-summary-{{activityData.activityCode}}"  data-tab="summary-tab-{{activityData.activityCode}}">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row desc-tab-block">
+                                                    <div class="sixteen wide column">
+                                                        <h5>Visit:</h5>
+                                                        <p *ngIf="blockActivity.Details" [innerHTML]="convertToString(blockActivity.Details.detailDescription)">
+<!--                                                            {{convertToString(blockActivity.Details.detailDescription)}}-->
+                                                        </p>
+                                                        <h5>Remarks:</h5>
+                                                        <p *ngIf="blockActivity.Details">
+                                                            {{blockActivity.Details.remarks}}
+                                                        </p>
+                                                        <h5>Inclusions</h5>
+                                                        <ul *ngIf="blockActivity.Details">
+                                                            <li *ngFor="let inclusionsData of blockActivity.Details.inclusions;">{{inclusionsData}}</li>
+                                                        </ul>
+                                                        <h5>Exclusions</h5>
+                                                        <ul *ngIf="blockActivity.Details">
+                                                            <li *ngFor="let exclusionsData of blockActivity.Details.exclusions;">{{exclusionsData}}</li>
+                                                        </ul>
+                                                        <h5>Meeting Point</h5>
+                                                        <p *ngIf="blockActivity.Details">{{blockActivity.Details.meetingPoint}}</p>
+                                                        <h5>Duration</h5>
+                                                        <p *ngIf="blockActivity.Details">{{blockActivity.Details.duration}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" id="tab-photos-{{activityData.activityCode}}"  data-tab="photo-tab-{{activityData.activityCode}}">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid m-0">
+                                                <div class="sixteen wide column row pt-0" *ngIf="blockActivity.Details">
+
+                                                    <div class="three wide column image-wrapper" *ngFor="let galleryData of blockActivity.Details.galleryImages.galleryURLs;">
+                                                        <div class="image-thumb">
+                                                            <img src="{{galleryData}}" />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="four wide column">
+                    <div class="fliter-head-block">
+                        <div class="ui grid m-0">
+                            <div class="sixteen wide column row">
+                                <div class="ten wide column p-0">
+                                    <h2>Filters</h2>
+                                </div>
+                                <div class="six wide column text-right p-0">
+                                    <a (click)="clearFilter()">Clear All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-list-block">
+                        <div class="ui grid filter-block">
+                            <div class="sixteen wide column row filters">
+                                <div class="sixteen wide column">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h4>Specify Activity</h4>
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <a (click)="clearFilter()">Clear</a>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row pt-0">
+                                            <div class="sixteen wide column">
+                                                <div class="ui input fluid">
+                                                    <input type="text" [(ngModel)]="activityNamefilter" [ngModelOptions]="{standalone: true}" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

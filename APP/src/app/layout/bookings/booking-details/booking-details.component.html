@@ -1,0 +1,2484 @@
+<div class="booking-details-wrapper" *ngIf="!displayVoucher && !displayInvoice">
+  <div class="animated fadeInUp delay-2s hideWarning" [class.loading]="bookingDetailsLoader">
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column warning-block">
+          <!-- <p class="warning-msg">
+            Dear customer your flight from CCJ to SIN has changed to SQ123 CCJ KUL on 23-Jan-2020 at 04:45:00
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="arora-card animated fadeIn" [class.loading]="bookingDetailsLoader">
+    <form [formGroup]="bookingDetailForm" autocomplete="off">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid align_heading">
+          <div class="countup" id="countup1">
+               <span style="font-size: 25px;font-family:  'verdana'!important;">Age of Booking:</span>
+               <span class="timeel days" style="color:purple">00</span>
+               <span class="timeel timeRefDays">days</span>
+               <span class="timeel hours" style="color:green">00</span>
+               <span class="timeel timeRefHours">hours</span>
+               <span class="timeel minutes" style="color:blue">00</span>
+               <span class="timeel timeRefMinutes">minutes</span>
+               <span class="timeel seconds" style="color:red">00</span>
+               <span class="timeel timeRefSeconds">seconds</span>
+             </div>
+          
+           <!-- <div class="countup" id="countup1">
+            <span style="font-size: medium; color:white">Age of Booking</span>
+            <span class="timeel days">00</span>
+            <span class="timeel timeRefDays">days</span>
+            <span class="timeel hours">00</span>
+            <span class="timeel timeRefHours">hours</span>
+            <span class="timeel minutes">00</span>
+            <span class="timeel timeRefMinutes">minutes</span>
+            <span class="timeel seconds">00</span>
+            <span class="timeel timeRefSeconds">seconds</span>
+          </div> -->
+          
+          <!-- <div class="countup" id="countup1">
+            <span style="font-size: medium; color:white">Age of Booking</span>
+            <span class="timeel days">00</span>
+            <span class="timeel timeRefDays">days</span>
+            <span class="timeel hours">00</span>
+            <span class="timeel timeRefHours">hours</span>
+            <span class="timeel minutes">00</span>
+            <span class="timeel timeRefMinutes">minutes</span>
+            <span class="timeel seconds">00</span>
+            <span class="timeel timeRefSeconds">seconds</span>
+          </div> -->
+          <!-- <div class="container-booking">
+            <div class="age-booking">
+              <span class='days'>123 days </span>
+              <span class='hours'>2 hours </span>
+              <span class='minutes'>13 minutes </span>
+              <span class='seconds'>56 seconds </span>
+            </div>
+          </div> -->
+          <div class="ten wide column padding-top-bottom align_heading">
+            <h3 class="arora-card_title">Trip Details</h3>
+          </div>
+          <div class="six wide column text-right padding-top-bottom">
+            <!-- <h5 class="right booking_title">Booking By User</h5>
+            <p class="ui right booked_user">{{bookUsername}}</p> -->
+          </div>
+        </div>
+        <div class="ui sixteen wide column grid padding-top-bottom align_heading trip-wrapper">
+          <div class="three wide column trip_details booking-wrapper">
+            <h5 class="arora-card_el-title">Booking Status</h5>
+            <p>
+              <input name="trip_status" formControlName="trip_status" readonly class="textFields">
+              <!-- UnTicketed -->
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Ticketing / Payment Time Limit</h5>
+            <p>
+              <input name="ticket_limit" formControlName="ticket_limit" readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Agent Reference</h5>
+            <p>
+              <input name="reference" formControlName="reference" readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Booked By User</h5>
+            <!-- <p class="ui right booked_user">{{bookUsername}}</p> -->
+            <p>
+              <input name="reference" formControlName="reference" readonly class="textFields booked_user"
+                value="{{bookUsername}}" />
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Ticketed By</h5>
+            <p>
+              <input name="ticket_user" formControlName="ticket_user" readonly class="textFields" value="TP Connects">
+            </p>
+          </div>
+        </div>
+        <div class="ui sixteen wide column grid padding-top-bottom align_heading trip-wrapper">
+          <div class="three wide column trip_details booking-wrapper">
+            <h5 class="arora-card_el-title">Trip ID</h5>
+            <p>
+              <input name="trip_id" formControlName="trip_id" readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Booking Date</h5>
+            <p>
+              <input name="booked_date" formControlName="booked_date"
+                [value]="bookingDetailForm.get('booked_date').value | date:'medium' " readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Booking Type</h5>
+            <p>
+              <input name="booking_type" formControlName="booking_type" readonly class="textFields">
+            </p>
+          </div>
+          <!-- </div>
+        <div class="ui sixteen wide column grid padding-top-bottom"> -->
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">PNR No</h5>
+            <p>
+              <input name="pnr_no" formControlName="pnr_no" readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Airline Ref No</h5>
+            <p>
+              <input name="airline_ref_num" formControlName="airline_ref_num" readonly class="textFields"
+                value="airline_ref_num">
+            </p>
+          </div>
+          <div class="three wide column booking-wrapper">
+            <h5 class="arora-card_el-title">Supplier</h5>
+            <p>
+              <input name="supplier" formControlName="supplier" readonly class="textFields"
+                value="suppler">
+            </p>
+          </div>
+        </div>
+        <!-- <div class="ui sixteen wide column grid padding-top-bottom">
+          <div class="three wide column">
+            <h5 class="arora-card_el-title sale-amount">Total Sale Amount</h5>
+            <p>
+              <span class="sale-amount_currency"></span>
+              <span class="sale-amount_details">
+                <input name="total_sale" [value]="bookingDetailForm.get('total_sale').value | currency:bookingDetailForm.get('booking_currency').value :'symbol':'4.2-2'"
+                  formControlName="total_sale" readonly class="textFields">
+              </span>
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title net-amount">Total Net Amount</h5>
+            <p>
+              <span class="net-amount_details">
+                <span class="net-amount_currency"></span>
+              </span>
+              <span class="net-amount_rate">
+                <input name="net_amount" [value]="bookingDetailForm.get('net_amount').value | currency:bookingDetailForm.get('booking_currency').value:'symbol':'4.2-2'"
+                  formControlName="net_amount" readonly class="textFields">
+              </span>
+            </p>
+          </div>
+        </div> -->
+        <div class="ui sixteen wide column grid padding-top-bottom align_heading">
+          <div class="eight wide column add-btn-block trip_details">
+            <p class="ui button" *ngIf="hotelFlightFlag">
+              <a>Add Flight </a>
+            </p>
+            <p class="ui button" *ngIf="hotelFlightFlag">
+              <a>Add Hotel</a>
+            </p>
+          </div>
+          <div class="eight wide column text-right button-grid button-wrapper">
+            <p class="ui primary basic button">
+              <a (click)="sendVoucherMail('send_voucher')">Send voucher mail</a>
+            </p>
+            <p class="ui primary basic button">
+              <a target="_blank" (click)="showVoucher()">Print voucher</a>
+              <!--(click)="bookingVoucher(bookingTrip_id)"-->
+            </p>
+            <br>
+            <p class="ui primary basic button">
+              <a (click)="showVoucherWithoutPrice()">Print without price</a>
+            </p>
+            <p class="ui primary basic button">
+              <!-- <a (click)="bookingPrint(bookingTrip_id)">Print invoice</a> -->
+              <a (click)="showInvoice()">Print invoice</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="animated fadeInUp delay-1s" [class.loading]="bookingDetailsLoader">
+    <!-- <h3 class="booking-header">Flight Details</h3>
+    <h5 class="ui header textFields _inverse">Ticketing Deadline <span>n/a</span></h5> -->
+    <div class="ui grid flight-head-block">
+      <div class="ui sixteen wide column grid">
+        <div class="five wide column flight-header">
+          <h3>Flight Details</h3>
+        </div>
+        <div class="eleven wide column right pnr_btns pnr-wrapper">
+          <!-- <a title="Edit Details" (click)="editBookingDetails()" *ngIf="!editable">
+            Edit -->
+          <!-- <i class="icon">
+                <img src="./../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+              </i> -->
+          <!-- </a> -->
+          <a title="Save Details" *ngIf="editable" (click)="saveBookingDetails()">
+            Save
+          </a>
+          <a title="perform PNR update" (click)="retrieveBookingDetails()" [disabled]="retrieveTicketLoader">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="retrieveTicketLoader" /> <i class="fa fa-edit"></i>PNR Update
+          </a>
+          <a title="Fare Rules" (click)="showFareDetails('fare_details')">
+            <i class="fa fa-suitcase"></i> Fare / Baggage Rules
+            <!-- <i class="fa fa-question-circle"></i> -->
+          </a>
+          <a title="View History" (click)="viewHistoryModal('view_history')">
+            <i class="fa fa-history"></i> Booking History
+            <!-- <i class="fa fa-history"></i> -->
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Travellers</h3>
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='newTravellerData' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <!-- <ngx-datatable-column name="PNR" prop="pnr_no">
+        </ngx-datatable-column> -->
+        <ngx-datatable-column name="Type" prop="pax_type">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.pax_first_name + ' ' + row.pax_middle_name + ' ' + row.pax_last_name}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Date of Birth" prop="pax_dob">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Identification Number" prop="pax_passport_number">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Identification Type" prop="pax_ID_type" >
+        </ngx-datatable-column>
+        <ngx-datatable-column name="FF#" prop="pax_frequentFlyerNumber">
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <button class="btn" (click)="showTravellerEdit('traveller-edit')">Edit</button>
+    </div>
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Contact Details</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='newContactDetailData' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Travellers" prop="traveller_name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Phone" prop="phone_contacts">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Destination Contact" prop="dest_phone_contacts">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Email" prop="booking_email">
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <button class="btn" (click)="showContactEdit('contact-edit')">Edit</button>
+    </div>
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="four wide column align_heading">
+            <h3 class="arora-card_title">Itinerary<span>
+                <!-- {{supplierName}} --></span></h3>
+          </div>
+          <div class="twelve wide column right p-t-0">
+            <div class="ancillary-section" *ngIf="transactionsData.length > 0">
+              <p class="add-anc-text">Alacarte Services:</p>
+              <a (click)="showSeatMapModal('seat-map')" style="position: relative; padding: 11px 30px"
+                title="Select your seat">
+                <span><img src="../../../../assets/icons/comfort.svg" width=20 height=20
+                    style="margin: 3px; position:absolute;left: 2px;top: 5px;"/>Seat Map</span>
+              </a>
+              <a (click)="showMealModal('meal-modal')" style="position: relative; padding: 11px 30px"
+                title="Select your meal">
+                <span><img src="../../../../assets/icons/dinner.svg" width=20 height=20
+                    style="margin: 3px;position: absolute;left: 2px;top: 5px;" />Meal</span>
+              </a>
+              <a (click)="showBaggageModal('baggage-modal')" style="position: relative;padding: 11px 30px"
+                title="Select your baggage">
+                <span><img src="../../../../assets/icons/travel.svg" width=20 height=20
+                    style="margin: 3px;position: absolute;left: 2px;top: 5px;" />Baggage</span>
+              </a>
+              <a (click)="showDisabilityModal('disability-modal')" style="position: relative;padding: 11px 30px"
+                title="Select your special assistance">
+                <span><img src="../../../../assets/icons/wheelchair.svg" width=20 height=20
+                    style="margin: 3px;position: absolute;left: 2px;top: 5px;" />Special Assistance</span>
+              </a>
+              <!-- <a><span>+ Others</span></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='newItineraryByData' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Carrier">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <img src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{row.logo}}.png" class="img-display">
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Origin" prop="Departure.AirportName">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Destination" prop="Arrival.AirportName">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Leaves" prop="Departure.Date">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="At" prop="Departure.Time">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Arrives" prop="Arrival.Date">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="At" prop="Arrival.Time">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Operating" prop="OperatingCarrier.Name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Marketing" prop="MarketingCarrier.Name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Class Code">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.classCode}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Cabin Type">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.className}}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <button class="btn">Edit</button>
+    </div>
+    <div class="ui segment arora-card traveller-detail" *ngIf="transactionsData.length > 0">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Transactions</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='transactionsData' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Ticket No" prop="ticket_number">
+          <!-- *ngFor="let ticket of transactionsData"  -->
+          <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+            <div class="grid-item">
+              <button class="electronic" title="Electronic Ticket">E</button>{{value}}
+            </div>
+          </ng-template>
+
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Ticket Status" prop="ticket_status">
+          <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+            <div class="grid-item">
+              <button
+                [class]="bookingDetailForm.get('trip_status').value">{{getTicketColorBoxBasedOnBookingStatus(bookingDetailForm.get('trip_status').value)}}</button>
+            </div>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            {{row.pax_first_name + ' '+row.pax_middle_name+' '+row.pax_last_name}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Passenger Type" prop="pax_type">
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <button class="btn-trans">Edit</button>
+      <hr>
+      <div class="grid-container three wide column">
+        <div class="grid-item">
+          <button class="hold">H</button>
+          <span style="padding-left: 10px;">HOLD</span>
+        </div>
+        <div class="grid-item ">
+          <button class="void">V</button>
+          <span style="padding-left: 10px;">VOIDED</span>
+        </div>
+        <div class="grid-item ">
+          <button class="exchanged">Ex</button>
+          <span style="padding-left: 10px;">EXCHANGED</span>
+        </div>
+        <div class="grid-item ">
+          <button class="pendingForVoid">PV</button>
+          <span style="padding-left: 10px;">PENDING FOR VOID</span>
+        </div>
+        <div class="grid-item ">
+          <button class="refund">R</button>
+          <span style="padding-left: 10px;">REFUNDED</span>
+        </div>
+        <div class="grid-item ">
+          <button class="electronic">E</button>
+          <span style="padding-left: 10px;">Electronic Ticket</span>
+        </div>
+        <!-- <div class="grid-item ">
+          <button class="pendingForExchange">PEx</button> 
+          <span style="padding-left: 10px;">PENDING FOR EXCHANGE</span>
+        </div>
+       <div class="grid-item "> 
+         <button class="pendeingForRefund">PR</button>
+          <span style="padding-left: 10px;">PENDING FOR REFUND</span>
+        </div>
+       <div class="grid-item "> 
+         <button class="paper">P</button>
+          <span style="padding-left: 10px;">Paper Ticket</span>
+        </div> -->
+        <div class="grid-item ">
+          <button class="partialExchange">PEx</button>
+          <span style="padding-left: 10px;">PARTIAL EXCHANGE</span>
+        </div>
+        <div class="grid-item ">
+          <button class="confirm">O</button>
+          <span style="padding-left: 10px;">OPEN</span>
+        </div>
+        <div class="grid-item ">
+          <button class="cancel">C</button>
+          <span style="padding-left: 10px;">CANCEL</span>
+        </div>
+
+      </div>
+    </div>
+    <!-- <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section">
+          <div class="five wide column">
+            <h3 class="arora-card_title">Free Service</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10"
+        [rows]='emdData' [sortType]="'multi'" [reorderable]="true" [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Traveller" prop="trav_name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Seat" prop="seat_no">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Baggage" prop="serv_bagg">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Meal" prop="serv_typmeal">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Disability" prop="serv_dis">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Airline" prop="airline_num">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Route" prop="route">
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div> -->
+    <!-- <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Alacart Service</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='emdData' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Traveller" prop="trav_name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Service Code" prop="serv_typ">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Service Definition" prop="sel_serv_typ">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Airline" prop="airline_num">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="EMD Number" prop="emd_number">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Route" prop="route">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Price" prop="price">
+           <ng-template ngx-datatable-cell-template let-row="row">
+            {{row.price | currency:bookingDetailForm.get('booking_currency').value :'symbol':'4.2-2'}}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div> -->
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Price Details</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="10" [rows]='priceDetails' [sortType]="'multi'" [reorderable]="true"
+        [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Passenger Type" prop="">
+          <ng-template ngx-datatable-cell-template let-row="row" >
+            {{row.paxType  }}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Base Fare" prop="">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            {{row.baseFare | number:'1.0-0' }}
+            {{ bookingDetailForm.get('booking_currency').value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Tax" prop="">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            {{row.tax | number:'1.0-0' }}
+            {{ bookingDetailForm.get('booking_currency').value }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Total Price" prop="total">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            {{ row.total | number:'1.0-0' }}
+            {{ bookingDetailForm.get('booking_currency').value }}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+      <button class="btn">Edit</button>
+      <div class="datatable-footer-inner">
+
+        <!-- <hr>
+        <p style="float: right;">Total:{{bookingDetails.amount | number:'1.0-0'}}</p> -->
+      </div>
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid padding-top-bottom align_heading trip-wrapper">
+          <div *ngIf="bookingDetailForm.get('service_charge_create').value > 0" class="five wide column booking-wrapper">
+            <h5 class="arora-card_title">Service Creation: {{ bookingDetailForm.get('service_charge_create').value }} {{ bookingDetailForm.get('booking_currency').value }}</h5>
+          </div>
+          <div *ngIf="bookingDetailForm.get('service_charge_cancel').value > 0" class="five wide column trip_details booking-wrapper">
+            <h5 class="arora-card_title">Service Cancellation: {{ bookingDetailForm.get('service_charge_cancel').value }} {{ bookingDetailForm.get('booking_currency').value }}</h5>
+          </div>
+          <div *ngIf="bookingDetailForm.get('service_charge_refund').value > 0" class="five wide column booking-wrapper">
+            <h5 class="arora-card_title">Service Refund: {{ bookingDetailForm.get('service_charge_refund').value }} {{ bookingDetailForm.get('booking_currency').value }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *ngIf="remarks != null" -->
+    <!-- <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Remarks</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <div class="comment-block">
+        <div class="ui input fluid">
+          <textarea></textarea>
+        </div>
+      </div>
+    </div> -->
+    <!-- <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Booking Comments</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <div class="comment-block">
+        <div class="ui input fluid">
+          <textarea></textarea>
+        </div>
+        <div class="add-comment">
+          <a>
+            <span>Add Comments</span>
+            <img src="../../../../assets/icons/add_icon.png">
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- FEQ: Display buttons-->
+    <!-- *ngIf="transactionsData.length > 0" -->
+    <div class="button-fixed">
+      <div class="button-fixed_all">
+        <ng-container
+          *ngIf="bookingDetailForm.get('trip_status').value === 'hold' || bookingDetailForm.get('trip_status').value === 'confirm'">
+          <button class="ui primary button floated" [disabled]="isThereAnActionInProcess()"
+            (click)="showBookingCancelDetails('bkClID')">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('cancel')" /> Cancel
+          </button>
+        </ng-container>
+        <ng-container *ngIf="bookingDetailForm.get('trip_status').value === 'hold'">
+          <button class="ui primary button floated" [disabled]="isThereAnActionInProcess()" (click)="issueTicket()">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('issue')" /> Perform Ticketing
+          </button>
+        </ng-container>
+        <ng-container *ngIf="bookingDetailForm.get('trip_status').value === 'confirm' && renderVoidButton()">
+          <button class="ui primary button floated " [disabled]="isThereAnActionInProcess()" (click)="voidTicket()">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('void')" /> Void
+          </button>
+        </ng-container>
+        <ng-container *ngIf="bookingDetailForm.get('trip_status').value === 'confirm'">
+          <button class="ui primary button floated" [disabled]="isThereAnActionInProcess()"
+            (click)="showBookingRefundDetails('bkRfID')">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('refund')" /> Refund
+          </button>
+        </ng-container>
+        <ng-container *ngIf="bookingDetailForm.get('trip_status').value === 'confirm'">
+          <button class="ui primary button floated" [disabled]="isThereAnActionInProcess()" (click)="reshopTicket()">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('reIssue')" /> ReIssue
+          </button>
+        </ng-container>
+        <ng-container *ngIf="bookingDetailForm.get('trip_status').value === 'confirm' && renderSplitPNRButton()">
+          <button class="ui primary button floated" [disabled]="isThereAnActionInProcess()"
+            (click)="showBookingSplitPNR('bkPNR')">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+              *ngIf="showLoader('pnrSplit')" /> Split PNR
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <!--
+  <div id="context1" class="ui modal">
+    <div class="ui secondary menu">
+      <button class="ui button primary">
+        <a class="item active" data-tab="bag">
+          <span>Add</span>
+          <img src="./../../../../../assets/img/bag-grey.png" />
+        </a>
+      </button>
+      <a class="item" data-tab="dinner">Dinner</a>
+      <a class="item" data-tab="disability">Disability</a>
+    </div>
+    <div class="ui active tab segment" data-tab="bag">
+      4
+    </div>
+    <div class="ui tab segment" data-tab="dinner">
+      5
+    </div>
+    <div class="ui tab segment" data-tab="disability">
+      6
+    </div>
+  </div>
+  -->
+  <div id="context1" class="ui modal">
+    <i class="close icon"></i>
+    <div class="header">
+      Add Ancilliary Services
+    </div>
+    <div class="description" *ngIf="ancillariesList.length > 0">
+      {{ ancillariesList }}
+      <table class="ui single line table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>PTC</th>
+            <th>Ancilliaries</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let ancillary of ancillariesList; let ancillaryIndex = index">
+            <tr>
+              <td colspan="5">
+                {{ancillary}}
+              </td>
+            </tr>
+            <tr>
+              <td>{{ancillary.Passenger.pax_id}}</td>
+              <td>{{ancillary.Passenger.pax_first_name}} {{ancillary.Passenger.pax_last_name}}</td>
+              <td>{{ancillary.Passenger.pax_type}}</td>
+              <td>
+                <img src="./../../../../../assets/img/bag-grey.png" />
+                <img src="./../../../../../assets/img/dinner-grey.png" />
+                <img src="./../../../../../assets/img/disabled-grey.png" />
+              </td>
+              <td class="text-right">
+
+                <button class="ui button primary">
+                  <span>Add</span>
+                  <img src="./../../../../../assets/img/bag-grey.png" />
+                </button>
+                <button class="ui button primary">
+                  <span>Add</span>
+                  <img src="./../../../../../assets/img/dinner-grey.png" />
+                </button>
+                <button class="ui button primary">
+                  <span>Add</span>
+                  <img src="./../../../../../assets/img/disabled-grey.png" />
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="5">
+                <ng-container *ngFor="let service of ancillary.Services; let serviceIndex = index">
+                  <span>{{service.Key}}</span>
+                  <div class="ui cards">
+                    <ng-container *ngFor="let item of service.ServiceList; let itemIndex = index">
+                      <div class="card" id="{{item['@ObjectKey']}}" (click)="toggleSelection(item['@ObjectKey'])">
+                        <div class="content">
+                          <div class="header">
+                            {{item.Name}}
+                          </div>
+                          <div class="meta">
+                            <!--  -->
+                          </div>
+                          <div class="description">{{item.Price.Total["#text"]}} {{item.Price.Total["@Code"]}}</div>
+                          <!--
+                          <div class="description" *ngFor="let dsc of convertArray(item.Descriptions.Description); let j = index">
+                            <span>{{dsc.Text}}</span>
+                          </div>
+                          -->
+                        </div>
+                        <!--
+                        <div class="extra content">
+                          <div class="ui two buttons">
+                            <div class="ui basic green button">Add</div>
+                            <div class="ui basic red button">Remove</div>
+                          </div>
+                        </div>
+                        -->
+                      </div>
+                    </ng-container>
+
+                  </div>
+                </ng-container>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="bkPNR" class="anc_modal" style="max-width: 1024px">
+  <div class="ui">
+    <h2>Booking Split PNR</h2>
+    <i class="close icon" (click)="closeModal('bkPNR')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row booking-details-wrapper traveller-wrapper">
+        <div class="sixteen wide column arora-card traveller-list-block">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="'auto'" [limit]="10" [rows]='newTravellerData' [sortType]="'multi'" [reorderable]="true"
+            [sorts]="[{prop: 'id', dir: 'desc'}]" [selectionType]="'checkbox'" [selectAllRowsOnPage]="false"
+            (activate)="bookPNRTableOnActivate($event)" (select)='bookPNRTableOnSelect($event)'>
+            <!-- <ngx-datatable-column name="PNR" prop="pnr_no"></ngx-datatable-column> -->
+            <ngx-datatable-column [width]="30" [sortable]="false" [canAutoResize]="false" [draggable]="false"
+              [resizeable]="false" [headerCheckboxable]="false" [checkboxable]="true">
+            </ngx-datatable-column>
+
+            <!-- <ngx-datatable-column [canAutoResize]="false" [sortable]="false" name="" [width]="70">
+              <ng-template ngx-datatable-cell-template let-value="value" let-isSelected="isSelected"
+                let-onCheckboxChangeFn="onCheckboxChangeFn" let-row="row" let-rowIndex="rowIndex">
+                <mat-checkbox [checked]="index === rowIndex" (change)="bookPNRTableCheckboxOnSelect($event, row)" [value]="row">
+                </mat-checkbox>
+              </ng-template>
+            </ngx-datatable-column> -->
+
+            <ngx-datatable-column name="Type" prop="pax_type">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.pax_first_name + ' ' + row.pax_middle_name + ' ' + row.pax_last_name}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Date of Birth" prop="pax_dob">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Identification Number" prop="pax_passport_number">
+            </ngx-datatable-column>
+            <ngx-datatable-column name="FF#" prop="pax_frequentFlyerNumber">
+            </ngx-datatable-column>
+            <!-- <ngx-datatable-column name="">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                <div class="ui checkbox">
+                  <input type="checkbox" value="all">
+                  <label>All</label>
+                </div>
+              </ng-template>
+            </ngx-datatable-column> -->
+          </ngx-datatable>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block">
+        <div class="ten wide column">
+        </div>
+        <div class="six wide column bookings_btn-panel">
+          <button class="ui export button" (click)="closeModal('bkPNR')">Cancel</button>
+          <button class="ui primary button" (click)="bookingSplitPNR()">Agree?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="bkClID" class="anc_modal">
+  <div class="ui">
+    <h2>Booking Cancellation Details</h2>
+    <i class="close icon" (click)="closeModal('bkClID')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="sixteen wide column traveller-detail-block">
+          <div class="ui tab active">
+            <div class="route-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="info info-msg">
+                    <h3 class="textFields">Kindly refer the fare rule for refund</h3>
+                    <h3 class="textFields">This action will only cancel the PNR without the tickets</h3>
+                    <h3 class="textFields">Are you sure you want to proceed with cancellation?</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper"
+        style="padding-top: 0px !important; padding-bottom: 0px !important;">
+        <div class="sixteen wide column info-msg-without-icon">
+          <h3 class="textFields"><b>PNR NO:</b> {{bookingDetailForm.get('pnr_no').value}}</h3>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper" style="padding-bottom: 0px !important;">
+        <div class="sixteen wide column">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0"
+            [rowHeight]="'auto'" [limit]="10" [rows]='transactionsData' [sortType]="'multi'" [reorderable]="true"
+            [sorts]="[{prop: 'id', dir: 'desc'}]" [selectionType]="'checkbox'" [selectAllRowsOnPage]="false">
+            <ngx-datatable-column [canAutoResize]="false" [sortable]="false" name="" [width]="70">
+              <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-rowIndex="rowIndex">
+                <div class="ui checkbox disable-checkbox" disabled>
+                  <input type="checkbox" checked disabled="disabled" />
+                  <label></label>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ticket No" prop="ticket_number">
+              <!-- *ngFor="let ticket of transactionsData"  -->
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <div class="grid-item">
+                  <button class="electronic">E</button>{{value}}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ticket Status" prop="ticket_status">
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <div class="grid-item">
+                  <button
+                    [class]="bookingDetailForm.get('trip_status').value">{{getTicketColorBoxBasedOnBookingStatus(bookingDetailForm.get('trip_status').value)}}</button>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.pax_first_name + ' ' + row.pax_middle_name + ' ' + row.pax_last_name}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Passenger Type" prop="pax_type">
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="cancelForm" (ngSubmit)="cancelTicket()">
+      <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="thirteen wide column ui checkbox">
+            <input type="checkbox" formControlName="cbAgreeServiceFee" (click)="setAgreeServiceFee()" [ngClass]="agreeServiceFee ? 'true' : 'false'"
+              style="left: 14px;">
+            <label>Do you want to charge the service fee for this booking cancellation?</label>
+          </div>
+        </div>
+        <ng-container *ngIf="agreeServiceFee">
+          <div class="sixteen wide column row action-block traveller-wrapper" style="padding-top: 0px; padding-bottom: 10px !important;">
+            <div class="seven wide column">
+              <div class="field input-group presuffix"
+                [class.error]="cancelForm.controls['serviceFee'].errors?.required === true && cancelForm.controls.serviceFee.touched">
+                <span class="input-group-addon prefix">Cancellation Service Fee</span>
+                <input type="text" name="serviceFee" required formControlName="serviceFee" placeholder="serviceFee" (keypress)="numberOnly($event)" style="border-radius: 0px !important; text-align: left;">
+                  <span class="input-group-addon">{{ (allBookingDetails && allBookingDetails.data && allBookingDetails.data.booking_currency)?allBookingDetails.data.booking_currency:'' }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="sixteen wide column row">
+          <div class="thirteen wide column ui checkbox">
+            <input type="checkbox" formControlName="cbAgree" (click)="setAgree()" [ngClass]="agree ? 'true' : 'false'"
+              style="left: 14px;">
+            <label>I agree & understand the refund & cancellation fare rules</label>
+          </div>
+          <div class="three wide column bookings_btn-panel">
+            <!-- <button class="ui export button" (click)="closeModal('bkClID')">Cancel</button> -->
+            <button class="ui primary button floated" [disabled]="!agree || isThereAnActionInProcess()" type="submit">
+              <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                *ngIf="showLoader('cancel')" /> Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</jw-modal>
+
+<jw-modal id="bkRfID" class="anc_modal">
+  <div class="ui">
+    <h2>Booking Refund Details</h2>
+    <i class="close icon" (click)="closeModal('bkRfID')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="sixteen wide column traveller-detail-block">
+          <div class="ui tab active">
+            <div class="route-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="info info-msg">
+                    <h3 class="textFields">Kindly refer the fare rule for refund</h3>
+                    <ng-container *ngIf="amountToRefund > 0">
+                      <h3 class="textFields">This action will cancel the PNR and refund you
+                        {{ amountToRefund | number:'1.1-1' }}
+                        {{ (allBookingDetails && allBookingDetails.data && allBookingDetails.data.booking_currency)?allBookingDetails.data.booking_currency:'' }}
+                      </h3>
+                    </ng-container>
+                    <ng-container *ngIf="!(amountToRefund > 0)">
+                      <h3 class="textFields">Sorry, You will NOT be refunded</h3>
+                    </ng-container>
+                    <h3 class="textFields">Are you sure you want to proceed with refund?</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper"
+        style="padding-top: 0px !important; padding-bottom: 0px !important;">
+        <div class="sixteen wide column info-msg-without-icon">
+          <h3 class="textFields"><b>PNR NO:</b> {{bookingDetailForm.get('pnr_no').value}}</h3>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper"
+        style="padding-top: 0px !important; padding-bottom: 0px !important;">
+        <div class="sixteen wide column info-msg-without-icon">
+          <h3 class="textFields"><b>Refunded tickets</b></h3>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper" style="padding-bottom: 0px !important;">
+        <div class="sixteen wide column">
+          <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="0"
+            [rowHeight]="'auto'" [limit]="10" [rows]='transactionsData' [sortType]="'multi'" [reorderable]="true"
+            [sorts]="[{prop: 'id', dir: 'desc'}]" [selectionType]="'checkbox'" [selectAllRowsOnPage]="false">
+            <ngx-datatable-column [canAutoResize]="false" [sortable]="false" name="" [width]="70">
+              <ng-template ngx-datatable-cell-template let-value="value" let-row="row" let-rowIndex="rowIndex">
+                <div class="ui checkbox disable-checkbox" disabled>
+                  <input type="checkbox" checked disabled="disabled" />
+                  <label></label>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ticket No" prop="ticket_number">
+              <!-- *ngFor="let ticket of transactionsData"  -->
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <div class="grid-item">
+                  <button class="electronic">E</button>{{value}}
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ticket Status" prop="ticket_status">
+              <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                <div class="grid-item">
+                  <button
+                    [class]="bookingDetailForm.get('trip_status').value">{{getTicketColorBoxBasedOnBookingStatus(bookingDetailForm.get('trip_status').value)}}</button>
+                </div>
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Name">
+              <ng-template let-row="row" ngx-datatable-cell-template>
+                {{row.pax_first_name + ' ' + row.pax_middle_name + ' ' + row.pax_last_name}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Passenger Type" prop="pax_type">
+            </ngx-datatable-column>
+          </ngx-datatable>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block traveller-wrapper" style="padding-bottom: 0px !important;">
+        <div class="ten wide column content-block active">
+          <div class="info">
+            <h3 class="textFields">Cancel Supplier Price</h3>
+            <h3 class="textFields">Refund Service Amount</h3>
+            <h3 class="textFields">Refund Penalty Amount</h3>
+          </div>
+        </div>
+        <div class="five wide column content-block">
+          <div class="info">
+            <h3 class="textFields">{{ refundConfirmation.cancel_supplier_price }}</h3>
+            <h3 class="textFields">{{ refundConfirmation.refund_service_amount }}</h3>
+            <h3 class="textFields">{{ refundConfirmation.refund_penalty_amount }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="cancelForm" (ngSubmit)="refundTicket()">
+      <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="thirteen wide column ui checkbox">
+            <input type="checkbox" formControlName="cbAgreeServiceFee" (click)="setAgreeServiceFee()" [ngClass]="agreeServiceFee ? 'true' : 'false'"
+              style="left: 14px;">
+            <label>Do you want to charge the service fee for this booking refund?</label>
+          </div>
+        </div>
+        <ng-container *ngIf="agreeServiceFee">
+          <div class="sixteen wide column row action-block traveller-wrapper" style="padding-top: 0px; padding-bottom: 10px !important;">
+            <div class="seven wide column">
+              <div class="field input-group presuffix"
+                [class.error]="cancelForm.controls['serviceFee'].errors?.required === true && cancelForm.controls.serviceFee.touched">
+                <span class="input-group-addon prefix">Refund Service Fee</span>
+                <input type="text" name="serviceFee" required formControlName="serviceFee" placeholder="serviceFee" (keypress)="numberOnly($event)" style="border-radius: 0px !important; text-align: left;">
+                  <span class="input-group-addon">{{ (allBookingDetails && allBookingDetails.data && allBookingDetails.data.booking_currency)?allBookingDetails.data.booking_currency:'' }}</span>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <div class="sixteen wide column row">
+          <div class="thirteen wide column ui checkbox">
+            <input type="checkbox" formControlName="cbAgree" (click)="setAgree()" [ngClass]="agree ? 'true' : 'false'"
+              style="left: 14px;">
+            <label>I agree & understand the refund & cancellation fare rules</label>
+          </div>
+          <div class="three wide column bookings_btn-panel">
+																									
+            <button class="ui primary button floated" [disabled]="!agree || isThereAnActionInProcess()" type="submit">
+              <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                *ngIf="showLoader('refund')" /> Go for Refund
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</jw-modal>
+
+<!-- <jw-modal id="bkRfID" class="anc_modal">
+  <div class="ui">
+    <h2>Booking Refund Details</h2>
+    <i class="close icon" (click)="closeModal('bkRfID')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="five wide column traveller-list-block">
+          <div class="ui tabular menu">
+            <div class="item active" data-tab="traveller-tab1">
+              <span class="name">Refund</span>
+              <span class="type">Details</span>
+            </div>
+          </div>
+        </div>
+        <div class="eleven wide column traveller-detail-block">
+          <div class="ui tab active" data-tab="traveller-tab1">
+            <div class="route-block">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="ten wide column content-block active">
+                    <div class="info">
+                      <h3 class="textFields">Cancel Supplier Price</h3>
+                      <h3 class="textFields">Refund Service Amount</h3>
+                      <h3 class="textFields">Refund Penalty Amount</h3>
+                    </div>
+                  </div>
+                  <div class="five wide column content-block">
+                    <div class="info">
+                      <h3 class="textFields">{{ refundConfirmation.cancel_supplier_price }}</h3>
+                      <h3 class="textFields">{{ refundConfirmation.refund_service_amount }}</h3>
+                      <h3 class="textFields">{{ refundConfirmation.refund_penalty_amount }}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block">
+        <div class="ten wide column">
+          <ng-container *ngIf="amountToRefund > 0">
+            <h5>Total:</h5>
+            <h5>You will be refunded: {{ amountToRefund | number:'1.1-1' }}
+              {{ (allBookingDetails && allBookingDetails.data && allBookingDetails.data.booking_currency)?allBookingDetails.data.booking_currency:'' }}
+            </h5>
+          </ng-container>
+          <ng-container *ngIf="!(amountToRefund > 0)">
+            <h5>Sorry,</h5>
+            <h5>You will NOT be refunded if you cancel the booking</h5>
+          </ng-container>
+        </div>
+        <div class="six wide column bookings_btn-panel">
+          <button class="ui export button" (click)="closeModal('bkRfID')">Cancel</button>
+          <button class="ui primary button" (click)="refundTicket()">Agree?</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal> -->
+
+<jw-modal id="fare_details" class="modal fare_details">
+  <div class="ui">
+    <h2>Fare & Baggage Details</h2>
+    <i class="close icon" (click)="closeModal('fare_details')"></i>
+    <div class="ui top attached tabular menu">
+      <div class="active item mini-fare-tab" data-tab="mini-fare-tab">Mini Fare Rules</div>
+      <div class="item mini-fare-tab" data-tab="fare-summary">Fare Summary</div>
+      <div class="item baggage-tab" data-tab="baggage-tab">Baggage</div>
+      <div class="item fare-tab" data-tab="fare-tab">Fare Rules</div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="baggage-tab">
+      <div class="ui fluid container">
+        <div class="outer-form">
+          <div class="ui styled accordion">
+            <div class="title active">
+              DXB - COK
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content active">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td>Passenger Type</td>
+                    <td>Check-in Baggage</td>
+                    <td>Cabin Baggage</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ADT</td>
+                    <td>30Kg</td>
+                    <td>7Kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="title">
+              COK - DXB
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td>Passenger Type</td>
+                    <td>Check-in Baggage</td>
+                    <td>Cabin Baggage</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ADT</td>
+                    <td>30Kg</td>
+                    <td>7Kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="total-fare-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column">
+                  <span class="total">Total Trip Fare: </span>
+                  <span class="amt">AED 1840.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="fare-tab">
+      <div class="ui fluid container">
+        <div class="outer-form">
+          <div class="ui styled accordion">
+            <div class="title active">
+              DXB - COK
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content active">
+              <div class="rules-block">
+                <div class="ui grid">
+                  <div class="sixteen wide column row">
+                    <div class="eight wide column">
+                      <h3>Fare Rules and Other Conditions</h3>
+                    </div>
+                    <!-- <div class="eight wide column text-right">
+                        <button class="button print_btn">Print PDF</button>
+                    </div> -->
+                  </div>
+                </div>
+                <p>
+                  NOTE THE FOLLOWING TEXT IS INFORMATIONAL AND NOT VALIDATED FOR AUTOPRICING. ETIHAD AIRWAYS FARES
+                  PUBLIC TACTICAL AUHT107
+                  APPLICATION AREA THESE FARES APPLY FROM UNITED ARAB EMIRATES. CLASS OF SERVICE THESE FARES APPLY FOR
+                  BUSINESS/ECONOMY
+                  CLASS SERVICE. TYPES OF TRANSPORTATION THIS RULE GOVERNS ROUNDTRIP FARES. FARES GOVERNED BY THIS
+                  RULE CAN
+                  BE USED TO CREATE ROUNDTRIP/CIRCLETRIP/OPENJAW JOURNEYS. FULL AND SEQUENTIAL USE OF FLIGHT COUPONS
+                  THE
+                  TICKET /OR ELECTRONIC TICKET/ IS NOT VALID IF THE FIRST COUPON HAS NOT BEEN USED AND WILL NOT BE
+                  HONORED
+                  IF ALL THE COUPONS ARE NOT USED IN THE SEQUENCE PROVIDED IN THE TICKET /OR ELECTRONIC TICKET/. WHERE
+                  A
+                  ETIHAD TICKET OFFICE OR OUR CALL CENTER MAKE NEW BOOKING OR MAKE CHANGES TO TICKETS ISSUED BY TRAVEL
+                  AGENCIES
+                  OR THROUGH OUR WEBSITE OR IN RESPECT OF ANY TICKET REFUND A GLOBAL SERVICE FEE GSF WILL BE APPLIED
+                  DEPENDING
+                  ON THE FARE CHOICE SELECTED AND ON THE COUNTRY OF DEPARTURE AND DESTINATION. CURRENTLY THE GSF FOR
+                  TICKETING
+                  RANGES FROM 25 TO 100 USD FOR TICKET CHANGES IT RANGES FROM 20 TO 60 USD AND FOR REFUND
+                  ADMINISTRATION
+                  THE FEE RANGE IS 20 TO 35 USD. THE GSF IS NONREFUNDABLE AND THE EXACT GSF APPLICABLE TO YOUR TICKET
+                  IS
+                  AVAILABLE ON REQUEST. CAPACITY LIMITATIONS THE CARRIER SHALL LIMIT THE NUMBER OF PASSENGERS CARRIED
+                  ON
+                  ANY ONE FLIGHT AT FARES GOVERNED BY THIS RULE AND SUCH FARES WILL NOT NECESSARILY BE AVAILABLE ON
+                  ALL FLIGHTS.
+                </p>
+              </div>
+            </div>
+            <div class="title">
+              COK - DXB
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content">
+              <div class="rules-block">
+                <div class="ui grid">
+                  <div class="sixteen wide column row">
+                    <div class="eight wide column">
+                      <h3>Fare Rules and Other Conditions</h3>
+                    </div>
+                    <!-- <div class="eight wide column text-right">
+                        <button class="button print_btn">Print PDF</button>
+                    </div> -->
+                  </div>
+                </div>
+                <p>
+                  NOTE THE FOLLOWING TEXT IS INFORMATIONAL AND NOT VALIDATED FOR AUTOPRICING. ETIHAD AIRWAYS FARES
+                  PUBLIC TACTICAL AUHT107
+                  APPLICATION AREA THESE FARES APPLY FROM UNITED ARAB EMIRATES. CLASS OF SERVICE THESE FARES APPLY FOR
+                  BUSINESS/ECONOMY
+                  CLASS SERVICE. TYPES OF TRANSPORTATION THIS RULE GOVERNS ROUNDTRIP FARES. FARES GOVERNED BY THIS
+                  RULE CAN
+                  BE USED TO CREATE ROUNDTRIP/CIRCLETRIP/OPENJAW JOURNEYS. FULL AND SEQUENTIAL USE OF FLIGHT COUPONS
+                  THE
+                  TICKET /OR ELECTRONIC TICKET/ IS NOT VALID IF THE FIRST COUPON HAS NOT BEEN USED AND WILL NOT BE
+                  HONORED
+                  IF ALL THE COUPONS ARE NOT USED IN THE SEQUENCE PROVIDED IN THE TICKET /OR ELECTRONIC TICKET/. WHERE
+                  A
+                  ETIHAD TICKET OFFICE OR OUR CALL CENTER MAKE NEW BOOKING OR MAKE CHANGES TO TICKETS ISSUED BY TRAVEL
+                  AGENCIES
+                  OR THROUGH OUR WEBSITE OR IN RESPECT OF ANY TICKET REFUND A GLOBAL SERVICE FEE GSF WILL BE APPLIED
+                  DEPENDING
+                  ON THE FARE CHOICE SELECTED AND ON THE COUNTRY OF DEPARTURE AND DESTINATION. CURRENTLY THE GSF FOR
+                  TICKETING
+                  RANGES FROM 25 TO 100 USD FOR TICKET CHANGES IT RANGES FROM 20 TO 60 USD AND FOR REFUND
+                  ADMINISTRATION
+                  THE FEE RANGE IS 20 TO 35 USD. THE GSF IS NONREFUNDABLE AND THE EXACT GSF APPLICABLE TO YOUR TICKET
+                  IS
+                  AVAILABLE ON REQUEST. CAPACITY LIMITATIONS THE CARRIER SHALL LIMIT THE NUMBER OF PASSENGERS CARRIED
+                  ON
+                  ANY ONE FLIGHT AT FARES GOVERNED BY THIS RULE AND SUCH FARES WILL NOT NECESSARILY BE AVAILABLE ON
+                  ALL FLIGHTS.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="total-fare-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column">
+                  <span class="total">Total Trip Fare: </span>
+                  <span class="amt">AED 1840.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached active tab segment" data-tab="mini-fare-tab">
+      <div class="ui fluid container">
+        <div class="outer-form">
+          <div class="ui styled accordion">
+            <div class="title active">
+              DXB - COK
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content active">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <td>Before Departure</td>
+                    <td>No-Show</td>
+                    <td>After Departure</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fee">Cancellation Fee*</td>
+                    <td>AED 190.00</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                  </tr>
+                  <tr>
+                    <td class="fee">Change Fee*</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="title">
+              COK - DXB
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td></td>
+                    <td>Before Departure</td>
+                    <td>No-Show</td>
+                    <td>After Departure</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fee">Cancellation Fee*</td>
+                    <td>AED 190.00</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                  </tr>
+                  <tr>
+                    <td class="fee">Change Fee*</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                    <td>AED 240.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="total-fare-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column">
+                  <span class="total">Total Trip Fare: </span>
+                  <span class="amt">AED 1840.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui bottom attached tab segment" data-tab="fare-summary">
+      <div class="ui fluid container">
+        <div class="outer-form">
+          <div class="ui styled accordion">
+            <div class="title active">
+              DXB - COK
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content active">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td>Fare Summary</td>
+                    <td>Base Fare</td>
+                    <td>Tax</td>
+                    <td>Total</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fee">ADT x 1</td>
+                    <td>AED 1495.00</td>
+                    <td>AED 345.00 <a (click)="showTaxBreakup('tax-breakup')" class="tax-breakup-link">(Breakup)</a>
+                    </td>
+                    <td>AED 1840.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="title">
+              COK - DXB
+              <i class="dropdown icon"></i>
+            </div>
+            <div class="content">
+              <table class="single line table ui">
+                <thead>
+                  <tr>
+                    <td>Fare Summary</td>
+                    <td>Base Fare</td>
+                    <td>Tax</td>
+                    <td>Total</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="fee">ADT x 1</td>
+                    <td>AED 1495.00</td>
+                    <td>AED 345.00 <a (click)="showTaxBreakup('tax-breakup')" class="tax-breakup-link">(Breakup)</a>
+                    </td>
+                    <td>AED 1840.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="total-fare-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column">
+                  <span class="total">Total Trip Fare: </span>
+                  <span class="amt">AED 1840.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="send_voucher" class="modal send_voucher">
+  <div class="ui">
+    <h2>Send Voucher</h2>
+    <i class="close icon" (click)="closeModal('send_voucher')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column">
+          <label>Email</label>
+          <div class="ui fluid input">
+            <input type="email" value="email" placeholder="email" class="email" />
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column">
+          <label>Message</label>
+          <div class="ui fluid input">
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column">
+          <div class="ui checkbox mar-right-15px outer-checkbox">
+            <input type="checkbox" name="price-check">
+            <label for="price-check">
+              Send without price
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column bookings_btn-panel text-right">
+          <button class="ui reset button">Close</button>
+          <button class="ui primary button">Send Voucher</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="view_history" class="modal view_history">
+  <div class="ui">
+    <h2>Itenary History - Trip Id</h2>
+    <i class="close icon" (click)="closeModal('view_history')"></i>
+    <div class="item">
+      <div class="timeline">
+        <div>
+          <section class="year">
+            <h3>Feb 9, 2020</h3>
+            <section class="info-details">
+              <ul>
+                <li>
+                  Itenary created. (PNR 1AIN-PD3W9V)
+                  <div>
+                    <p>Created by : tpconnects, Created on : 11:35:43</p>
+                    <p>Sale Amount : AED 806.28</p>
+                    <p>No. of Passengers : 1</p>
+                    <p>Passengers Details :</p>
+                    <p>1 . Mr demo test , PAX Type : ADT</p>
+                    <p>Segment Details :</p>
+                    <p>DXB - MCT</p>
+                    <p>Departure : 2020-04-30 16:10 - Arrival : 2020-04-30 17:25</p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+
+<jw-modal id="tax-breakup" class="modal tax-breakup">
+  <div class="ui">
+    <h2>Tax Breakup</h2>
+    <i class="close icon" (click)="closeModal('tax-breakup')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YQ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 15.14
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YQ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 21.56
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YR
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 18.00
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          G4
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 36.13
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          PZ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 7.77
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          QA
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 41.51
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          KJ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 27.95
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="baggage-modal" class="anc_modal">
+  <div class="ui">
+    <h2>Select Baggage</h2>
+    <i class="close icon" (click)="closeModal('baggage-modal')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="five wide column traveller-list-block">
+          <div class="ui tabular menu">
+            <div class="item active" data-tab="traveller-tab1">
+              <span class="name">Traveller Name</span>
+              <span class="type">ADT</span>
+            </div>
+            <div class="item" data-tab="traveller-tab2">
+              <span class="name">Traveller Name</span>
+              <span class="type">CHD</span>
+            </div>
+          </div>
+        </div>
+        <div class="eleven wide column travller-detail-block traveller_bag_section">
+          <div class="ui tab active" data-tab="traveller-tab1">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row bag_detail_wrapper_row">
+                      <div class="twelve wide column bag_detail_wrapper_col">
+                        <div class="ui grid">
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Your checked allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA </span>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Number of extra bags</span>
+                            </div>
+                            <div class="eight wide column">
+                              <button (click)="decrementBaggageCount()">-</button>
+                              <input type="text" value={{baggageCount}} />
+                              <button (click)="incrementBaggageCount()">+</button>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Select baggage</span>
+                            </div>
+                            <div class="eight wide column bag_dropdown">
+                              <div class="ui selection dropdown fluid">
+                                <input type="hidden">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Select baggage</div>
+                                <div class="menu">
+                                  <div class="item" data-value="1">UPTO44LB 20KG AND62LI 158LCM - AED 370.00</div>
+                                  <div class="item" data-value="2">SPORTING EQUIPMENT 23KG 330LCM - AED 440.00</div>
+                                  <div class="item" data-value="3">SPORTING EQUIPMENT MEDIUM - AED 440.00</div>
+                                  <div class="item" data-value="4">SPORTING EQUIPMENT 32KG 330LCM - AED 620.00</div>
+                                  <div class="item" data-value="5">PET IN HOLD UP TO 23KG - AED 1100.00</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">New allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="four wide column bag_price_wrapper">
+                        <p>Price to pay</p>
+                        <div class="bag_price">AED
+                          <strong>46</strong>
+                        </div>
+                        <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                      <p>price for selected quantity 1st is 60.00</p>
+                      <p>price for selected quantity 2nd is 180.00</p>
+                      <p>price for selected quantity 3rd is 300.00</p>
+                      <p>price for selected quantity 4th is 420.00</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row bag_detail_wrapper_row">
+                      <div class="twelve wide column bag_detail_wrapper_col">
+                        <div class="ui grid">
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Your checked allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA </span>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Number of extra bags</span>
+                            </div>
+                            <div class="eight wide column">
+                              <button>-</button>
+                              <input type="text" value="0" />
+                              <button>+</button>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">New allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="four wide column bag_price_wrapper">
+                        <p>Price to pay</p>
+                        <div class="bag_price">AED
+                          <strong>46</strong>
+                        </div>
+                        <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                      <p>price for selected quantity 1st is 60.00</p>
+                      <p>price for selected quantity 2nd is 180.00</p>
+                      <p>price for selected quantity 3rd is 300.00</p>
+                      <p>price for selected quantity 4th is 420.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui tab" data-tab="traveller-tab2">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row bag_detail_wrapper_row">
+                      <div class="twelve wide column bag_detail_wrapper_col">
+                        <div class="ui grid">
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Your checked allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA </span>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Number of extra bags</span>
+                            </div>
+                            <div class="eight wide column">
+                              <button>-</button>
+                              <input type="text" value="0" />
+                              <button>+</button>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">New allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="four wide column bag_price_wrapper">
+                        <p>Price to pay</p>
+                        <div class="bag_price">AED
+                          <strong>46</strong>
+                        </div>
+                        <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                      <p>price for selected quantity 1st is 60.00</p>
+                      <p>price for selected quantity 2nd is 180.00</p>
+                      <p>price for selected quantity 3rd is 300.00</p>
+                      <p>price for selected quantity 4th is 420.00</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row bag_detail_wrapper_row">
+                      <div class="twelve wide column bag_detail_wrapper_col">
+                        <div class="ui grid">
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Your checked allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA </span>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">Number of extra bags</span>
+                            </div>
+                            <div class="eight wide column">
+                              <button>-</button>
+                              <input type="text" value="0" />
+                              <button>+</button>
+                            </div>
+                          </div>
+                          <div class="sixteen wide column row item_row">
+                            <div class="eight wide column">
+                              <span class="bag_typ">New allowance</span>
+                            </div>
+                            <div class="eight wide column">
+                              <span class="avail">NA</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="four wide column bag_price_wrapper">
+                        <p>Price to pay</p>
+                        <div class="bag_price">AED
+                          <strong>46</strong>
+                        </div>
+                        <button (click)="showBaggageDesc()" [ngClass]="{'active': bagDesc}">View</button>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row bag_desc_row" *ngIf="bagDesc">
+                      <p>price for selected quantity 1st is 60.00</p>
+                      <p>price for selected quantity 2nd is 180.00</p>
+                      <p>price for selected quantity 3rd is 300.00</p>
+                      <p>price for selected quantity 4th is 420.00</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block">
+        <div class="ten wide column">
+          <h5>Total:</h5>
+          <button class="sel_item">2 Extra bags
+            <span aria-hidden="true" class="close">&times;</span>
+          </button>
+        </div>
+        <div class="six wide column bookings_btn-panel">
+          <button class="ui export button" (click)="closeModal('baggage-modal')">Cancel</button>
+          <button class="ui primary button">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="disability-modal" class="anc_modal">
+  <div class="ui">
+    <h2>Special Assistance</h2>
+    <i class="close icon" (click)="closeModal('disability-modal')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="five wide column traveller-list-block">
+          <div class="ui tabular menu">
+            <div class="item active" data-tab="traveller-tab1">
+              <span class="name">Traveller Name</span>
+              <span class="type">ADT</span>
+            </div>
+            <div class="item" data-tab="traveller-tab2">
+              <span class="name">Traveller Name</span>
+              <span class="type">CHD</span>
+            </div>
+          </div>
+        </div>
+        <div class="eleven wide column travller-detail-block traveller_bag_section">
+          <div class="ui tab active" data-tab="traveller-tab1">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon" (click)="showWheelchairDetails()"
+                              [ngClass]="{'active' : showWheelchair}"></i>
+                          </div>
+                          <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                            <p>This is what included in mobility service 1</p>
+                            <p>Assisstance to and from the aircraft (depending on the airport this
+                              will be either by electric buggy or airport wheelchair)</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon" (click)="showWheelchairDetails()"
+                              [ngClass]="{'active' : showWheelchair}"></i>
+                          </div>
+                          <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                            <p>This is what included in mobility service 1</p>
+                            <p>Assisstance to and from the aircraft (depending on the airport this
+                              will be either by electric buggy or airport wheelchair)</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui tab" data-tab="traveller-tab2">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon" (click)="showWheelchairDetails()"
+                              [ngClass]="{'active' : showWheelchair}"></i>
+                          </div>
+                          <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                            <p>This is what included in mobility service 1</p>
+                            <p>Assisstance to and from the aircraft (depending on the airport this
+                              will be either by electric buggy or airport wheelchair)</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon" (click)="showWheelchairDetails()"
+                              [ngClass]="{'active' : showWheelchair}"></i>
+                          </div>
+                          <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                            <p>This is what included in mobility service 1</p>
+                            <p>Assisstance to and from the aircraft (depending on the airport this
+                              will be either by electric buggy or airport wheelchair)</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="eight wide column">
+                        <div class="disability-wrapper">
+                          <div class="info">
+                            <h3>Wheelchair-3-Customer-Manual</h3>
+                            <p>AED
+                              <strong>00</strong>
+                            </p>
+                            <i class="dropdown icon"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block">
+        <div class="ten wide column">
+          <h5>Note:</h5>
+          <p>The maximum dimensions we can accomodate are (cm):</p>
+          <p>L:140, D:85, H:152</p>
+          <p>Max weight(kg): 250</p>
+        </div>
+        <div class="six wide column bookings_btn-panel">
+          <button class="ui export button" (click)="closeModal('disability-modal')">Cancel</button>
+          <button class="ui primary button">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="meal-modal" class="anc_modal">
+  <div class="ui">
+    <h2>Add Meal</h2>
+    <i class="close icon" (click)="closeModal('meal-modal')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row traveller-wrapper">
+        <div class="five wide column traveller-list-block">
+          <div class="ui tabular menu">
+            <div class="item active" data-tab="traveller-tab1">
+              <span class="name">Traveller Name</span>
+              <span class="type">ADT</span>
+            </div>
+            <div class="item" data-tab="traveller-tab2">
+              <span class="name">Traveller Name</span>
+              <span class="type">CHD</span>
+            </div>
+          </div>
+        </div>
+        <div class="eleven wide column travller-detail-block">
+          <div class="ui tab active" data-tab="traveller-tab1">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="five wide column content-block active">
+                        <div class="info">
+                          <h3>Child Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="remove">Remove</button>
+                        </div>
+                      </div>
+                      <div class="five wide column content-block">
+                        <div class="info">
+                          <h3>Vegan Vegetarian Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="add">Add</button>
+                        </div>
+                      </div>
+                      <div class="five wide column content-block disabled">
+                        <div class="info">
+                          <h3>Vegan Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="add">Add</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="five wide column content-block active">
+                        <div class="info">
+                          <h3>Child Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="remove">Remove</button>
+                        </div>
+                      </div>
+                      <div class="five wide column content-block">
+                        <div class="info">
+                          <h3>Vegan Vegetarian Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="add">Add</button>
+                        </div>
+                      </div>
+                      <div class="five wide column content-block disabled">
+                        <div class="info">
+                          <h3>Vegan Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="add">Add</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui tab" data-tab="traveller-tab2">
+            <div class="route-block">
+              <div class="ui styled accordion">
+                <div class="title active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>DXB - COK</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content active">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="five wide column content-block active">
+                        <div class="info">
+                          <h3>Child Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="remove">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="title">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row p-0">
+                      <div class="five wide column line"></div>
+                      <div class="six wide column route">
+                        <span>COK - DXB</span>
+                      </div>
+                      <div class="five wide column line"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="five wide column content-block active">
+                        <div class="info">
+                          <h3>Child Meal</h3>
+                          <p>AED
+                            <span>32</span>
+                          </p>
+                          <button>View</button>
+                          <button class="remove">Remove</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row action-block">
+        <div class="ten wide column">
+          <h5>Total:</h5>
+          <button class="sel_item">Child Meal
+            <span aria-hidden="true" class="close">&times;</span>
+          </button>
+        </div>
+        <div class="six wide column bookings_btn-panel">
+          <button class="ui export button" (click)="closeModal('meal-modal')">Cancel</button>
+          <button class="ui primary button">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<!--
+<app-hotele-booking-details *ngIf="h"></app-hotele-booking-details> -->
+
+<app-flight-voucher [bookingTrip_id]="bookingTrip_id" [displayVoucherWithoutPrice]="displayVoucherWithoutPrice"
+  *ngIf="displayVoucher"></app-flight-voucher>
+
+<app-flight-invoice [bookingTrip_id]="bookingTrip_id" *ngIf="displayInvoice"></app-flight-invoice>
+
+<!-- <div  id="pdfTable" #pdfTable></div>
+</div> -->
+<jw-modal id="seat-map" class="seat-map">
+  <app-seat-map></app-seat-map>
+</jw-modal>
+
+<jw-modal id="traveller-edit" class="traveller-modal">
+  <div class="ui" *ngIf="editTraveller">
+    <i class="close icon" (click)="closeModal('traveller-edit');"></i>
+    <div class="ui fluid container">
+      <div class="ui form">
+        <h3 class="basic-header">TRAVELLER DETAILS</h3>
+        <div class="ui grid">
+          <ng-container *ngFor="let traveller of newTravellerData; let travellerIndex = index">
+            <div class="sixteen wide column row">
+              <div class="two wide column">
+                <label class="flights_label label-align">Type</label>
+                <select class="ui fluid dropdown" formControlName="type">
+                  <option value="ADT">ADT</option>
+                  <option value="CHD">CHD</option>
+                  <option value="INF">INF</option>
+                </select>
+              </div>
+              <div class="three wide column">
+                <label class="flights_label label-align" for="">Name</label>
+                <input type="text" formControlName="name" placeholder="Name" />
+              </div>
+              <div class="three wide column">
+                <label class="flights_label label-align" for="">Date</label>
+                <div class="ui left icon input flights_datepicker" [ngClass]="{
+                                error: isSubmitted && ond['controls']['flightDate'].invalid
+                              }" (change)="airportChanged(i)">
+                  <input type="text" autocomplete="off" name="flightDate_name_{{ i }}" id="flightDate_id_{{ i }}"
+                    formControlName="flightDate" placeholder="Date" [value]="ondArray.controls[i].value.flightDate" />
+                  <i class="icon">
+                    <img src="./../../../../assets/icons/calendar.svg"
+                      class="flights_input__placeholder-icon cal date-img" />
+                  </i>
+                </div>
+                <span *ngIf="i > 0" (click)="removeOndArr(i, i)"><i class="icon trash"></i></span>
+              </div>
+              <div class="three wide column">
+                <label class="flights_label label-align">Identification</label>
+                <select class="ui fluid dropdown" formControlName="identification" (change)="
+                                passIdentification(
+                                  $event.target.value,
+                                  p
+                                )
+                              ">
+                  <option value="Passport">Passport</option>
+                  <option value="Resident ID">
+                    Resident Identity/Iqama</option>
+                  <option value="National ID">National ID</option>
+                </select>
+              </div>
+              <div class="three wide column">
+                <label class="flights_label label-align">Number</label>
+                <div class="ui input fluid">
+                  <input type="text" name="passportNo" formControlName="passportNo" placeholder="{{
+                              identifactionType
+                            }} Number" />
+                </div>
+              </div>
+              <div class="two wide column">
+                <label class="flights_label label-align" for="">Frequent Flyer</label>
+                <input type="text" formControlName="frequentflyer" placeholder="Frequent Flyer" />
+              </div>
+            </div>
+          </ng-container>
+          <div class="sixteen wide coulmn row">
+            <div class="sixteen wide column actions bookings_btn-panel text-right">
+              <button class="ui reset button" (click)="closeModal('traveller-edit');">Cancel</button>
+              <button class="ui primary button">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+
+<jw-modal id="contact-edit" class="contact-modal">
+  <div class="ui" *ngIf="editContact">
+    <i class="close icon" (click)="closeModal('contact-edit');"></i>
+    <div class="ui fluid container">
+      <div class="ui form">
+        <h3 class="basic-header">CONTACT DETAILS</h3>
+        <div class="ui grid">
+          <div class="sixteen wide column row">
+            <div class="four wide column">
+              <label class="flights_label label-align" for="">Traveller</label>
+              <input type="text" formControlName="travellername" placeholder="Name" />
+            </div>
+            <div class="four wide column">
+              <label class="flights_label label-align" for="">Phone</label>
+              <input type="text" formControlName="passportnumber" placeholder="Phone Number" />
+            </div>
+            <div class="four wide column">
+              <label class="flights_label label-align" for="">Destination Contact</label>
+              <input type="text" formControlName="passportnumber" placeholder="Destination Contact" />
+            </div>
+            <div class="four wide column">
+              <label class="flights_label label-align">Email</label>
+              <input type="email" name="email" formControlName="email" value="" placeholder="Email" class="email">
+            </div>
+          </div>
+          <div class="sixteen wide coulmn row">
+            <div class="sixteen wide column actions bookings_btn-panel text-right">
+              <button class="ui reset button" (click)="closeModal('contact-edit');">Cancel</button>
+              <button class="ui primary button">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>

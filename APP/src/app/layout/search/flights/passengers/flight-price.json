@@ -1,0 +1,602 @@
+{
+  "@EchoToken": "019ad86d-4677-4426-97b4-785febe230a9",
+  "@TimeStamp": "2019-10-31T08:13:39.958Z",
+  "@Version": 16.1,
+  "Document": {
+    "Name": "TPC",
+    "ReferenceVersion": 16.1
+  },
+  "Success": "",
+  "AirlineOffers": {
+    "AirlineOffer": {
+      "OfferID": {
+        "#text": "SV-SP3F-16111814824367351319-1-1_SP3F-16111814824367351319_2",
+        "@Owner": "SV"
+      },
+      "TotalPrice": {
+        "DetailCurrencyPrice": {
+          "Total": {
+            "#text": 1552.5,
+            "@Code": "AED"
+          },
+          "Taxes": {
+            "Total": {
+              "#text": 435,
+              "@Code": "AED"
+            }
+          }
+        }
+      },
+      "PricedOffer": {
+        "OfferPrice": {
+          "@OfferItemID": "SV-SP3F-16111814824367351319-1-1_ADT_1",
+          "RequestedDate": {
+            "PriceDetail": {
+              "TotalAmount": {
+                "DetailCurrencyPrice": {
+                  "Total": {
+                    "#text": 1552.5,
+                    "@Code": "AED"
+                  }
+                }
+              },
+              "BaseAmount": {
+                "#text": 1117.5,
+                "@Code": "AED"
+              },
+              "Taxes": {
+                "Total": {
+                  "#text": 435,
+                  "@Code": "AED"
+                },
+                "Breakdown": {
+                  "Tax": [
+                    {
+                      "Amount": 20,
+                      "TaxCode": "YR",
+                      "TaxType": "VA"
+                    },
+                    {
+                      "Amount": 75,
+                      "TaxCode": "AE",
+                      "TaxType": "AD"
+                    },
+                    {
+                      "Amount": 35,
+                      "TaxCode": "F6",
+                      "TaxType": "TO"
+                    },
+                    {
+                      "Amount": 5,
+                      "TaxCode": "TP",
+                      "TaxType": "SE"
+                    },
+                    {
+                      "Amount": 10,
+                      "TaxCode": "ZR",
+                      "TaxType": "AP"
+                    },
+                    {
+                      "Amount": 40,
+                      "TaxCode": "E3",
+                      "TaxType": "SE"
+                    },
+                    {
+                      "Amount": 180,
+                      "TaxCode": "IO",
+                      "TaxType": "VZ"
+                    },
+                    {
+                      "Amount": 70,
+                      "TaxCode": "BH",
+                      "TaxType": "DP"
+                    }
+                  ]
+                }
+              }
+            },
+            "Associations": {
+              "AssociatedTraveler": {
+                "TravelerReferences": "PAX1"
+              },
+              "ApplicableFlight": {
+                "FlightSegmentReference": [
+                  {
+                    "@ref": "SEG3",
+                    "ClassOfService": {
+                      "Code": "V",
+                      "MarketingName": "Guest SuperSaver"
+                    },
+                    "BagDetailAssociation": {
+                      "CheckedBagReferences": "PI-2",
+                      "CarryOnReferences": "KG-10"
+                    }
+                  },
+                  {
+                    "@ref": "SEG4",
+                    "ClassOfService": {
+                      "Code": "V",
+                      "MarketingName": "Guest SuperSaver"
+                    },
+                    "BagDetailAssociation": {
+                      "CheckedBagReferences": "PI-2",
+                      "CarryOnReferences": "KG-10"
+                    }
+                  },
+                  {
+                    "@ref": "SEG5",
+                    "ClassOfService": {
+                      "Code": "V",
+                      "MarketingName": "Guest SuperSaver"
+                    },
+                    "BagDetailAssociation": {
+                      "CheckedBagReferences": "PI-2",
+                      "CarryOnReferences": "KG-10"
+                    }
+                  },
+                  {
+                    "@ref": "SEG6",
+                    "ClassOfService": {
+                      "Code": "V",
+                      "MarketingName": "Guest SuperSaver"
+                    },
+                    "BagDetailAssociation": {
+                      "CheckedBagReferences": "PI-2",
+                      "CarryOnReferences": "KG-10"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "FareDetail": {
+            "FareComponent": [
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG3",
+                "FareBasis": {
+                  "FareBasisCode": {
+                    "Code": "VRTAE"
+                  },
+                  "RBD": "V"
+                }
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG4",
+                "FareBasis": {
+                  "FareBasisCode": {
+                    "Code": "VRTAE"
+                  },
+                  "RBD": "V"
+                }
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG5",
+                "FareBasis": {
+                  "FareBasisCode": {
+                    "Code": "VRTAE"
+                  },
+                  "RBD": "V"
+                }
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG6",
+                "FareBasis": {
+                  "FareBasisCode": {
+                    "Code": "VRTAE"
+                  },
+                  "RBD": "V"
+                }
+              }
+            ]
+          }
+        },
+        "Associations": [
+          {
+            "ApplicableFlight": {
+              "FlightSegmentReference": [
+                {
+                  "@ref": "SEG3",
+                  "ClassOfService": {
+                    "Code": {
+                      "#text": "V",
+                      "@SeatsLeft": 0
+                    },
+                    "MarketingName": "GUEST SUPERSAVER"
+                  },
+                  "BagDetailAssociation": {
+                    "CheckedBagReferences": "PI-2",
+                    "CarryOnReferences": "KG-10"
+                  }
+                },
+                {
+                  "@ref": "SEG4",
+                  "ClassOfService": {
+                    "Code": {
+                      "#text": "V",
+                      "@SeatsLeft": 0
+                    },
+                    "MarketingName": "GUEST SUPERSAVER"
+                  },
+                  "BagDetailAssociation": {
+                    "CheckedBagReferences": "PI-2",
+                    "CarryOnReferences": "KG-10"
+                  }
+                }
+              ],
+              "OriginDestinationReferences": "DXBBAH",
+              "FlightReferences": "FLT1"
+            }
+          },
+          {
+            "ApplicableFlight": {
+              "FlightSegmentReference": [
+                {
+                  "@ref": "SEG5",
+                  "ClassOfService": {
+                    "Code": {
+                      "#text": "V",
+                      "@SeatsLeft": 0
+                    },
+                    "MarketingName": "GUEST SUPERSAVER"
+                  },
+                  "BagDetailAssociation": {
+                    "CheckedBagReferences": "PI-2",
+                    "CarryOnReferences": "KG-10"
+                  }
+                },
+                {
+                  "@ref": "SEG6",
+                  "ClassOfService": {
+                    "Code": {
+                      "#text": "V",
+                      "@SeatsLeft": 0
+                    },
+                    "MarketingName": "GUEST SUPERSAVER"
+                  },
+                  "BagDetailAssociation": {
+                    "CheckedBagReferences": "PI-2",
+                    "CarryOnReferences": "KG-10"
+                  }
+                }
+              ],
+              "OriginDestinationReferences": "BAHDXB",
+              "FlightReferences": "FLT2"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "DataLists": {
+    "AnonymousTravelerList": {
+      "AnonymousTraveler": {
+        "@ObjectKey": "PAX1",
+        "PTC": "ADT"
+      }
+    },
+    "CarryOnAllowanceList": {
+      "CarryOnAllowance": {
+        "@ListKey": "KG-10",
+        "WeightAllowance": {
+          "MaximumWeight": {
+            "Value": 10,
+            "UOM": "Kilogram"
+          }
+        }
+      }
+    },
+    "CheckedBagAllowanceList": {
+      "CheckedBagAllowance": {
+        "@refs": "SEG3 SEG4 SEG5 SEG6",
+        "@ListKey": "PI-2",
+        "PieceAllowance": {
+          "TotalQuantity": 2,
+          "PieceMeasurements": {
+            "@Quantity": 2,
+            "PieceWeightAllowance": {
+              "MaximumWeight": {
+                "Value": 23,
+                "UOM": "Kilogram"
+              }
+            }
+          }
+        }
+      }
+    },
+    "FareList": {
+      "FareGroup": {
+        "@ListKey": "VRTAE",
+        "Fare": {
+          "FareCode": {
+            "Code": "V"
+          },
+          "FareDetail": {
+            "FareComponent": [
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG3"
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG4"
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG5"
+              },
+              {
+                "@refs": "VRTAE",
+                "SegmentReference": "SEG6"
+              }
+            ]
+          }
+        },
+        "FareBasisCode": {
+          "Code": "VRTAE"
+        }
+      }
+    },
+    "FlightSegmentList": {
+      "FlightSegment": [
+        {
+          "@SegmentKey": "SEG3",
+          "Departure": {
+            "AirportCode": "DXB",
+            "Date": "2019-11-01",
+            "Time": "10:40",
+            "AirportName": "Dubai, United Arab Emirates (DXB-Dubai Intl.)",
+            "Terminal": {
+              "Name": 1
+            }
+          },
+          "Arrival": {
+            "AirportCode": "RUH",
+            "Date": "2019-11-01",
+            "Time": "11:40",
+            "AirportName": "Riyadh, Saudi Arabia (RUH-King Khaled Intl.)",
+            "Terminal": {
+              "Name": 2
+            }
+          },
+          "MarketingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 563
+          },
+          "OperatingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 563
+          },
+          "Equipment": {
+            "AircraftCode": 320
+          },
+          "ClassOfService": {
+            "Code": {
+              "#text": "V",
+              "@SeatsLeft": 0
+            },
+            "MarketingName": "GUEST SUPERSAVER"
+          },
+          "FlightDetail": {
+            "FlightDuration": {
+              "Value": "PT2H0M"
+            }
+          }
+        },
+        {
+          "@SegmentKey": "SEG4",
+          "Departure": {
+            "AirportCode": "RUH",
+            "Date": "2019-11-01",
+            "Time": "15:40",
+            "AirportName": "Riyadh, Saudi Arabia (RUH-King Khaled Intl.)",
+            "Terminal": {
+              "Name": 2
+            }
+          },
+          "Arrival": {
+            "AirportCode": "BAH",
+            "Date": "2019-11-01",
+            "Time": "16:45",
+            "AirportName": "Manama, Bahrain (BAH-Bahrain Intl.)",
+            "Terminal": ""
+          },
+          "MarketingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 520
+          },
+          "OperatingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 520
+          },
+          "Equipment": {
+            "AircraftCode": 320
+          },
+          "ClassOfService": {
+            "Code": {
+              "#text": "V",
+              "@SeatsLeft": 0
+            },
+            "MarketingName": "GUEST SUPERSAVER"
+          },
+          "FlightDetail": {
+            "FlightDuration": {
+              "Value": "PT1H5M"
+            }
+          }
+        },
+        {
+          "@SegmentKey": "SEG5",
+          "Departure": {
+            "AirportCode": "BAH",
+            "Date": "2019-12-15",
+            "Time": "12:00",
+            "AirportName": "Manama, Bahrain (BAH-Bahrain Intl.)",
+            "Terminal": ""
+          },
+          "Arrival": {
+            "AirportCode": "JED",
+            "Date": "2019-12-15",
+            "Time": "14:15",
+            "AirportName": "Jeddah, Saudi Arabia (JED-King Abdulaziz Intl.)",
+            "Terminal": {
+              "Name": 1
+            }
+          },
+          "MarketingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 527
+          },
+          "OperatingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 527
+          },
+          "Equipment": {
+            "AircraftCode": 320
+          },
+          "ClassOfService": {
+            "Code": {
+              "#text": "V",
+              "@SeatsLeft": 0
+            },
+            "MarketingName": "GUEST SUPERSAVER"
+          },
+          "FlightDetail": {
+            "FlightDuration": {
+              "Value": "PT2H15M"
+            }
+          }
+        },
+        {
+          "@SegmentKey": "SEG6",
+          "Departure": {
+            "AirportCode": "JED",
+            "Date": "2019-12-15",
+            "Time": "15:55",
+            "AirportName": "Jeddah, Saudi Arabia (JED-King Abdulaziz Intl.)",
+            "Terminal": {
+              "Name": "S"
+            }
+          },
+          "Arrival": {
+            "AirportCode": "DXB",
+            "Date": "2019-12-15",
+            "Time": "19:30",
+            "AirportName": "Dubai, United Arab Emirates (DXB-Dubai Intl.)",
+            "Terminal": {
+              "Name": 1
+            }
+          },
+          "MarketingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 550
+          },
+          "OperatingCarrier": {
+            "AirlineID": "SV",
+            "Name": "Saudi Arabian Airlines",
+            "FlightNumber": 550
+          },
+          "Equipment": {
+            "AircraftCode": 777
+          },
+          "ClassOfService": {
+            "Code": {
+              "#text": "V",
+              "@SeatsLeft": 0
+            },
+            "MarketingName": "GUEST SUPERSAVER"
+          },
+          "FlightDetail": {
+            "FlightDuration": {
+              "Value": "PT2H35M"
+            }
+          }
+        }
+      ]
+    },
+    "FlightList": {
+      "Flight": [
+        {
+          "@FlightKey": "FLT1",
+          "@refs": "SEG3 SEG4",
+          "Journey": "",
+          "SegmentReferences": {
+            "#text": "SEG3 SEG4",
+            "@OnPoint": "DXB",
+            "@OffPoint": "BAH"
+          }
+        },
+        {
+          "@FlightKey": "FLT2",
+          "@refs": "SEG5 SEG6",
+          "Journey": "",
+          "SegmentReferences": {
+            "#text": "SEG5 SEG6",
+            "@OnPoint": "BAH",
+            "@OffPoint": "DXB"
+          }
+        }
+      ]
+    },
+    "OriginDestinationList": {
+      "OriginDestination": [
+        {
+          "@OriginDestinationKey": "DXBBAH",
+          "@refs": "FLT1",
+          "DepartureCode": "DXB",
+          "ArrivalCode": "BAH",
+          "FlightReferences": "FLT1"
+        },
+        {
+          "@OriginDestinationKey": "BAHDXB",
+          "@refs": "FLT2",
+          "DepartureCode": "BAH",
+          "ArrivalCode": "DXB",
+          "FlightReferences": "FLT2"
+        }
+      ]
+    }
+  },
+  "Metadata": {
+    "Other": {
+      "OtherMetadata": [
+        {
+          "CurrencyMetadatas": {
+            "CurrencyMetadata": {
+              "@MetadataKey": "GBP",
+              "Decimals": 2
+            }
+          }
+        },
+        {
+          "CurrencyMetadatas": {
+            "CurrencyMetadata": {
+              "@MetadataKey": "GBP",
+              "Decimals": 2
+            }
+          }
+        },
+        {
+          "CurrencyMetadatas": {
+            "CurrencyMetadata": {
+              "@MetadataKey": "DisplayCurrency",
+              "Application": "DisplayCurrency",
+              "Decimals": 2,
+              "Name": "AED"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

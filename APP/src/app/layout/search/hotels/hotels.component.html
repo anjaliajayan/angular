@@ -1,0 +1,1648 @@
+<div class="hotels card-wrapper animated fadeInUp">
+    <div class="container">
+        <h3 class="hotels_title">{{screenTitle}}</h3>
+        <!-- <button>Modify Search</button> -->
+    </div> 
+    <router-outlet></router-outlet>
+    
+    <div class="ui bottom attached active tab segment hotel-search-form-wrap">
+        <form [formGroup]="hotelSearchForm" *ngIf="!showSearchResult" (ngSubmit)="searchHandler()">
+            <div class="conatiner-fluid">
+                <div class="ui grid">
+                    <div class="sixteen wide column row">
+                        <div class="twelve wide column hotel-grid">
+                            <div class="ui grid hotel-search-block hotel-wrapper">
+                                <div class="sixteen wide column row">
+                                    <div class="six wide column">
+                                        <label>Destination<span>*</span></label>
+                                        <div>
+                                            <select class="ui fluid search dropdown dropdownCity" ngModel formControlName="city" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" > <!-----(change)="onChangeCity(city)" -->
+                                                <option value="">Destination</option>
+                                                <option class="city" *ngFor="let city of cities"  value="city">{{city.label}}</option>
+                                            </select>                                      
+                                        </div>
+                                        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                            <div *ngIf="f.city.errors.required" class="text-danger">City is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="four wide column">
+                                        <div class="ten wide column">
+                                            <label>Check In Date<span>*</span></label>
+                                            <div class="ui left icon input fluid">
+                                                <input type="text"  placeholder="Check In Date" formControlName="check_in" ngModel name="check_in" value="" (input)="getNights()" autocomplete="off"  [ngClass]="{ 'is-invalid': submitted && f.city.errors }"  />
+                                                <i class="icon">
+                                                    <img src="./../../../../../assets/icons/calendar.svg"
+                                                    class="pass_input__placeholder-icon cal" />
+                                                </i>
+                                            </div>
+                                            <div *ngIf="submitted && f.check_in.errors" class="invalid-feedback">
+                                                <div *ngIf="f.check_in.errors.required" class="text-danger">Checkin is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="four wide column">
+                                        <div class="ten wide column">
+                                            <label>Check Out Date<span>*</span></label>
+                                            <div class="ui left icon input fluid">
+                                                <input type="text"  placeholder="Check Out Date" formControlName="check_out" id="check_out" name="check_out" value="" ngModel (change)="getNights()" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"   autocomplete="off" />
+                                                <i class="icon">
+                                                    <img src="./../../../../../assets/icons/calendar.svg"
+                                                    class="pass_input__placeholder-icon cal" />
+                                                </i>
+                                            </div>
+                                            <div *ngIf="submitted && f.check_out.errors" class="invalid-feedback">
+                                                <div *ngIf="f.check_out.errors.required" class="text-danger">Checkout is required</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="two wide column">
+                                        <label>Nights</label>
+                                        <div class="ui input fluid">
+                                            <input type="text" placeholder="Nights" formControlName="nights" name="nights" value="{{number_of_nights}}" required disabled/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                     <div class="six wide column">
+                                        <label>Rooms<span>*</span></label>
+                                        <div class="add-block room-size">
+                                            <a title="Reduce number of rooms" (click)="decreaseRoom()" class="reduce-room">-</a>
+                                            <input type="number" class="room-no" [(ngModel)]="total_rooms" formControlName="no_of_rooms" max="5" min="1" value="{{total_rooms}}"/>
+                                            <a title="Add number of rooms" (click)="increaseRoom()">+</a>
+                                        </div>
+                                    </div>
+                                    <div class="ten wide column">
+                                        <div class="ten wide column row">
+                                          <div class="ten wide column">
+                                             <div class="room-detail-block room-wrapper room" *ngIf="room_1_show">
+                                                    <div class="ui grid">
+                                                        <div class="sixteen wide column row">
+                                                            <div class="sixteen wide column nation-display">
+                                                                <div class="ui grid">
+                                                                    <div class="eight wide column nationality">
+                                                                        <label>Nationality</label>
+                                                                        <div>
+                                                                            <select class="ui fluid search dropdown" formControlName="nationality">
+                                                                                <option value="">Nationality</option>
+                                                                                <option *ngFor="let country of countries" value="{{country.country_code}}">{{country.country}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div *ngIf="submitted && f.nationality.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.nationality.errors.required" class="text-danger">Nationality is required</div>
+                                                                        </div> -->
+                                                                    </div>
+                                                                     <div class="eight wide column nationality">
+                                                                        <label>Resident</label>
+                                                                        <div>
+                                                                            <select class="ui fluid search dropdown" formControlName="resident">
+                                                                                <option value="">Resident</option>
+                                                                                <option *ngFor="let country of countries" value="{{country.country_code}}">{{country.country}}</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <!-- <div *ngIf="submitted && f.resident.errors" class="invalid-feedback">
+                                                                            <div *ngIf="f.resident.errors.required" class="text-danger">Resident is required</div>
+                                                                        </div> -->
+                                                                    </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                   </div>
+                                              </div>
+                                        </div>
+                                    </div>
+                               </div>
+                                </div>
+                                <div class="sixteen wide column row pt-0">
+                                <div class="six wide column row display-grid multi-room">
+                                    <div class="sixteen wide column">
+                                        <div class="room-detail-block" *ngIf="room_1_show">
+                                            <label class="head">
+                                                Room 1 
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_one_adults">
+                                                                            <option value="" selected disabled>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown"  [(ngModel)]="room_one_children" value="0"  formControlName="room_one_children" > 
+                                                                            <option value="0">0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row age-size">
+                                                                <div class="four wide column" *ngIf="room_one_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_one_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>                                                                  
+                                                                <div class="four wide column" *ngIf="room_one_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_one_ch_two" >
+                                                                            <option value="" selected disabled>0</option>
+                                                                
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                 <div class="four wide column" *ngIf="room_one_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown"  formControlName="r_one_ch_three"> 
+                                                                            <option value="" selected disabled>0</option>
+                                    
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_one_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_one_ch_four"> 
+                                                                            <option value="" selected disabled>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_one_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_one_ch_five"> 
+                                                                            <option value="" selected disabled>0</option>
+                                                       
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--2--->
+                                        <div class="room-detail-block" *ngIf="room_2_show">
+                                            <label class="head">
+                                                Room 2
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_two_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_two_children" formControlName="room_two_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_two_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_two_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_two_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_two_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_two_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_two_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_two_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_two_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_two_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_two_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!----room 3-->                                       
+                                        <div class="room-detail-block" *ngIf="room_3_show">
+                                            <label class="head">
+                                                Room 3
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_three_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_three_children" formControlName="room_three_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_three_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_three_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_three_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_three_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_three_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_three_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_three_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_three_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_three_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_three_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--room 4-->
+                                        <div class="room-detail-block" *ngIf="room_4_show">
+                                            <label class="head">
+                                                Room 4
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_four_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_four_children" formControlName="room_four_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_four_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_four_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_four_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_four_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_four_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_four_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_four_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_four_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_four_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_four_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---room 5 -->
+                                        <div class="room-detail-block" *ngIf="room_5_show">
+                                            <label class="head">
+                                                Room 5
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_five_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_five_children" formControlName="room_five_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_five_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_five_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_five_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_five_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_five_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_five_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_five_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_five_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_five_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_five_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--room 6----->
+                                        <div class="room-detail-block" *ngIf="room_6_show">
+                                            <label class="head">
+                                                Room 6
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_six_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_six_children" formControlName="room_six_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_six_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_six_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_six_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_six_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_six_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_six_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_six_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_six_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_six_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_six_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--room 7---->
+                                        <div class="room-detail-block" *ngIf="room_7_show">
+                                            <label class="head">
+                                                Room 7
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_seven_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_seven_children" formControlName="room_seven_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_seven_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_seven_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_seven_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_seven_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_seven_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_seven_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_seven_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_seven_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_seven_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_seven_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---room 8 -->
+                                        <div class="room-detail-block" *ngIf="room_8_show">
+                                            <label class="head">
+                                                Room 8
+                                                <!-- <span> Clear </span> -->
+                                            </label>
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row">
+                                                    <div class="sixteen wide column">
+                                                        <div class="ui grid">
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column">
+                                                                    <label>Adult</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="room_eight_adults">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <!-- <option value="3">3</option> -->
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column">
+                                                                    <label>Child</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" [(ngModel)]="room_eight_children" formControlName="room_eight_children">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sixteen wide column row">
+                                                                <div class="four wide column" *ngIf="room_eight_children>0">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_eight_ch_one">
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="four wide column" *ngIf="room_eight_children>1">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_eight_ch_two"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_eight_children>2">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_eight_ch_three"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column" *ngIf="room_eight_children>3">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_eight_ch_four" > 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="four wide column space" *ngIf="room_eight_children>4">
+                                                                    <label>Child Age</label>
+                                                                    <div>
+                                                                        <select class="ui fluid search dropdown" formControlName="r_eight_ch_five"> 
+                                                                            <option value="0" selected>0</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                            <!-- <span class="star">
+                           
+                            </span> -->
+                                </div>
+                                
+                                <div class="ten wide column row display-grid">
+                                <div class="nation-block">
+                                    <div class="ui grid">
+                                    <div class="sixteen wide column row">
+                                        <div class="sixteen wide column row star-rating-block">
+                                            <div class="sixteen wide column">
+                                                <label>Star Rating</label>
+                                                <div class="rating-list-block">
+                                                    <div class="sixteen wide column">
+                                                    <!-- <div class="eight wide column"> -->
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratingAll"  (checked)="ratingAll"  [ngModelOptions]="{standalone: true}"  (click)="selectRatings()">
+                                                        <label for="all" style="margin-right:18px;">All</label>
+                                                    </div>
+
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[0].selected"  (checked)="ratings[0].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(0)">
+                                                        <label for="uncategorized">Uncategorized</label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[1].selected"  (checked)="ratings[1].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(1)">
+                                                        <label for="onestar">1 Star</label>
+                                                    </div>
+                                                    
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[2].selected"  (checked)="ratings[2].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(2)">
+                                                        <label for="twostar">2 Star</label>
+                                                    </div>
+                                                    
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[3].selected"  (checked)="ratings[3].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(3)">
+                                                        <label for="threestar">3 Star</label>
+                                                    </div>
+                                                    <!-- </div> -->
+                                                    <!-- <div class="eight wide column"> -->
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[4].selected"  (checked)="ratings[4].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(4)">
+                                                        <label for="fourstar">4 Star</label>
+                                                    </div>
+                                                    
+                                                    <div class="ui checkbox">
+                                                        <input type="checkbox" name="fivestar" [(ngModel)]="ratings[5].selected"  (checked)="ratings[5].selected"  [ngModelOptions]="{standalone: true}"  (click)="setRating(5)">
+                                                        <label for="fivestar">5 Star</label>
+                                                    </div>
+                                                    
+                                                    <!-- </div> -->
+                                                </div>
+                                                 </div>
+                                               </div>
+                                            </div>
+                                  </div>
+                                    <br/>
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid markup-wrapper">
+                                            <div class="sixteen wide column row">
+                                                <div class="six wide column">
+                                                    <label>Markup {{hotelSearchForm.controls.markupBy.value}}</label>
+                                                    <div class="ui input fluid">
+                                                        <input type="number" name="markupvalue" formControlName="markupvalue" placeholder="Markup Value">
+                                                    </div>
+                                                </div>
+                                                <div class="four wide column">
+                                                    <label>Markup By</label>
+                                                    <div>
+                                                        <select class="ui fluid dropdown" formControlName="markupBy">
+                                                            <option value="amount">Amount</option>
+                                                            <option value="percentage">Percentage</option>
+                                                 
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                                
+        <div class="hotel ui grid">
+            <div class="sixteen wide column row">
+                <div class="ten wide column nationality">
+                    <label>Hotel Name</label>
+                    <div class="ui input fluid">
+                        <input type="text" placeholder="Hotel Name" formControlName="hotel_name" value="" />
+                    </div>
+                </div>
+        </div>
+             <!-- <br/> -->
+             <div class="sixteen wide column hotelbooking pt-0">
+                <div class="ui grid markup-wrapper">
+                    <div class="sixteen wide column row">
+                        <div class="five wide column behalf-select">
+                           <label>Behalf of booking</label>
+                             <div class="ui selection dropdown select">
+                     <input type="hidden" name="behalfDrop" formControlname="behal_of">
+                     <i class="dropdown icon"></i>
+                     <div class="default text">Behalf of Booking</div>
+                     <div class="menu">
+                         <div class="item" data-value="Dubai Travels">Dubai Travels</div>
+                         <div class="item" data-value="ABC Travels">ABC Travels</div>
+                         <div class="item" data-value="Global Tours">Global Tours</div>
+                         <div class="item" data-value="Deira Travels">Deira Travels</div>
+                     </div>
+                 </div>
+                </div>
+                <div class="five wide column hotelclient">
+                 <label>Clients</label>
+                 <div class="ui selection dropdown select">
+                     <input type="hidden" name="clientList" formControlname="client_list">
+                     <i class="dropdown icon"></i>
+                     <div class="default text">Clients</div>
+                     <div class="menu">
+                         <div class="item" data-value="TPConnects">TPConnects</div>
+                         <div class="item" data-value="zayaraah">Zayaraah</div>
+                     </div>
+                 </div>
+                </div>
+               </div>
+             </div>
+           </div>
+         </div>
+        </div>
+                        </div>  
+
+                       
+   
+               
+                                <div class="sixteen wide column row">
+                                    <div class="sixteen wide column bookings_btn-panel">
+                                        <button class="ui primary button" >
+                                        <i *ngIf="searchHotelSpinner" class="fa fa-spinner fa-spin"></i>    Search
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="four wide column search-list-block star-wrapper" *ngIf="savedSearches!=null">
+                            <label class="list-label">Latest 10 searches </label>
+                            <div class="ui grid">
+                                <div class="sixteen wide column row list-wrapper">
+                                    <div class="sixteen wide column list" *ngFor="let search of savedSearches | slice:0:10;  ">
+                                        <a>
+                                            <p>
+                                                <span class="dest">{{search.city}}</span> from <br>
+                                                <span class="date">{{search.check_in}} to {{search.check_out}} </span>
+                                            </p>
+                                            <p>
+                                                <span class="timeline">{{search.nights}} Nights</span> with <span class="timeline"> {{search.adults_per_room }} + {{search.children_per_room }} Passengers</span> ({{search.adults_per_room }} Adult, {{search.children_per_room }} Children)
+                                            </p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div> 
+</div>
+
+
+<app-hotels-search-results [hotelList]="hotelList" *ngIf="showSearchResult" [searchCriteria]="searchCriteria" [nearbyCityObj]="nearbyCityObj"  [parentRatings]="ratings" [hotel_name]="hotel_name" ></app-hotels-search-results>

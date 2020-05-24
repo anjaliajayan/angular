@@ -1,0 +1,328 @@
+<div class="outer-segment">
+  <div class="user">
+    <h3 class="user_title">Create New User</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item create_tab_title" data-tab="first">Create B2B User</div>
+  </div>
+  <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+    <div class=" result-block">
+      <form [formGroup]="addBusinessForm" (ngSubmit)="addBussiessUser()" class="ui form ">
+        <div class="ui fluid container">
+          <div class="outer-form">
+            <!-- <h4 class="ui header">Basic Information</h4> -->
+            <div class="field">
+              <div class="five fields">
+                <div class="two wide field">
+                  <label>Title</label>
+                  <select class="ui fluid dropdown" formControlName="salute">
+                    <option value="">Title</option>
+                    <option *ngFor="let salute of saluteNames" value="{{salute}}">{{salute}}</option>
+                  </select>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.first_name.errors) && f.first_name.errors.required) }">
+                  <label>First Name<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="first_name" placeholder="First Name">
+                  <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="validations">
+                    <div class="validations" *ngIf="first_name.errors?.required">
+                      First name is required
+                    </div>
+                  </div>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.last_name.errors) && f.last_name.errors.required) }">
+                  <label>Last Name<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="last_name" placeholder="Last Name">
+                  <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="validations">
+                    <div class="validations" *ngIf="last_name.errors?.required">
+                      Last Name is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.email.errors) && (f.email.errors.required || f.email.errors.email) ) }">
+                  <label>Email<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="email" placeholder="Email" class="email">
+                  <div *ngIf="email.invalid && (email.dirty || email.touched)" class="validations">
+                    <div class="validations" *ngIf="email.errors?.required">
+                      Email is required
+                    </div>
+                    <div class="validations" *ngIf="email.errors?.pattern">
+                      Email must be a valid email address
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="emailCheck && !addBusinessForm.controls['email'].invalid && (!addBusinessForm.controls['email'].dirty || !addBusinessForm.controls['email'].touched)"
+                    class="validator-msg">
+                    This Email Already Exists
+                  </div>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.mobile.errors) && f.mobile.errors.required) }">
+                  <label>Contact Number<span class="mandatory">*</span></label>
+                  <input type="number" formControlName="mobile" placeholder="Contact number">
+                  <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="validations">
+                    <div class="validations" *ngIf="mobile.errors?.required">
+                      Contact number is required
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="fields">
+                <div class="six wide field">
+                  <label>Initials</label>
+                  <input type="text" formControlName="initial" placeholder="Initials(EX:BIN)">
+                </div>
+                <div class="field sexRadio">
+                  <div class="ui radio checkbox">
+                    <input type="radio" id="male" value="male" name="sex" formControlName="sex" class="hidden">
+                    <label>Male</label>
+                  </div>
+
+                  <div class="ui radio checkbox">
+                    <input type="radio" id="female" value="female" name="sex" formControlName="sex" class="hidden">
+                    <label>Female</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+              <hr>
+            </div> -->
+            <!-- <h4 class="ui header">Address Information</h4> -->
+            <div class="field">
+              <!-- <label>Name</label> -->
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.address_1.errors) && f.address_1.errors.required) }">
+                  <label>Address 1<span class="mandatory">*</span></label>
+                  <input type="text" name="address_1" formControlName="address_1" placeholder="Address 1">
+                  <div *ngIf="address_1.invalid && (address_1.dirty || address_1.touched)" class="validations">
+                    <div class="validations" *ngIf="address_1.errors?.required">
+                      Address is required
+                    </div>
+                  </div>
+                </div>
+                <div class="six wide field">
+                  <label>Address 2</label>
+                  <input type="text" name="address_2" formControlName="address_2" placeholder="Address 2">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.country_id.errors) && f.country_id.errors.required) }">
+                  <label>Country</label>
+                  <select class="ui search dropdown" formControlName="country_id">
+                    <option value="">Select Country</option>
+                    <option *ngFor="let option of countries; let i = index" value="{{option.country_id}}">
+                      {{option.country}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+                              <hr>
+                            </div>
+                            <h4 class="ui header">Login Information</h4> -->
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.username.errors) && f.username.errors.required) }">
+                  <label>Username<span class="mandatory">*</span></label>
+                  <input type="text" formControlName="username" placeholder="Username">
+                  <div *ngIf="username.invalid && (username.dirty || username.touched)" class="validations">
+                    <div class="validations" *ngIf="username.errors?.required">
+                      username is required
+                    </div>
+                  </div>
+                  <div
+                    *ngIf="userCheck && !addBusinessForm.controls['username'].invalid && (!addBusinessForm.controls['username'].dirty || !addBusinessForm.controls['username'].touched)"
+                    class="validator-msg">
+                    This User Name Already Exits.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.password.errors) && f.password.errors.required) }">
+                  <label>
+                    Password<span class="mandatory">*</span>
+                    <i class="fa fa-exclamation-circle tooltip">
+                      <span class="tooltiptext">
+                          Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
+                      </span>
+                    </i>
+                  </label>
+                  <input type="password" name="password" formControlName="password" placeholder="Password" (change)="validatePassword()">
+                  <div *ngIf="f.password.invalid && (f.password.dirty || f.password.touched)" class="validations">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.pattern">Password must be valid</div>
+                  </div>
+                </div>
+                <div class="six wide field"
+                  [ngClass]="{'error': ((submitted && f.password_confirmation.errors) && ( f.password_confirmation.errors.required || f.password_confirmation.errors.unmatched) ) }">
+                  <label>Confirm Password<span class="mandatory">*</span></label>
+                  <input type="password" formControlName="password_confirmation" (keyup)="validatePassword()"
+                    (change)="validatePassword()" placeholder="Confirm Password">
+                  <div *ngIf="password_confirmation.invalid && (password_confirmation.dirty || password_confirmation.touched)" class="validations">
+                    <div class="validations" *ngIf="password_confirmation.errors?.required">
+                      Confirm Password is required
+                    </div>
+                    <div class="validations" *ngIf="password_confirmation.errors?.unmatched">
+                      Password is not matching
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="five fields">
+                <div class="six wide field">
+                  <label>Agent</label>
+                  <select class="ui fluid dropdown" formControlName="organisation_id"
+                    (change)="changePermissions($event.target.value)">
+                    <option value="">Select</option>
+                    <option *ngFor="let org of childOrganisations" value="{{org.organisation_id}}">{{org.name}}</option>
+                  </select>
+                </div>
+                <div class="six wide field">
+                  <label>Status</label>
+                  <select class="ui fluid dropdown" placeholder="Status" formControlName="is_active">
+                    <option value="">Status</option>
+                    <option value="1">Active</option>
+                    <option value="0">InActive</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+              <hr>
+            </div> -->
+            <!-- skills  -->
+            <div class="field">
+              <div class="three fields" [formGroup]="skillGroup"
+                *ngFor="let skillGroup of addBusinessForm.get('skills')['controls'];let i = index;">
+                <div class="four wide field">
+                  <label>Year</label>
+                  <select class="ui fluid search dropdown" formControlName="year">
+                    <option value="">Year</option>
+                    <option *ngFor="let year of yearList" value="{{year}}">{{year}}</option>
+                  </select>
+                </div>
+                <div class="four wide field">
+                  <label>Month</label>
+                  <select class="ui fluid search dropdown" formControlName="month">
+                    <option value="">Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                  </select>
+                </div>
+                <div class="four wide field">
+                  <label>Target Amount</label>
+                  <input type="number" formControlName="target_amount" placeholder="Target Amount">
+                </div>
+                <div class="newAgency_topAlign" title="Click to add more" (click)="addSkill()"
+                  *ngIf="i==(addBusinessForm.get('skills')['controls'].length-1)">
+                  <i class="icon">
+                    <img src="./../../../../../assets/icons/add_icon.png" />
+                  </i>
+                </div>
+                <div class="newAgency_topAlign" title="Click to remove this" *ngIf="i!=0" tabindex="0"
+                  (click)="removeSkill(i)">
+                  <i class="icon">
+                    <img src="./../../../../../assets/icons/remove_icon.png" />
+                  </i>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+              <hr>
+            </div> -->
+            <!-- <h4 class="ui header">Role Permission</h4> -->
+            <div class="field">
+              <div class="fields rolePermissionsShow">
+                
+                <div class="ui grid field" *ngIf="rolePermissions && rolePermissions.keys">
+                    <label class="role-perm-label">Role Permission</label>
+                  <div *ngFor="let key of rolePermissions.keys" class="seven wide column role-perm-block showBorderPar">
+                    <div class="ui checkbox mar-right-15px outer-checkbox">
+                      <input type="checkbox" name="search" id="{{key}}" [checked]="rolePermissions['data'][key].checked"
+                        (change)="checkAllChild($event,rolePermissions['data'][key])">
+                      <label for="{{key}}"><span
+                          class="pos_access-rights head">{{ rolePermissions['data'][key].display }}</span>
+                        <i *ngIf="!rolePermissions['data'][key].checked" class="level down alternate icon role-head"></i>
+                        <i *ngIf="rolePermissions['data'][key].checked" class="level up alternate icon role-head"></i>
+                      </label>
+                    </div>
+                    <div [hidden]="!rolePermissions['data'][key].checked" class="padd-left-15 parentEle "
+                      [ngClass]="{'childBlock': (rolePermissions['data'][key].accessType.length)}">
+                      <ng-container *ngFor="let accessObj of rolePermissions['data'][key].accessType; let idx = index;">
+                        <div [ngClass]="{'showOnlyParent': (!accessObj.accessType.length)}"
+                          [ngClass]="{'ui grid field': (accessObj.accessType.length)}" class="child-container">
+                          <div [ngClass]="{'sixteen wide column showBorderChild': (accessObj.accessType.length)}">
+                            <div class="ui checkbox mar-right-15 inner-checkbox">
+                              <input type="checkbox" id="test-{{idx}}-{{ rolePermissions['data'][key].display }}"
+                                name="search" [checked]="accessObj.checked" (change)="checkChild($event,accessObj, true)">
+                              <label for="test-{{idx}}-{{ rolePermissions['data'][key].display }}"><span
+                                  class="pos_access-rights">{{ accessObj.display }}</span>
+                                <i *ngIf="accessObj.accessType.length && !accessObj.checked"
+                                  class="level down alternate icon"></i>
+                                <i *ngIf="accessObj.accessType.length && accessObj.checked"
+                                  class="level up alternate icon"></i>
+                              </label>
+                              <!-- [ngClass]="{'childBlock': (accessObj.accessType.length)}" -->
+                              <div [hidden]="!accessObj.checked" [ngClass]="{'child-obj-block': (accessObj.accessType.length && accessObj.checked) }"
+                               >
+                                <div class="">
+                                  <div *ngFor="let childObj of accessObj.accessType; let cdx = index"
+                                    class="ui checkbox mar-right-15 mar-top-15">
+                                    <input type="checkbox" id="test-{{cdx}}-chld-{{accessObj.display}}" name="search"
+                                      [checked]="childObj.checked" (change)="checkChild($event,childObj)">
+                                    <label for="test-{{cdx}}-chld-{{accessObj.display}}"><span
+                                        class="pos_access-rights">{{ childObj.display }}</span></label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                </div>
+                <div class="eight wide field">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bookings_btn-panel save-btn-block">
+            <button class="ui primary button create_btn" tabindex="0">
+              <span class="create_text">Create</span>
+            </button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

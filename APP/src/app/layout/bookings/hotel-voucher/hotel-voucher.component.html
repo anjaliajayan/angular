@@ -1,0 +1,155 @@
+<div><button class="ui primary button" style="position: absolute; top:50px; right:90px" (click)="exportToPdf()">Export to PDF</button></div>
+<div class="outer-wrapper" id="content">
+    <div class="logo-block">
+        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+    </div>
+    <div *ngIf = "voucherDetails !== undefined">
+        <table class="detail-table fontinclution">
+            <tr class="table-head-row">
+                <td>Trip ID:</td>
+                <td>Supplier Ref.No: </td>
+                <td>Booking Date:</td>
+            </tr>
+            <tr class="table-content-row background-change">         
+                <td>{{voucherDetails.bookings_hotel.voucher_no}}</td>
+                <td>{{voucherDetails.bookings_hotel.reference_number}}</td>
+                <td>{{voucherDetails.created | date:'medium'}}</td>
+            </tr>
+        </table>
+        <div class="hotel-wrapper">
+            <table class="hotel-table">
+                <tr class="heading">
+                    <td>Hotel Details</td>
+                </tr>
+            </table>
+                <table class="pax-table">
+                    <td class ="background-change guestinfo1">
+                    <tr class ="background-change">
+                        <td class="background-change font-align">{{voucherDetails.bookings_hotel.hotel_name}}</td>
+                    </tr>
+                    <tr class ="background-change guestinfo2">
+                       <td class="background-change">{{voucherDetails.bookings_hotel.hotel_address}},{{voucherDetails.bookings_hotel.hotel_phone}}</td>
+                    </tr>
+                    </td>
+                    <td>
+                        <span>
+                        <table  class="pax-table border-wrapper">
+                            <tr class ="background-change borderStyle2">
+                            <td class="column-align">
+                                <tr class = "fontStyle">Check In:</tr>
+                                <tr class = "fontStyle">{{voucherDetails.bookings_hotel.start_date}}</tr>
+                            </td>
+                            <td class="column-align">
+                                <tr class = "fontStyle">Check Out:</tr>
+                                <tr class = "fontStyle">{{voucherDetails.bookings_hotel.end_date}} </tr>
+                            </td>
+                            </tr>
+                            <tr class ="background-change">
+                            <td class="column-align borderStyle1">
+                                <tr class = "fontStyle">Night(s): </tr>
+                                <tr class = "fontStyle">{{nights}}</tr>
+                            </td>
+                            <td class="column-align">
+                                <tr class = "fontStyle">Total Guest: </tr>
+                                <tr class = "fontStyle">{{voucherDetails.bookings_hotel.adult + voucherDetails.bookings_hotel.child}}</tr>
+                            </td>
+                          </tr>
+                        </table>
+                    </span>
+                    </td>
+                </table>
+                  
+           
+            <div class="ticket-block">
+                <table>
+                    <tr>
+                        <td>GUEST(S) Information</td>
+                    </tr>
+                </table>
+                <table class="pax-table fontinclution">
+                    <tr>
+                        <td>Room</td>
+                        <td >Guest Name</td>
+                        <td>Room Type</td>
+                        <td>Board</td>
+                        <td>Contact No.</td>
+                    </tr>
+                    <ng-container *ngFor="let room of roomInfo; let i=index">
+                        <tr *ngFor="let pax of room.room_occupancy;">                      
+                            <td>{{i+1}}</td>
+                            <td>{{pax.first_name}} {{pax.last_name}}</td>
+                            <td>{{room.room_description}}</td>
+                            <td>{{room.board_type}}</td>
+                            <td>{{pax.custPhone}}</td>
+                        </tr>
+                    </ng-container>
+                 
+                   
+                    <tr></tr>
+                </table>
+            </div>
+      
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>Cancellation Policy </td>
+                </tr>
+            </table>
+            <table class="pax-table ">
+                <tr class ="background-change" *ngFor="let cancelDetails of cancelPolicy[0].cancel_policy">
+                    <td class="background-change fontinclution">{{cancelDetails.fromUnix * 1000 | date:'medium'}} to<br> {{cancelDetails.toUnix * 1000 | date:'medium'}} </td>
+                    <td class="background-change fontinclution">{{cancelDetails.currencyCode}}  {{cancelDetails.markup_price}}</td>
+                </tr>
+                <!-- <tr class ="background-change">
+                    <td class="background-change fontinclution">Feb 12, 2020, 4:46pm</td>
+                    <td class="background-change fontinclution">(Non Refundable)</td>
+                </tr> -->
+            </table>
+    
+        </div>
+        <div class="ticket-block" *ngIf="!displayVoucherWithoutPrice">
+            <table>
+                <tr>
+                    <td>Price Details (QAR)</td>
+                </tr>
+            </table>
+            <table class="pax-table">
+                <tr class="background-change">
+                    <td class="background-change fontinclution">Room {{roomInfo.length}} Price : {{voucherDetails.markup_price}}</td>
+                </tr>
+                <tr class="background-change">
+                    <td class="background-change fontinclution">VAT: -</td>
+                </tr>
+                <tr class="background-change">
+                    <td class="background-change fontinclution">Total Room Price (Tax Inclusive):{{voucherDetails.amount}} {{voucherDetails.booking_currency}}</td>
+                </tr>
+            </table>
+        </div>
+          
+        <div class="ticket-block">
+            <table>
+                <tr>
+                    <td>Inclution</td>
+                </tr>
+            </table>
+                <ul class="fontinclution">
+                  <li>{{roomInfo[0].inclusion}}</li>
+                  <!-- <li>City Tax 2.52 non amendable; please cancel & rebook</li>
+                  <li>W.e.f 31.03.2014, Government of Dubai is applying "Tourism Dirham" a fee ranging from AED 7-20 per room per night, 
+                  which the guests availing the stay will have to pay to the hotel directly as applied before check-out.</li>
+                </ul> -->
+                </ul>
+            
+         </div>
+       <div class="terms-head">Payable Through</div>
+            <div class="payable-section">
+                <p>{{userInfo["organisation.name"]}}</p>
+                <p><strong>For assistance regarding your booking, please contact the following:</strong></p>
+                <p>THE Direct Number (24x7) : {{userInfo["organisation.contact"]}}</p>
+                <p>Thank you for booking with Mayank Test travel Agency Our Support Team is always ready to assist you.
+                    Please contact us at {{userInfo["organisation.email"]}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

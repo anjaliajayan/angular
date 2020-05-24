@@ -1,0 +1,76 @@
+<div class="page-wrapper">
+  <!-- <p class="page-wrapper_title">Dashboard</p> -->
+  <div class="ui fluid container">
+    <div class="">
+      <div class="">
+        <form class="ui form" autocomplete="off" [formGroup]="dForm" (ngSubmit)="submitForm()">
+          <div class="form-inner">
+            <div class="fields">
+              <div class="three wide field d_date_pickers outer-wrapper main-wrapper">
+                <label for="period_from" class="label"></label>
+                <div class="ui left icon input">
+                  <input type="text" id="period_from" name="period_from" formControlName="period_from"
+                    placeholder="Period From" value="" />
+                  <i class="icon">
+                    <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                  </i>
+                </div>
+              </div>
+              <div class="three wide field d_date_pickers outer-wrapper  main-wrapper">
+                <label for="period_to" class="label"></label>
+                <div class="ui left icon input">
+                  <input type="text" id="period_to" name="period_to" formControlName="period_to"
+                    placeholder="Period To" />
+                  <i class="icon">
+                    <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                  </i>
+                </div>
+              </div>
+              <div class="three wide field outer-wrapper  main-wrapper">
+                <label for="pos"></label>
+                <select id="pos" class="ui fluid  dropdown" formControlName="pos" placeholder="Point of sale">
+                  <option value="">Point of sale</option>
+                  <option value="-1">All</option>
+                  <option *ngFor="let obj of pos" value="{{obj.value}}">{{obj.name}}</option>
+                </select>
+              </div>
+              <div class="three wide field outer-wrapper  main-wrapper">
+                <label for="product"></label>
+                <select id="product" class="ui fluid  dropdown" formControlName="producttype">
+                  <option value="">Product</option>
+                  <option value="-1">All</option>
+                  <option *ngFor="let obj of products" value="{{obj.value}}">{{obj.name}}</option>
+                </select>
+              </div>
+              <!-- <div class="three wide field">
+                <label for="organization_id">Organization ID</label>
+                <select id="organization_id" class="ui fluid search dropdown" formControlName="organization_id">
+                  <option value="-1">All</option>
+                  <option *ngFor="let organization of filteredOrganizations" value="{{ organization.organisation_id }}">
+                    {{ organization.name }}</option>
+                </select>
+              </div> -->
+              <div class="three wide field" *ngIf="dForm.value.organization_id && users.length > 0">
+                <label for="user_id">User ID</label>
+                <select id="user_id" class="ui fluid search dropdown" formControlName="agent_code">
+                  <option value="-1">All</option>
+                  <option *ngFor="let user of users" value="{{ user.agent_code }}">{{ user.first_name }}
+                    {{ user.last_name }}</option>
+                </select>
+              </div>
+              <div class="three wide field bookings_btn-panel">
+                <button class="ui primary  button">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <br> -->
+  <app-graphs *ngIf="isSubmitted" [bookings]="bookings" [performanceInfo]="performance" [marginInfo]="margin"
+    [presetInfo]="presetInfo" [bookingsLoader]="bookingsLoader" [organisationLoader]="organisationLoader">
+  </app-graphs>
+</div>

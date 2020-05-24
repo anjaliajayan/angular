@@ -1,0 +1,181 @@
+<div class="outer-wrapper" >
+    <div class="container-fluid">
+        <div class="ui grid dynamic-head">
+            <div class="sixteen wide column row search-hotel-head">
+                <div class="five wide column">
+                    <div class="list-head-wrapper">
+                        <p>Departure country:</p>
+                        <h2>{{insuranceSearchCriteria.depart_country}}</h2>
+                    </div>
+                    <div class="travl-date-block">
+                        <p>Departure date:</p>
+                        <h4>{{insuranceSearchCriteria.startDate}}</h4>
+                    </div>
+                    <div class="travl-date-block">
+                        <p>Return date:</p>
+                        <h4>{{insuranceSearchCriteria.endDate}}</h4>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="list-head-wrapper">
+                        <p>Destination country:</p>
+                        <h2>{{insuranceSearchCriteria.country}}</h2>
+                    </div>
+                    <div class="trvl-room-block">
+                       
+                        <p>Adults: <span> {{insuranceSearchCriteria.adult}}</span></p>
+                        <p>Child: <span> {{insuranceSearchCriteria.child}}</span></p>
+                        <p>Infant: <span> {{insuranceSearchCriteria.infant}}</span></p>
+                    </div>
+                </div>
+                <div class="six wide column text-right">
+                    <button class="modify-btn" (click)="modifySearch()">
+                        <i class="fa fa-search" aria-hidden="true" ></i>
+                            Modify Search
+                    </button>
+                    <div class="total-result">
+                        <p>{{size}} Results found</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="ui grid m-0">
+                <div class="sixteen wide column row">
+                    <div class="twelve wide column">
+                        <div class="modify-search-block">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row">
+                                    <div class="eight wide column p-0 text-left">
+                                    </div>
+                                    <div class="eight wide column p-0">
+                                        <!-- <button (click)="modifySearch()" >Modify Search</button> -->
+                                        <button (click)="priceFilter($event)">
+                                            <span *ngIf="high2low == ''">Sort By: Price: High to Low</span>
+                                            <span *ngIf="high2low !=''">Sort By: Price:  {{high2low}}</span>
+                                           
+                                            <!-- <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8"/> -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-list-block" *ngFor="let insurance of (insuranceListss  | lowestPrice:lhPrice:selectedPrice | insuranceFilter:searchTerm:selectedPrice ); let i = index" >
+                            <!-- <div class="search-list-block" *ngFor="let insurance of (insuranceListss  | lowestPrice:lhPrice | insuranceFilter:searchTerm  ) " > -->
+                            <div class="ui grid item-block">
+                                <div class="sixteen wide column row spacing">
+                                    <div class="ten wide column item-details">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="sixteen wide column">
+                                                    <h2>
+                                                        {{insurance.policy_name}}
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row">
+                                                <div class="sixteen wide column desc">
+                                                    <p>
+                                                        {{insurance.policyType}}
+                                                        {{insurance.policyCode}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="six wide column text-right item-details">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="sixteen wide column">
+                                                    <p class="total-label">Total:</p>
+                                                    <p class="price">{{insurance.currencyCode}} {{insurance.markupPrice}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row list-book">
+                                                <div class="sixteen wide column bookings_btn-panel text-right">
+                                                    <a  (click)="showfurtherDetails(i)">
+                                                        
+                                                      <span *ngIf="showFurther == i">{{displayText}} Details</span>   
+                                                      <span *ngIf="showFurther != i">Show Details</span>  
+                                                        <!-- <img src="./../../../../assets/icons/downArrow-blue.svg" /> -->
+                                                        <i class="fa fa-angle-left" aria-hidden="true" *ngIf="!displayDetail"></i>
+                                                        <i class="fa fa-angle-down" aria-hidden="true" *ngIf="displayDetail"></i>
+                                                    </a>
+                                                    <button class="ui primary button" (click)="insuranceBlocking(insurance)" >
+                                                        <i *ngIf=" selected_panel == insurance.policyCode && listInsuranceSpinner == true  " class="fa fa-spinner fa-spin"></i> 
+                                                        Book
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <!-- <p [innerHTML]="someHtml | safe"></p> -->
+                                <div class="sixteen wide column row spacing furtherdetails"  *ngIf="showFurther == i && displayDetail">
+                                    <div class="sixteen wide column">
+                                        <div class="sixteen wide column row">
+                                            <div class="sixteen wide column" [innerHTML]="convertToString(insurance.description)" id="innerContent">
+                                               
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="search-more">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row">
+                                    <div class="sixteen wide column text-center">
+                                        <a>
+                                            Show more policies (20) 
+                                            <img src="./../../../../../assets/icons/downArrow-blue.svg" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div> </div>
+                    <div class="four wide column">
+                        <div class="fliter-head-block">
+                            <div class="ui grid">
+                                <div class="sixteen wide column row">
+                                    <div class="ten wide column">
+                                        <h2>Filters</h2>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-list-block">
+                            <div class="ui grid filter-block">
+                                <div class="sixteen wide column row filters">
+                                    <div class="sixteen wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="ten wide column">
+                                                    <h4>Specify Insurance</h4>
+                                                </div>
+                                                <div class="six wide column right">
+                                                    <a (click)="searchTerm = ''">Clear</a>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="sixteen wide column">
+                                                    <div class="ui input fluid">
+                                                        <input type="text" value="" [(ngModel)]="searchTerm"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="sixteen wide column row filters plain-block">
+  
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+               
+            </div>
+    
+    
+  </div>

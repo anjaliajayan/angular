@@ -1,0 +1,131 @@
+<div class="outer-wrapper">
+    <div class="logo-block">
+        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+    </div>
+  <div *ngIf = "voucherDetails !== undefined">
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking ID:</td>
+            <td>Supplier Ref.No: </td>
+            <td>Duration:</td>
+            <td>Booking Date:</td>
+            <td>Service Date:</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{voucherDetails.trip_id}}</td>
+            <td>{{activityInfo.supplier_code}}</td>
+            <td>{{activityInfo.duration}}</td>
+            <td>{{activityBookingInfo.created | date:'EEEE, dd MMM yyyy'}}</td>
+            <td>{{getSlice(activityInfo.ticketAvailabilityModes.ticketAvailabilityMode.serviceDate)}}</td>
+        </tr>
+    </table>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Activity Details</td>
+            </tr>
+            <tr>
+                <td>
+                  {{activityInfo.activityName}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <table class="detail-table traveller-table">
+        <tr class="table-head-row">
+            <td>Guest Name</td>
+            <td>Email</td>
+<!--            <td>VAT</td>-->
+            <td>AMOUNT (VAT Inclusive)</td>
+        </tr>
+
+        <tr *ngFor="let pax of activityOccupancy;">
+          <td>{{pax.first_name}} {{pax.last_name}}</td>
+          <td>{{voucherDetails.booking_email}}</td>
+<!--          <td>{{pax.board_type}}</td>-->
+          <td>{{activityInfo.markupPrice}}</td>
+        </tr>
+
+    </table>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Description</td>
+            </tr>
+            <tr>
+                <td>{{activityInfo.description}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Important Information</td>
+            </tr>
+            <tr>
+                <td>{{activityInfo.Details.remarks}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Meeting Point</td>
+            </tr>
+            <tr>
+                <td>
+                    {{activityInfo.Details.meetingPoint}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Inclusions</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                        <li *ngFor="let inclusionsdata of inclusions">{{inclusionsdata}} </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Exclusions</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul>
+                      <li *ngFor="let exclusiondata of exclusions">{{exclusiondata}} </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table>
+            <tr>
+                <td>Payable Through</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="payable-section">
+                        <p>Test travel Agency</p>
+                        <p><strong>For assistance regarding your booking, please contact the following:</strong></p>
+                        <p>THE Direct Number (24x7) : 12345678</p>
+                        <p>Thank you for booking with Test travel Agency Our Support Team is always ready to assist you. Please contact us at test@tpconnects.com</p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</div>

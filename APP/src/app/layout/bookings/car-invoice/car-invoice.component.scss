@@ -1,0 +1,218 @@
+.outer-wrapper {
+    margin: 36px;
+    border: 1px solid rgba(6, 40, 98, 0.2);
+    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+.logo-block {
+    padding: 18px 14px;
+}
+.logo-block img {
+    max-width: 100%;
+    max-height: 85px;
+}
+.right {
+    text-align: right;
+}
+.center {
+    text-align: center;
+}
+.cust-info p {
+    font-style: normal;
+    font-size: 18px;
+    line-height: 26px;
+    color: #000000;
+    margin: 8px 0px;
+}
+.cust-info p:first-child {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 24px;
+}
+.detail-table {
+    width: 100%;
+    border: 1px solid rgba(6, 40, 98, 0.2);
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 10px 0px 35px;
+}
+.detail-table td {
+    font-style: normal;
+    font-size: 22px;
+    line-height: 26px;
+    color: #000000;
+    padding: 10px 25px 12px;
+    border-right: 1px solid rgba(6, 40, 98, 0.2);
+}
+.detail-table td:last-child {
+    border-right: none;
+}
+.table-content-row td {
+    padding-top: 0px;
+}
+.table-head-row td {
+    font-weight: bold;
+}
+
+.heading{
+    font-weight: bold;
+    font-size:22px;
+}
+
+.head-row{
+    font-weight: bold;
+    font-size:16px;
+}
+.flight-detail {
+    display: inline-block;
+    min-width: 20%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+    color: #000000;
+    margin: 0px 12px;
+}
+.flight-detail img {
+    position: relative;
+    top: 40px;
+}
+.flight-detail.line {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    position: relative;
+    top: -8px;
+}
+.airport-info .flight-detail {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-top: 15px;
+}
+.flight-detail.flight-name {
+    margin-top: 48px;
+}
+.flight-detail.flight-time {
+    position: relative;
+    top: 36px;
+}
+.flight-detail.flight-dur {
+    position: relative;
+    top: 44px;
+}
+.flight-detail.flight-date {
+    margin-top: 12px;
+}
+.flight-info-section {
+    margin: 0px 0px 80px 40px;
+}
+.flight-wrapper {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.flight-table {
+    background: #3766B0;
+    padding: 22px 25px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.flight-table td {
+    color: #fff;
+    border-right: none;
+    padding-bottom: 14px;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+}
+.flight-table .heading td {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+.ticket-block {
+    margin: 30px 0px 35px;
+}
+.ticket-block table {
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.ticket-block table tr td {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 14px 25px;
+}
+.ticket-block table tr:first-child td {
+    background: #3766B0;
+    border-radius: 10px;
+    padding: 22px 25px;
+    width: 100%;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: #fff;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+.ticket-block .pax-table {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+.ticket-block .pax-table tr td {
+    padding: 12px 25px 12px;
+    font-weight: bold;
+}
+.ticket-block .pax-table tr:first-child td {
+    background: rgba(67, 122, 218, 0.05);
+    width: auto;
+    color: rgba(0, 0, 0, 0.9);
+    padding: 18px 25px;
+}
+.pax-table tr td {
+    border-top: 1px solid rgba(6, 40, 98, 0.2);
+    padding: 25px 25px 70px;
+}
+.pax-table tr:last-child td {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+}
+.pax-table .total span {
+    padding-left: 60px;
+}
+.payable-section p {
+    font-weight: normal;
+    margin-bottom: 0px;
+    font-size: 20px;
+    line-height: 160.7%;
+    color: #000000;
+}
+.payable-section p:not(:first-child) {
+    margin-top: 8px;
+}
+.payable-section {
+    margin-bottom: 35px;
+    padding: 0px 25px;
+}
+.payable-section .thanks {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 22px;
+}

@@ -1,0 +1,350 @@
+.action {
+    display: inline-block;
+    .icon {
+        width: 16px;
+        margin: 0px 10px;
+        cursor: pointer;
+        img {
+            width: 16px;
+        }
+    }
+}
+
+h3 {
+    margin-top: 24px !important;
+}
+
+.roleActionButton {
+    border-radius: 3px;
+    background-color: #3867B1;
+    span {
+        color: #FFF;
+        font-family: 'Roboto', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 15px;
+        text-align: center;
+    }
+}
+
+.goto_list {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    color: #181B20;
+    font-size: 14px;
+    span {
+        color: #181B20;
+    }
+}
+
+.goto-link {
+    position: relative;
+    top: 8px;
+}
+
+.mar-right-15 {
+    margin-right: 15px;
+}
+
+.mar-top-15 {
+    margin-top: 15px;
+}
+
+.permission-block {
+    margin-top: 15px;
+    display: block;
+}
+
+.padd-left-15 {
+    padding-left: 15px;
+}
+
+.showOnlyParent {
+    width: 136px;
+    float: left;
+    padding-bottom: 8px;
+}
+
+// .ui.bottom.attached.tab {
+//     margin-top: 24px !important;
+// }
+
+.action .icon.edit_icon {
+    margin: 0px;
+}
+
+.ui.table{
+    font-size:12px;
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20;
+    margin: 0px 0px 8px;
+    padding-left: 0px;
+}
+
+.ui.form .three.wide.field,
+.ui.form .field>.checkbox-field {
+    margin-bottom: 16px;
+}
+
+.search-section {
+    padding-bottom: 30px;
+}
+
+.outer-segment {
+    margin: 0px;
+    .markup_list {
+        padding: 0px 24px;
+        .markup_title {
+            margin: 0;
+            font-style: normal;
+            font-weight: 400 !important;
+            font-size: 20px;
+            line-height: 23px;
+            color:#4F4F4F;
+        }
+    }
+}
+
+i.icon {
+    margin-top: 24px;
+}
+
+.role-perm-label {
+    display: block;
+    width: 100%;
+}
+
+.role-perm-block {
+    border: 1px solid #DADCE0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 8px;
+
+    i.icon {
+        margin-top: 0px;
+    }
+    .pos_access-rights {
+        color: rgba(24, 27, 32, 0.7);
+        font-size: 13px;
+        &.head {
+            color: #181B20;
+            font-weight: 500 !important;
+            padding-bottom: 25px;
+        }
+    }
+    .ui.checkbox {
+        label {
+            &:before {
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+            }
+            &:after {
+                left: -1px;
+            }
+        }
+        input:checked~label {
+            span {
+                color: #181B20;
+            }
+            &:before {
+                border: none;
+            }
+        }
+        input:checked~.box:before {
+            border: none;
+        }
+    } 
+    .ui.checkbox.inner-checkbox {
+        label {
+            &:after {
+                font-size: 10px;
+            }
+        }
+        input:checked~label {
+            &:before {
+                background: #437ADA;
+            }
+            &:after {
+                color: #fff;
+            }
+        }
+        input:checked~.box {
+            &:after {
+                color: #fff;
+            }
+        }
+    }
+    .ui.checkbox.outer-checkbox {
+        width: 100%;
+        label {
+            i.icon {
+                cursor: pointer;
+                float: right;
+            }
+        }
+        input:checked~label {
+            .pos_access-rights.head {
+                color: #181B20;
+                font-weight: 700 !important;
+            }
+        }
+        input:checked~label:before, input:checked~.box:before {
+            border: 1px solid rgba(6, 40, 98, 0.3);
+        }
+        input:checked~.box:after, input:checked~label:after {
+            content: '\2022';
+            font-size: 36px;
+            top: -5px;
+            color: #1B61DD;
+        }
+    }
+}
+
+.mt-12 {
+    margin: 12px;
+}
+
+.ui.segment {
+    margin-bottom: 60px;
+}
+
+.search-section {
+    padding: 0px 30px;
+    text-align: right;
+    .eight.wide.field .main_head {
+        text-align: left;
+        font-weight: 500 !important;
+        font-size: 13px;
+        line-height: 15px;
+        color: #1B1F26;
+    }
+    .list-code {
+        text-align: left;
+        padding: 0px !important;
+    }
+}
+
+.save-btn-block {
+    text-align: right;
+    position: relative;
+    top: 96px;
+    right: -24px;
+    .ui.reset.button.tourCode_btn {
+        margin-right: 14px;
+    }
+}
+
+.child-container {
+    display: inline-block;
+    min-width: 188px;
+}
+
+.child-obj-block {
+    border: 1px solid #DADCE0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 8px;
+    padding: 8px;
+    max-width: 94px;
+    .ui.checkbox {
+        display: block;
+        padding: 8px;
+    }
+}
+
+.ui.red.button{
+    position: relative;
+    top: 3px;
+    left: 8px;
+}
+
+.ui.primary.button{
+    min-width:auto;
+}
+
+.bookings_btn-panel .primary.button {
+    margin-top:24px !important;
+}
+
+@media (max-width: 1440px) {
+    .bookings_btn-panel {
+        .roleActionButton {
+            margin-right: 0px;
+            margin-top: 24px
+        }
+    }
+    .search-section {
+        .eight.wide.field {
+            padding: 0px;
+        }
+    }
+    .child-container {
+        min-width: auto;
+    }
+    .save-btn-block {
+        right: -30px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .save-btn-block {
+        right: -22px;
+    }
+}
+
+@media (min-width: 767px) {
+    td {
+        span:first-child {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ui.table:not(.unstackable) {
+        tbody {
+            width: 100% !important;
+            tr td span {
+                display: inline-block;
+                width: 50% !important;
+                font-weight: 400;
+                text-transform: capitalize;
+            }
+            tr td span.head {
+                font-weight: 700;
+                width: 25% !important;
+            }
+        }
+        thead {
+            display: none;
+        }
+        td.align-btn {
+            position: absolute;
+            top: auto;
+            right: 60px;
+            bottom: auto;
+            margin-top: -48px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .ui.table:not(.unstackable) {
+        td.align-btn {
+            position: relative;
+            text-align: right !important;
+            top: auto;
+            right: 12px;
+            margin-top: auto;
+        }
+    }
+}

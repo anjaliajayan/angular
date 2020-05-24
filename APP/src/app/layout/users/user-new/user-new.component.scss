@@ -1,0 +1,145 @@
+.update-header {
+    color: #4F4F4F;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.ui.fluid.container {
+    padding: 24px;
+}
+
+.outer-basic {
+    padding: 24px;
+    background: #fff;
+    box-shadow: 0 0px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 2px rgba(60, 64, 67, 0.15);
+    border-radius: 4.96141px;
+    margin-top: 24px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-danger {
+    color: red;
+}
+
+// .ui.primary.roleActionButton.button {
+//     position: relative;
+//     top: -40px;
+// }
+
+.btn-wrapper {
+    text-align: right;
+    margin-top: 24px;
+}
+
+.ui.grid h3 {
+    margin-top: 0px !important;
+}
+
+@media (max-width:1280px)
+{
+    .ui.form{
+        .ui.grid{
+        .personal-wrapper{
+            display:block;
+          }
+          .field-wrapper{
+              display:inline-block;
+              width:33.3% !important;
+          }
+        }
+    }
+}
+
+
+@media (max-width:1220px)
+{
+    .ui.form{
+        .ui.grid{
+        .personal-wrapper{
+            display:block;
+          }
+          .field-wrapper{
+              display:inline-block;
+              width:48.3% !important;
+          }
+          .user-wrapper{
+            display:block;
+          }
+          .login-wrapper{
+            display:inline-block;
+              width:100% !important;
+          }
+        }
+    }
+}
+
+@media(max-width:850px){
+    .ui.form{
+        .main-wrapper{
+            display:block;
+        }
+        .outer-wrapper{
+            display:block;
+            width:100% !important;
+        }
+        .inner-wrapper{
+            display:block;
+            width:100%  !important;
+        }
+    }
+}
+
+
+@media (max-width:700px)
+{
+    .ui.form{
+        .main-wrapper{
+            display:block;
+        }
+        .outer-wrapper{
+            display:block;
+            width:100% !important;
+        }
+        .inner-wrapper{
+            display:block;
+            width:100% !important;
+        }
+        .ui.grid{
+            .first-wrapper{
+                display:block;
+              }
+              .second-wrapper{
+                  display:inline-block;
+                  width:100% !important;
+              }
+           .personal-wrapper{
+            display:block;
+           }
+          .field-wrapper{
+              display:inline-block;
+              width:100% !important;
+          }
+          .user-wrapper{
+            display:block;
+          }
+          .login-wrapper{
+            display:inline-block;
+              width:100% !important;
+          }
+        }
+    }
+}
+
+.validations {
+    color: red;
+    font-size: x-small;
+}

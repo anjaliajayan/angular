@@ -1,0 +1,55 @@
+.ui.segment{
+    // margin:24px !important;
+    margin: 0px 24px 24px !important;
+    box-shadow: 0 0px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 2px rgba(60, 64, 67, 0.15);
+}
+
+.ui.form.pos_basic_form{
+  margin-bottom:80px;
+  margin-top: -37px;
+}
+
+.ui.primary.button{
+    margin-top: 35px;
+    margin-right: 12px;
+}
+
+.ui.reset.button {
+    margin-top: 35px;
+    margin-right: 12px;
+}
+
+.ui.reset.button.add_btn, .ui.primary.button.add_btn {
+    margin-top: 35px;
+}
+
+.button_align{
+    margin-bottom: 20px;
+}
+
+.fourwide_button {
+    margin-top:-12px !important;
+}
+
+.pos_btn-panel {
+    .ui.button {
+        margin-top: 20px;
+    }
+}
+
+.ui.header{
+   font-size:20px;
+   font-weight:400;
+   color: #4F4F4F !important
+}
+
+@media(max-width:991){
+    .ui.form.fields {
+        display: flex !important;
+        width: 100% !important;
+    }
+    .ui.form.two.wide.field{
+        display: inline-flex;
+        width: 16.6%!important;
+    }
+}

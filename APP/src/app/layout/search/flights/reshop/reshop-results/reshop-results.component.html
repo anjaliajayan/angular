@@ -1,0 +1,319 @@
+<h3></h3>
+<!-- Search Results & Filters Grid -->
+<!--Header Filters-->
+<ng-container *ngIf="preReshopObj.hasOwnProperty('JourneyList') && preReshopObj.JourneyList.length > 0">
+<div class="ui grid">
+  <div class="sixteen wide column row">
+  <div class="ui eight wide column">
+    <h3><span class="airline-header">{{preReshopObj.JourneyList[0].Journey[0].SegmentList[0].Flight.Departure.AirportName}} <img src="./../../../../../../assets/img/arrow.svg" /> {{preReshopObj.JourneyList[0].Journey[0].SegmentList[preReshopObj.JourneyList[0].Journey[0].SegmentList.length - 1].Flight.Arrival.AirportName}}</span>
+    </h3>
+  </div>
+  <div class="ui eight wide column text-right dropdown-grid">
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="default text">Show All Stops</div>
+      <div class="menu">
+        <div class="item" data-value="1">1 Stop</div>
+        <div class="item" data-value="0">2 Stops</div>
+        <div class="item" data-value="0">3 Stops</div>
+        <div class="item" data-value="0">Multi-Stops</div>
+      </div>
+    </div>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="default text">Show All Classes</div>
+      <div class="menu">
+        <div class="item" data-value="1">Economy</div>
+        <div class="item" data-value="0">Premium Economy</div>
+        <div class="item" data-value="0">Business</div>
+        <div class="item" data-value="0">First Class</div>
+      </div>
+    </div>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="default text">Price: Low to High</div>
+      <div class="menu">
+        <div class="item" data-value="1">Price: Low to High</div>
+        <div class="item" data-value="0">Price: High to Low</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<!--Header Filter Ends -->
+<!-- Empty H3 Tag needed for card reference -->
+<h3></h3>
+<!-- Empty Ends-->
+<!-- Result Filters Body -->
+<div class="ui fluid container">
+  <ng-container *ngFor="let journeyItem of preReshopObj.JourneyList; let journeyIndex = index">
+  <div class="outer-basic animated fadeIn">
+    <div class="outer-basicForm">
+      <form>
+        <!-- One way Ticket Grid-->
+        <div>
+          <div class="ui grid">
+            <!-- Onwards & Returns Ticket -->
+            <div class="sixteen wide column row airline-tickets _onr">
+              <div class="ui eight wide column grid border-grid p-0">
+                <!-- We should loop here -->
+                <ng-container *ngFor="let journeyDetails of journeyItem.Journey; let journeyDetailsIndex = index">
+                  <div class="ui sixteen wide column grid no-ptb p-0">
+                    <div class="three wide column pt-10">
+                      <img
+                        src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{journeyDetails.SegmentList[0].Flight.OperatingCarrier.AirlineID}}.png"
+                        class="airline-tickets_airline-logo" />
+                      <p class="airline-tickets_title">{{journeyDetails.SegmentList[0].Flight.OperatingCarrier.Name}}</p>
+                      <p class="craft-title">{{journeyDetails.SegmentList[0].Flight.Equipment.Name}}</p>
+                    </div>
+                    <div class="ui twelve wide column grid plane-grid">
+                      <div class="three wide column">
+                        <p class="airline-tickets_title">
+                          <b>{{journeyDetails.SegmentList[0].Flight.Departure.Time}}</b>
+                        </p>
+                        <p class="airline-tickets_airport">{{journeyDetails.SegmentList[0].Flight.Departure.AirportCode}}</p>
+                      </div>
+                      <div class="ten wide column">
+                        <div class="_crafts-border">
+                          <div class="_craft _craft-up">
+                            <img src="./../../../../../../assets/img/blue-up.svg" />
+                          </div>
+                          <span>{{ journeyDetails.SegmentList[0].Flight.FlightDetail.FlightDuration.Value | FlightTimeParser }}</span>
+                          <div class="_craft _craft-down">
+                            <img src="./../../../../../../assets/img/blue-down.svg" />
+                          </div>
+                          <hr>
+                        </div>
+                        <p class="flight-type _highlight" (click)="showStopsDropdown(journeyIndex, journeyDetailsIndex)">
+                          {{ (journeyDetails.SegmentList.length === 1)?'Non-stop':(journeyDetails.SegmentList.length - 1) + ' stops'  }}
+                        </p>
+                      </div>
+                      <div class="three wide column">
+                        <p class="airline-tickets_title">
+                          <b>{{journeyDetails.SegmentList[journeyDetails.SegmentList.length - 1].Flight.Arrival.Time}}</b>
+                        </p>
+                        <p class="airline-tickets_airport">{{journeyDetails.SegmentList[journeyDetails.SegmentList.length - 1].Flight.Arrival.AirportCode}}</p>
+                      </div>
+                    </div>
+                    <div class="one wide column _active-{{journeyIndex}}-{{journeyDetailsIndex}}"
+                      (click)="repriceDetails(journeyIndex, journeyDetailsIndex)">
+                    </div>
+                  </div>
+                  <ng-container *ngIf="journeyItem.Journey.length > (journeyDetailsIndex + 1)">
+                    <div class="ui sixteen wide column grid no-ptb">
+                      <!-- Rendering a flight from to -->
+                      <div class="fifteen wide column no-ptb">
+                        <hr class="separator-tickets dashed-separator" />
+                      </div>
+                      <div class="one wide column no-ptb">
+                        <span class="drop-icon" class="_craft _craft-down"
+                          id="_seg-active_{{journeyIndex}}-{{journeyDetailsIndex}}"
+                          (click)="showSegmentDropdown(journeyIndex, journeyDetailsIndex)">
+                          <i class="angle down icon" id="_seg-active-icon_{{journeyIndex}}-{{journeyDetailsIndex}}"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+              <div class="ui eight wide column grid">
+                <div class="ui sixteen wide column grid booking-class">
+                  <div class="four wide column padd-top-0">
+                    <ng-container *ngIf="!isThereAnActionInProcess(); else showLoaderDetails">
+                      <div class="booking-class_item _active-{{journeyIndex}}-0"
+                        id="_active-{{journeyIndex}}-0"
+                        (click)="repriceDetails(journeyItem, journeyIndex)">
+                        <!-- <img src="./../../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                        *ngIf="showLoader('details')" /> -->
+                        <p>
+                          <strong class="ui left floated">
+                            {{journeyItem.Journey[0].SegmentList[0].Flight.Departure.AirportCode}}-{{journeyItem.Journey[0].SegmentList[0].Flight.Arrival.AirportCode}}
+                          </strong>
+                        </p>
+                        <p><a class="ui left floated">{{journeyItem.Journey[0].ClassMarketingName}}</a></p>
+                        <!-- <p class="ui left floated price">{{ journeyItem.Currency }}
+                          <strong>{{ journeyItem.Price }}</strong>
+                          <strong class="ui right floated"><i class="angle icon down"></i></strong>
+                        </p> -->
+                        <p class="ui left floated price">
+                          <strong>View Details</strong>
+                          <strong class="ui right floated">
+                            <i class="angle icon down"></i>
+                          </strong>
+                        </p>
+                      </div>
+                    </ng-container>
+                    <ng-template #showLoaderDetails>
+                      <i class="fa fa-spinner fa-spin"></i>
+                  </ng-template>
+                  </div>
+                </div>
+              </div>
+              <!--returns ends-->
+            </div>
+            <!-- Onwards & Returns Ticket Ends -->
+          </div>
+          <!-- Horizontal separator for dropdown -->
+          <hr class="separator-segment transition">
+          <!-- Flight Segment Details Dropdown -->
+          <div class="sixteen wide column row flight-segment transition"
+            id="flight-segment-dropdown_{{journeyIndex}}-0">
+            <div class="ui container">
+              <div class="ui sixteen wide column grid header-box-segment">
+                <div class="ui sixteen wide column grid header-box-segment_row">
+                  <div class="ui five wide column text-left">
+                    <p>Departure</p>
+                  </div>
+                  <div class="ui five wide column text-center">
+                    <p>{{ journeyItem.Journey[0].SegmentList[0].Flight.Departure.Date }}</p>
+                  </div>
+                  <div class="ui six wide column seg-padd text-right">
+                    <p><!--Total flight duration: 8h 50m--></p>
+                  </div>
+                </div>
+                <div class="ui sixteen wide column grid">
+                  <div class="ui three wide column">
+                    <p>Departure</p>
+                  </div>
+                  <div class="ui four wide column">
+                  </div>
+                  <div class="ui five wide column seg-padd">
+                    <p>Arriving</p>
+                  </div>
+                  <div class="ui four wide column">
+                    <p>Flight Details</p>
+                  </div>
+                </div>
+                <ng-container *ngFor="let journeyDetails of journeyItem.Journey; let journeyDetailsIndex = index">
+                  <ng-container *ngFor="let segment of journeyDetails.SegmentList; let journeyDetailsSegmentIndex = index">
+                    <div class="ui sixteen wide column grid no-ptb">
+                      <div class="three wide column">
+                        <div class="flight-segment_airport">
+                          <img src="../../../../../../assets/img/white-up.svg" />
+                          <p>{{segment.Flight.Departure.AirportCode}}</p>
+                        </div>
+                        <p class="mar-top-12 center-content"><img
+                            src="./../../../../../../assets/icons/time.svg" /><strong>{{segment.Flight.Departure.Time}}</strong>
+                          <span class="dot"></span> {{segment.Flight.Departure.Date}}</p>
+                        <p class="center-content"><img src="./../../../../../../assets/icons/location.svg" />
+                          {{segment.Flight.Departure.AirportName}}</p>
+                      </div>
+                      <div class="four wide column flight-segment_info">
+                        <p class="airline-tickets_title">{{segment.Flight.OperatingCarrier.Name}}</p>
+                        <p class="mar-top-12"><img src="./../../../../../../assets/icons/time.svg" /> Travel time:
+                          {{ segment.Flight.FlightDetail.FlightDuration.Value | FlightTimeParser }}
+                        </p>
+                        <hr />
+                        <p><img src="./../../../../../../assets/icons/time.svg" /> {{ segment.ClassMarketingName }}</p>
+                      </div>
+                      <div class="five wide column seg-padd">
+                        <div class="flight-segment_airport _last">
+                          <img src="../../../../../../assets/img/white-down.svg" />
+                          <p>{{segment.Flight.Arrival.AirportCode}}</p>
+                        </div>
+                        <p class="mar-top-12 center-content"><img
+                            src="./../../../../../../assets/icons/time.svg" /><strong>{{segment.Flight.Arrival.Time}}</strong>
+                          <span class="dot"></span> {{segment.Flight.Arrival.Date}}</p>
+                        <p class="center-content"><img src="./../../../../../../assets/icons/location.svg" />
+                          {{segment.Flight.Arrival.AirportName}}
+                        </p>
+                      </div>
+                      <div class="ui four wide column flight-segment_text">
+                        <img
+                        src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{journeyDetails.SegmentList[0].Flight.OperatingCarrier.AirlineID}}.png"
+                        class="airline-tickets_airline-logo" />
+                        <p class="center-content"><img src="./../../../../../../assets/icons/aircraft.svg" /> Aircraft:
+                          {{segment.Flight.Equipment.Name}}</p>
+                        <p class="center-content"><img src="./../../../../../../assets/icons/flight-details.svg" /> Flight:
+                        </p>
+                        <p class="center-content"><img src="./../../../../../../assets/icons/operate.svg" /> Operated By:
+                          {{segment.Flight.OperatingCarrier.Name}}</p>
+                        <p class="center-content"><img src="./../../../../../../assets/icons/flight-details.svg" /> Class:
+                          {{ segment.ClassCode }} - {{ segment.ClassMarketingName }}</p>
+                      </div>
+                    </div>
+                  </ng-container>
+                  <ng-container *ngIf="journeyItem.Journey.length > (journeyDetailsIndex+1)">
+                    <!--
+                    <div class="ui sixteen wide column grid">
+                      <hr class="header-separator" />
+                      <div class="layover"><img src="./../../../../../../assets/icons/time.svg" /> Layover: 3h</div>
+                    </div>
+                    -->
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Flight Segment Ends -->
+        <!-- Flight Reissue Dropdown Details -->
+        <div class="ui grid">
+          <div class="sixteen wide column row b-class transition" id="ticket-dropdown_{{journeyIndex}}-0">
+            <ng-container >
+              <ng-container *ngFor="let condition of repriceObj.Details; let conditionIndex = index">
+                <div class="ui sixteen wide column grid row">
+                  <div class="ui sixteen wide column grid _header-content">
+                    <div class="four wide column">
+                      <h3>{{condition.Departure}} - {{condition.Arrival}}</h3>
+                    </div>
+                    <div class="five wide column">
+                      <p>Amount</p>
+                    </div>
+                    <div class="seven wide column">
+                      <p>Description</p>
+                    </div>
+                  </div>
+                  <div class="ui sixteen wide column grid _body-content"
+                    *ngFor="let cond of condition.Details; let condIndex = index">
+                    <div class="four wide column">
+                      <p>{{ cond.type }}</p>
+                    </div>
+                    <div class="five wide column">
+                      <p>{{ cond.currency }} {{ cond.amount }}</p>
+                    </div>
+                    <div class="seven wide column">
+                      <p>{{ cond.remark }}</p>
+                    </div>
+                  </div>
+                </div>
+                <hr class="grid-separator" />
+              </ng-container>
+              <div class="ui sixteen wide column grid row _footer-content">
+                <div class="ui eight wide column grid">
+                  <div class="five wide column">
+                    <p>Penalty: {{repriceObj.Currency}} {{repriceObj.Penalty}}</p>
+                  </div>
+                  <div class="five wide column">
+                    <p>Fare Difference: {{repriceObj.Currency}} {{repriceObj.FareDiff}}</p>
+                  </div>
+                  <div class="six wide column">
+                    <p>Tax Difference: {{repriceObj.Currency}} {{repriceObj.TaxDiff}}</p>
+                  </div>
+                </div>
+                <div class="ui eight wide column grid">
+                  <div class="twelve wide column text-right">
+                    <p>Total Due: <span>{{repriceObj.Currency}} {{repriceObj.Total}}</span></p>
+                  </div>
+                  <div class="four wide column">
+                    <button class="ui primary button"
+                      (click)="actionReissue(journeyItem, repriceObj.Currency, repriceObj.Total)"
+                      [class.loading]="reissueLoader">Reissue</button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <!-- Flight Reissue Dropdown Ends -->
+      </form>
+    </div>
+  </div>
+  </ng-container>
+</div>
+<!-- Result Filters Body -->
+<!-- Search Results & Filters Ends -->
+</ng-container>

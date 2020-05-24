@@ -1,0 +1,49 @@
+<h3>Targets</h3>
+
+<div class="shadow-sm p-5 mb-1 bg-white rounded">
+
+  <form [formGroup]="userTargetForm" autocomplete="off">
+
+    <div class="row">
+      <div class="col-12" formArrayName="targets"
+        *ngFor="let item of userTargetForm.get('targets').controls; let i = index;">
+        <div class="row" [formGroupName]="i">
+
+          <div class="col-3">
+            <div class="form-group">
+              <label for="inputAddress2">Year</label>
+              <select class="form-control" formControlName="year" name='year'>
+                <option *ngFor="let year of yearsList;" [value]="year">{{ year }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="inputAddress2">Month</label>
+              <select class="form-control" formControlName="month" name="month">
+                <option *ngFor="let month of monthsList;" [value]="month.id">{{ month.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="form-group">
+              <label for="inputAddress2">Target Amount</label>
+              <input type="text" class="form-control" placeholder="Target Amount" formControlName="amount"
+                name="amount">
+            </div>
+          </div>
+          <div class="col-3 pt-3">
+            <button (click)="btnAddTarget()" class="btn btn-outline-secondary"><i class="fa fa-plus"></i></button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button type="button" (click)="btnSubmitHandler()" class="btn btn-primary">Save Targets</button>
+      </div>
+    </div>
+  </form>
+
+</div>

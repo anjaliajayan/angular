@@ -1,0 +1,145 @@
+<div class="ui fluid container">
+  <h3><span class="update-header">Update Profile</span></h3>
+</div>
+<div class="ui fluid container">
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <form class="ui form" [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+        <div class="form-inner">
+          <!-- <h4 class="ui  header"><span class="basic-header">Basic Information</span></h4> -->
+          <div class="field">
+            <div class="five fields">
+              <div class="two wide field">
+                <label>Title</label>
+                <select class="ui fluid dropdown" formControlName="salute">
+                  <option value="" selected disabled>Select</option>
+                  <option *ngFor="let salute of saluteNames" [selected]="salute==updateProfileForm.value.salute"
+                    value="{{salute}}">{{salute}}</option>
+                </select>
+              </div>
+              <div class="four wide field"
+                [ngClass]="{'error': ((submitted && f.first_name.errors) && f.first_name.errors.required) }">
+                <label>First Name<span class="mandatory">*</span></label>
+                <input type="text" formControlName="first_name" placeholder="First Name">
+                <div *ngIf="first_name.invalid && (first_name.dirty || first_name.touched)" class="validations">
+                  <div class="validations" *ngIf="first_name.errors?.required">
+                    First Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="four wide field"
+                [ngClass]="{'error': ((submitted && f.last_name.errors) && f.last_name.errors.required) }">
+                <label>Last Name<span class="mandatory">*</span></label>
+                <input type="text" formControlName="last_name" placeholder="Last Name">
+                <div *ngIf="last_name.invalid && (last_name.dirty || last_name.touched)" class="validations">
+                  <div class="validations" *ngIf="last_name.errors?.required">
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="fields">
+              <div class="five wide field">
+                <label>Email<span class="mandatory">*</span></label>
+                <div class="disabled field">
+                  <input type="email" formControlName="email" placeholder="Email" class="email">
+                </div>
+              </div>
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.mobile.errors) && f.mobile.errors.required) }">
+                <label>Contact Number<span class="mandatory">*</span></label>
+                <input type="text" formControlName="mobile" placeholder="Contact number">
+                <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="validations">
+                  <div class="validations" *ngIf="mobile.errors?.pattern">
+                    Contact Number must be valid
+                  </div>
+                  <div class="validations" *ngIf="mobile.errors?.required">
+                    Contact Number is required
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="field">
+            <hr>
+          </div> -->
+          <div class="field">
+            <!-- <h4 class="ui header"><span class="basic-header">Address Informations</span></h4> -->
+            <div class="fields">
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.address_1.errors) && f.address_1.errors.required) }">
+                <label>Address 1<span class="mandatory">*</span></label>
+                <input type="text" formControlName="address_1" placeholder="Street Address">
+                <div *ngIf="address_1.invalid && (address_1.dirty || address_1.touched)" class="validations">
+                  <div class="validations" *ngIf="address_1.errors?.required">
+                    Address is required
+                  </div>
+                </div>
+              </div>
+              <div class="five wide field">
+                <label>Address 2</label>
+                <input type="text" formControlName="address_2" placeholder="Apartment Address">
+              </div>
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.country_id.errors) && f.country_id.errors.required) }">
+                <label>Country</label>
+                <select class="ui search dropdown" formControlName="country_id">
+                  <option value="">Select Country </option>
+                  <option *ngFor="let option of countries; let i = index"
+                    selected="{{(userInfo.country_id == option.Numeric_code)?'selected':''}}"
+                    value="{{option.country_id}}">
+                    {{option.country}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="field">
+            <hr>
+          </div>
+          <h4 class="ui header"><span class="basic-header">Login Informations</span></h4> -->
+              <!-- </div>
+            <div class="fields"> -->
+          <div class="field">
+            <div class="fields">
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.old_password.errors) && f.old_password.errors.required) }">
+                <label>Old Password<span class="mandatory">*</span></label>
+                <input type="password" formControlName="old_password" (keyup)="requiredPassword()"
+                  (change)="requiredPassword()" placeholder="Old password">
+              </div>
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.password.errors) && f.password.errors.required) }">
+                <label>
+                  New Password<span class="mandatory">*</span>
+                  <i class="fa fa-exclamation-circle tooltip">
+                    <span class="tooltiptext">
+                      Password should be atleast 8 characters. Contain atleast 1 number, 1 capital letter, 1 lower case
+                      letter and 1 special character!
+                    </span>
+                  </i>
+                </label>
+                <input type="password" name="password" formControlName="password" (keyup)="validatePassword()"
+                  (change)="validatePassword()" placeholder="New Password">
+              </div>
+              <!-- </div>
+            <div class="fields"> -->
+              <div class="five wide field"
+                [ngClass]="{'error': ((submitted && f.password_confirmation.errors) && ( f.password_confirmation.errors.required || f.password_confirmation.errors.unmatched ) ) }">
+                <label>Confirm Password<span class="mandatory">*</span></label>
+                <input type="password" formControlName="password_confirmation" (keyup)="validatePassword()"
+                  (change)="validatePassword()" placeholder="Confirm Password">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bookings_btn-panel">
+            <button class="ui primary button">
+              Update
+            </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

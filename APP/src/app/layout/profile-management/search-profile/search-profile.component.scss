@@ -1,0 +1,249 @@
+.outer-segment {
+  margin: 0px 20px 0px 15px;
+}
+
+.markup_title {
+  margin: 0;
+  color: #4F4F4F;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 22px;
+}   
+
+.ui.top.attached.menu>.item {
+  border-radius: .28571429rem 0 0 0;
+  border-top-right-radius: 15px !important;
+}
+
+.ui.bottom.attached.active.tab.segment {
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  border-top-right-radius: 17px;
+}
+
+.tab.segment {
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+hr {
+  box-sizing: border-box;
+  overflow: visible;
+  border: 0.5px solid #E0E0E0;
+}
+
+.filterMarkUp_btn {
+  border-radius: 3px;
+  background-color: #3867B1;
+  box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+}
+
+.goto_list {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  color: #181B20;
+  font-size: 14px;
+}
+
+.filterMarkUp_list {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+}
+
+.addNewGroup-text {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+}
+
+.addMarkUp {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 11px;
+  text-align: center;
+  position: relative;
+  left: 35px;
+  bottom: 5px;
+}
+
+.corporate_input__placeholder-icon {
+  position: relative;
+  width: 18px;
+  bottom: 28px;
+  left: 9px;
+}
+
+.date-field {
+  text-indent: 17px;
+}
+
+.save-apply_text,
+.addNewGroup-text {
+  color: #FFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: center;
+}
+
+.addMarkUp {
+  display: inline-block;
+  color: #333 !important;
+  padding: 3px 10px;
+  bottom: 0px;
+  position: inherit !important;
+  cursor: pointer;
+  font-weight: bold !important;
+  border-radius: 3px;
+  box-shadow: 0px 0px 6px 0px grey;
+  border: 1px solid grey;
+}
+
+span.action {
+  display: inline-block;
+  margin: 0px 5px;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pages a {
+  border: 1px solid grey;
+}
+
+.date_picker_custom .dp_icon {
+  margin-top: -40px !important;
+  right: 28px;
+  display: grid;
+}
+
+.alert.alert-danger {
+  color: #ff0000ad;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+.icon {
+  opacity: 1;
+  z-index: 100;
+  .bookings_input__placeholder-icon {
+      width: 24px;
+      margin-top: 6px;
+      &.cal {
+          width: 16px;
+          margin-top: 10px;
+      }
+      &.call {
+          width: 18px;
+          margin-top: 10px;
+      }
+  }
+}
+
+.text_field {
+  padding-left: 30px
+}
+
+.goto-link {
+  position: relative;
+  top: 8px;
+}
+
+.ui.form {
+  .search-section {
+      div {
+          padding: 0px;
+      }
+      .add-btn {
+          position: relative;
+          // top: 10px;
+      }
+      margin: 24px;
+      &.list-search-block {
+          margin: 0;
+          width: 1100px !important;
+          padding-left: 0px;
+          .bookings_btn-panel {
+              padding-left: 0px;
+              padding-top: 20px;
+          }
+      }
+      // .search-btn-block {
+      //     .ten.wide.field {
+      //         position: absolute;
+      //         right: 13%;
+      //         width: 30% !important;
+      //         top: 0px;
+      //     }
+      // }
+      .ui.reset.button {
+          margin-right: 0px;
+      }
+  }
+}
+
+.search-btn-block {
+  text-align: right;
+  input {
+      width: 30%;
+      margin-right: 12px;
+  }
+  div {
+      display: inline-block;
+  }
+  .field.input_field {
+      position: relative;
+      top: -8px;
+  }
+}
+
+.ui.primary.addNewGroup_btn {
+  top: 8px;
+  margin-right: 12px;
+}
+
+.list-code-block {
+  margin: 24px;
+  margin-bottom: 200px;
+}
+
+.head-search-block {
+  padding: 0px 24px;
+}
+
+// @media (min-width: 1440px) {
+//     .ui.form .search-btn-block {
+//         width: 64% !important;
+//     }
+// }
+
+@media (max-width: 1440px) {
+  .list-code-block {
+      width: auto;
+      margin: 24px;
+  }
+  .search-section {
+      .wide.field {
+          padding: 0px;
+      }
+  }
+  .list-group.result-block.list-code-block {
+      margin-bottom: 200px !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .head-search-block {
+      padding: 0px 20px;
+  }
+}

@@ -1,0 +1,43 @@
+<div class="ui bottom attached segment pushable main-panel">
+  <!-- <div class="showloader" *ngIf="loaderService.isLoading | async"></div> -->
+  <div class="ui visible left vertical inverted sidebar labeled menu full-sidebar" id="full-sidebar" (window:resize)="onResize()">
+    <div class="hamburger-icon" (click)="toggleSideBarMini()">
+      <div class="__icon">
+        <i class="bars icon"></i>
+      </div>
+    </div>
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="ui left vertical inverted sidebar labeled icon menu" id="sidebar-mini">
+    <div class="hamburger-icon" (click)="toggleSideBar()">
+      <div class="__icon">
+        <i class="bars icon"></i>
+      </div>
+    </div>
+    <app-sidebar-mini></app-sidebar-mini>
+  </div>
+  <app-header></app-header>
+  <div class="pusher scrollable-pusher">
+    <div class="ui icon blue message animated fadeIn" *ngIf="upgradeProcess">
+      <i class="sync icon" *ngIf="!showUpgradeLoader"></i>
+      <i class="notched circle loading icon" *ngIf="showUpgradeLoader"></i>
+      <div class="content">
+        <div class="ui grid">
+          <div class="twelve wide column">
+            <div class="header">
+              {{dashboardUpgradeHeader}}
+            </div>
+            <p>{{dashboardUpgradeContent}}</p>
+          </div>
+          <div class="four wide column">
+            <button class="ui primary button ml-auto" [disabled]="showUpgradeLoader"
+              (click)="startUpgrade()">Upgrade</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ui basic segment">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

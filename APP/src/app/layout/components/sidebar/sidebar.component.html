@@ -1,0 +1,143 @@
+<div class="white-section">
+  <a href="/">
+  <img src="./../../../../assets/img/tp-logo.svg" class="header-logo" />
+ </a>
+  <!-- <hr> -->
+</div>
+
+<!--
+<div *ngFor="let item of userPermissions; let i = index">
+  <div class="item">
+    
+    <span *ngIf="!item.hasOwnProperty('accessType')" [routerLink]="item.route">
+      <p class="sidebar-title">
+        <img [src]="item.icon" class="menu-indicator" />
+        {{ item.display }}
+      </p>
+    </span>
+
+    <div class="ui accordion" *ngIf="item.hasOwnProperty('accessType')">
+      <div class="title">
+        <p class="sidebar-title">
+          <img [src]="item.icon" class="menu-indicator" />
+          {{ item.display }}
+          <img src="./../../../../assets/img/sidebar-icons/add.png" class="dropdown-indicator" />
+        </p>
+      </div>
+      <div class="content sidebar-content">
+        <div *ngFor="let sub of item.accessType; let i = index">
+          <div class="item">
+            
+            <span *ngIf="!sub.hasOwnProperty('accessType')" (click)="checkExtraConditions(sub)" [routerLink]="sub.route">{{sub.display}}</span>
+
+            <div *ngIf="sub.hasOwnProperty('accessType')">
+              <div class="title">
+                <p class="sidebar-title">
+                  {{sub.name}}
+                  <img src="./../../../../assets/img/sidebar-icons/add.png" class="dropdown-indicator" />
+                </p>
+              </div>
+              <div class="content sidebar-content">
+                <div *ngFor="let child of sub.accessType; let i = index">
+                  
+                  <p class="sidebar-title" [routerLink]="child.route">
+                    {{child.display}}
+                  </p>
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+
+<div>
+  <div class="sidebar-content-wrap" (window:resize)="onResize()">
+    <div *ngFor="let item of menuArray; let i = index">
+      <div class="item">
+        <span *ngIf="!item.hasOwnProperty('children')">
+          <p class="sidebar-title">
+            <span [routerLink]="item.route"> 
+              <img [src]="item.icon" class="menu-indicator" />
+              {{item.name}}
+          </span>
+          </p>
+          <!-- <div *ngFor="let key of roleAndPermissionsKeys;">
+            {{item.name}} - {{roleAndPermissions[key].display}}
+            <div
+              *ngIf="roleAndPermissions[key].allowed && item.name == roleAndPermissions[key].display && ((roleAndPermissions[key].display == 'Book' && item.name == 'Bookings') || (roleAndPermissions[key].display == 'Reports' && item.name == 'Report'))"
+              [routerLink]="item.route">
+              <p class="sidebar-title">
+                <img [src]="item.icon" class="menu-indicator" />
+                {{item.name}}
+              </p>
+            </div>
+            <div
+              *ngIf="!roleAndPermissions[key].allowed && (item.name == roleAndPermissions[key].display) || ((roleAndPermissions[key].display == 'Book' && item.name == 'Bookings') || (roleAndPermissions[key].display == 'Reports' && item.name == 'Report'))">
+              <p class="sidebar-title">
+                <img [src]="item.icon" class="menu-indicator" />
+                {{item.name}}
+              </p>
+            </div>
+          </div> -->
+        </span>
+        <div class="ui accordion" *ngIf="item.hasOwnProperty('children')">
+          <div class="title">
+            <!-- <div *appCanAccess="[item.roleKey,'','']"> -->
+            <p class="sidebar-title">
+              <img [src]="item.icon" class="menu-indicator" [ngClass]="{'profile-icon': item.name === 'Profile Management' }"/>
+              {{item.name}}
+              <img src="./../../../../assets/img/sidebar-icons/downArrow.svg" class="dropdown-indicator" />
+            </p>
+            <!-- </div> -->
+          </div>
+          <div class="content sidebar-content">
+            <div *ngFor="let sub of item.children; let i = index">
+              <div class="item">
+
+
+                <span *ngIf="!sub.hasOwnProperty('children')" (click)="checkExtraConditions(sub)"
+                  [routerLink]="sub.route">
+                  <img [src]="sub.icon" class="menu-indicator sub-menu-indicator" *ngIf="item.name === 'Search'"/>
+                  {{sub.name}}
+                </span>
+                <div *ngIf="sub.hasOwnProperty('children')">
+                  <div class="title">
+                    <!-- <div *appCanAccess="[item.roleKey,sub.roleKey,'']"> -->
+                    <p class="sidebar-title">
+                      {{sub.name}}
+                      <img src="./../../../../assets/img/sidebar-icons/downArrow.svg" class="dropdown-indicator" />
+                    </p>
+                    <!-- </div> -->
+                  </div>
+                  <div class="content sidebar-content">
+                    <div *ngFor="let child of sub.children; let i = index">
+
+                      <!-- <div *appCanAccess="[item.roleKey,sub.roleKey,child.roleKey]"> -->
+                      <p class="sidebar-title" [routerLink]="child.route">
+                        {{child.name}}
+                      </p>
+                      <!-- </div> -->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div  class="poweredBy">
+    <p>Powered By TPConnects 2.0</p>
+  </div>
+</div>

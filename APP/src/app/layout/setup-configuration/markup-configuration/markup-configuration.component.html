@@ -1,0 +1,15 @@
+<div class="outer-segment animated fadeIn">
+    <div class="markup_list title-block">
+        <h3 class="markup_title title">Mark Up Configuration</h3>
+    </div>
+    <div class="ui top attached tabular menu">
+        <div id="tab-1" class="active item create_b2b_title" data-tab="first" >Group Name</div>
+        <div id="tab-2" class="item corporate_staff_list" data-tab="second">Markup Rules</div>
+    </div>
+    <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+        <app-sale></app-sale>
+    </div>
+    <div class="ui bottom attached tab segment tabContent-block" data-tab="second">
+        <app-mark [allSuppliers]="allSuppliers" [allGroups]="NewGroupSeasonality" [sale_id]="saleIdClicked" [showListMarkup]="showListMarkup" [showAddMarkupForm]="showAddMarkupForm"></app-mark>
+    </div>
+</div>

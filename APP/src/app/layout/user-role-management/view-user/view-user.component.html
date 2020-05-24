@@ -1,0 +1,174 @@
+<div class="ui fluid container">
+  <h3><span class="update-header">View User</span></h3>
+</div>
+<div class="ui equal width grid ">
+  <div class="six wide tablet eight wide computer column">
+    <div class="ui fluid container">
+      <div class="outer-basic">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <h4 class="ui  header"><span class="basic-header">Basic Information</span></h4>
+            <div class="ui form ">
+              <div class="field">
+                <div class="five fields">
+                  <div class="three wide field">
+                    <label>Username</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.username}}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="three fields">
+                  <div class="three wide field">
+                    <label>First Name</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.first_name}}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="three fields">
+                  <div class="three wide field">
+                    <label>Last Name</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.last_name}}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="three fields">
+                  <div class="three wide field">
+                    <label>Email</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.email}}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="three fields">
+                  <div class="three wide field">
+                    <label>Mobile</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.mobile}}
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="three fields">
+                  <div class="three wide field">
+                    <label>Created</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.created}}
+                  </div>
+                </div>
+              </div>
+              <div class="field" *ngIf="userInfo.address_1">
+                <div class="two fields">
+                  <div class="three wide field">
+                    <label>Address</label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.address_1}}
+                  </div>
+                </div>
+              </div>
+              <div class="field" *ngIf="userInfo.address_2">
+                <div class="two fields">
+                  <div class="three wide field">
+                    <label>Address </label>
+                  </div>
+                  <div class="six wide field">
+                    {{userInfo.address_2}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="field">
+              <hr>
+            </div> -->
+            <h4 class="ui  header"><span class="basic-header">Target Amounts</span></h4>
+            <div class="field">
+              <table class="ui celled table">
+                <thead>
+                  <tr>
+                    <th>Year</th>
+                    <th>Month</th>
+                    <th>Target Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ng-container *ngFor="let target of targetAmountArray;let i = index;">
+                    <tr *ngIf="target.year && target.month && target.target_amount">
+                      <td>
+                        {{target.year}}
+                      </td>
+                      <td>
+                        {{target.month}}
+                      </td>
+                      <td>
+                        {{target.target_amount}}
+                      </td>
+                  </ng-container>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="six wide tablet eight wide computer column">
+    <div class="ui fluid container">
+      <div class="outer-basic">
+        <div class="outer-basicForm">
+          <div class="form-inner report-section">
+            <h4 class="ui header"><span class="basic-header">Pie Report</span></h4>
+            <form [formGroup]="filterForm" class="ui form ">
+              <div class="field">
+                <div class="two fields">
+                  <div class="six wide field">
+                    <label>Days</label>
+                    <div class="one fields" *ngFor="let item of filterTypes; let i=index">
+                      <input type="radio" id="item-{{i}}" formControlName="filterDays" (change)="filterData()"
+                        value="{{item.id}}">
+                      <label for="item-{{i}}">{{item.name}}</label>
+                    </div>
+                  </div>
+                  <div class="six wide field">
+                    <label>Product</label>
+                    <select class="ui fluid  dropdown" name="product_id" (change)="filterData()"
+                      formControlName="product_id">
+                      <option value="" selected>Products Bookings</option>
+                      <option *ngFor="let product of activeProducts">{{product.key}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div id="pieChart">
+                  <img class="loaderChart" src="https://i.imgur.com/fXUIBfi.gif" alt="Chart will Render Here..." />
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

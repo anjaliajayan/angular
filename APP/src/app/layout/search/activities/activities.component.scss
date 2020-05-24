@@ -1,0 +1,281 @@
+
+.activities.card-wrapper {
+    height: auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    .activities_title {
+        margin: 0;
+        padding: 0 0 24px 0px;
+        font-style: normal;
+        font-weight:400 !important;
+        font-size: 20px;
+        line-height: 23px;
+        color:#4F4F4F;
+    }
+    .ui.attached.menu {
+        max-width: calc(100% - 18px);
+    }
+    .ui.tab.segment {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0px 14px;
+    }
+    .activity-grid {
+        padding-left: 0px;
+    }
+    .activity-search-block {
+        background: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 3px rgba(60, 64, 67, 0.15);
+        border-radius: 10px;
+        margin: 0px;
+        padding: 24px;
+        a {
+            text-transform: capitalize;
+            font-weight: 500 !important;
+            font-size: 12px !important;
+            float: right;
+        }
+        .travel-info {
+            border: 1px solid #DADCE0;
+            box-sizing: border-box;
+            border-radius: 10px;
+            margin: 0px;
+            // label {
+            //     font-weight: 700 !important;
+            // }
+            .child-age-block {
+                border-top: 1px solid #DADCE0;
+                // .age-size{
+                //     width:30% !important
+                // }
+            }
+        }
+    }
+    label {
+        line-height: 13px;
+        padding-bottom: 13px;
+    }
+    label~div  {
+        margin-top: 12px;
+    }
+    .ui.icon {
+        i.icon {
+            img {
+                margin-top: 11px;
+            }
+        }
+    }
+    .select {
+        min-width: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    .bookings_btn-panel {
+        text-align: right;
+    }
+}
+
+.ui.grid>.row.pt-0 {
+    padding-top: 0px;
+}
+
+
+.modal {
+    h2 {
+        color: #000;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 19px;
+        text-align: center;
+    }
+    .close.icon {
+        position: absolute;
+        right: 12px;
+        top: 2px;
+        cursor: pointer;
+    }
+    .border-block {
+        border: 1px solid rgba(6, 40, 98, 0.1);
+        box-sizing: border-box;
+        border-radius: 6px;
+        padding: 11px;
+        margin: 0px 12px 18px;
+        h4 {
+            margin-left: 14px;
+        }
+    }
+    .cancel-block {
+        .label {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 11px;
+            text-transform: uppercase;
+            color: rgba(21, 27, 37, 0.7);
+            padding: 13px 18px 0px;
+        }
+        .date {
+            font-weight: 700;
+            padding: 8px 18px;
+        }
+        .price-total {
+            font-weight: 700;
+            font-size: 15px;
+            line-height: 18px;
+            text-transform: uppercase;
+            color: #000000;
+            padding: 16px 0px;
+        }
+        // .borderLeft {
+        //     border-right: 1px solid rgba(0, 0, 0, 0.1);
+        // }
+        .borderBottom {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .policy-detail {
+            padding: 18px;
+            h3 {
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 12px;
+                text-transform: uppercase;
+                color: rgba(6, 40, 98, 0.8);
+                margin-bottom: 12px;
+            }
+            p {
+                color: rgba(0, 0, 0, 0.5);
+                margin-bottom: 12px;
+            }
+        }
+    }
+}
+
+@media(max-width:2560px){
+    .activity-search-block{
+        .child-age-block{
+            .age-size{
+              width:30% !important;
+              padding-bottom: 14px;
+           }
+        }
+    }
+}
+
+
+@media (min-width: 1440px) {
+    .activities.card-wrapper {
+        .ui.grid>.column.row>[class*="sixteen wide"].column.activity-grid,
+        .ui.grid>.row>[class*="sixteen wide"].column.activity-grid {
+            width: 980px !important;
+        }
+    }
+}
+
+@media(max-width:1440px){
+    .activity-search-block{
+        .child-age-block{
+            .age-size{
+              width:30% !important;
+           }
+        }
+    }
+}
+
+@media(max-width:1175px){
+    .activity-search-block{
+        .child-age-block{
+            .age-size{
+              width:33% !important;
+           }
+        }
+    }
+}
+
+@media(max-width:1158px){
+    .activity-search-block{
+        .child-age-block{
+            .age-size{
+              width:35% !important;
+           }
+        }
+    }
+}
+
+@media(max-width:1097px){
+    .activity-search-block{
+        .child-age-block{
+            .age-size{
+              width:40% !important;
+              padding-bottom: 14px;
+           }
+        }
+    }
+}
+
+@media(max-width:1280px){
+    .activities.card-wrapper{
+    .ui.grid{
+        .passenger-input{
+            width:35% !important;
+        }
+     }
+  }
+}
+
+@media(max-width:1030px){
+    .activities.card-wrapper{
+    .ui.grid{
+        .passenger-input{
+            width:40% !important;
+        }
+     }
+  }
+}
+
+@media (max-width: 991px) {
+    .activities.card-wrapper {
+        .ui.grid>.column.row>[class*="six wide"].column, .ui.grid>.row>[class*="six wide"].column {
+            width: 100% !important;
+        }
+        .ui.grid>.column.row>[class*="ten wide"].column, .ui.grid>.row>[class*="ten wide"].column {
+            width: 100% !important;
+        }
+        .markup-block {
+            .ui.grid>.column.row>[class*="eight wide"].column, .ui.grid>.row>[class*="eight wide"].column {
+                width: 100% !important;
+                &:first-child {
+                    padding-top: 14px;
+                }
+                &:last-child {
+                    padding-top: 14px;
+                }
+            }
+        }
+        .activity-search-block{
+            .date-block{
+                width: 100% !important;
+                padding-top: 14px;
+            }
+        }
+    }
+}
+
+
+@media(max-width:350px){
+    .activities.card-wrapper{
+        .ui.grid{
+            .passenger-input{
+                width:50% !important;
+            }
+         }
+         .activity-search-block{
+            .child-age-block{
+                .age-size{
+                  width:50% !important;
+                  padding-bottom: 14px;
+               }
+            }
+        }
+      }
+}

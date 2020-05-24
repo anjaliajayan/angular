@@ -1,0 +1,1765 @@
+<div class="ui grid results animated fadeIn">
+  <div class="sixteen wide column results_header">
+    <div class="ui grid">
+      <div class="four wide column">
+        <p class="results_header__flights-title">
+          {{preSearchObj.from}}
+          <img src="./../../../../../assets/img/arrow-forward.png" />
+          {{preSearchObj.to}}
+        </p>
+        <hr class="results_header__vertical-separator" />
+      </div>
+      <div class="five wide column">
+        <p class="results_header__flights-title">
+          <b>{{preSearchObj.ACI.adult}}</b> Adult(s)</p>
+        <p class="results_header__flights-title">
+          <b>{{preSearchObj.ACI.child}}</b> Child</p>
+        <p class="results_header__flights-title">
+          <b>{{preSearchObj.ACI.infant}}</b> Infant(s)</p>
+        <hr class="results_header__vertical-separator" />
+      </div>
+      <div class="four wide column">
+        <div class="four wide column">
+          <p class="results_header__flights-title">We found <b>{{preSearchObj.totalResults}}</b> flights availability
+          </p>
+          <hr class="results_header__vertical-separator mr-neg" />
+        </div>
+      </div>
+      <div class="three wide column">
+        <p class="results_header__flights-title right">
+          {{preSearchObj.departureDate}}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="sixteen wide column results_filters">
+    <div class="ui grid">
+      <div class="four wide column">
+        <p>
+          <img src="./../../../../../assets/img/search-icon-b.png" />
+          <span>Modify Search</span>
+        </p>
+        <p>
+          <img src="./../../../../../assets/icons/calendar.svg" />
+          <span>Weekly Fares</span>
+        </p>
+        <!-- <div class="ui inline dropdown">
+          <i class="icon"><img src="./../../../../../assets/icons/calendar.svg" /></i>
+          <div class="default text">Weekly Fares</div>
+          <div class="menu">
+            <div class="header">
+              <div class="ui grid">
+                <div class="two wide column row">
+                  <div class="column">
+                    <p><i class="plane icon"></i> Dubai</p>
+                    <span>Dubai International (DXB)</span>
+                  </div>
+                  <div class="column">
+                    <p><i class="plane icon"></i> France</p>
+                    <span>France International (FRA)</span>
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="column results_filters__bar-row">
+                    <p><i class="calendar icon"></i> SATURDAY 31 AUG</p>
+                  </div>
+                </div>
+                <div class="two wide column row">
+                  <div class="column">
+                    <p>Please select departure date</p>
+                  </div>
+                  <div class="column">
+                    <span><i class="label icon"></i> Lowest Fares</span>
+                    <span><i class="check icon"></i> Selection</span>
+                    <span><i class="info icon"></i> Overlapping Date</span>
+                  </div>
+                </div>
+                <div class="sixteen wide column row">
+                  <div class="flightsFaresCalendar"></div>
+                </div>
+              </div>
+            </div>
+            <div class="item"></div>
+          </div>
+        </div> -->
+      </div>
+      <div class="one wide column"></div>
+      <div class="eleven wide column">
+        <div class="ui grid">
+          <div class="six column row">
+            <div class="two wide column"></div>
+            <div class="two wide column">
+              <div class="ui inline floating dropdown results_filters__time-range">
+                <span class="default">Price</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div id="time-range">
+                    <p>Price</p>
+                    <div class="sliders_step1">
+                      <div id="slider-range"></div>
+                    </div>
+                    <div class="ui grid">
+                      <div class="seven wide column">
+                        <div class="ui input fluid">
+                          <input type="text" placeholder="" class="slider-price">
+                        </div>
+                        <span>-</span>
+                        <div class="ui input fluid">
+                          <input type="text" placeholder="" class="slider-price2">
+                        </div>
+                        <span>AED</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    9:00
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <div class="ui inline dropdown">
+                <span class="default">Stops</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" data-value="1">
+                    <div class="ui checkbox" (click)="filterFlightsDataListsByStops(1)">
+                      <input type="checkbox" name="example">
+                      <label>Non stop</label>
+                    </div>
+                  </div>
+                  <div class="item" data-value="0">
+                    <div class="ui checkbox" (click)="filterFlightsDataListsByStops(2)">
+                      <input type="checkbox" name="example">
+                      <label>One stop</label>
+                    </div>
+                  </div>
+                  <div class="item" data-value="0" (click)="filterFlightsDataListsByStops(3)">
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Multi stop</label>
+                    </div>
+                  </div>
+                  <div class="item _no-stops" data-value="0">
+                    <span>Add Stops</span>
+                    <div class="ui mini input fluid">
+                      <input type="text" placeholder="No. of stops" #stops (click)="$event.stopPropagation()"
+                        (blur)="filterFlightsDataListsByStops(stops.value)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui inline floating dropdown results_filters__time-range">
+                <span class="default">Flight Times</span>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div id="time-range">
+                    <p>Times</p>
+                    <div class="results_filters__time-range___tabs">
+                      <div class="results_filters__time-range___tabs____head">
+                        <div class="results_filters__time-range___tabs____head_____name" (click)="triggerTab()"
+                          [class._active]="activeTab">
+                          Outbound
+                        </div>
+                        <div class="results_filters__time-range___tabs____head_____name" (click)="triggerTab()"
+                          [class._active]="!activeTab">
+                          Return
+                        </div>
+                      </div>
+                      <div class="results_filters__time-range___tabs____tab" *ngIf="activeTab">
+                        <span>
+                          <strong>London - Frankfurt</strong>
+                        </span>
+                        <br>
+                        <span>Departure</span>
+                        <div class="sliders_step1">
+                          <div id="tab-outbound-dep-slider"></div>
+                        </div>
+                        <div class="ui grid">
+                          <div class="eight wide column">
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-outbound-dep-time">
+                            </div>
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-outbound-dep-time2">
+                            </div>
+                          </div>
+                        </div>
+                        <span>Arrival</span>
+                        <div class="sliders_step1">
+                          <div id="tab-outbound-arr-slider"></div>
+                        </div>
+                        <div class="ui grid">
+                          <div class="eight wide column">
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-outbound-arr-time">
+                            </div>
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-outbound-arr-time2">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="results_filters__time-range___tabs____tab" *ngIf="!activeTab">
+                        <span>
+                          <strong>Frankfurt - London</strong>
+                        </span>
+                        <br>
+                        <span>Departure</span>
+                        <div class="sliders_step1">
+                          <div id="tab-return-dep-slider"></div>
+                        </div>
+                        <div class="ui grid">
+                          <div class="eight wide column">
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-return-dep-time">
+                            </div>
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-return-dep-time2">
+                            </div>
+                          </div>
+                        </div>
+                        <span>Arrival</span>
+                        <div class="sliders_step1">
+                          <div id="tab-return-arr-slider"></div>
+                        </div>
+                        <div class="ui grid">
+                          <div class="eight wide column">
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-return-arr-time">
+                            </div>
+                            <div class="ui input fluid">
+                              <input type="text" placeholder="" class="tab-return-arr-time2">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    9:00
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column">
+              <div class="ui inline dropdown fluid flights_connections">
+                <input type="hidden" name="gender">
+                <i class="dropdown icon"></i>
+                <div class="default">Airlines</div>
+                <div class="menu">
+                  <div class="header">
+                    Airline
+                  </div>
+                  <div class="ui left icon input">
+                    <i class="search icon"></i>
+                    <input type="text" name="search" placeholder="Search...">
+                  </div>
+                  <div class="header airline">
+                    <div class="ui checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Select All Airlines</label>
+                    </div>
+                  </div>
+                  <div class="item" data-value="1" *ngFor="let item of airlineSnapshots; let i = index">
+                    <div class="ui checkbox"
+                      (click)="filterFlightsDataListsByAirlines(item.airlines[0].id, item.airlines[0].name)">
+                      <input type="checkbox" name="example">
+                      <label>{{item.airlines[0].name}}</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide column">
+              <div class="ui inline dropdown">
+                <div class="text">Fare Types</div>
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" data-value="1">Conventional</div>
+                  <div class="item" data-value="0">Premium</div>
+                </div>
+              </div>
+            </div>
+            <div class="two wide column text-right">
+              <button class="ui basic button results_filters__flt-btn">
+                <i class="icon">
+                  <img src="./../../../../../assets/img/filter.png" />
+                </i>
+                Filters
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="bottom-separator" />
+    <div class="ui grid results_filters__slider">
+      <div class="sixteen wide column">
+        <div class="owl-carousel owl-theme">
+          <div class="item" *ngFor="let item of airlineSnapshots; let i = index">
+            <div class="ui items">
+              <div class="item" (click)="filterFlightsDataListsByAirlines(item.airlines[0].id, item.airlines[0].name)">
+                <div class="image">
+                  <img
+                    src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{item.airlines[0].id}}.png" />
+                </div>
+                <div class="content">
+                  <a class="header">{{item.snapshot.Lowest.EncodedCurrencyPrice["@Code"]}}
+                    {{item.snapshot.Lowest.EncodedCurrencyPrice["#text"] | number:'1.1-1'}}</a>
+                  <div class="description">
+                    <p>{{item.airlines[0].name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="bottom-separator" />
+    <div class="ui grid results_filters__outbound">
+      <div class="four wide column">
+        <hr class="mr-neg" />
+      </div>
+      <div class="eight wide column text-center">
+        <p>
+          <img src="./../../../../../assets/img/plane-take-off.png" />
+          <b>Outbound,</b> {{preSearchObj.fromAirportCode}}
+          - {{preSearchObj.fromAirportName}} - {{preSearchObj.toAirportCode}} - {{preSearchObj.toAirportName}}
+          Main</p>
+      </div>
+      <div class="four wide column">
+        <hr class="ml-neg" />
+      </div>
+    </div>
+    <div class="ui segment flights-filter-loader" *ngIf="filterLoader">
+      <div class="ui active inverted dimmer">
+        <div class="ui text loader">Loading your flights ...</div>
+      </div>
+      <p></p>
+    </div>
+    <div *ngIf="!filterLoader" class="filter_results__segments">
+      <!-- <hr class="bottom-separator" /> -->
+      <h5 *ngIf="filteredFlightsArr.length > 0" class="text-center">
+        Filtered Results:
+        &nbsp;&nbsp;
+        <span class="fw-300">{{filterLabel}}</span> &nbsp;&nbsp;
+        <button class="tiny ui primary button" (click)="clearFilters()">
+          Clear Filters
+        </button>
+      </h5>
+      <div *ngIf="filteredFlightsArr.length === 0">
+        <div *ngFor="let owner of flightSearchResults.ownerList; let own = index">
+          <hr class="bottom-separator thick-line" />
+          <div class="ui grid results_filters__ticket-starter">
+            <div class="three wide column">
+              <div class="results_filters__ticket-starter__mask-bg">
+                <p>Powered by: {{owner.owner}}</p>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let ownerFlights of owner.flights; let of = index">
+            <div>
+              <div *ngIf="ownerFlights.ownerFlights.length !== 0">
+                <hr class="bottom-separator thick-line" />
+                <div class="ui grid results_filters__ticket-starter">
+                  <div class="three wide column">
+                    <div class="results_filters__ticket-starter__mask">
+                      <p>{{ownerFlights.owner}}</p>
+                    </div>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Offer Expiry: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Price Guarantee Expiry: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Payment Time Limit: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                </div>
+                <div *ngFor="let tk of ownerFlights.ownerFlights; let onwardFlightIndex = index">
+                  <div class="ui grid results_filters__airline _onwards" #ticket id="_onwards_{{onwardFlightIndex}}-tk"
+                    [class.d-none]="onwardFlightIndex !== 0">
+                    <div class="one wide column">
+                      <img
+                        src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.MarketingCarrier.AirlineID}}.png"
+                        class="results_filters__airline-ico" />
+                    </div>
+                    <div class="four wide column results_filters__airline___flight">
+                      <span
+                        class="results_filters__airline___flight____text">{{tk.flights.onwards[0].onwards[0].flight.Departure.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.onwards[0].onwards[0].flight.Departure.Time}}</strong>
+                      </span>
+                      <span class="results_filters__airline___flight____placeholder">
+                        <strong>{{(tk.flights.onwards[0].onwards.length > 1) ? (tk.flights.onwards[0].onwards.length - 1) + ' Stops via (' +  tk.flights.onwards[0].onwards[0].flight.Arrival.AirportCode + ')' : 'Non-stop'}}</strong>
+                        <br>
+                        <img src="./../../../../../assets/img/flight-line.png" />
+                        <span>{{tk.flights.onwards[0].onwards[0].flight.Equipment.Name}} |
+                          {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                        <br>
+                        <span>{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.Name}}
+                          {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}} -
+                          {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.FlightNumber}}</span>
+                      </span>
+                      <span
+                        class="results_filters__airline___flight____text last">{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.Arrival.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.Arrival.Time}}</strong>
+                      </span>
+                    </div>
+                    <div class="four wide column results_filters__airline___flight____options">
+                      <span class="results_filters__airline___flight____options_____fares">
+                        <p (click)="showFareBaggageDetails(tk, onwardFlightIndex, 'fares', '')">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___flight____options_____fares______logo"
+                            *ngIf="fareBaggageLoader" />
+                          <img src="./../../../../../assets/img/info.png" />
+                          Fare and
+                          Baggage details</p>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____btn">
+                        <button class="ui button"
+                          (click)="displayInnerTicket((ownerFlights.ownerFlights.length - 1), 'onwards')"
+                          *ngIf="onwardFlightIndex === 0">
+                          {{(ownerFlights.ownerFlights.length - 1) == 0 ? 'No Opt.' : '+' + (ownerFlights.ownerFlights.length - 1) + ' Options'}}
+                        </button>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____icons">
+                        <img src="./../../../../../assets/img/info.png" id="tk-{{onwardFlightIndex}}__info-popup-btn"
+                          (click)="loadPopups('info-popup',onwardFlightIndex)" />
+                        <img src="./../../../../../assets/img/seat-an.png" />
+                        <img src="./../../../../../assets/img/plane-fly.png"
+                          id="tk-{{onwardFlightIndex}}__baggage-popup-btn"
+                          (click)="loadPopups('baggage-popup',onwardFlightIndex)" />
+                        <img src="./../../../../../assets/img/cog.png" />
+                      </span>
+                      <!-- <span class="results_filters__airline___flight____options_____anc" (click)="showAncillary()">Add
+                          Anciliaries</span> -->
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{onwardFlightIndex}}__info-popup">
+                        <h4 class="">Flight {{(onwardFlightIndex + 1)}} details</h4>
+                        <div class="ui three column center aligned grid">
+                          <div class="one wide column">
+                            <img
+                              src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}}.png" />
+                          </div>
+                          <div class="nine wide column">
+                            <p class="_main-title">Departing flight <span class="_dot">•</span>
+                              {{tk.flights.onwards[0].onwards[0].flight.Departure.Date}}</p>
+                            <div class="_grid _left">
+                              <img src="./../../../../../assets/img/dotted_flight.png" />
+                            </div>
+                            <div class="_grid _mid">
+                              <p>{{tk.flights.onwards[0].onwards[0].flight.Departure.Time}} <i>•</i>
+                                {{tk.flights.onwards[0].onwards[0].flight.Departure.AirportName}}
+                                {{tk.flights.onwards[0].onwards[0].flight.Departure.AirportCode}} <i>•</i>
+                                <span>Terminal
+                                  {{tk.flights.onwards[0].onwards[0].flight.Departure.hasOwnProperty("Terminal") ? tk.flights.onwards[0].onwards[0].flight.Departure.Terminal.Name : ''}}</span>
+                              </p>
+                              <span class="_default-txt">Travel time:
+                                {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                              <!--<p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i> <span>Terminal B</span></p>-->
+                              <span
+                                class="_default-txt">{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.Name}}
+                                •
+                                Economy •
+                                {{tk.flights.onwards[0].onwards[0].flight.Equipment.Name}} •
+                                {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}}
+                                {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.FlightNumber}}</span>
+                            </div>
+                          </div>
+                          <div class="six wide column _meals-grid">
+                            <p>
+                              <img src="./../../../../../assets/img/dinner-blue.png" />
+                              Meal services</p>
+                            <span class="_placeholder-txt">Breakfast</span>
+                            <span class="_placeholder-txt">Drinks</span>
+                            <span class="_placeholder-txt">Light Refreshments</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{onwardFlightIndex}}__baggage-popup"
+                        *ngIf="tk.flights.onwards.length > 0 && tk.flights.onwards[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                        <div class="ui three column center aligned grid">
+                          <div class="sixteen wide column">
+                            <table class="ui celled table">
+                              <tbody>
+                                <tr
+                                  *ngFor="let desc of tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                  <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                  <td data-label="Age" class="_thin-cell">
+                                    <img src="./../../../../../assets/img/checkmark.png" />
+                                  </td>
+                                  <td data-label="Age" class="_thin-cell">-</td>
+                                  <td data-label="Job" class="_thin-cell">-</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="six wide column results_filters__airline___flight____packages">
+                      <div class="owl-carousel owl-theme">
+                        <div class="item results_filters__airline___flight____packages_____package"
+                          *ngFor="let ofr of tk.flights.onwards[0].offers[0].offersArr; let onwardFlightOfferIndex = index;">
+                          <p>{{ofr.pclass.Name}}</p>
+                          <div class="ui checkbox flight-light"
+                            (click)="onwardShowRBD(tk, 'light_o', onwardFlightIndex, onwardFlightOfferIndex)">
+                            <input type="radio" name="onwards-pkg-selection">
+                            <label></label>
+                          </div>
+                          <p class="results_filters__airline___flight____packages_____package______price">
+                            {{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                            <span>{{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                          </p>
+                          <p class="results_filters__airline___flight____packages_____package______seat">5 <img
+                              src="./../../../../../assets/img/seat.png" />
+                          </p>
+                          <div class="results_filters__airline___flight____packages_____package______rbd"
+                            *ngIf="onwardSelectedPkgType == 'light_o' && onwardSelectedPkgIndex == onwardFlightOfferIndex">
+                            <div class="ui mini icon input fluid">
+                              <input type="text"
+                                value="{{ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)}}"
+                                (blur)="changeRBD(ofr, onwardFlightOfferIndex, tk, onwardFlightIndex, 'rbd', (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)))">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="one wide column"
+                      *ngIf="onwardSelectedPkgIndex !== -1 && onwardSelectedOfferIndex !== -1 && onwardSelectedPkgIndex === onwardFlightIndex">
+                      <div class="results_filters__airline___bookings">
+                        <span>Total flight time</span>
+                        <p>
+                          {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}
+                        </p>
+                        <hr />
+                        <span>Total price from</span>
+                        <p>
+                          {{tk.flights.onwards[0].offers[0].offersArr[onwardSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                        </p>
+                        <span>{{tk.flights.onwards[0].offers[0].offersArr[onwardSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                        <hr />
+                        <button class="ui button" (click)="bookNow()">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___bookings-logo" *ngIf="bookNowLoader" />
+                          Book now
+                        </button>
+                        <hr />
+                        <span class="results_filters__airline___bookings____quote">+ Add to Quote</span>
+                        <div class="results_filters__airline___bookings____fare-break"
+                          (click)="showFaresBreakDown(onwardFlightIndex)">
+                          <p>Fare Breakdown</p>
+                          <img src="./../../../../../assets/img/arrow-down.png" />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="info-popup2">
+                      <h4 class="">Flight 1 details</h4>
+                      <div class="ui three column center aligned grid">
+                        <div class="one wide column">
+                          <img src="./../../../../../assets/img/Lufthansa-logo.png" />
+                        </div>
+                        <div class="nine wide column">
+                          <p class="_main-title">Departing flight <span class="_dot">•</span> Sat, 21 Sept</p>
+                          <div class="_grid _left">
+                            <img src="./../../../../../assets/img/dotted_flight.png" />
+                          </div>
+                          <div class="_grid _mid">
+                            <p>10:30 <i>•</i> Heathrow Airport (LHR) <i>•</i>
+                              <span>Terminal 1</span>
+                            </p>
+                            <span class="_default-txt">Travel time: 2 hrs 30 mins</span>
+                            <p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i>
+                              <span>Terminal B</span>
+                            </p>
+                            <span class="_default-txt">Lufthansa • Economy • Boeing - 32N • LH 903</span>
+                          </div>
+                        </div>
+                        <div class="six wide column _meals-grid">
+                          <p>
+                            <img src="./../../../../../assets/img/dinner-blue.png" />
+                            Meal services</p>
+                          <span class="_placeholder-txt">Breakfast</span>
+                          <span class="_placeholder-txt">Drinks</span>
+                          <span class="_placeholder-txt">Light Refreshments</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="plane-popup2"
+                      *ngIf="tk.flights.onwards[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                      <div class="ui three column center aligned grid">
+                        <div class="sixteen wide column">
+                          <table class="ui celled table">
+                            <tbody>
+                              <tr
+                                *ngFor="let desc of tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                <td data-label="Age" class="_thin-cell">
+                                  <img src="./../../../../../assets/img/checkmark.png" />
+                                </td>
+                                <td data-label="Age" class="_thin-cell">-</td>
+                                <td data-label="Job" class="_thin-cell">-</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid results_filters__outbound-border hidden"
+                    id="tk-{{onwardFlightIndex}}__fares-panel">
+                    <div class="row">
+                      <div class="two wide column"></div>
+                      <div class="twelve wide column">
+                        <div class="ui blue message results_filters__outbound___fares-panel">
+                          <h4>Fare Breakdown</h4>
+                          <span>
+                            <strong>Flight price:
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['#text'] | number:'1.1-1'}}
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['@Code']}}*</strong>
+                            (For all passengers, including taxes)</span>
+                          <table class="ui tablet stackable table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>PTC</th>
+                                <th>Fare Basis</th>
+                                <th>Fare</th>
+                                <th>Tax</th>
+                                <th>Mark-up</th>
+                                <th>Total to be paid</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>ADT</td>
+                                <td>{{tk.flights.onwards[0].offers[0].offersArr[0].fareGroup[0].FareBasisCode.Code}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <strong>Total</strong>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  <strong>{{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                    {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}</strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <span>* Additional fees may apply depending on your selected form of payment</span>
+                        </div>
+                      </div>
+                      <div class="two wide column"></div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="bottom-separator thin-line" />
+                <div *ngFor="let tk of ownerFlights.ownerFlights; let returnFlightIndex = index">
+                  <div class="ui grid results_filters__airline _returns"
+                    *ngIf="preSearchObj.flightSearchType !== 'oneway' && tk.flights.returns.length > 0" #ticket
+                    id="_returns_{{returnFlightIndex}}-tk" [class.d-none]="returnFlightIndex !== 0">
+                    <div class="one wide column">
+                      <img
+                        src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.MarketingCarrier.AirlineID}}.png"
+                        class="results_filters__airline-ico" />
+                    </div>
+                    <div class="four wide column results_filters__airline___flight">
+                      <span
+                        class="results_filters__airline___flight____text">{{tk.flights.returns[0].returns[0].flight.Departure.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.returns[0].returns[0].flight.Departure.Time}}</strong>
+                      </span>
+                      <span class="results_filters__airline___flight____placeholder">
+                        <strong>{{(tk.flights.returns[0].returns.length > 1) ? (tk.flights.returns[0].returns.length - 1) + ' Stops via (' +  tk.flights.returns[0].returns[0].flight.Arrival.AirportCode + ')' : 'Non-stop'}}</strong>
+                        <br>
+                        <img src="./../../../../../assets/img/flight-line.png" />
+                        <span>{{tk.flights.returns[0].returns[0].flight.Equipment.Name}} |
+                          {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                        <br>
+                        <span>{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.Name}}
+                          {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}} -
+                          {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.FlightNumber}}</span>
+                      </span>
+                      <span
+                        class="results_filters__airline___flight____text last">{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.Arrival.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.Arrival.Time}}</strong>
+                      </span>
+                    </div>
+                    <div class="four wide column results_filters__airline___flight____options">
+                      <span class="results_filters__airline___flight____options_____fares">
+                        <p (click)="showFareBaggageDetails(tk, returnFlightIndex, 'fares', '')">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___flight____options_____fares______logo"
+                            *ngIf="fareBaggageLoader" />
+                          <img src="./../../../../../assets/img/info.png" />
+                          Fare and
+                          Baggage details</p>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____btn">
+                        <button class="ui button"
+                          (click)="displayInnerTicket((ownerFlights.ownerFlights.length - 1), 'returns')"
+                          *ngIf="returnFlightIndex === 0">
+                          {{(ownerFlights.ownerFlights.length - 1) == 0 ? 'No Opt.' : '+' + (ownerFlights.ownerFlights.length - 1) + ' Options'}}
+                        </button>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____icons">
+                        <img src="./../../../../../assets/img/info.png" id="tk-{{returnFlightIndex+1}}__info-popup-btn"
+                          (click)="loadPopups('info-popup', returnFlightIndex+1)" />
+                        <img src="./../../../../../assets/img/seat-an.png" />
+                        <img src="./../../../../../assets/img/plane-fly.png"
+                          id="tk-{{returnFlightIndex+1}}__baggage-popup-btn"
+                          (click)="loadPopups('baggage-popup', returnFlightIndex)" />
+                        <img src="./../../../../../assets/img/cog.png" />
+                      </span>
+                      <!-- <span class="results_filters__airline___flight____options_____anc" (click)="showAncillary()">Add
+                          Anciliaries</span> -->
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{returnFlightIndex+1}}__info-popup">
+                        <h4 class="">Flight {{(returnFlightIndex + 1)}} details</h4>
+                        <div class="ui three column center aligned grid">
+                          <div class="one wide column">
+                            <img
+                              src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}}.png" />
+                          </div>
+                          <div class="nine wide column">
+                            <p class="_main-title">Departing flight <span class="_dot">•</span>
+                              {{tk.flights.returns[0].returns[0].flight.Departure.Date}}</p>
+                            <div class="_grid _left">
+                              <img src="./../../../../../assets/img/dotted_flight.png" />
+                            </div>
+                            <div class="_grid _mid">
+                              <p>{{tk.flights.returns[0].returns[0].flight.Departure.Time}} <i>•</i>
+                                {{tk.flights.returns[0].returns[0].flight.Departure.AirportName}}
+                                {{tk.flights.returns[0].returns[0].flight.Departure.AirportCode}} <i>•</i>
+                                <span>Terminal
+                                  {{tk.flights.returns[0].returns[0].flight.Departure.hasOwnProperty("Terminal") ? tk.flights.returns[0].returns[0].flight.Departure.Terminal.Name : ''}}</span>
+                              </p>
+                              <span class="_default-txt">Travel time:
+                                {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                              <!--<p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i> <span>Terminal B</span></p>-->
+                              <span
+                                class="_default-txt">{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.Name}}
+                                •
+                                Economy •
+                                {{tk.flights.returns[0].returns[0].flight.Equipment.Name}} •
+                                {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}}
+                                {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.FlightNumber}}</span>
+                            </div>
+                          </div>
+                          <div class="six wide column _meals-grid">
+                            <p>
+                              <img src="./../../../../../assets/img/dinner-blue.png" />
+                              Meal services</p>
+                            <span class="_placeholder-txt">Breakfast</span>
+                            <span class="_placeholder-txt">Drinks</span>
+                            <span class="_placeholder-txt">Light Refreshments</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{returnFlightIndex+1}}__baggage-popup"
+                        *ngIf="tk.flights.returns.length > 0 && tk.flights.returns[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                        <div class="ui three column center aligned grid">
+                          <div class="sixteen wide column">
+                            <table class="ui celled table">
+                              <tbody>
+                                <tr
+                                  *ngFor="let desc of tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                  <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                  <td data-label="Age" class="_thin-cell">
+                                    <img src="./../../../../../assets/img/checkmark.png" />
+                                  </td>
+                                  <td data-label="Age" class="_thin-cell">-</td>
+                                  <td data-label="Job" class="_thin-cell">-</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="six wide column results_filters__airline___flight____packages">
+                      <div class="owl-carousel owl-theme">
+                        <div class="item results_filters__airline___flight____packages_____package"
+                          *ngFor="let ofr of tk.flights.returns[0].offers[0].offersArr; let returnFlightOfferIndex = index;">
+                          <p>{{ofr.pclass.Name}}</p>
+                          <div class="ui checkbox flight-light"
+                            (click)="returnShowRBD(tk, 'light_r', returnFlightIndex, returnFlightOfferIndex)">
+                            <input type="radio" name="returns-pkg-selection">
+                            <label></label>
+                          </div>
+                          <p class="results_filters__airline___flight____packages_____package______price">
+                            {{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                            <span>{{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                          </p>
+                          <p class="results_filters__airline___flight____packages_____package______seat">5 <img
+                              src="./../../../../../assets/img/seat.png" />
+                          </p>
+                          <div class="results_filters__airline___flight____packages_____package______rbd"
+                            *ngIf="returnSelectedPkgType == 'light_r' && returnSelectedPkgIndex == returnFlightOfferIndex">
+                            <div class="ui mini icon input fluid">
+                              <input type="text"
+                                value="{{ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                      (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                      (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)}}"
+                                (blur)="changeRBD(ofr, returnFlightOfferIndex, tk, returnFlightIndex, 'rbd', (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                      (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                      (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                      ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)))">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="one wide column"
+                      *ngIf="returnSelectedPkgIndex !== -1 && returnSelectedOfferIndex !== -1 && returnSelectedPkgIndex === returnFlightIndex">
+                      <div class="results_filters__airline___bookings">
+                        <span>Total flight time</span>
+                        <p>
+                          {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}
+                        </p>
+                        <hr />
+                        <span>Total price from</span>
+                        <p>
+                          {{tk.flights.returns[0].offers[0].offersArr[returnSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                        </p>
+                        <span>{{tk.flights.returns[0].offers[0].offersArr[returnSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                        <hr />
+                        <button class="ui button" (click)="bookNow()">Book now</button>
+                        <hr />
+                        <span class="results_filters__airline___bookings____quote">+ Add to Quote</span>
+                        <div class="results_filters__airline___bookings____fare-break"
+                          (click)="showFaresBreakDown(returnFlightIndex)">
+                          <p>Fare Breakdown</p>
+                          <img src="./../../../../../assets/img/arrow-down.png" />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="info-popup2">
+                      <h4 class="">Flight 1 details</h4>
+                      <div class="ui three column center aligned grid">
+                        <div class="one wide column">
+                          <img src="./../../../../../assets/img/Lufthansa-logo.png" />
+                        </div>
+                        <div class="nine wide column">
+                          <p class="_main-title">Departing flight <span class="_dot">•</span> Sat, 21 Sept</p>
+                          <div class="_grid _left">
+                            <img src="./../../../../../assets/img/dotted_flight.png" />
+                          </div>
+                          <div class="_grid _mid">
+                            <p>10:30 <i>•</i> Heathrow Airport (LHR) <i>•</i>
+                              <span>Terminal 1</span>
+                            </p>
+                            <span class="_default-txt">Travel time: 2 hrs 30 mins</span>
+                            <p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i>
+                              <span>Terminal B</span>
+                            </p>
+                            <span class="_default-txt">Lufthansa • Economy • Boeing - 32N • LH 903</span>
+                          </div>
+                        </div>
+                        <div class="six wide column _meals-grid">
+                          <p>
+                            <img src="./../../../../../assets/img/dinner-blue.png" />
+                            Meal services</p>
+                          <span class="_placeholder-txt">Breakfast</span>
+                          <span class="_placeholder-txt">Drinks</span>
+                          <span class="_placeholder-txt">Light Refreshments</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="plane-popup2"
+                      *ngIf="tk.flights.returns[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                      <div class="ui three column center aligned grid">
+                        <div class="sixteen wide column">
+                          <table class="ui celled table">
+                            <tbody>
+                              <tr
+                                *ngFor="let desc of tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                <td data-label="Age" class="_thin-cell">
+                                  <img src="./../../../../../assets/img/checkmark.png" />
+                                </td>
+                                <td data-label="Age" class="_thin-cell">-</td>
+                                <td data-label="Job" class="_thin-cell">-</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid results_filters__outbound-border hidden"
+                    id="tk-{{returnFlightIndex}}__fares-panel">
+                    <div class="row">
+                      <div class="two wide column"></div>
+                      <div class="twelve wide column">
+                        <div class="ui blue message results_filters__outbound___fares-panel">
+                          <h4>Fare Breakdown</h4>
+                          <span>
+                            <strong>Flight price:
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['#text'] | number:'1.1-1'}}
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['@Code']}}*</strong>
+                            (For all passengers, including taxes)</span>
+                          <table class="ui tablet stackable table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>PTC</th>
+                                <th>Fare Basis</th>
+                                <th>Fare</th>
+                                <th>Tax</th>
+                                <th>Mark-up</th>
+                                <th>Total to be paid</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>ADT</td>
+                                <td>{{tk.flights.onwards[0].offers[0].offersArr[0].fareGroup[0].FareBasisCode.Code}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <strong>Total</strong>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  <strong>{{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                    {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}</strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <span>* Additional fees may apply depending on your selected form of payment</span>
+                        </div>
+                      </div>
+                      <div class="two wide column"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="filteredFlightsArr.length > 0">
+        <div *ngFor="let owner of filteredFlightsArr; let own = index">
+          <hr class="bottom-separator thick-line" />
+          <div class="ui grid results_filters__ticket-starter">
+            <div class="three wide column">
+              <div class="results_filters__ticket-starter__mask-bg">
+                <p>Powered by: {{owner.owner}}</p>
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let ownerFlights of owner.flights; let of = index">
+            <div>
+              <div *ngIf="ownerFlights.ownerFlights.length !== 0">
+                <hr class="bottom-separator thick-line" />
+                <div class="ui grid results_filters__ticket-starter">
+                  <div class="three wide column">
+                    <div class="results_filters__ticket-starter__mask">
+                      <p>{{ownerFlights.owner}}</p>
+                    </div>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Offer Expiry: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Price Guarantee Expiry: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                  <div class="four wide column">
+                    <p class="results_filters__ticket-starter___time">Payment Time Limit: 01 Jan, 2019 | 12:00</p>
+                  </div>
+                </div>
+                <div *ngFor="let tk of ownerFlights.ownerFlights; let ownerOnwardFlightIndex = index">
+                  <div class="ui grid results_filters__airline _onwards" #ticket
+                    id="_onwards_{{ownerOnwardFlightIndex}}-tk" [class.d-none]="ownerOnwardFlightIndex !== 0">
+                    <div class="one wide column">
+                      <img
+                        src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.MarketingCarrier.AirlineID}}.png"
+                        class="results_filters__airline-ico" />
+                    </div>
+                    <div class="four wide column results_filters__airline___flight">
+                      <span
+                        class="results_filters__airline___flight____text">{{tk.flights.onwards[0].onwards[0].flight.Departure.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.onwards[0].onwards[0].flight.Departure.Time}}</strong>
+                      </span>
+                      <span class="results_filters__airline___flight____placeholder">
+                        <strong>{{(tk.flights.onwards[0].onwards.length > 1) ? (tk.flights.onwards[0].onwards.length - 1) + ' Stops via (' +  tk.flights.onwards[0].onwards[0].flight.Arrival.AirportCode + ')' : 'Non-stop'}}</strong>
+                        <br>
+                        <img src="./../../../../../assets/img/flight-line.png" />
+                        <span>{{tk.flights.onwards[0].onwards[0].flight.Equipment.Name}} |
+                          {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                        <br>
+                        <span>{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.Name}}
+                          {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}} -
+                          {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.FlightNumber}}</span>
+                      </span>
+                      <span
+                        class="results_filters__airline___flight____text last">{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.Arrival.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.onwards[0].onwards[tk.flights.onwards[0].onwards.length - 1].flight.Arrival.Time}}</strong>
+                      </span>
+                    </div>
+                    <div class="four wide column results_filters__airline___flight____options">
+                      <span class="results_filters__airline___flight____options_____fares">
+                        <p (click)="showFareBaggageDetails(tk, ownerOnwardFlightIndex, 'fares', '')">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___flight____options_____fares______logo"
+                            *ngIf="fareBaggageLoader" />
+                          <img src="./../../../../../assets/img/info.png" />
+                          Fare and
+                          Baggage details</p>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____btn">
+                        <button class="ui button"
+                          (click)="displayInnerTicket((ownerFlights.ownerFlights.length - 1), 'onwards')"
+                          *ngIf="ownerOnwardFlightIndex === 0">
+                          {{(ownerFlights.ownerFlights.length - 1) == 0 ? 'No Opt.' : '+' + (ownerFlights.ownerFlights.length - 1) + ' Options'}}
+                        </button>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____icons">
+                        <img src="./../../../../../assets/img/info.png"
+                          id="tk-{{ownerOnwardFlightIndex}}__info-popup-btn"
+                          (click)="loadPopups('info-popup', ownerOnwardFlightIndex)" />
+                        <img src="./../../../../../assets/img/seat-an.png" />
+                        <img src="./../../../../../assets/img/plane-fly.png"
+                          id="tk-{{ownerOnwardFlightIndex}}__baggage-popup-btn"
+                          (click)="loadPopups('baggage-popup', ownerOnwardFlightIndex)" />
+                        <img src="./../../../../../assets/img/cog.png" />
+                      </span>
+                      <!-- <span class="results_filters__airline___flight____options_____anc" (click)="showAncillary()">Add
+                                            Anciliaries</span> -->
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{ownerOnwardFlightIndex}}__info-popup">
+                        <h4 class="">Flight {{(ownerOnwardFlightIndex + 1)}} details</h4>
+                        <div class="ui three column center aligned grid">
+                          <div class="one wide column">
+                            <img
+                              src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}}.png" />
+                          </div>
+                          <div class="nine wide column">
+                            <p class="_main-title">Departing flight <span class="_dot">•</span>
+                              {{tk.flights.onwards[0].onwards[0].flight.Departure.Date}}</p>
+                            <div class="_grid _left">
+                              <img src="./../../../../../assets/img/dotted_flight.png" />
+                            </div>
+                            <div class="_grid _mid">
+                              <p>{{tk.flights.onwards[0].onwards[0].flight.Departure.Time}} <i>•</i>
+                                {{tk.flights.onwards[0].onwards[0].flight.Departure.AirportName}}
+                                {{tk.flights.onwards[0].onwards[0].flight.Departure.AirportCode}} <i>•</i>
+                                <span>Terminal
+                                  {{tk.flights.onwards[0].onwards[0].flight.Departure.hasOwnProperty("Terminal") ? tk.flights.onwards[0].onwards[0].flight.Departure.Terminal.Name : ''}}</span>
+                              </p>
+                              <span class="_default-txt">Travel time:
+                                {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                              <!--<p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i> <span>Terminal B</span></p>-->
+                              <span
+                                class="_default-txt">{{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.Name}}
+                                •
+                                Economy •
+                                {{tk.flights.onwards[0].onwards[0].flight.Equipment.Name}} •
+                                {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.AirlineID}}
+                                {{tk.flights.onwards[0].onwards[0].flight.MarketingCarrier.FlightNumber}}</span>
+                            </div>
+                          </div>
+                          <div class="six wide column _meals-grid">
+                            <p>
+                              <img src="./../../../../../assets/img/dinner-blue.png" />
+                              Meal services</p>
+                            <span class="_placeholder-txt">Breakfast</span>
+                            <span class="_placeholder-txt">Drinks</span>
+                            <span class="_placeholder-txt">Light Refreshments</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{ownerOnwardFlightIndex}}__baggage-popup"
+                        *ngIf="tk.flights.onwards.length > 0 && tk.flights.onwards[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                        <div class="ui three column center aligned grid">
+                          <div class="sixteen wide column">
+                            <table class="ui celled table">
+                              <tbody>
+                                <tr
+                                  *ngFor="let desc of tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                  <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                  <td data-label="Age" class="_thin-cell">
+                                    <img src="./../../../../../assets/img/checkmark.png" />
+                                  </td>
+                                  <td data-label="Age" class="_thin-cell">-</td>
+                                  <td data-label="Job" class="_thin-cell">-</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="six wide column results_filters__airline___flight____packages">
+                      <div class="owl-carousel owl-theme">
+                        <div class="item results_filters__airline___flight____packages_____package"
+                          *ngFor="let ofr of tk.flights.onwards[0].offers[0].offersArr; let ownerOnwardFlightOfferIndex = index;">
+                          <p>{{ofr.pclass.Name}}</p>
+                          <div class="ui checkbox flight-light"
+                            (click)="onwardShowRBD(tk, 'light_o', ownerOnwardFlightIndex, ownerOnwardFlightOfferIndex)">
+                            <input type="radio" name="onwards-pkg-selection">
+                            <label></label>
+                          </div>
+                          <p class="results_filters__airline___flight____packages_____package______price">
+                            {{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                            <span>{{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                          </p>
+                          <p class="results_filters__airline___flight____packages_____package______seat">5 <img
+                              src="./../../../../../assets/img/seat.png" />
+                          </p>
+                          <div class="results_filters__airline___flight____packages_____package______rbd"
+                            *ngIf="onwardSelectedPkgType == 'light_o' && onwardSelectedPkgIndex == ownerOnwardFlightOfferIndex">
+                            <div class="ui mini icon input fluid">
+                              <input type="text"
+                                value="{{ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                                              (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                                              (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)}}"
+                                (blur)="changeRBD(ofr, ownerOnwardFlightOfferIndex, tk, ownerOnwardFlightIndex, 'rbd', (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                                              (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                                              (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                                              ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)))">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="one wide column"
+                      *ngIf="onwardSelectedPkgIndex !== -1 && onwardSelectedOfferIndex !== -1 && onwardSelectedPkgIndex === ownerOnwardFlightIndex">
+                      <div class="results_filters__airline___bookings">
+                        <span>Total flight time</span>
+                        <p>
+                          {{tk.flights.onwards[0].onwards[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}
+                        </p>
+                        <hr />
+                        <span>Total price from</span>
+                        <p>
+                          {{tk.flights.onwards[0].offers[0].offersArr[onwardSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                        </p>
+                        <span>{{tk.flights.onwards[0].offers[0].offersArr[onwardSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                        <hr />
+                        <button class="ui button" (click)="bookNow()">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___bookings-logo" *ngIf="bookNowLoader" />
+                          Book now
+                        </button>
+                        <hr />
+                        <span class="results_filters__airline___bookings____quote">+ Add to Quote</span>
+                        <div class="results_filters__airline___bookings____fare-break"
+                          (click)="showFaresBreakDown(ownerOnwardFlightIndex)">
+                          <p>Fare Breakdown</p>
+                          <img src="./../../../../../assets/img/arrow-down.png" />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="info-popup2">
+                      <h4 class="">Flight 1 details</h4>
+                      <div class="ui three column center aligned grid">
+                        <div class="one wide column">
+                          <img src="./../../../../../assets/img/Lufthansa-logo.png" />
+                        </div>
+                        <div class="nine wide column">
+                          <p class="_main-title">Departing flight <span class="_dot">•</span> Sat, 21 Sept</p>
+                          <div class="_grid _left">
+                            <img src="./../../../../../assets/img/dotted_flight.png" />
+                          </div>
+                          <div class="_grid _mid">
+                            <p>10:30 <i>•</i> Heathrow Airport (LHR) <i>•</i>
+                              <span>Terminal 1</span>
+                            </p>
+                            <span class="_default-txt">Travel time: 2 hrs 30 mins</span>
+                            <p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i>
+                              <span>Terminal B</span>
+                            </p>
+                            <span class="_default-txt">Lufthansa • Economy • Boeing - 32N • LH 903</span>
+                          </div>
+                        </div>
+                        <div class="six wide column _meals-grid">
+                          <p>
+                            <img src="./../../../../../assets/img/dinner-blue.png" />
+                            Meal services</p>
+                          <span class="_placeholder-txt">Breakfast</span>
+                          <span class="_placeholder-txt">Drinks</span>
+                          <span class="_placeholder-txt">Light Refreshments</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="plane-popup2"
+                      *ngIf="tk.flights.onwards[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                      <div class="ui three column center aligned grid">
+                        <div class="sixteen wide column">
+                          <table class="ui celled table">
+                            <tbody>
+                              <tr
+                                *ngFor="let desc of tk.flights.onwards[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                <td data-label="Age" class="_thin-cell">
+                                  <img src="./../../../../../assets/img/checkmark.png" />
+                                </td>
+                                <td data-label="Age" class="_thin-cell">-</td>
+                                <td data-label="Job" class="_thin-cell">-</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid results_filters__outbound-border hidden"
+                    id="tk-{{ownerOnwardFlightIndex}}__fares-panel">
+                    <div class="row">
+                      <div class="two wide column"></div>
+                      <div class="twelve wide column">
+                        <div class="ui blue message results_filters__outbound___fares-panel">
+                          <h4>Fare Breakdown</h4>
+                          <span>
+                            <strong>Flight price:
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['#text'] | number:'1.1-1'}}
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['@Code']}}*</strong>
+                            (For all passengers, including taxes)</span>
+                          <table class="ui tablet stackable table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>PTC</th>
+                                <th>Fare Basis</th>
+                                <th>Fare</th>
+                                <th>Tax</th>
+                                <th>Mark-up</th>
+                                <th>Total to be paid</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>ADT</td>
+                                <td>{{tk.flights.onwards[0].offers[0].offersArr[0].fareGroup[0].FareBasisCode.Code}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <strong>Total</strong>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  <strong>{{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                    {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}</strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <span>* Additional fees may apply depending on your selected form of payment</span>
+                        </div>
+                      </div>
+                      <div class="two wide column"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="bottom-separator thin-line" />
+                <div *ngFor="let tk of ownerFlights.ownerFlights; let ownerReturnFlightIndex = index">
+                  <div class="ui grid results_filters__airline _returns"
+                    *ngIf="preSearchObj.flightSearchType !== 'oneway' && tk.flights.returns.length > 0" #ticket
+                    id="_returns_{{ownerReturnFlightIndex}}-tk" [class.d-none]="ownerReturnFlightIndex !== 0">
+                    <div class="one wide column">
+                      <img
+                        src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.MarketingCarrier.AirlineID}}.png"
+                        class="results_filters__airline-ico" />
+                    </div>
+                    <div class="four wide column results_filters__airline___flight">
+                      <span
+                        class="results_filters__airline___flight____text">{{tk.flights.returns[0].returns[0].flight.Departure.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.returns[0].returns[0].flight.Departure.Time}}</strong>
+                      </span>
+                      <span class="results_filters__airline___flight____placeholder">
+                        <strong>{{(tk.flights.returns[0].returns.length > 1) ? (tk.flights.returns[0].returns.length - 1) + ' Stops via (' +  tk.flights.returns[0].returns[0].flight.Arrival.AirportCode + ')' : 'Non-stop'}}</strong>
+                        <br>
+                        <img src="./../../../../../assets/img/flight-line.png" />
+                        <span>{{tk.flights.returns[0].returns[0].flight.Equipment.Name}} |
+                          {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                        <br>
+                        <span>{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.Name}}
+                          {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}} -
+                          {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.FlightNumber}}</span>
+                      </span>
+                      <span
+                        class="results_filters__airline___flight____text last">{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.Arrival.AirportCode}}
+                        <br>
+                        <strong>{{tk.flights.returns[0].returns[tk.flights.returns[0].returns.length - 1].flight.Arrival.Time}}</strong>
+                      </span>
+                    </div>
+                    <div class="four wide column results_filters__airline___flight____options">
+                      <span class="results_filters__airline___flight____options_____fares">
+                        <p (click)="showFareBaggageDetails(tk, ownerReturnFlightIndex, 'fares', '')">
+                          <img src="./../../../../../assets/img/ajaxLoader.gif"
+                            class="results_filters__airline___flight____options_____fares______logo"
+                            *ngIf="fareBaggageLoader" />
+                          <img src="./../../../../../assets/img/info.png" />
+                          Fare and
+                          Baggage details</p>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____btn">
+                        <button class="ui button"
+                          (click)="displayInnerTicket((ownerFlights.ownerFlights.length - 1), 'returns')"
+                          *ngIf="ownerReturnFlightIndex === 0">
+                          {{(ownerFlights.ownerFlights.length - 1) == 0 ? 'No Opt.' : '+' + (ownerFlights.ownerFlights.length - 1) + ' Options'}}
+                        </button>
+                      </span>
+                      <span class="results_filters__airline___flight____options_____icons">
+                        <img src="./../../../../../assets/img/info.png"
+                          id="tk-{{ownerReturnFlightIndex+1}}__info-popup-btn"
+                          (click)="loadPopups('info-popup', ownerReturnFlightIndex+1)" />
+                        <img src="./../../../../../assets/img/seat-an.png" />
+                        <img src="./../../../../../assets/img/plane-fly.png"
+                          id="tk-{{ownerReturnFlightIndex+1}}__baggage-popup-btn"
+                          (click)="loadPopups('baggage-popup', ownerReturnFlightIndex+1)" />
+                        <img src="./../../../../../assets/img/cog.png" />
+                      </span>
+                      <!-- <span class="results_filters__airline___flight____options_____anc" (click)="showAncillary()">Add
+                                            Anciliaries</span> -->
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{ownerReturnFlightIndex+1}}__info-popup">
+                        <h4 class="">Flight {{(ownerReturnFlightIndex + 1)}} details</h4>
+                        <div class="ui three column center aligned grid">
+                          <div class="one wide column">
+                            <img
+                              src="http://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}}.png" />
+                          </div>
+                          <div class="nine wide column">
+                            <p class="_main-title">Departing flight <span class="_dot">•</span>
+                              {{tk.flights.returns[0].returns[0].flight.Departure.Date}}</p>
+                            <div class="_grid _left">
+                              <img src="./../../../../../assets/img/dotted_flight.png" />
+                            </div>
+                            <div class="_grid _mid">
+                              <p>{{tk.flights.returns[0].returns[0].flight.Departure.Time}} <i>•</i>
+                                {{tk.flights.returns[0].returns[0].flight.Departure.AirportName}}
+                                {{tk.flights.returns[0].returns[0].flight.Departure.AirportCode}} <i>•</i>
+                                <span>Terminal
+                                  {{tk.flights.returns[0].returns[0].flight.Departure.hasOwnProperty("Terminal") ? tk.flights.returns[0].returns[0].flight.Departure.Terminal.Name : ''}}</span>
+                              </p>
+                              <span class="_default-txt">Travel time:
+                                {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}</span>
+                              <!--<p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i> <span>Terminal B</span></p>-->
+                              <span
+                                class="_default-txt">{{tk.flights.returns[0].returns[0].flight.MarketingCarrier.Name}}
+                                •
+                                Economy •
+                                {{tk.flights.returns[0].returns[0].flight.Equipment.Name}} •
+                                {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.AirlineID}}
+                                {{tk.flights.returns[0].returns[0].flight.MarketingCarrier.FlightNumber}}</span>
+                            </div>
+                          </div>
+                          <div class="six wide column _meals-grid">
+                            <p>
+                              <img src="./../../../../../assets/img/dinner-blue.png" />
+                              Meal services</p>
+                            <span class="_placeholder-txt">Breakfast</span>
+                            <span class="_placeholder-txt">Drinks</span>
+                            <span class="_placeholder-txt">Light Refreshments</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                        id="tk-{{ownerReturnFlightIndex+1}}__baggage-popup"
+                        *ngIf="tk.flights.returns.length > 0 && tk.flights.returns[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                        <div class="ui three column center aligned grid">
+                          <div class="sixteen wide column">
+                            <table class="ui celled table">
+                              <tbody>
+                                <tr
+                                  *ngFor="let desc of tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                  <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                  <td data-label="Age" class="_thin-cell">
+                                    <img src="./../../../../../assets/img/checkmark.png" />
+                                  </td>
+                                  <td data-label="Age" class="_thin-cell">-</td>
+                                  <td data-label="Job" class="_thin-cell">-</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="six wide column results_filters__airline___flight____packages">
+                      <div class="owl-carousel owl-theme">
+                        <div class="item results_filters__airline___flight____packages_____package"
+                          *ngFor="let ofr of tk.flights.returns[0].offers[0].offersArr; let ownerReturnFlightOfferIndex = index;">
+                          <p>{{ofr.pclass.Name}}</p>
+                          <div class="ui checkbox flight-light"
+                            (click)="returnShowRBD(tk, 'light_r', ownerReturnFlightIndex, ownerReturnFlightOfferIndex)">
+                            <input type="radio" name="returns-pkg-selection">
+                            <label></label>
+                          </div>
+                          <p class="results_filters__airline___flight____packages_____package______price">
+                            {{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                            <span>{{ofr.offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                          </p>
+                          <p class="results_filters__airline___flight____packages_____package______seat">5 <img
+                              src="./../../../../../assets/img/seat.png" />
+                          </p>
+                          <div class="results_filters__airline___flight____packages_____package______rbd"
+                            *ngIf="returnSelectedPkgType == 'light_r' && returnSelectedPkgIndex == ownerReturnFlightOfferIndex">
+                            <div class="ui mini icon input fluid">
+                              <input type="text"
+                                value="{{ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)}}"
+                                (blur)="changeRBD(ofr, ownerReturnFlightOfferIndex, tk, ownerReturnFlightIndex, 'rbd', (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.length > 0 ? 
+                                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code['#text'] : 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code) :
+                                                          (ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code.hasOwnProperty('#text') ? 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code['#text'] : 
+                                                          ofr.offer.PricedOffer.Associations.ApplicableFlight.FlightSegmentReference.ClassOfService.Code)))">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="one wide column"
+                      *ngIf="returnSelectedPkgIndex !== -1 && returnSelectedOfferIndex !== -1 && returnSelectedPkgIndex === ownerReturnFlightIndex">
+                      <div class="results_filters__airline___bookings">
+                        <span>Total flight time</span>
+                        <p>
+                          {{tk.flights.returns[0].returns[0].flight.FlightDetail.FlightDuration.Value | FlightTimeParser}}
+                        </p>
+                        <hr />
+                        <span>Total price from</span>
+                        <p>
+                          {{tk.flights.returns[0].offers[0].offersArr[returnSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['#text'] | number:'1.1-1'}}
+                        </p>
+                        <span>{{tk.flights.returns[0].offers[0].offersArr[returnSelectedOfferIndex].offer.TotalPrice.DetailCurrencyPrice.Total['@Code']}}</span>
+                        <hr />
+                        <button class="ui button" (click)="bookNow()">Book now</button>
+                        <hr />
+                        <span class="results_filters__airline___bookings____quote">+ Add to Quote</span>
+                        <div class="results_filters__airline___bookings____fare-break"
+                          (click)="showFaresBreakDown(ownerReturnFlightIndex)">
+                          <p>Fare Breakdown</p>
+                          <img src="./../../../../../assets/img/arrow-down.png" />
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="info-popup2">
+                      <h4 class="">Flight 1 details</h4>
+                      <div class="ui three column center aligned grid">
+                        <div class="one wide column">
+                          <img src="./../../../../../assets/img/Lufthansa-logo.png" />
+                        </div>
+                        <div class="nine wide column">
+                          <p class="_main-title">Departing flight <span class="_dot">•</span> Sat, 21 Sept</p>
+                          <div class="_grid _left">
+                            <img src="./../../../../../assets/img/dotted_flight.png" />
+                          </div>
+                          <div class="_grid _mid">
+                            <p>10:30 <i>•</i> Heathrow Airport (LHR) <i>•</i>
+                              <span>Terminal 1</span>
+                            </p>
+                            <span class="_default-txt">Travel time: 2 hrs 30 mins</span>
+                            <p>13:00 <i>•</i> Frankfurt Airport (FRA) <i>•</i>
+                              <span>Terminal B</span>
+                            </p>
+                            <span class="_default-txt">Lufthansa • Economy • Boeing - 32N • LH 903</span>
+                          </div>
+                        </div>
+                        <div class="six wide column _meals-grid">
+                          <p>
+                            <img src="./../../../../../assets/img/dinner-blue.png" />
+                            Meal services</p>
+                          <span class="_placeholder-txt">Breakfast</span>
+                          <span class="_placeholder-txt">Drinks</span>
+                          <span class="_placeholder-txt">Light Refreshments</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="ui flowing popup top left transition hidden results_filters__airline___flight____options_____info-popup"
+                      id="plane-popup2"
+                      *ngIf="tk.flights.returns[0].offers[0].offersArr[0].pclass.hasOwnProperty('Descriptions') && checkArr(tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description)">
+                      <div class="ui three column center aligned grid">
+                        <div class="sixteen wide column">
+                          <table class="ui celled table">
+                            <tbody>
+                              <tr
+                                *ngFor="let desc of tk.flights.returns[0].offers[0].offersArr[0].pclass.Descriptions.Description; let i = index;">
+                                <td data-label="Name" class="_wide-cell">{{desc.Text}}</td>
+                                <td data-label="Age" class="_thin-cell">
+                                  <img src="./../../../../../assets/img/checkmark.png" />
+                                </td>
+                                <td data-label="Age" class="_thin-cell">-</td>
+                                <td data-label="Job" class="_thin-cell">-</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid results_filters__outbound-border hidden"
+                    id="tk-{{ownerReturnFlightIndex}}__fares-panel">
+                    <div class="row">
+                      <div class="two wide column"></div>
+                      <div class="twelve wide column">
+                        <div class="ui blue message results_filters__outbound___fares-panel">
+                          <h4>Fare Breakdown</h4>
+                          <span>
+                            <strong>Flight price:
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['#text'] | number:'1.1-1'}}
+                              {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.BaseAmount['@Code']}}*</strong>
+                            (For all passengers, including taxes)</span>
+                          <table class="ui tablet stackable table">
+                            <thead>
+                              <tr>
+                                <th>#</th>
+                                <th>PTC</th>
+                                <th>Fare Basis</th>
+                                <th>Fare</th>
+                                <th>Tax</th>
+                                <th>Mark-up</th>
+                                <th>Total to be paid</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>ADT</td>
+                                <td>{{tk.flights.onwards[0].offers[0].offersArr[0].fareGroup[0].FareBasisCode.Code}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td>
+                                  <strong>Total</strong>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["#text"] | number:'1.1-1'}}
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>50.00
+                                  {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.Taxes.Total["@Code"]}}
+                                </td>
+                                <td>
+                                  <strong>{{parseFloatStr(tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["#text"]) + 50 | number:'1.1-1'}}
+                                    {{tk.flights.onwards[0].offers[0].offersArr[0].offer.PricedOffer.OfferPrice.RequestedDate.PriceDetail.TotalAmount.DetailCurrencyPrice.Total["@Code"]}}</strong>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                          <span>* Additional fees may apply depending on your selected form of payment</span>
+                        </div>
+                      </div>
+                      <div class="two wide column"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="bottom-separator thick-line" />
+    <!-- <div class="ui grid results_filters__outbound">
+      <div class="row">
+        <button class="ui button">
+          Show more Outbound
+          <img src="./../../../../../assets/img/chev-down.png" />
+        </button>
+      </div>
+      <div class="row">
+        <div class="four wide column">
+          <hr class="mr-neg" />
+        </div>
+        <div class="eight wide column text-center">
+          <p>
+            <img src="./../../../../../assets/img/plane-land.png" />
+            <b>Inbound,</b> FRA - Frankfurt Main - LHR -
+            Heathrow</p>
+          <p>Fare and Baggage details</p>
+        </div>
+        <div class="four wide column">
+          <hr class="ml-neg" />
+        </div>
+      </div>
+    </div> -->
+  </div>
+</div>
+
+<app-fares-baggage *ngIf="showFaresModal" [fareBaggageArr]="fareBaggageArr"></app-fares-baggage>

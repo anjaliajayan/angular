@@ -1,0 +1,440 @@
+
+<div class="outer-wrapper" *ngIf="!getUserInfo">
+  <div class="container-fluid">
+
+    <div class="ui grid dynamic-head">
+      <div class="sixteen wide column row search-hotel-head">
+          <div class="sixteen wide column">
+              <!-- <div class="list-head-wrapper">
+                  <h4>
+                      <span class="wrap">
+                          <span class="head">Check In: </span>{{searchObj.checkin}}
+                      </span>
+                      <span class="wrap">
+                          <span class="head">Check Out: </span>{{searchObj.checkout}}
+                      </span>
+                  </h4>
+              </div> -->
+              <div class="ui grid">
+                  <div class="sixteen wide column row">
+                      <div class="five wide column">
+                        <h2><span>Pick Up: </span>{{CarSearchCriteria.pickUp}}</h2>
+                          <div class="check-block">
+                              <p class="label"><span class="label">Start Date:</span><span  class="rslt">{{CarSearchCriteria.startDate}}</span></p>
+                              <!-- <p class="rslt">  {{CarSearchCriteria.startDate}}</p> -->
+                          </div>
+                          <div>
+                              <p class="text-left"><span class="label">Start Time:</span><span  class="rslt"> {{CarSearchCriteria.startTime}}</span></p>
+                              <!-- <p class="text-right"><span class="label"> {{CarSearchCriteria.startTime}}</span></p> -->
+                          </div>
+                      </div>
+                      <div class="five wide column">
+                        <h2><span>Drop Off: </span>{{CarSearchCriteria.dropOff}}</h2>
+                          <div class="check-block">
+                              <!-- <p class="label">End Date:</p>
+                              <p class="rslt">{{CarSearchCriteria.endDate}}</p> -->
+                              <p class="label"><span class="label">End Date:</span><span  class="rslt">{{CarSearchCriteria.endDate}}</span></p>
+                          </div>
+                          <div>
+                              <p class="text-left"><span class="label">End Time:</span><span  class="rslt">  {{CarSearchCriteria.endTime}}</span></p>
+                              <!-- <p class="text-right"><span class="label"> {{CarSearchCriteria.endTime}}</span></p> -->
+                          </div>
+                      </div>
+                      <div class="five wide column text-right head-btn-block">
+                        <button class="modify-btn" (click)="modifySearch()">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                                Modify Search
+                        </button>   
+                        <p>{{car.length}} Results found</p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <!-- <div class="four wide column fare-block">
+          </div> -->
+          <!-- <div class="three wide column text-center"> 
+          </div> -->
+      </div>
+  </div>
+
+    <!-- <div class="ui grid dynamic-head">
+      <div class="sixteen wide column row search-hotel-head">
+        <div class="six wide column">
+          <div class="list-head-wrapper">
+            <h2><span>Pick Up: </span>{{CarSearchCriteria.pickUp}}</h2>
+            <h2><span>Drop Off: </span>{{CarSearchCriteria.dropOff}}</h2>
+
+          </div>
+        </div>
+
+        
+        <div class="four wide column fare-block">
+          <div class="ui grid">
+            <div class="sixteen wide column row">
+              <div class="eight wide column">
+                <p>
+                  <span>Start Date: </span>
+                  {{CarSearchCriteria.startDate}}
+                </p>
+                <p>
+                  <span>Start Time: </span>
+                  {{CarSearchCriteria.startTime}}
+                </p>
+              </div>
+              <div class="eight wide column">
+                <p>
+                  <span>End Date:  </span>
+                  {{CarSearchCriteria.endDate}}
+                </p>
+                <p>
+                  <span>End Time: </span>
+                  {{CarSearchCriteria.endTime}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="three wide column text-center">
+          <p>{{car.length}} Results found</p>
+        </div>
+        <div class="three wide column text-right">
+          <button (click)="modifySearch()" class="modify-btn">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            Modify Search
+          </button>
+        </div>
+      </div>
+    </div> -->
+      <div class="ui grid m-0">
+
+          <div class="sixteen wide column row">
+              <div class="twelve wide column">
+                  <div class="modify-search-block">
+                      <div class="ui grid">
+                          <div class="sixteen wide column row">
+                              <div class="sixteen wide column p-0 right">
+<!--                                    <button (click)="modifySearch()" >Modify Search</button>-->
+                                  <button (click)="priceFilter($event)">Sort By: {{lhString}} <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8"/></button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <!-- [(ngModel)]="lhPrice" -->
+                  <!--  | transmission:transmissionfilter -->
+                  <div *ngFor="let carData of (car | namefilter:carNamefilter | classfilter:classNamefilter | transmission:transmissionfilter | lowestPrice:lhPrice | pricefilter:minPrice:maxPrice); let i = index;" class="search-list-block">
+                      <div class="ui grid item-block">
+                          <div class="sixteen wide column row">
+
+                              <div *ngIf="carData.carImage != undefined" class="six wide column item-image image-display" [ngStyle]="{'background-image': 'url(' + carData.carImage + ')'}">
+                                  <img class="item-logo" title="{{carData.carName}}" src="{{carData.carcompanylogo}}" >
+
+                                </div>
+                                <div *ngIf="carData.carImage == undefined" class="six wide column item-image" style="width:180px;height:180px;background-repeat: no-repeat;background-size: cover; background-image:url('../img/no-image.png')">
+                                  <img class="item-logo" title="" src="{{carData.carcompanylogo}}" >
+                                </div>
+                                <div class="ten wide column item-details">
+                                  <div class="ui grid">
+                                      <div class="sixteen wide column row">
+                                          <div class="eight wide column">
+                                              <h2>{{carData.carName}}</h2>
+                                              <p class="light">{{carData.carType}} . {{carData.carCompanyName}}</p>
+                                              <br/>
+                                              Pickup : <p class="light">{{carData.pickUpstationAdd}}</p>
+                                              <br/>
+                                              Dropoff : <p class="light">{{carData.dropOffstationAdd}}</p>
+                                          </div>
+                                          <div class="eight wide column price-block">
+                                              <span>Starting form</span>
+                                              <p>{{carData.markupPrice}} {{carData.currency}}</p>
+                                          </div>
+                                        </div>
+
+                                          <div class="sixteen wide column row pt-0">
+                                          <div class="eight wide column amenities-block">
+                                            <img src="./../../../../../assets/icons/auto.svg" />
+
+                                            <span>Auto</span>
+
+                                            <img src="./../../../../../assets/icons/seater.svg"/>
+
+                                            <span>{{carData.maxPax}} Seater</span>
+
+                                            <img src="./../../../../../assets/icons/door.svg" />
+                                            <span>{{carData.doors}} Doors</span>
+
+
+                                            <br/>
+                                            <img src="./../../../../../assets/icons/bag.svg" />
+
+                                            <span>{{carData.luggageLarge}}</span>
+
+
+
+                                            <img *ngIf='carData.ac==true' src="./../../../../../assets/icons/ac.svg" />
+
+                                            <span *ngIf='carData.ac==true'>AC</span>
+
+                                          </div>
+                                          <div class="eight wide column right">
+                                              <div class="bookings_btn-panel">
+
+                                                  <button class=" detail-btn" (click)="ShowcarDetails(carData,CarSearchCriteria)" [disabled]="currentCarBlock==carData.car_id && showDetailsDisabled == true">
+                                                    <i *ngIf="detailsCarSpinner && currentShowCarBlock==carData.car_id" class="fa fa-spinner fa-spin"></i>
+                                                      Show Details
+                                                      <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                  </button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="sixteen wide column row furtherdetails" *ngIf="showfurtherDetails && currentCarBlock==carData.car_id">
+                            <div class="sixteen wide column right book-block">
+                            <button (click)="carBlocking(carDetailsResult,CarSearchCriteria)" [disabled]="disableButton" style="margin-bottom: 1%;" class="ui button primary">
+                              <i *ngIf="bookCarSpinner" class="fa fa-spinner fa-spin"></i> Book </button>
+                            </div>
+                            <div *ngIf="CarRules.length > 0 && showfurtherDetails && currentCarBlock==carData.car_id" class="detail-tab-wrapp">
+                              <div class="ui top attached tabular menu">
+                                  <div class="item active room-tab" data-tab="room-tab">Rules</div>
+                              </div>
+                              <div class="ui bottom attached active tab segment" data-tab="room-tab">
+                                  <div class="ui fluid container">
+                                      <div class="ui grid">
+                                        <table class="ui celled table">
+                                          <tbody *ngIf="CarRules && currentCarBlock==carData.car_id">
+                                              <tr *ngFor="let CarRulesData of CarRules; let icr = index" >
+                                                  <td>
+                                                    {{CarRulesData.title}}
+                                                  </td>
+                                                  <td>{{CarRulesData.description}}</td>
+                                              </tr>
+                                          </tbody>
+                                      </table>
+
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+                  <!-- Search More -->
+<!--                    <div class="search-more">-->
+<!--                        <div class="ui grid">-->
+<!--                            <div class="sixteen wide column row">-->
+<!--                                <div class="sixteen wide column text-center">-->
+<!--                                    <a>-->
+<!--                                        Show more hotels (20)-->
+<!--                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" />-->
+<!--                                    </a>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+              </div>
+              <div class="four wide column">
+                  <div class="fliter-head-block">
+                      <div class="ui grid">
+                          <div class="sixteen wide column row">
+                              <div class="ten wide column">
+                                  <h2>Filters</h2>
+                              </div>
+                              <div class="six wide column right">
+                                  <a (click)="clearallfilter()">Clear All</a>
+                              </div>
+                          </div>
+                      </div>
+
+
+
+                  <!-- Side Filters -->
+                  <div class="filter-list-block">
+                      <div class="ui grid filter-block">
+                          <div class="sixteen wide column row filters">
+                              <div class="sixteen wide column">
+                                  <div class="ui grid filter-block">
+                                      <div class="sixteen wide column row">
+                                          <div class="ten wide column">
+                                              <h4>Specify Car Name</h4>
+                                          </div>
+                                          <div class="six wide column right">
+                                              <a (click)="nameClear()">Clear</a>
+                                          </div>
+                                      </div>
+                                      <div class="sixteen wide column row pt-0">
+                                          <div class="sixteen wide column">
+                                              <div class="ui input fluid">
+                                                  <input type="text" value="" placeholder="Search By Class" [(ngModel)]="carNamefilter" [ngModelOptions]="{standalone: true}" />
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                          <div class="sixteen wide column row filters">
+                              <div class="sixteen wide column">
+                                  <div class="ui grid price-fliter-block m-0">
+                                      <div class="sixteen wide column row">
+                                          <div class="ten wide column">
+                                              <h4>Price range</h4>
+<!--                                                <p class="price-desc">320 AED - 840 AED</p>-->
+<!--                                            </div>-->
+<!--                                            <div class="six wide column right">-->
+<!--                                                <a (click)="rangeFilter()">Clear All</a>-->
+                                          </div>
+                                      </div>
+                                      <div class="sixteen wide column row pt-0">
+                                          <div class="sixteen wide column">
+
+                                              <input type="text" value="AED 620" [(ngModel)]="minPrice" [ngModelOptions]="{standalone: true}" />
+                                                  <input type="text" value="AED 2400" [(ngModel)]="maxPrice" [ngModelOptions]="{standalone: true}"/>
+                                                  <button class="go" (click)="rangeFilter()" style="width: 70px !important;">Reset </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="sixteen wide column row filters meal-block">
+                              <div class="sixteen wide column">
+                                  <div class="ui grid m-0">
+                                      <div class="sixteen wide column row">
+                                          <div class="ten wide column">
+                                              <h4>Transmission</h4>
+                                          </div>
+<!--                                            <div class="six wide column right">-->
+<!--                                                <a>Select All</a>-->
+<!--                                            </div>-->
+                                      </div>
+                                      <div class="sixteen wide column row pt-0 star-rating-block">
+                                          <div class="sixteen wide column rating-list-block">
+                                              <div class="ui checkbox">
+                                                  <input (click)="transmissionfilters('Automatic Transmission')" type="checkbox" name="transmission">
+                                                  <label for="Automatic" class="text">
+                                                      Automatic
+                                                  </label>
+                                              </div>
+                                          </div>
+                                          <div class="sixteen wide column rating-list-block">
+                                              <div class="ui checkbox">
+                                                  <input (click)="transmissionfilters('Manual Transmission')" type="checkbox" name="transmission">
+                                                  <label for="Manual" class="text">
+                                                    Manual
+                                                  </label>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                            <div class="sixteen wide column row filters">
+                                      <div class="sixteen wide column">
+                                          <div class="ui grid filter-block">
+                                              <div class="sixteen wide column row">
+                                                  <div class="ten wide column">
+                                                      <h4>Specify Car Class</h4>
+                                                  </div>
+                                                  <div class="six wide column right">
+                                                      <a (click)="classClear()">Clear</a>
+                                                  </div>
+                                              </div>
+                                              <div class="sixteen wide column row pt-0">
+                                                  <div class="sixteen wide column">
+                                                      <div class="ui input fluid">
+                                                          <input type="text" value="" placeholder="Search By Class" [(ngModel)]="classNamefilter" [ngModelOptions]="{standalone: true}" />
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <!-- <div class="cardetail" *ngIf="selectedCar">
+{{ selectedCar.name }}
+</div>
+
+<div class="shadow-sm p-3 mb-5 bg-white rounded border-1" *ngFor="let carData of car; let i = index;">
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-7 col-xs-12 padLeft0">
+      <div class="hmImg">
+           <div *ngIf="carData.carImage != 'null'|| carData.carImage != '' || carData.carImage != undefined" class="activity_image" style="width:180px;max-width:100%;height:180px;background-repeat: no-repeat;background-size: cover;">
+          <img class="mt25" src="{{carData.carImage}}">
+          <a href=""><span></span></a>
+        </div>
+        <div *ngIf="carData.carImage == 'null'|| carData.carImage == '' || carData.carImage == undefined" class="hotel-image" style="width:180px;height:180px;background-repeat: no-repeat;background-size: cover; background-image:url('../img/no-image.png')">
+          <a href=""><span></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 padLeft0">
+      <div class="col-md-12 p-l-10 p-t-10 padLeft0">
+        <p style="font-size:1.4em; color:#444444; margin: 0 0 4px;">
+          {{carData.carClass}} - {{carData.carName}}
+          <small>::{{carData.car_id}}::{{carData.supplier_code}}</small>
+        </p>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p0">
+          <p style="margin: 0 0 0px; padding-top: 6px;">
+            <i class="fa fa-info-circle"></i> {{carData.carCompanyName}}
+          </p>
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p0">
+          <p style="margin: 0 0 0px; padding-top: 6px;">
+            <i class="fa fa-map-marker"></i> {{carData.pickUpstationName}} <ng-container ng-if="carData.pickUpstationName">,</ng-container> {{carData.pickUpstationAdd}}
+          </p>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p0">
+          <p style="margin: 0 0 4px; padding-top: 6px;">
+            <i class="fa fa-bullhorn"></i> {{carData.transmission}}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-4 col-lg-3 col-md-3 col-sm-12 col-xs-12 lft_adj_transfer mt12 mb15">
+      <div class="spBr ar">
+        <span class="pull-right ng-binding"><i class="fa fa-suitcase" style="font-size:10px;"></i>{{carData.luggageSmall}}</span>
+        <span class="pull-right ng-binding"><i class="fa fa-2 fa-suitcase" style="font-size:20px;"></i>{{carData.luggageLarge}}</span>
+        <span class="pull-right ng-binding"><i class="fa fa-users" style="font-size:20px;"></i>{{carData.maxPax}}</span>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ar pr0 mt20">
+        <span>Price starting from</span>
+        <div class="clearfix"></div>
+        <div class="fs20">
+                                          <span>{{carData.currency}}
+                                            {{carData.markupPrice}}</span>
+        </div>
+        <div class="hotel_moredetails  pull-right">
+          <button class="label-info btn btn-success pull-right" state="close" (click)="carDetails(carData,CarSearchCriteria)">Show Details</button>
+          <i class="fa fa-spinner fa-spin animate-icon m-t-10 m-r-10 ng-hide" ng-show="detailsLoader"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+-->

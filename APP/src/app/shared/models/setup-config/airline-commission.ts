@@ -1,0 +1,20 @@
+export interface AirlineCommission{
+commission_id:number,
+airline:string,
+trip_type:string,
+code_type:string,
+cabin_class:string,
+orgin: {},
+destination: {},
+rbd: {},
+sale_start_date: {},
+sale_end_date: {},
+travel_start_date: {},
+travel_end_date: {},
+created:Date,
+created_by: number,
+is_active: boolean,
+is_deleted: boolean,
+rbd_commission: {},
+supplier :string
+}

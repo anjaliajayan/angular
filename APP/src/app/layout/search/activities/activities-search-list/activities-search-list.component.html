@@ -1,0 +1,889 @@
+<div class="outer-wrapper">
+    <div class="container-fluid">
+        <div class="ui grid">
+            <div class="sixteen wide column row">
+                <div class="twelve wide column">
+                    <div class="modify-search-block">
+                        <div class="ui grid m-0">
+                            <div class="sixteen wide column row">
+                                <div class="eight wide column p-0 text-left">
+                                </div>
+                                <div class="eight wide column p-0">
+                                    <button [routerLink]="['search/hotels']" >Modify Search</button>
+                                    <!-- <button>Sort By: Price: Low to High <img src="./../../../../../assets/icons/downArrow-black.svg" width="10" height="8"/></button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list-block">
+                        <div class="ui grid item-block">
+                            <div class="sixteen wide column row">
+                                <div class="three wide column item-image">
+                                    
+                                </div>
+                                <div class="thirteen wide column item-details">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h2>Dubai Desert Safari</h2>
+                                                <p class="light">
+                                                    Escape Dubai for the evening and enjoy multiple activities on a 6 to 7-hour red dune desert safari. 
+                                                    Drive across the red sand dunes by 4WD vehicle. Watch the sunset over the desert sands.
+                                                </p>
+                                            </div>
+                                            <div class="six wide column price-block">
+                                                <span>Price Per Unit: </span>
+                                                <p>AED 644.27</p>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <div class="">
+                                                    <button class="ui export button" (click)="showDetails()">
+                                                        Show Details
+                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row" *ngIf="showDetailsTab">
+                                <div class="sixteen wide column">
+                                    <div class="ui top attached tabular menu">
+                                        <div class="item active " data-tab="activity-tab">Activities</div>
+                                        <div class="item" data-tab="summary-tab">Summary</div>
+                                        <div class="item " data-tab="photo-tab">Photos</div>
+                                    </div>
+                                    <div class="ui bottom attached active tab segment" data-tab="activity-tab">
+                                        <div class="ui fluid container">
+                                            <form [formGroup]="activityBookForm" autocomplete="off">
+                                                <div class="ui grid" >
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="summary-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row desc-tab-block">
+                                                    <div class="sixteen wide column">
+                                                        <h5>Visit:</h5>
+                                                        <p>
+                                                            Make yourself at home in one of the 59 air-conditioned rooms featuring kitchens with refrigerators and stovetops. 
+                                                            LED televisions with cable programming provide entertainment, while complimentary wireless Internet access keeps you connected. 
+                                                            Conveniences include phones, as well as desks and blackout drapes/curtains.
+                                                        </p>
+                                                        <h5>Inclusions</h5>
+                                                        <ul>
+                                                            <li>Entrance to Global Village</li>
+                                                            <li>Hotel Pick up and Drop off</li>
+                                                            <li>Entry/Admission</li>
+                                                        </ul>
+                                                        <h5>Meeting Point</h5>
+                                                        <p>Dubai, UNited Arab Emirates</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="photo-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid m-0">
+                                                <div class="sixteen wide column row pt-0">
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list-block">
+                        <div class="ui grid item-block">
+                            <div class="sixteen wide column row">
+                                <div class="three wide column item-image">
+                                    
+                                </div>
+                                <div class="thirteen wide column item-details">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h2>Dubai Desert Safari</h2>
+                                                <p class="light">
+                                                    Escape Dubai for the evening and enjoy multiple activities on a 6 to 7-hour red dune desert safari. 
+                                                    Drive across the red sand dunes by 4WD vehicle. Watch the sunset over the desert sands.
+                                                </p>
+                                            </div>
+                                            <div class="six wide column price-block">
+                                                <span>Price Per Unit: </span>
+                                                <p>AED 644.27</p>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <div class="">
+                                                    <button class="ui export button" (click)="showDetails()">
+                                                        Show Details
+                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row" *ngIf="showDetailsTab">
+                                <div class="sixteen wide column">
+                                    <div class="ui top attached tabular menu">
+                                        <div class="item" data-tab="activity-tab">Activities</div>
+                                        <div class="item active" data-tab="summary-tab">Summary</div>
+                                        <div class="item" data-tab="photo-tab">Photos</div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="activity-tab">
+                                        <div class="ui fluid container">
+                                            <form [formGroup]="activityBookForm">
+                                                <div class="ui grid" >
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached active tab segment" data-tab="summary-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row desc-tab-block">
+                                                    <div class="sixteen wide column">
+                                                        <h5>Visit:</h5>
+                                                        <p>
+                                                            Make yourself at home in one of the 59 air-conditioned rooms featuring kitchens with refrigerators and stovetops. 
+                                                            LED televisions with cable programming provide entertainment, while complimentary wireless Internet access keeps you connected. 
+                                                            Conveniences include phones, as well as desks and blackout drapes/curtains.
+                                                        </p>
+                                                        <h5>Inclusions</h5>
+                                                        <ul>
+                                                            <li>Entrance to Global Village</li>
+                                                            <li>Hotel Pick up and Drop off</li>
+                                                            <li>Entry/Admission</li>
+                                                        </ul>
+                                                        <h5>Meeting Point</h5>
+                                                        <p>Dubai, UNited Arab Emirates</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="photo-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid m-0">
+                                                <div class="sixteen wide column row pt-0">
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="search-list-block">
+                        <div class="ui grid item-block">
+                            <div class="sixteen wide column row">
+                                <div class="three wide column item-image">
+                                    
+                                </div>
+                                <div class="thirteen wide column item-details">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h2>Dubai Desert Safari</h2>
+                                                <p class="light">
+                                                    Escape Dubai for the evening and enjoy multiple activities on a 6 to 7-hour red dune desert safari. 
+                                                    Drive across the red sand dunes by 4WD vehicle. Watch the sunset over the desert sands.
+                                                </p>
+                                            </div>
+                                            <div class="six wide column price-block">
+                                                <span>Price Per Unit: </span>
+                                                <p>AED 644.27</p>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <div class="">
+                                                    <button class="ui export button" (click)="showDetails()">
+                                                        Show Details
+                                                        <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row" *ngIf="showDetailsTab">
+                                <div class="sixteen wide column">
+                                    <div class="ui top attached tabular menu">
+                                        <div class="item" data-tab="activity-tab">Activities</div>
+                                        <div class="item" data-tab="summary-tab">Summary</div>
+                                        <div class="item active" data-tab="photo-tab">Photos</div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="activity-tab">
+                                        <div class="ui fluid container">
+                                            <form [formGroup]="activityBookForm">
+                                                <div class="ui grid" >
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row seperator main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="sixteen wide column row main-block">
+                                                        <div class="eight wide column">
+                                                            <div class="ui grid">
+                                                                <div class="sixteen wide column row seperator">
+                                                                    <div class="ten wide column">
+                                                                        <h4>Without Transport only Ticket</h4>
+                                                                        <a>Cancellation</a>
+                                                                    </div>
+                                                                    <div class="six wide column owner">
+                                                                        <p>viator</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="sixteen wide row column">
+                                                                    <div class="five wide column">
+                                                                        <label>Adults: <span>Age(12-99)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="five wide column">
+                                                                        <label>Children: <span>Age(3-11)</span></label>
+                                                                        <select class="ui fluid search dropdown">
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="six wide column">
+                                                                        <label>Date</label>
+                                                                        <div class="ui left icon input fluid">
+                                                                            <input type="text" placeholder="Date" name="sel_date" formControlName="sel_date" value="" />
+                                                                            <i class="icon">
+                                                                                <img src="./../../../../../assets/icons/calendar.svg"
+                                                                                class="pass_input__placeholder-icon cal" />
+                                                                            </i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="eight wide column text-right price-details">
+                                                            <div class="price">
+                                                                <p>160.80 AED</p>
+                                                            </div>
+                                                            <div class="bookings_btn-panel">
+                                                                <button class="ui primary button">Book</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab segment" data-tab="summary-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid">
+                                                <div class="sixteen wide column row desc-tab-block">
+                                                    <div class="sixteen wide column">
+                                                        <h5>Visit:</h5>
+                                                        <p>
+                                                            Make yourself at home in one of the 59 air-conditioned rooms featuring kitchens with refrigerators and stovetops. 
+                                                            LED televisions with cable programming provide entertainment, while complimentary wireless Internet access keeps you connected. 
+                                                            Conveniences include phones, as well as desks and blackout drapes/curtains.
+                                                        </p>
+                                                        <h5>Inclusions</h5>
+                                                        <ul>
+                                                            <li>Entrance to Global Village</li>
+                                                            <li>Hotel Pick up and Drop off</li>
+                                                            <li>Entry/Admission</li>
+                                                        </ul>
+                                                        <h5>Meeting Point</h5>
+                                                        <p>Dubai, UNited Arab Emirates</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom attached tab active segment" data-tab="photo-tab">
+                                        <div class="ui fluid container">
+                                            <div class="ui grid m-0">
+                                                <div class="sixteen wide column row pt-0">
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="three wide column image-wrapper">
+                                                        <div class="image-thumb">
+                                                            <img src="./../../../../../assets/img/hotel-gallery1.jpg" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="fliter-head-block">
+                        <div class="ui grid m-0">
+                            <div class="sixteen wide column row">
+                                <div class="ten wide column p-0">
+                                    <h2>Filters</h2>
+                                </div>
+                                <div class="six wide column text-right p-0">
+                                    <a>Clear All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filter-list-block">
+                        <div class="ui grid filter-block">
+                            <div class="sixteen wide column row filters">
+                                <div class="sixteen wide column">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="ten wide column">
+                                                <h4>Specify Activity</h4>
+                                            </div>
+                                            <div class="six wide column text-right">
+                                                <a>Clear</a>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column row pt-0">
+                                            <div class="sixteen wide column">
+                                                <div class="ui input fluid">
+                                                    <input type="text" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

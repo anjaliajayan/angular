@@ -1,0 +1,117 @@
+<div class="outer-wrapper" *ngIf="invoiceData != undefined" id="content">
+    <table>
+        <tr>
+            <td class="logo-block">
+                <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+            </td>
+            <td class="right cust-info">
+                <p>{{userData.username}}</p>
+                <p>{{userData.salute}} {{userData.first_name}} {{userData.last_name}},</p>
+                <p>{{userData.address_1}},</p>
+                <p>Tel : {{userData.mobile}}</p>
+            </td>
+        </tr>
+    </table>
+    <div class="heading center">
+        Travel Service Invoice
+    </div>
+    <br/>
+    <div class="head-row left">
+        The EuroHotel Vienna Airport
+    </div>
+    <div class="head-row right">
+        Booking Date: {{invoiceData.created | date:'medium'}}
+    </div>
+    <div class="left">
+        Marcotelstrae 1, 2401 Fischamend, Fischamend, 2401, Austria
+    </div>
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking Code</td>
+            <td>Supplier Ref. No </td>
+            <td>Hotel Confirmation No</td>
+            <td>Night(s)</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{invoiceData.trip_id}}</td>
+            <td>{{roomInfo[0].reference_number}}</td>
+            <td>{{roomInfo[0].confirmed_booking_code}}</td>
+            <td>{{nights}}</td>
+        </tr>
+    </table>
+    <div class="head-row left">
+        Check In : {{invoiceData.bookings_hotel.start_date}} Check Out : {{invoiceData.bookings_hotel.end_date}}
+    </div>
+    <div class="ticket-block">
+        <table class="table-head-row pax-table">
+            <tr>
+                <td>Room</td>
+                <!-- <td>Guest</td> -->
+                <td>Room Type</td>
+                <!-- <td></td> -->
+                <td>Board</td>
+                <!-- <td></td> -->
+                <td>VAT</td>
+                <!-- <td></td> -->
+                <td class="right">Amount ({{invoiceData.booking_currency}})</td>
+            </tr>
+                    <ng-container *ngFor="let room of roomInfo; let i=index">
+                        <tr class="table-content-row" >
+                            <td>{{i+1}}</td>
+                            <!-- <td>{{pax.salutation}} {{pax.first_name}} {{pax.last_name}}</td> -->
+                            <td>{{room.room_description}}</td>
+                            <!-- <td></td> -->
+                            <td>{{room.board_type}}</td>
+                            <!-- <td></td> -->
+                            <td>-</td>
+                            <!-- <td></td> -->
+                            <td class="right">{{room.markup_price}}</td>
+                        </tr>
+                    </ng-container>
+            <tr>
+                <!-- <td></td>
+                <td></td>
+                <td></td>
+                <td></td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="head-row total right">(VAT Inclusive)Total Price 
+                    All Amounts In ({{invoiceData.booking_currency}}) <span>{{invoiceData.markup_price}}</span></td>
+            </tr>
+        </table>
+        <table class="paxTable">
+            <tr>
+                <th>Room</th>
+                <th>Guest Type</th>
+                <th>Guest Name</th>
+                <th>Guest Contact</th>
+            </tr>
+            <ng-container *ngFor="let room of roomInfo; let i=index">
+                <tr *ngFor="let pax of room.room_occupancy">
+                    <td>{{i+1}}</td>
+                    <td>{{pax.category}}</td>
+                    <td>{{pax.salutation}} {{pax.first_name}} {{pax.last_name}}</td>
+                    <td>{{pax.custPhone}}</td>
+                </tr>
+                
+            </ng-container>
+        </table>
+    </div>
+    <div class="payable-section">
+        <p>For further details please contact accounts dept</p>
+        <p>Phone: {{userData.mobile}}</p>
+        <p>Email:{{userData.email}}</p>
+        <p>Our Support Team is always ready to assist you. Please contact us on testtpc@gmail.com for any assistance or feedback.</p>
+    </div> 
+    <div class="payable-section right">
+        <p class="thanks">Thanking You</p>
+        <p>Registration & Sales Team.</p>
+        <p>{{userData.username}}</p>
+        <!-- <p>{{userData.email}}</p> -->
+    </div>
+</div>
+<div><button class="ui primary button" style="position: absolute; bottom:50px; left:90px" (click)="exportToPdf()">Export to PDF</button></div>
+<!-- <div><button class="ui primary button" (click)="exportToPdf()">Export to PDF</button></div> -->
+

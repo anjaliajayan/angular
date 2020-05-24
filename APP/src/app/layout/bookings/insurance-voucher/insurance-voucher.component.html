@@ -1,0 +1,52 @@
+<div><button class="ui primary button" style="position: absolute; top:50px; right:90px" (click)="exportToPdf()">Export to PDF</button></div>
+
+<div class="outer-wrapper" id="content">
+    <div class="logo-block">
+        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+    </div>
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Trip ID: </td>
+            <td>Booking Reference:</td>
+            <td>Policy Name:</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{allBookingDetails.data.trip_id}}</td>
+            <td>{{B_ref}}</td>
+            <td>{{allBookingDetails.data.insurance_details[0].hotel_name}}</td>
+        </tr>
+    </table>
+    <table class="detail-table traveller-table">
+        <tr class="table-head-row">
+            <td>Guest Name</td>
+            <td>Policy Type</td>
+            <td>Policy Code</td>
+            <td>Amount</td>
+        </tr>
+        <tr class="table-content-row">
+            <td >
+                <span *ngFor="let first of qname">
+                    {{ first.first_namefor  }}  {{first.last_namefor }}
+
+                    
+               
+                <span *ngIf="qname.length == 1" >
+                   {{qname[0]}}  
+                   </span>
+                </span>
+            </td>
+            <td>{{type}}</td>
+            <td>{{code}}</td>
+            <td>{{currency}} {{allBookingDetails.data.markup_price}}</td>
+        </tr>
+    </table>
+    <div class="terms-cond-block">
+        <div class="terms-head">Payable Through</div>
+        <div class="payable-section">
+            <p>{{username | uppercase}}</p>
+            <p><strong>For assistance regarding your booking, please contact the following:</strong></p>
+            <p>THE Direct Number (24x7) : {{mobile}}</p>
+            <p>Thank you for booking with {{username | uppercase}} Our Support Team is always ready to assist you. Please contact us at {{email}}</p>
+        </div>
+    </div>
+</div>

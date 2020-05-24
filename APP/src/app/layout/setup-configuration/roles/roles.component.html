@@ -1,0 +1,48 @@
+<ngx-ui-loader></ngx-ui-loader>
+<div class="outer-segment animated fadeIn">
+    <div class="markup_list">
+        <div class="ui grid">
+            <div class="sixteen wide column row">
+                <div class="eight wide column">
+                    <h3 class="markup_title">Roles </h3>
+                </div>
+                <div class="eight wide column text-right bookings_btn-panel">
+                    <a class="ui primary button roleActionButton" routerLink="create">
+                        <span class="tourCode_text">Create Role</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="ui bottom attached active tab segment tabContent-block" data-tab="first">
+        <div class="result-block">
+            
+            <table class="ui celled table">
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Role</th>
+                        <th width="220">&nbsp;</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let role of roles;">
+                    <td data-label="Code"><span class="head">Code: </span><span>{{ role.code }}</span></td>
+                    <td data-label="Name"><span class="head">Role: </span><span>{{ role.name }}</span></td>
+                    
+                    <td data-label="Name" class="text-center align-btn">
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a class="ui primary button"  [routerLink]="['edit', role.role_id]" routerLinkActive="router-link-active"><i class="fa fa-edit"></i></a>
+                            <button (click)="delete(role.role_id)" class="ui red button"><i class="fa fa-trash"></i></button>
+                        </div>
+                    </td>
+                    </tr>
+
+                </tbody>
+        
+            </table>
+            
+        </div>
+    </div>
+</div>

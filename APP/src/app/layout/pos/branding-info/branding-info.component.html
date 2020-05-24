@@ -1,0 +1,146 @@
+<app-pos-edit-button></app-pos-edit-button>
+<div class="outer-form branding-info-form">
+    <form class="ui form pos_basic_form" [formGroup]="brandingInfoForm" (ngSubmit)="storeBrandingInfo()">
+      <br> 
+      <!-- Branding information part, IMAGE uploads -->
+      <h4 class="ui header spacing">Branding Informations</h4>
+      <span class="dim-footer span1">(Only .jpeg , .jpg files allowed and maximum size: 5 MB)</span>
+      <div class="field spacing">
+        <div class="three fields">
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Office Logo</label>
+              <input type="file" #office_logo class="inputfile" id="officeLogo"
+                (change)="uploadImage(office_logo.files, 'officeLogo')" />
+              <label for="officeLogo" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload image
+              </label>
+              <img *ngIf="brandingInfoForm.controls.image_website.value" class="branding-pic"
+                [src]="brandingInfoForm.controls.image_website.value" id="logoImg">
+            </div>
+          </div>
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Branding Invoice</label>
+              <input type="file" #branding_invoice class="inputfile" id="brandingInvoice"
+                (change)="uploadImage(branding_invoice.files, 'brandingInvoice')" />
+              <label for="brandingInvoice" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload image
+              </label>
+              <img *ngIf="brandingInfoForm.controls.image_invoice.value" class="branding-pic"
+                [src]="brandingInfoForm.controls.image_invoice.value" id="brandingImg">
+            </div>
+          </div>
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Branding Signature</label>
+              <input type="file" #brandingSignature class="inputfile" id="brandingSignature"
+                (change)="uploadImage(brandingSignature.files, 'brandingSignature')" />
+              <label for="brandingSignature" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload image
+              </label>
+              <img *ngIf="brandingInfoForm.controls.image_email.value" class="branding-pic"
+                [src]="brandingInfoForm.controls.image_email.value" id="brandingSignatureImg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Office documents part , PDF uploads -->
+      <div
+        [hidden]="corporate_type == 'B2C' || corporate_type == 'Mobile'"
+        class="ui fitted divider"></div>
+      <h4 [hidden]="corporate_type == 'B2C' || corporate_type == 'Mobile'"
+        class="ui header spacing">Office Documents
+        <i class="fa fa-exclamation-circle tooltip">
+          <span class="tooltiptext">
+            Contracts, Licence
+          </span>
+        </i></h4>
+      <span
+        [hidden]="corporate_type== 'B2C' || corporate_type == 'Mobile'" [ngClass]="{'hide': corporate_type== 'B2C' || corporate_type == 'Mobile'}"
+        class="dim-footer span1"> (Only .pdf files allowed and maximum size: 5 MB)</span>
+      <div
+        [hidden]="corporate_type == 'B2C' || corporate_type == 'Mobile'"
+        class="field spacing">
+        <div class="three fields">
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Agent Upload 1</label>
+              <input type="file" #pdf_file1 class="inputfile" id="agentupload1"
+                (change)="uploadPDF(pdf_file1.files, 'image_file1')" />
+              <label for="agentupload1" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload File
+              </label>
+              <a class="uploaded-document" *ngIf="brandingInfoForm.controls.image_file1.value != ''"
+                href="{{ brandingInfoForm.controls.image_file1.value }}" target="_blank"></a>
+            </div>
+          </div>
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Agent Upload 2</label>
+              <input type="file" #pdf_file2 class="inputfile" id="agentupload2"
+                (change)="uploadPDF(pdf_file2.files, 'image_file2')" />
+              <label for="agentupload2" class="ui primary button  brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload File
+              </label>
+              <a class="uploaded-document" *ngIf="brandingInfoForm.controls.image_file2.value != ''"
+                href="{{ brandingInfoForm.controls.image_file2.value }}" target="_blank"></a>
+            </div>
+          </div>
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Agent Upload 3</label>
+              <input type="file" #pdf_file3 class="inputfile" id="agentupload3"
+                (change)="uploadPDF(pdf_file3.files, 'image_file3')" />
+              <label for="agentupload3" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload File
+              </label>
+              <a class="uploaded-document" *ngIf="brandingInfoForm.controls.image_file3.value != ''"
+                href="{{ brandingInfoForm.controls.image_file3.value }}" target="_blank"></a>
+            </div>
+          </div>
+          <div class="four wide field brand">
+            <div class="ui">
+              <label class="ui transparent margin-right-20">Agent Upload 4</label>
+              <input type="file" #pdf_file4 class="inputfile" id="agentupload4"
+                (change)="uploadPDF(pdf_file4.files, 'image_file4')" />
+              <label for="agentupload4" class="ui primary button brand_buttons">
+                <i class="ui upload icon"></i>
+                Upload File
+              </label>
+              <a class="uploaded-document" *ngIf="brandingInfoForm.controls.image_file4.value != ''"
+                href="{{ brandingInfoForm.controls.image_file4.value }}" target="_blank"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui fitted divider"></div>
+      <!-- Text area for company notes part -->
+      <h4 class="ui header spacing note-head">Company Notes
+        <i class="fa fa-exclamation-circle tooltip">
+          <span class="tooltiptext">
+            Additional info about the Office
+          </span>
+        </i></h4>
+      <div class="field spacing">
+        <div class="one fields">
+          <div class="nine wide field notes-section"
+            [ngClass]="{'error': (isSubmitted && brandingInfoForm.controls.terms_conditions.status == 'INVALID')}">
+            <textarea rows="2" formControlName="terms_conditions"></textarea>
+          </div>
+        </div>
+        <div class="bookings_btn-panel buttonstyle button1">
+          <button mat-button class="ui button primary button_align" type="submit">Save</button>
+          <button mat-button class="ui button reset button_align" (click)="cancelBranding()">Cancel</button>
+        </div>
+      </div>
+      <!-- Form buttons Update, Cancel etc part -->
+   
+    </form>
+  </div>

@@ -1,0 +1,7 @@
+<mat-form-field class="full-width">
+  <!-- <mat-label></mat-label> -->
+  <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker"
+  placeholder="{{label}}" formControlName="dob" [name]="name" disabled >
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker touchUi [dateClass]="dateClass" #picker disabled="false"></mat-datepicker>
+</mat-form-field>

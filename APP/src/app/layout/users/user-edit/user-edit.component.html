@@ -1,0 +1,185 @@
+<div class="ui fluid container">
+  <div class="ui grid">
+    <div class="sixteen wide column row">
+      <div class="eight wide column">
+        <h3><span class="update-header">Update User</span></h3>
+      </div>
+      <div class="eight wide column bookings_btn-panel text-right">
+        <a class="ui primary button roleActionButton" routerLink="../../">
+          <span class="tourCode_text">List Users</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <div class="ui form">
+        <div class="email-list b2c-list-user-table">
+          <form [formGroup]="editUserForm" (submit)="btnSubmitHandler()" autocomplete="off">
+            <div class="ui grid">
+              <div class="eleven wide column">
+                <div class="shadow-sm p-5 mb-5 bg-white rounded">
+                  <div class="ui grid">
+                    <div class="three wide column">
+                      <div class="field">
+                        <label for="">Salutation</label>
+                        <select class="ui dropdown fluid" formControlName="salute">
+                          <!-- [selected]="salute==userData.salute" -->
+                          <option value="" selected disabled>Select</option>
+                          <option *ngFor="let saluteName of saluteNames" value="{{ saluteName }}">{{ saluteName }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="six wide column">
+                      <div class="field">
+                        <label for="">First Name <small *ngIf="formIsSubmitted && gfc.first_name.errors"
+                            class="text-danger">required</small></label>
+                        <input type="text" formControlName="first_name" />
+                      </div>
+                    </div>
+                    <div class="six wide column">
+                      <div class="field">
+                        <label for="">Last Name <small *ngIf="formIsSubmitted && gfc.last_name.errors"
+                            class="text-danger">required</small></label>
+                        <input type="text" name="" formControlName="last_name" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid">
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">Contact Number <small *ngIf="formIsSubmitted && gfc.mobile.errors"
+                            class="text-danger">required</small></label>
+                        <input type="text" id="" formControlName="mobile" placeholder="Contact number">
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">Initial</label>
+                        <input type="text" id="" formControlName="initial" placeholder="Enter initial">
+                      </div>
+                    </div>
+                    <div class="four wide column">
+                      <div class="field">
+                        <label for="">Gender <small *ngIf="formIsSubmitted && gfc.sex.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="sex">
+                          <option value="">Gender</option>
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">Status <small *ngIf="formIsSubmitted && gfc.status.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="status">
+                          <option value="" disabled selected>Status</option>
+                          <option *ngFor="let status of statusRow" value="{{ status.id }}">{{ status.value }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" id="inputAddress" placeholder="1234 Main St" formControlName="address1">
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                          formControlName="address2">
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">Country <small *ngIf="formIsSubmitted && gfc.country_id.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="country_id">
+                          <option value="">Select</option>
+                          <option *ngFor="let country of countries" [value]="country.country_id">{{country.country }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">POS <small *ngIf="formIsSubmitted && gfc.country_id.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="organisation_id">
+                          <option value="">Select</option>
+                          <option *ngFor="let organization of organizations" [value]="organization.organisation_id">
+                            {{ organization.name  }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">POS Branch<small *ngIf="formIsSubmitted && gfc.branch_id.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="branch_id">
+                          <option value="">Select Branch</option>
+                          <option value="{{ organizationBranche.id }}"
+                            *ngFor="let organizationBranche of organizationBranches">{{ organizationBranche.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column">
+                      <div class="field">
+                        <label for="">Role <small *ngIf="formIsSubmitted && gfc.role_id.errors"
+                            class="text-danger">required</small></label>
+                        <select class="ui dropdown fluid" formControlName="role_id">
+                          <option value="">Select</option>
+                          <option *ngFor="let userRole of userRoles" [value]="userRole.role_id">{{ userRole.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="five wide column">
+                <div class="ui grid">
+                  <div class="twelve wide column">
+                    <div class="field">
+                      <label for="">Username <small *ngIf="formIsSubmitted && gfc.username.errors"
+                          class="text-danger">required</small></label>
+                      <input type="email" id="" formControlName="username" placeholder="User name">
+                    </div>
+                  </div>
+                  <div class="twelve wide column">
+                    <div class="field">
+                      <label for="">Email <small *ngIf="formIsSubmitted && gfc.email.errors" class="text-danger">a valid
+                          email is required</small></label>
+                      <input type="email" id="" formControlName="email" placeholder="Email address">
+                    </div>
+                  </div>
+                  <div class="twelve wide column">
+                    <div class="field">
+                      <label for="">Password </label>
+                      <input type="password" id="" placeholder="Password" formControlName="password">
+                    </div>
+                  </div>
+                  <div class="twelve wide column">
+                    <div class="field">
+                      <label for="">Confirm Password </label>
+                      <input type="password" id="" placeholder="Password" formControlName="cpassword">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-right">
+              <button type="submit" class="ui primary button">Save User</button>
+              <button (click)="cancel()" class="ui button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

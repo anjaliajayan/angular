@@ -1,0 +1,428 @@
+[
+
+    {
+      "name": "Users",
+      "permissions": [{
+          "name": "List Users",
+          "allow": ["listUsers", "users"]
+        },
+        {
+          "name": "Create New User",
+          "allow": ["create-new-user", "users/new"]
+        },
+        {
+          "name": "Update User",
+          "allow": ["update-user", "users"]
+        },
+        {
+          "name": "List user information",
+          "allow": ["fetch-new-user", "users"]
+        },
+        {
+          "name": "Update My Profile",
+          "allow": ["logedin-user-info", "user-role-management/update-profile"]
+        },
+        {
+          "name": "Permissions",
+          "allow": ["fetch-new-user", "users/permissions"]
+        }
+      ]
+    },
+    {
+      "name": "Point of Sale Management",
+      "permissions": [{
+          "name": "List All POS",
+          "allow": ["organization/pos-list", "point-sales-management/list-point-sale"]
+        },
+        {
+          "name": "Add Point of Sale",
+          "allow": ["organization/create-agency", "point-sales-management/add-point-sale/pos-info"]
+        },
+        {
+          "name": "Update Point of Sale",
+          "allow": ["organization/update-agency", "point-sales-management/add-point-sale/pos-edit"]
+        },
+        {
+          "name": "List POS Information",
+          "allow": ["organization/fetch-pos", "btn-edit"]
+        },
+        {
+          "name": "Delete POS",
+          "allow": ["organization/delete-pos", "btn-delete"]
+        },
+        {
+          "name": "List Registrations",
+          "allow": ["registration-list", "point-sales-management/registration"]
+        }
+      ]
+    },
+    {
+      "name": "Role/Permissions",
+      "permissions": [{
+          "name": "List All Group Name",
+          "allow": ["fetch-all-sales", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Add/Update Group Name",
+          "allow": ["add-sale", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Search Group Name",
+          "allow": ["search-sales", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Delete Group Name",
+          "allow": ["delete-sale", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "List All Markup Rules",
+          "allow": ["fetch-all-markups", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Add/Update Markup Rules",
+          "allow": ["add-markup", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Search Markup Rules",
+          "allow": ["search-markups", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "Delete Markup Rules",
+          "allow": ["delete-markup", "setup-configuration/markup-configuration"]
+        },
+        {
+          "name": "List All Roles",
+          "allow": ["roles/list", "setup-configuration/roles"]
+        },
+        {
+          "name": "Add/Update Roles",
+          "allow": ["roles/add", "setup-configuration/roles"]
+        },
+        {
+          "name": "List Roles Information",
+          "allow": ["roles/get", "setup-configuration/roles"]
+        },
+        {
+          "name": "Delete Roles",
+          "allow": ["roles/delete", "setup-configuration/roles"]
+        },
+        {
+          "name": "List All Tour Codes",
+          "allow": ["fetch-all-tourcodes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Add Tour Code",
+          "allow": ["create-new-tourcode", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Update Tour Code",
+          "allow": ["update-tourcode", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List Tour Code Information",
+          "allow": ["fetch-tourcode", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Delete Tour Code",
+          "allow": ["remove-tourcode", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List All Tour Commissions",
+          "allow": ["fetch-all-commissions", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Add Tour Commission",
+          "allow": ["create-new-commission", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Update Tour Commission",
+          "allow": ["update-commission", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List Tour Commission Information",
+          "allow": ["fetch-commission", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Delete Tour Commission",
+          "allow": ["remove-commission", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List All Tour Routes",
+          "allow": ["fetch-all-routes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Add Tour Route",
+          "allow": ["create-new-routes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Update Tour Route",
+          "allow": ["update-routes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List Tour Route Information",
+          "allow": ["fetch-routes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "Delete Tour Route",
+          "allow": ["remove-routes", "setup-configuration/airline-deals"]
+        },
+        {
+          "name": "List All Suppliers",
+          "allow": ["read-all-supplier", "setup-configuration/supplier"]
+        },
+        {
+          "name": "Update Supplier",
+          "allow": ["update-supplier", "setup-configuration/edit-supplier"]
+        },
+        {
+          "name": "List All Currencies",
+          "allow": ["fetch-all-currency", "setup-configuration/currency-configuration"]
+        },
+        {
+          "name": "Add Currency",
+          "allow": ["create-new-currency", "setup-configuration/currency-configuration"]
+        },
+        {
+          "name": "Update Currency",
+          "allow": ["update-currency", "setup-configuration/currency-configuration"]
+        },
+        {
+          "name": "List Currency Information",
+          "allow": ["fetch-currency", "setup-configuration/currency-configuration"]
+        },
+        {
+          "name": "Delete Currency",
+          "allow": ["remove-currency", "setup-configuration/currency-configuration"]
+        },
+        {
+          "name": "List All Email Templates",
+          "allow": ["fetch-all-email-template", "setup-configuration/email-templates"]
+        },
+        {
+          "name": "Update Email Templates",
+          "allow": ["update-email-template", "setup-configuration/email-templates"]
+        },
+        {
+          "name": "List Email Templates Information",
+          "allow": ["fetch-email-template", "setup-configuration/email-templates"]
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "permissions": [{
+          "name": "List All Bookings",
+          "allow": ["fetch-all-bookings", "bookings"]
+        },
+        {
+          "name": "Export Bookings",
+          "allow": ["export-bookings", "bookings"]
+        }
+      ]
+    },
+    {
+      "name": "Accounts",
+      "permissions": [{
+          "name": "List All Transactions",
+          "allow": ["transaction-list", "accounts/transactions"]
+        },
+        {
+          "name": "Export Transactions",
+          "allow": ["export-transaction", "accounts/transactions"]
+        },
+        {
+          "name": "Add Agent Transaction",
+          "allow": ["make-agent-transaction", "accounts/transactions"]
+        },
+        {
+          "name": "List Top UP",
+          "allow": ["get-topup-view", "accounts/transactions"]
+        },
+        {
+          "name": "Update Top UP",
+          "allow": ["update-topup-request", "accounts/transactions"]
+        },
+        {
+          "name": "List Floating Deposit",
+          "allow": ["get-topup-view", "accounts/transactions"]
+        },
+        {
+          "name": "Update Top UP",
+          "allow": ["update-topup-request", "accounts/transactions"]
+        }
+      ]
+    },
+    {
+      "name": "Report",
+      "permissions": [{
+          "name": "List All Bookings",
+          "allow": ["fetch-all-bookings", "report/booking-report"]
+        },
+        {
+          "name": "Search Bookings",
+          "allow": ["search-bookings-by-organisation", "report/booking-report"]
+        },
+        {
+          "name": "Export Booking Report",
+          "allow": ["export-booking-report", "report/booking-report"]
+        },
+        {
+          "name": "Search Segments",
+          "allow": ["search-segments", "report/segment-report"]
+        },
+        {
+          "name": "MIS (Total Count)",
+          "allow": ["Flight-Search-Log/count", "report/mis-report"]
+        },
+        {
+          "name": "MIS (Month Wise)",
+          "allow": ["Flight-Search-Log/monthlwise", "report/mis-report"]
+        },
+        {
+          "name": "Search Log",
+          "allow": ["fetch-all-Flight-Search-Log", "report/search-log-report"]
+        },
+        {
+          "name": "List All Audit Trail Log",
+          "allow": ["fetch-all-Audit-Trail", "report/audit-report"]
+        },
+        {
+          "name": "Search Audit Trail Log",
+          "allow": ["get-audit-trails", "report/audit-report"]
+        },
+        {
+          "name": "Ticket Log",
+          "allow": ["search-tickets-new", "report/ticket-report"]
+        },
+        {
+          "name": "Dynamic Report",
+          "allow": ["dynamic-report-data", "report/dynamic-report"]
+        }
+      ]
+    },
+    {
+      "name": "Flight",
+      "permissions": [{
+          "name": "Search",
+          "allow": ["flights-search", "search/flights"]
+        },
+        {
+          "name": "Book",
+          "allow": ["flight-booking", "search/flights"]
+        },
+        {
+          "name": "Ticket",
+          "allow": ["flight-ticket", "search/flights"]
+        },
+        {
+          "name": "Cancel",
+          "allow": ["flight-cancel", "search/flights"]
+        },
+        {
+          "name": "Reshop",
+          "allow": ["flight-amend", "search/flights"]
+        },
+        {
+          "name": "Refund",
+          "allow": ["flight-refund", "search/flights"]
+        },
+        {
+          "name": "Markup",
+          "allow": ["flight-markup", "search/flights"]
+        },
+        {
+          "name": "Split PNR",
+          "allow": ["flight-markup", "search/flights"]
+        },
+        {
+          "name": "Void",
+          "allow": ["flight-void", "search/flights"]
+        },
+        {
+          "name": "Reprice",
+          "allow": ["flight-reprice", "search/flights"]
+        },
+        {
+          "name": "ReIssue",
+          "allow": ["flight-ReIssue", "search/flights"]
+        }
+      ]
+    },
+    {
+      "name": "Hotels",
+      "permissions": [{
+          "name": "Search",
+          "allow": ["hotel-search", "search/hotels"]
+        },
+        {
+          "name": "Book",
+          "allow": ["hotel-room-book", "search/hotels"]
+        },
+        {
+          "name": "Details",
+          "allow": ["hotel-room-details", "search/hotels"]
+        },
+        {
+          "name": "Cancel",
+          "allow": ["hotel-booking-cancel", "search/hotels"]
+        }
+      ]
+    },
+    {
+      "name": "Cars",
+      "permissions": [{
+          "name": "Search",
+          "allow": ["car-search", "search/cars"]
+        },
+        {
+          "name": "Book",
+          "allow": ["car-book", "search/cars"]
+        },
+        {
+          "name": "Details",
+          "allow": ["car-details", "search/cars"]
+        },
+        {
+          "name": "Cancel",
+          "allow": ["car-cancel", "search/cars"]
+        }
+      ]
+    },
+    {
+      "name": "Extras",
+      "permissions": [{
+          "name": "List Organisations",
+          "allow": ["fetch-all-organization", "users"]
+        },
+        {
+          "name": "List Roles ",
+          "allow": ["roles/list", "users"]
+        },
+        {
+          "name": "List Suppliers",
+          "allow": ["fetch-all-supplier", "report/booking-report"]
+        },
+        {
+          "name": "List Countries",
+          "allow": ["get-country", "users"]
+        },
+        {
+          "name": "Toggle Status",
+          "allow": ["toggle-status", "report/booking-report"]
+        },
+        {
+          "name": "List Currency",
+          "allow": ["get-currency-list", "accounts/transactions"]
+        },
+        {
+          "name": "List Airport",
+          "allow": ["get-airports-cache", "report/segment-report"]
+        },
+        {
+          "name": "List Airlines",
+          "allow": ["get-airlines-list", "report/segment-report"]
+        }
+      ]
+    }
+  ]
+  

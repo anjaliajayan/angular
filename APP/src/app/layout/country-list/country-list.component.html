@@ -1,0 +1,8 @@
+
+<div>
+    <label>Operating Country<span class="mandatory">*</span></label>
+    <select class="ui fluid search dropdown">
+      <option value=""> Operating Country</option>
+      <option *ngFor="let country of countries" value="{{country.country_id}}">{{country.country}}</option>
+    </select>
+  </div>

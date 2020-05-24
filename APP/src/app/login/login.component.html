@@ -1,0 +1,96 @@
+<div class="ui grid login-grid">
+  <div class="sixteen wide column login-grid_content">
+    <div class="ui centered container">
+      <div class="ui one column centered grid">
+        <div class="five wide column animated fadeIn">
+
+          <!-- !showOTP ||  -->
+          <form class="ui form card arora-card text-center" [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="showLogin"> 
+            <div class="content">
+              <img src="./../../assets/img/tpconnects-logo-blue.svg" class="login-grid_content__logo" />
+              <div class="field"
+                [class.error]="authErr || loginForm.controls['username'].errors?.required === true && loginForm.controls.username.touched">
+                <input type="text" name="username" required formControlName="username" placeholder="Username">
+              </div>
+              <div class="field"
+                [class.error]="authErr || loginForm.controls['password'].errors?.required === true && loginForm.controls.password.touched">
+                <input type="password" name="password" required formControlName="password" placeholder="Password">
+              </div>
+              <div class="field">
+                <div class="ui checkbox">
+                  <input type="checkbox" tabindex="0" formControlName="rememberMe" (click)="clickEvent()"
+                    [ngClass]="status ? 'true' : 'false'">
+                  <label>Remember me</label>
+                </div>
+              </div>
+              <button class="ui secondary button" [class.loading]="loginLoader" [disabled]="loginLoader" type="submit">Submit</button>
+              <div class="col-12 text-right">
+                <span (click)="resetPasswordForm()"><a>Reset Password</a></span>
+              </div>
+            </div>
+          </form>
+
+
+          <form class="ui form card otp-card arora-card animated fadeIn text-center" [formGroup]="otpForm"
+            *ngIf="showOTP">
+            <div class="content">
+              <img src="./../../assets/img/tpconnects-logo-blue.svg" class="login-grid_content__logo" />
+              <p class="ui header">OTP Verification</p>
+              <p>We've sent you an email for your One-Time-Pin (OTP). Kindly Verify your OTP.</p>
+              <div class="row">
+                <div class="col-12">
+                  <div class="from-group"
+                    [class.error]="otpForm.controls['otp'].errors?.required === true && otpForm.controls['otp'].touched">
+                    <input type="password" min="0" name="otp" max="6" formControlName="otp" placeholder=""
+                      class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="button" class="ui secondary button" [class.loading]="otpLoader" [disabled]="otpLoader" (click)="verifyOTP()">Verify</button>
+                </div>
+                <div class="col-12 text-right">
+                  <span (click)="resentOtp()"><a>Resent OTP</a></span>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <form class="ui form card otp-card arora-card animated fadeIn text-center" [formGroup]="passwordForm" *ngIf="showPassword">
+            <div class="content">
+              <img src="./../../assets/img/tpconnects-logo-blue.svg" class="login-grid_content__logo" />
+              <p class="ui header">Rest Password</p>
+              <p>Enter your username / email to get reset password instruction.</p>
+              <div class="row">
+                <div class="col-12">
+                  <!-- <small *ngIf="passwordFormSubmitted && gspf.usernamemail.errors" class="text-danger">required</small> -->
+                  <div class="from-group">
+                    <input type="text" formControlName="usernamemail" placeholder="" class="form-control">
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="button" class="ui secondary button" [class.loading]="otpLoader" [disabled]="otpLoader" (click)="btnSendPasswordHandler()">Send Password</button>
+                </div>
+                <div class="col-12 text-right">
+                  <span (click)="backLogin()"><a>Back to Login</a></span>
+                </div>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+        <img src="./../../assets/img/planes-illus.svg" class="login-grid_content__placeholder-img animated fadeInUp" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui modal login-modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Verify OTP
+  </div>
+  <div class="description">
+
+  </div>
+</div>

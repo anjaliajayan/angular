@@ -1,0 +1,43 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin color-opacity($color, $opacity: 0.3) {
+  background: $color;
+  /* The Fallback */
+  background: rgba($color, $opacity);
+}
+
+@mixin hideNumberFieldArrows {
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield !important;
+  }
+}
+
+@mixin mask-svg-div($img) {
+  -webkit-mask: url($img) no-repeat center;
+  mask: url($img) no-repeat center;
+}

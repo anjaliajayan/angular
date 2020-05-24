@@ -1,0 +1,498 @@
+<div class="insurance outer-wrapper">
+  <div class="container-fluid">
+    <div class="ui grid m-0">
+      <div class="sixteen wide column row">
+        <div class="twelve wide column">
+          <div class="modify-search-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column p-0 right">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search-list-block">
+            <div class="ui grid item-block">
+              <div class="sixteen wide column row">
+                <div class="sixteen wide column item-details">
+                  <div class="ui grid">
+                    <div class="ten wide column">
+                      <h2> {{single.policy_name}}</h2>
+                      <!-- <br /> -->
+                      <p class="light">{{single.policyType}}<br> {{single.policyCode}} </p>
+                    </div>
+                    <div class="six wide column price-block right">
+                      <span>Total:</span>
+                      <p>{{single.currencyCode}} {{single.markupPrice}}</p>
+                      <!-- <br /> -->
+                      <!-- <div class="bookings_btn-panel">
+
+                        <button class="detail-btn" (click)="showFurtherDetails()">
+                          Show Details
+                          <img src="./../../../../../assets/icons/downArrow-blue.svg" width="16" height="8" />
+                        </button>
+
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form [formGroup]="checkoutForm" (ngSubmit)="btncheckoutHandler()">
+            <div class="search-list-block">
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <h2>Flight Details</h2>
+                    <div class="ui grid">
+                      <!-- <div class="sixteen wide column row">
+                        <div class="ui grid m-0">
+                        </div>
+                      </div> -->
+                      <div class="sixteen wide column row">
+                        <div class="six wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.arrivalairportcode.errors}">
+                          <label>Arriving From Airport<span class="mandatory">*</span></label>
+                          <div>
+                            <select class="ui fluid search dropdown4 multiple_search"
+                              formControlName="arrivalairportcode" required>
+                              <option class="item" *ngFor="let dest of destinations" value="{{dest.AirportCode}}">
+                                {{dest.AirportName}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="six wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.departureairportcode.errors}">
+                          <label>Departure To Airport<span class="mandatory">*</span></label>
+                          <div>
+                            <select class="ui fluid search dropdown4 multiple_search"
+                              formControlName="departureairportcode" required>
+                              <option class="item" *ngFor="let dest of destinations" value="{{dest.AirportCode}}">
+                                {{dest.AirportName}}
+                              </option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="search-list-block"   *ngFor="let insuranceOccu of occupancies; let i = index">
+                <div class="search-list-block"  >
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <h2>Member {{i + 1}}</h2>
+                    <div class="ui grid">
+                      <!-- <div class="sixteen wide column row">
+                        <div class="sixteen wide column"> -->
+                          <!-- <h2>Member </h2> -->
+                        <!-- </div>
+                      </div> -->
+                      <div class="sixteen wide column row">
+                        <div class="two wide column"  >
+                          <label>Salutation</label>
+                         
+                          <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.gender" formControlName="gender" required>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Mrs">Miss</option>
+                            <option value="Master">Master</option>
+                            <option value="Ms">Ms</option>
+                            <option value="Dr">Dr</option>
+                          </select>
+                        </div>
+                        <!-- <div class="two wide column" *ngIf="insuranceOccu.passenger_type == 'CHD' || insuranceOccu.passenger_type == 'INF' ">
+                          <label>Salutation</label>
+                         
+                          <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.gender" formControlName="gender" required>
+                            <option value="Mr.">Master</option>
+									
+                            <option value="Ms.">Miss</option>
+
+                          </select>
+                        </div> -->
+                        <div class="five wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.first_name.errors}">
+                          <label>First Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" placeholder="First Name" [(ngModel)]="insuranceOccu.first_name" formControlName="first_name">
+                          </div>
+                        </div>
+                        <div class="five wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.last_name.errors}">
+                          <label>Last Name
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" placeholder="Last Name"  [(ngModel)]="insuranceOccu.last_name"  formControlName="last_name">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <!-- <div class="five wide column" *ngIf="insuranceOccu.passenger_type == 'ADT'"> -->
+                          <div class="four wide column">
+                          <label>Date of Birth <span class="mandatory">*</span></label>
+                          <div class="ui left icon input">
+                            <input type="text" placeholder="Date Of birth" autocomplete="off" required 
+                            [(ngModel)]="insuranceOccu.birth_date"   formControlName="birth_date{{i}}" name="birth_date{{i}}" />
+                            <i class="icon">
+                              <img src="./../../../../../assets/icons/calendar.svg"
+                                class="pass_input__placeholder-icon cal date-picker" />
+                            </i>
+                          </div>
+                        </div>
+                        <!-- <div class="five wide column" *ngIf="insuranceOccu.passenger_type == 'INF' || insuranceOccu.passenger_type == 'CHD' ">
+                          <label>Date of Birth</label>
+                          <div class="ui left icon input">
+                            <input type="text" placeholder="Date Of birth"   required 
+                            [(ngModel)]="insuranceOccu.birth_date"   formControlName="birth_date{{i}}" name="birth_date{{i}}" />
+                            <i class="icon">
+                              <img src="./../../../../../assets/icons/calendar.svg"
+                                class="pass_input__placeholder-icon cal date-picker" />
+                            </i>
+                          </div>
+                        </div> -->
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.passport.errors}">
+                          <label>Passport Number
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text"  placeholder="Passport Number" [(ngModel)]="insuranceOccu.passport"  formControlName="passport">
+                          </div>
+                        </div>
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.email.errors}">
+                          <label>Email Address</label><span class="mandatory">*</span>
+                          <div class="ui input fluid">
+                            <input type="email"  placeholder="Email Address" [(ngModel)]="insuranceOccu.email" formControlName="email" class="email">
+                            <div *ngIf="gfc.email.errors" class="invalid-feedback">
+                              <div class="validations" *ngIf="gfc.email.errors.pattern">
+                                Email must be a valid email address
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.city.errors}">
+                          <label>City
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" name="City" placeholder="City" [(ngModel)]="insuranceOccu.city" formControlName="city">
+                          </div>
+                        </div>
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.street1.errors}">
+                          <label>Street
+                            <span class="mandatory">*</span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" placeholder="Street" [(ngModel)]="insuranceOccu.street1" formControlName="street1">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.nationality.errors}">
+                          <label>Nationality<span class="mandatory">*</span></label>
+                          <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.nationality" formControlName="nationality">
+                            <option value=""> Select Country</option>
+                            <option *ngFor="let country of countries" value="{{country.country_code}}">
+                              {{country.country}}</option>
+                          </select>
+
+
+                        </div>
+                        <div class="four wide column" [ngClass]="{'is-invalid': isSubmitted && gfc.residence.errors}">
+                          <label>Residence <span class="mandatory">*</span></label>
+                          <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.residence" formControlName="residence">
+                            <option value=""> Select Country</option>
+                            <option *ngFor="let country of countries" value="{{country.country_code}}">
+                              {{country.country}}</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="sixteen wide column row">
+                        <div class="four wide column" *ngIf="i==0">
+                          <label>Relative City
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" name="rel-City" [(ngModel)]="insuranceOccu.relativeCity" placeholder="Relative City"
+                              formControlName="relativeCity">
+                          </div>
+                        </div>
+                        <div class="four wide column" *ngIf="i==0">
+                          <label>Relative Name
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" name="rel-name" [(ngModel)]="insuranceOccu.relativeName" placeholder="Relative Name"
+                              formControlName="relativeName">
+                          </div>
+                        </div>
+                        <div class="four wide column" *ngIf="i==0">
+                          <label>Relative Phone
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" name="rel-phn" [(ngModel)]="insuranceOccu.relativePhone" placeholder="Relative Phone"
+                              formControlName="relativePhone">
+                          </div>
+                        </div>
+                        <!-- <div class="four wide column">
+                            <label>Relationship</label>
+                            <div>
+                              <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.relationship" formControlName="relationship" >
+                                  <option value="" >Select a relationship</option> 
+                                  <option value="Son" *ngIf="i > 0" >Son</option>    
+                                  <option value="Daughter" *ngIf="i > 0" >Daughter</option>
+                                  <option value="Wife" >Wife</option> 
+                                  <option value="Husband">Husband</option> 
+                              </select>
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="sixteen wide column row" *ngIf="i==0">
+                        <div class="four wide column">
+                          <label> Computerised National Identity Card
+                            <span class="mandatory"></span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text" name="nationalid" placeholder="" [(ngModel)]="insuranceOccu.cnic" formControlName="cnic">
+                          </div>
+                        </div>
+                        <div class="four wide column" >
+                          <div class="ui checkbox mar-right-15px outer-checkbox benef-checkbox">
+                            <input type="checkbox" name="same-check" [(ngModel)]="insuranceOccu.isBeneficiary" formControlName="isBeneficiary">
+                            <label for="same-check">
+                              Beneficiary
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                       <div class="sixteen wide column row">
+                          <div class="four wide column" >
+                              <label>Relationship</label>
+                           
+                              <div>
+                                <select class="ui fluid search dropdown" [(ngModel)]="insuranceOccu.relationship" formControlName="relationship" >
+                                    <option value="" >Select a relationship</option> 
+                                    <option value="Son" *ngIf="i > 0" >Son</option>    
+                                    <option value="Daughter" *ngIf="i > 0" >Daughter</option>
+                                    <option value="Wife" >Wife</option> 
+                                    <option value="Husband">Husband</option> 
+                                </select>
+                            </div>
+                          </div>
+                          <div class="four wide column"  *ngIf="single.studentPlan===true && i==0">
+                              <label>Program Name</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Program Name" formControlName="programName">
+                              </div>
+                          </div>
+                          <div class="four wide column"  *ngIf="single.studentPlan===true && i==0">
+                              <label>Program Duration</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Program Duration" formControlName="programDuration">  
+                              </div>
+                          </div>
+                        </div>
+                      <div class="sixteen wide column row" *ngIf="single.studentPlan===true && i==0">
+                          <div class="four wide column">
+                              <label>Sponsor Name</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Sponsor Name" formControlName="sponsorName">
+                              </div>
+                          </div>
+                          <div class="four wide column" *ngIf="single.studentPlan===true && i==0">
+                              <label>Sponsor Contact Number</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Sponsor Contact Number" formControlName="sponsorContact">
+                              </div>
+                          </div>
+                          <div class="four wide column" *ngIf="single.studentPlan===true && i==0">
+                              <label>Sponsor Address</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Sponsor Address" formControlName="sponsorAddress">
+                              </div>
+                          </div>
+                        </div>
+                      <div class="sixteen wide column row" *ngIf="single.studentPlan===true && i==0">
+                          <div class="four wide column">
+                              <label>Offer Letter Ref</label>
+                              <div class="ui input fluid">
+                                <input type="text"  placeholder="Offer Letter Ref" formControlName="offerletterRef">
+                              </div>
+                          </div>
+                          <div class="four wide column">
+                              <label>Travel Duration</label>
+                           
+                              <div>
+                                  <select class="ui fluid search dropdown" formControlName="travelduration" *ngIf="single.studentPlan===true && i==0" >
+                                      <option value="">Travel Duration</option>
+                                      <option value="6 months">6 Month</option>    
+                                      <option value="12 months">12 Month</option>
+                                  </select>
+                              </div>
+                          </div>
+                      </div> 
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+            </div>
+            
+            <div class="search-list-block">
+              <div class="ui grid item-block">
+                <div class="sixteen wide column row">
+                  <div class="sixteen wide column item-details">
+                    <h2>Payment Details</h2>
+                    <div class="ui grid">
+                      <div class="sixteen wide column row">
+                        <div class="four wide column">
+                          <label>Mail ID</label>
+                          <div class="ui input fluid">
+                            <input type="text" name="email" placeholder="Email Address" formControlName="booking_email">
+                          </div>
+                        </div>
+                        <div class="four wide column">
+                          <label>Agent Reference
+                            <span class="mandatory"></span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text"  placeholder="agent reference" formControlName="agent_reference">
+                          </div>
+                        </div>
+                        <div class="eight wide column">
+                          <label>Remarks
+                            <span class="mandatory"></span>
+                          </label>
+                          <div class="ui input fluid">
+                            <input type="text"  placeholder="Remarks" formControlName="booking_comments">
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div class="sixteen wide column row">
+                        <div class="four wide column">
+                        </div>
+                      </div> -->
+                      <div class="sixteen wide column row">
+                        <div class="eight wide column">
+                          <label>Terms & Conditions<span class="mandatory"></span></label>
+                          <div class="ui checkbox mar-right-15px outer-checkbox">
+                            <input type="checkbox" name="same-check"  formControlName="rulesCondition" [(ngModel)]="rulesCondition">
+                            <label for="same-check">
+                              I have read and accept the rules and restrictions.(Please check the box to continue)
+
+                            </label>
+                          </div>
+                          <div class="ui checkbox mar-right-15px outer-checkbox">
+                            <input type="checkbox" name="same-check" [(ngModel)]="reserveCondition" value=""
+                            formControlName="reserveCondition">
+                            <label for="same-check">
+
+                              Reservation Terms And Cancellation Policy.(Please check the box to continue)
+
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- <div class="sixteen wide column row">
+                        <div class="eight wide column">
+                        </div>
+                      </div> -->
+                      <div class="sixteen wide column row">
+                        <div class="sixteen wide column text-right">
+                          <button class="confirm-btn" *ngIf="clickAble" [disabled]="!rulesCondition || !reserveCondition ">
+                            <i *ngIf="submitInsuranceSpinner" class="fa fa-spinner fa-spin"></i>CONFIRM
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+               
+              </div>
+            </div>
+
+          </form>
+        
+          <!-- Search More -->
+
+        </div>
+        <div class="four wide column">
+          <div class="fliter-head-block">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="ten wide column">
+                  <h2>Insurance Details</h2>
+                </div>
+                <!-- <div class="six wide column right">
+                  <a>Clear All</a>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- Side Filters -->
+          <div class="filter-list-block">
+            <div class="ui grid filter-block">
+              <div class="sixteen wide column row filters">
+                <div class="sixteen wide column">
+                  <div class="ui grid">
+                    <div class="sixteen wide column row">
+                      <div class="ten wide column">
+                        <h4>Policy</h4>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>Product</p>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p>{{single.policyType}}</p>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>Plan</p>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p>{{single.policyCode}}</p>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>GST</p>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p>0.00</p>
+                      </div>
+                    </div>
+                    <div class="sixteen wide column row pt-0">
+                      <div class="nine wide column">
+                        <p>Total Amount</p>
+                        <h6>(GST inclusive)</h6>
+                      </div>
+
+                      <div class="seven wide column right">
+                        <p><b>{{single.currencyCode}} {{single.markupPrice}}</b></p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

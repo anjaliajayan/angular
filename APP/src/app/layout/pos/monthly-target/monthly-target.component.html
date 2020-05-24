@@ -1,0 +1,57 @@
+<app-pos-edit-button></app-pos-edit-button>
+<div class="ui segment">
+<div class="outer-form">
+  <form class="ui form pos_basic_form" autocomplete="off" [formGroup]="monthlyTargetForm" (ngSubmit)="storeMonthlyTarget()">
+    <br>
+    <!-- Monthly target part -->
+    <h4 class="ui header spacing">Monthly Target </h4>
+    <div class="field spacing" formArrayName="monthlyTarget"
+      *ngFor="let item of monthlyTargetForm.get('monthlyTarget')['controls']; let i = index;">
+      <div [formGroupName]="i">
+        <div class="ui twelve column grid fields custom-columns">
+          <div class="two wide field">
+            <label>Year</label>
+            <select class="ui dropdownyear fluid" formControlName="year" name='year' (change)="selectYear($event.target.value)">
+            
+              <option *ngFor="let year of yearsList;" [value]="year" >{{ year }}</option>
+            </select>
+          </div>
+          <div class="two wide field">
+            <label>Month</label>
+            <select class="ui dropdownMonth fluid" formControlName="month" name="month" >
+              <option *ngFor="let month of months;" [value]="month.id">{{ month.name }}</option>
+            </select>
+          </div>
+          <div class="two wide field">
+            <label>Flights</label>
+            <input type="number" formControlName="flight_stats" placeholder="Flights Target">
+          </div>
+          <div class="two wide field">
+            <label>Hotels</label>
+            <input type="number" formControlName="hotel_stats" placeholder="Hotel Target">
+          </div>
+          <div class="two wide field">
+            <label>Car Hire</label>
+            <input type="number" formControlName="car_stats" placeholder="Car Target">
+          </div>
+          <div class="two wide field">
+            <label>Insurance</label>
+            <input type="number" formControlName="insurance_stats" placeholder="Insurance Target">
+          </div>
+          <div class="four wide field  fourwide_button ">
+            <button class="ui primary reset button add_btn" *ngIf="i!=0" tabindex="0"
+              (click)="removeItem(i)">Delete</button>
+            <button class="ui primary button add_btn" (click)="addItem()"
+              *ngIf="i==(monthlyTargetForm.get('monthlyTarget')['controls'].length-1)">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Form buttons Update, Cancel etc part -->
+    <div class="pos_btn-panel spacing">
+      <button mat-button class="ui right floated button reset" (click)="cancelMonthlyTarget()">Cancel</button>
+      <button mat-button class="ui right floated button primary" type="submit">Save</button>
+    </div>
+  </form>
+</div>
+</div>

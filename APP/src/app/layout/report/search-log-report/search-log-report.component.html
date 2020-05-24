@@ -1,0 +1,50 @@
+<div class="ui top attached tabular menu ">
+    <div class="item" data-tab="first" routerLink="/report/booking-report">
+        Booking
+    </div>
+    <div class="item" data-tab="second" routerLink="/report/segment-report">Segment</div>
+    <div class="item" data-tab="third" routerLink="/report/mis-report">MIS</div>
+    <div class="item active" data-tab="fourth" routerLink="/report/search-log-report">Search Log</div>
+    <div class="item" data-tab="fifth" routerLink="/report/audit-report">Audit Trail Log</div>
+    <div class="item" data-tab="sixth" routerLink="/report/ticket-report">Ticket</div>
+    <div class="item" data-tab="seventh" routerLink="/report/dynamic-report">Dynamic Report</div>
+</div>
+<div class="ui bottom attached tab segment tabContent-block active" data-tab="fourth">
+    <div class="ui segment">
+        <div class="ui fluid container">
+            <div class="outer-basics">
+                <div class="outer-basicForm">
+                    <div id="context1">
+                        <div class="ui secondary menu">                     
+                          <a class="item active" data-tab="flight">Flight</a>
+                          <!-- <a class="item" data-tab="hotel">Hotel</a> -->
+                          <a class="item" data-tab="cars">Cars</a>
+                          <a class="item" data-tab="transfer">Transfer</a> 
+                          <a class="item" data-tab="activity">Activity</a>    
+                          <a class="item" data-tab="insurance">Insurance</a>          
+                        </div>
+                        <div class="ui tab segment active" data-tab="flight">
+                            <app-search-flight-log></app-search-flight-log>
+                        </div>
+                        <!-- <div class="ui tab segment" data-tab="hotel">
+                            <app-search-hotel></app-search-hotel>
+                        </div> -->
+                        <div class="ui tab segment" data-tab="cars">
+                            <app-search-car></app-search-car>
+                        </div>
+                        <div class="ui tab segment" data-tab="transfer">
+                            <app-search-transfers></app-search-transfers>     
+                        </div>
+                        <div class="ui tab segment" data-tab="activity">
+                            <app-search-activity></app-search-activity>     
+                        </div>
+                        <div class="ui tab segment" data-tab="insurance">
+                            <app-search-insurance></app-search-insurance>     
+                        </div>
+                      </div>
+                </div>           
+            </div>
+        </div>
+    </div>
+</div>
+

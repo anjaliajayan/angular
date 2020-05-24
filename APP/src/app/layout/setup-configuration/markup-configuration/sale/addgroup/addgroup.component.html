@@ -1,0 +1,182 @@
+<div class="outer-form">
+  <form class="ui form pos_basic_form" [formGroup]="addGroupForm" autocomplete="off">
+    <!-- <h4 class="ui header">Create Group for Markup</h4> -->
+    <div class="field">
+      <div class="five fields">
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addGroupForm.controls.name.status == 'INVALID')}">
+          <label>Group Name<span class="mandatory">*</span></label>
+          <input type="text" formControlName="name" value="" name="groupSeasonName" placeholder="Group / Seasonality Name"  >
+        </div>
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addGroupForm.controls.organisation_id.status == 'INVALID')}">
+          <label>POS</label>
+         <select placeholder="Select POS" id="pos" class="ui dropdownThree fluid search multiple_search" value="" formControlName="organisation_id"
+            multiple="" name="organisation_id">     
+            <!-- <option value="" disabled selected>Select one category </option> -->
+            <option *ngFor="let org of allPos" value="{{org.organisation_id}}"> {{org.name}} </option>
+          </select>
+        </div> 
+      </div>
+    </div>
+    <div class="field">
+      <div class="five fields input-wrapper">
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addGroupForm.controls.is_active.status == 'INVALID')}">
+          <label>Status</label>
+          <select placeholder="Status" class="ui fluid  dropdown" id="dropdown-pos" formControlName="is_active" value="" >
+            <option value=""> Status </option>
+            <option value="1">Active</option>
+            <option value="0">InActive</option>
+          </select>
+        </div>
+        <div class="six wide field"
+          [ngClass]="{'error': (isSubmitted && addGroupForm.controls.preference.status == 'INVALID')}">
+          <label>Preference<span class="mandatory">*</span></label>
+          <select palceholder="Preference" class="ui fluid  dropdown" id="dropdown-preference"
+            formControlName="preference" value="" >
+            <option value=""> Preference </option>
+            <option value="override">Override</option>
+            <option value="inherit">Inherit</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="field">
+      <div class="five fields click-wrapper">
+        <!-- <div class="two wide field sale_check">
+          <div class="ui checkbox">
+            <input type="checkbox" value="freesale" name="freesale" formControlName="sale_type">
+            <label for="freesale">Free Sale</label>
+          </div>
+        </div>
+        <div class="two wide field sale_check">
+          <div class="ui checkbox">
+            <input type="checkbox" value="stopsale" name="stopsale" formControlName="sale_type">
+            <label for="stopsale">Stop Sale</label>
+          </div>
+        </div> -->
+        <div class="two wide field sale_check">
+          <div class="ui radio">
+            <input type="radio" value="freesale" formControlName="sale_type">
+            <label>Free Sale</label>
+          </div>
+        </div>
+        <div class="two wide field sale_check">
+          <div class="ui radio">
+            <input type="radio" value="stopsale" formControlName="sale_type">
+            <label>Stop Sale</label>
+          </div>
+        </div>
+        <!-- <div class="three wide field"  [hidden]="addGroupForm.controls.sale_type && addGroupForm.controls.sale_type.value == 'freesale'">
+            <input  type="text" class="date_field"  formControlName="start_date" name="start_date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div> -->
+      </div>
+    </div>
+    <div class="field">
+      <div class="five fields">
+        <div class="six wide field bookings_pickers "
+          [hidden]="addGroupForm.controls.sale_type && addGroupForm.controls.sale_type.value == 'freesale'">
+          <label>Sale Start Date</label>
+          <div class="ui left icon input ">
+            <input type="text" placeholder="Start Date" formControlName="start_date" name="start_date" value="" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="bookings_input__placeholder-icon cal" />
+            </i>
+          </div>
+        </div>
+        <!-- <div class="three wide field"  [hidden]="addGroupForm.controls.sale_type && addGroupForm.controls.sale_type.value == 'freesale'">
+            <input type="text" class="date_field"  placeholder="End date" formControlName="end_date" name="end_date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div>     -->
+        <div class="six wide field bookings_pickers "
+          [hidden]="addGroupForm.controls.sale_type && addGroupForm.controls.sale_type.value == 'freesale'">
+          <label>Sale End Date</label>
+          <div class="ui left icon input ">
+            <input type="text" placeholder="End Date" formControlName="end_date" name="end_date" value="" required />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="bookings_input__placeholder-icon cal" />
+            </i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="ui fitted divider"></div> -->
+    <h4 class="ui header">Assign Products</h4>
+    <div class="field">
+      <div class="inline fields assign_prod">
+        <div class="field">
+          <div class="ui checkbox">
+            <input type="checkbox" name="flights" checked="checked" formControlName="is_flight">
+            <label for="flights"><span class="pos_product_check">Flights</span></label>
+          </div>
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="hotels" formControlName="is_hotel">
+              <label for="hotels"><span class="pos_product_check">Hotels</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui  checkbox">
+              <input type="checkbox" name="cars" formControlName="is_car">
+              <label for="cars"><span class="pos_product_check">Cars</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="transfers" formControlName="is_transfers">
+              <label for="transfers"><span class="pos_product_check">Transfers</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="activities" formControlName="is_activities">
+              <label for="activities"><span class="pos_product_check">Activities</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="insurances" formControlName="is_insurance">
+              <label for="insurances"><span class="pos_product_check">Insurances</span></label>
+            </div>
+          </div>
+          <!-- <div class="field">
+            <div class="ui checkbox">
+              <input type="checkbox" name="cruises" formControlName="is_cruises">
+              <label for="cruises"><span class="pos_product_check">Cruises</span></label>
+            </div>
+          </div> -->
+      </div>
+    </div>
+    <div class="pos_btn-panel field">
+      <!-- <p>
+          Real-time data: {{ addGroupForm.value | json }}
+      </p> -->
+      <!-- <button mat-button class="ui secondary  button">
+        Assign Office To existing
+      </button> -->
+      <!-- <button mat-button matStepperNext class="ui primary  button">
+        Save And Next
+      </button> -->
+      <!-- <button mat-button class="ui primary  button" type="submit" >Save</button>
+      <button class="ui button commissionCode_btn fluid"  (click)="onUpdateGroup()">
+          <span class="tourCode_text">Update</span>
+        </button>
+    </div> -->
+        <div class="bookings_btn-panel save-btn-block">
+          <button class="ui primary button commissionCode_btn fluid" type="submit" (click)="addGroup(null)" *ngIf="showSaveButton">
+            <span class="tourCode_text">Save</span>
+          </button>
+          <button class="ui primary button commissionCode_btn fluid" (click)="onUpdateGroup(null)" *ngIf="showUpdateButton">
+            <span class="tourCode_text">Update</span>
+          </button>
+        </div>
+    </div>
+  </form>
+</div>

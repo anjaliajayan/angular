@@ -1,0 +1,64 @@
+<h3><span class="update-header">Update Role</span></h3>
+
+<div class="ui fluid container">
+    <!-- <div class="eight wide field">    </div> -->
+    <div class="eight wide field bookings_btn-panel text-right">
+        <a class="ui primary button roleActionButton" routerLink="../../list">
+            <span class="tourCode_text">List Roles</span>
+        </a>
+    </div>
+    <div class="outer-basic">
+        
+        <div class="outer-basicForm">
+            <div class="ui form">
+
+            <div class="email-list b2c-list-user-table">
+
+                <form [formGroup]="rolePermissionForm" (ngSubmit)="btnSubmitHandler()">
+
+                    <div class="ui grid grid-header">
+
+                        <div class="four wide column">
+                            <div class="field">
+                                <label>Role Name <small *ngIf="isSubmitted && gfc.name.errors ">*</small></label>
+                                <input type="text" placeholder="Role Name" formControlName="name">
+                            </div>
+                        </div>
+                        <div class="four wide column">
+                            <div class="field">
+                                <label>Role Code <small *ngIf="isSubmitted && gfc.code.errors ">*</small></label>
+                                <input type="text" placeholder="Role Name" formControlName="code">
+                            </div>
+                        </div>
+                        
+                        <div class="sixteen wide column" *ngFor="let allPermission of allPermissions; let i = index;">
+                            <h3 class="ui header">{{ allPermission.name }}</h3>
+
+                            <div class="ui card" style="width:100%;">
+                                <div class="content">
+                                    <div class="description">
+                                        <div class="ui grid edit-checkbox-list">
+                                            <div class="three wide column" *ngFor="let permissionKey of allPermission.permissions; let j = index;">
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="check-{{ i }}{{ j }}" [formControlName]="permissionKey.allow[0]">
+                                                    <label for="check-{{ i }}{{ j }}">{{ permissionKey.name }}</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      </div>
+            
+                    <div class="mt-2 text-right">
+                        <button type="submit" class="ui primary button">Update Role</button>
+                    </div>
+            
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

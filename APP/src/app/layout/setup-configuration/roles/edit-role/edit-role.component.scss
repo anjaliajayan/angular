@@ -1,0 +1,76 @@
+.update-header {
+    color: #4F4F4F;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+    margin-left: 30px;
+}
+
+.ui.fluid.container {
+    padding: 25px;
+}
+
+.outer-basic {
+    background-color: #FFF;
+    box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    // padding: 30px 15px;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ui.primary.button.roleActionButton{
+    position :relative;
+    top:-40px;
+}
+
+.ui.checkbox input:checked ~ label {
+    color: #3867b1;
+    &:before {
+        border-color: #3867b1;
+    }
+    &:after {
+        color: #3867b1;
+    }
+}
+
+@media (max-width: 1110px) {
+    .ui.grid.edit-checkbox-list {
+        .three.wide.column {
+            width: 25% !important;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .ui.grid.edit-checkbox-list {
+        .three.wide.column {
+            width: 48.5% !important;
+        }
+    }
+    .ui.grid.grid-header {
+        .four.wide.column {
+            width: 50% !important;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .ui.grid.edit-checkbox-list {
+        .three.wide.column {
+            width: 100% !important;
+        }
+    }
+    .ui.grid.grid-header {
+        .four.wide.column {
+            width: 100% !important;
+        }
+    }
+}

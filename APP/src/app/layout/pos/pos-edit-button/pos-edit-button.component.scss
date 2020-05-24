@@ -1,0 +1,80 @@
+.pos-basic-edit-btn {
+    .ui.primary.button {
+        height: auto !important;
+        margin-left: 12px;
+        &:hover, &:active, &:focus, &.active {
+            color: rgba(0, 0, 0, .6) !important;
+            background: #e0e1e2 !important;
+        }
+    }
+}
+
+.ui.clearing.segment {
+    margin: 12px 6px !important;
+    background: none !important;
+}
+
+@media(max-width:991px){
+ .pos-basic-edit-btn {
+    .button-wrapper{
+        height: auto !important;
+        margin-left: 8px;
+        width: 30% !important;
+        margin-bottom: 12px;
+        margin-right: 8px;
+        float:left;
+    }
+  }
+}
+
+@media(max-width:649px){
+    .pos-basic-edit-btn {
+       .button-wrapper{
+           height: auto !important;
+           margin-left: 8px;
+           width: 29% !important;
+           margin-bottom: 12px;
+           margin-right: 8px;
+           float:left;
+       }
+     }
+   }
+
+   @media(max-width:623px){
+    .pos-basic-edit-btn {
+       .button-wrapper{
+           height: auto !important;
+           margin-left: 8px;
+           width: 30% !important;
+           margin-bottom: 12px;
+           margin-right: 8px;
+           float:left;
+       }
+     }
+   }
+
+   @media(max-width:603px){
+    .pos-basic-edit-btn {
+       .button-wrapper{
+           height: auto !important;
+           margin-left: 8px;
+           width: 45% !important;
+           margin-bottom: 12px;
+           margin-right: 8px;
+           float:left;
+       }
+     }
+   }
+
+   @media(max-width:449px){
+    .pos-basic-edit-btn {
+       .button-wrapper{
+           height: auto !important;
+           margin-left: 8px;
+           width: 100% !important;
+           margin-bottom: 12px;
+           margin-right: 8px;
+           float:left;
+       }
+     }
+   }

@@ -1,0 +1,97 @@
+<!-- <router-outlet></router-outlet> -->
+<h3><span class="booking-header">Create New Client</span></h3>
+<div class="ui fluid container">
+    <div class="outer-basic">
+        <div class="outer-basicForm">
+            <form class="ui form">
+                <div class="form-inner">
+
+                    <div class="fields">
+                        <h3>Client Information</h3>
+                    </div>
+                    <div class="fields">
+                        <div class="four wide field">
+                            <input type="text" name="clientName" placeholder="Client Name *">
+                        </div>
+                        <div class="four wide field">
+                            <input type="text" name="emailAddress" placeholder="Email address *">
+                        </div>
+                        <div class="four wide field">
+                            <input type="text" name="contactNumber" placeholder="Contact Number">
+                        </div>
+                        <div class="four wide field">
+                            <input type="text" name="faxNumber" placeholder="Fax Number">
+                        </div>
+                        <div class="three wide field">
+                            <div class="ui fluid search selection dropdown">
+                                <input type="hidden" name="country">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Country</div>
+                                <div class="menu">
+                                    <div class="item" data-value="country1">Country 1</div>
+                                    <div class="item" data-value="country2">Country 2</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fields">
+                        <div class="three wide field">
+                            <input type="text" name="address1" placeholder="Address Line 1">
+                        </div>
+                        <div class="three wide field">
+                            <input type="text" name="address2" placeholder="Address Line 2">
+                        </div>
+                        <div class="three wide field">
+                            <div class="ui fluid search selection dropdown">
+                                <input type="hidden" name="calculation">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Calculation Type</div>
+                                <div class="menu">
+                                    <div class="item" data-value="type1">Type 1</div>
+                                    <div class="item" data-value="type2">Type 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="three wide field">
+                            <input type="text" name="serviceCharge" placeholder="Service Charge">
+                        </div>
+
+                    </div>
+                    <div class="field">
+                        <hr>
+                    </div>
+                    <div class="fields">
+                        <h3>Client Information: Sales Representatives</h3>
+                    </div>
+                    <div class="fields">
+                        <div class="three wide field">
+                            <div class="ui fluid search selection dropdown">
+                                <input type="hidden" name="name">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">Name</div>
+                                <div class="menu">
+                                    <div class="item" data-value="name1">Name 1</div>
+                                    <div class="item" data-value="name2">Name 2</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="four wide field">
+                            <input type="text" name="contactNumber" placeholder="Contact Name *">
+                        </div>
+                        <div class="four wide field">
+                            <input type="text" name="emailAddress" placeholder="Email address *">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <hr>
+                    </div>
+                    <div class="bookings_btn-panel">
+                        <button class="ui primary button bookings_btn-panel pnr-button">
+                            Save
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

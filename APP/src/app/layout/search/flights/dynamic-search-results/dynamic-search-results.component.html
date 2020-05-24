@@ -1,0 +1,1060 @@
+<div class="ui grid m-0">
+  <div class="sixteen wide column row filter-block-wrap">
+    <div class="four wide column text-left">
+
+   <button (click)="reset()" class="ui button primary header-box_search-box__search-icon" > Reset </button>
+    </div>
+    <div class="twelve wide column flight-filter-wrapper text-right">
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showAirlineFilter()">
+          <img src="./../../../../../assets/icons/airline.svg" class="filter-icons" />
+          Airline
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="airline-filter timing-block text-left" *ngIf="airlineFilter">
+          <div class="head">
+            <h4>Filter by Airline</h4>
+            <a>Clear</a>
+          </div>
+          <div class="detail">
+
+            <div *ngFor='let arFlt of  airlineFltrData' class="ui checkbox outer-checkbox">
+                       <input
+                      type="checkbox"
+                      data-value="{{arFlt.code}}"
+                      name="{{arFlt.name}}"
+                      [(ngModel)]="arFlt.ischecked"
+                      (change)="onAirlineCheckboxChange(arFlt,$event)">
+
+              <label for="{{arFlt.code}}">
+                {{arFlt.name}}  - {{arFlt.cur}} {{arFlt.amt}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showAirportFilter()">
+          <img src="./../../../../../assets/icons/airports.svg" width="16" height="16" class="filter-icons" />
+          Airport
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="airport-filter timing-block text-left" *ngIf="airportFilter">
+          <div class="head">
+            <h4>Filter by Airport</h4>
+            <a>Clear</a>
+          </div>
+          <div class="ui top attached tabular menu airport-tab">
+            <div class="active item all-tab" data-tab="all-airport">ALL</div>
+            <!-- <div class="item nearby-tab" data-tab="nearby-tab">Nearby Airport</div>
+            <div class="item layover-tab" data-tab="layover-tab">Fare Rules</div> -->
+          </div>
+          <div class="ui bottom active attached tab segment" data-tab="all-tab">
+            <div class="detail">
+              <div *ngFor='let ap of  airportFltrData.departure | keyvalue' class="ui checkbox outer-checkbox">
+                <input
+                type="checkbox"
+                data-value="{{ap.key}}"
+                [(ngModel)]="ap.value.isChecked"
+                (change)="onAirporytCheckboxChange(ap,$event)">
+                <label for="{{ap.key}}">
+                  {{ap.key}}
+                </label>
+              </div>
+            </div>
+            <div class="sub-detail">
+              <div *ngFor='let apArr of  airportFltrData.arrival | keyvalue' class="ui checkbox outer-checkbox">
+                <input
+                type="checkbox"
+                data-value="{{apArr.key}}"
+                [(ngModel)]="apArr.value.isChecked"
+                (change)="onAirporytCheckboxChange(apArr,$event)">
+                <label for="{{apArr.key}}">
+                  {{apArr.key}}
+                </label>
+              </div>
+
+            </div>
+          </div>
+          <div class="ui bottom attached tab segment nearBy-filter" data-tab="nearby-tab">
+            <div class="detail">
+              <div class="detail-block">
+                <label>Nearby Departure</label>
+                <a>DXB</a>
+                <a>LHR</a>
+                <a>CBE</a>
+                <a>COK</a>
+              </div>
+              <div class="detail-block">
+                <label>Nearby Arrival</label>
+                <a>DXB</a>
+                <a>LHR</a>
+                <a>CBE</a>
+                <a>COK</a>
+              </div>
+            </div>
+          </div>
+          <div class="ui bottom attached tab segment layover-filter" data-tab="layover-tab">
+            <div class="detail">
+              <div class="detail-block">
+                <label>Layover Departure</label>
+                <a>DXB</a>
+                <a>LHR</a>
+                <a>CBE</a>
+                <a>COK</a>
+              </div>
+              <div class="detail-block">
+                <label>Layover Arrival</label>
+                <a>DXB</a>
+                <a>LHR</a>
+                <a>CBE</a>
+                <a>COK</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showStopFilter()">
+          <img src="./../../../../../assets/icons/stops.svg" width="16" height="16" class="filter-icons" />
+          Stops
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="stops-filter timing-block text-left" *ngIf="stopFilter">
+          <div class="head">
+            <h4>Filter by Stops</h4>
+            <a>Clear</a>
+          </div>
+          <div class="detail">
+            <div *ngFor='let st of  stopFltrData | keyvalue' class="ui checkbox outer-checkbox">
+
+              <input
+              type="checkbox"
+              data-value="{{st.key}}"
+              [(ngModel)]="st.value.isChecked"
+              (change)="onStopCheckboxChange(st,$event)">
+              <label for="{{st.key.split('_')[0]}}">
+                {{ st.key.split("_")[0]}} Stop
+              </label>
+            </div>
+            <!-- <div class="ui checkbox outer-checkbox">
+              <input type="checkbox" name="1Stop">
+              <label for="1Stop">
+                1 Stop
+              </label>
+            </div>
+            <div class="ui checkbox outer-checkbox">
+              <input type="checkbox" name="multiStop">
+              <label for="multiStop">
+                Multi Stop
+              </label>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showDurationBlock()">
+          <img src="./../../../../../assets/icons/duration.svg" width="16" height="16" class="filter-icons" />
+          Duration
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="timing-block" *ngIf="showDurr">
+          <div class="head text-left">
+            <h4>Filter by Duration</h4>
+            <a>Clear</a>
+          </div>
+          <div class="text-left slider">
+            <mat-slider (input)="0" thumbLabel max="30" value="10">
+            </mat-slider>
+          </div>
+        </div>
+      </div>
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showTimingBlock()">
+          <img src="./../../../../../assets/icons/timings.svg" width="16" height="16" class="filter-icons" />
+          Timings
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="timing-filter timing-block text-left" *ngIf="showtimingBlock">
+          <div class="head">
+            <h4>Filter by Timeline</h4>
+            <a>Clear</a>
+          </div>
+          <div class="detail">
+            <div class="detail-block">
+              <label>Departure</label>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+            </div>
+            <div class="detail-block">
+              <label>Arrival</label>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+              <a>00:00 - 04:59</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter-seg">
+        <button class="flight-filter-btns" (click)="showPriceBlock()">
+          <img src="./../../../../../assets/icons/price.svg" width="16" height="16" class="filter-icons" />
+          Price
+          <img src="./../../../../assets/icons/downArrow-black.svg" />
+        </button>
+        <div class="timing-block price-filter-block" *ngIf="showPrice">
+          <div class="head text-left">
+            <h4>Filter by Price</h4>
+            <a>Clear</a>
+          </div>
+          <div class="text-left slider">
+            <mat-slider (input)="0" thumbLabel max="30" value="10">
+            </mat-slider>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="ui grid m-0">
+  <div class="sixteen wide column row">
+    <div class="sixteen wide column p-0">
+      <div class="carousel-wrap">
+        <div class="owl-carousel flight-carousel">
+          <div *ngFor='let arFltCur of  airlineFltrData'>
+            <div class="item">
+              <div class="items" [ngClass]="{'active': arFltCur.ischecked}">
+                <div (click)="onAirlineCarChange(arFltCur.code,$event)" data-carofilter="false">
+                  <img
+                  src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{arFltCur.code}}.png" />
+                <div>
+                  <p></p>
+                  <p class="airline-name"> {{arFltCur.name}}</p>
+                  <!-- <p>Emirates {{item.value[Object.keys(item.value)[0]][0].flight}} -- {{item.key}}</p> -->
+                  <p>{{arFltCur.cur}} </p>
+                  <p>{{arFltCur.amt}}</p>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div *ngFor="let flight_Z of (flightSearchResults.result | keyvalue | flightListingFilter:[filterObj ,flightSearchResultsOg.result, selectedAirlineValue, airlineFltrData,selectedAirportValue, airportFltrData]);let startInd = index" class="Suppliers"> -->
+<div *ngFor="let flight_Z of (flightSearchResults.result | keyvalue | flightListingFilter:filterObj :flightSearchResultsOg.result : selectedAirlineValue : selectedAirportValue : selectedStoptValue : airlineFltrData : airportFltrData : stopFltrData);let startInd = index" class="Suppliers">
+  <div *ngIf="flight_Z.key == 'FlightOffer'">
+    <div class="OriginDestinations" *ngFor="let flight_ZZ1 of flight_Z.value | keyvalue ;let resultInd = index "
+      id="orgindestId_{{resultInd}}">
+      <div *ngFor="let flight_Z1 of flight_ZZ1.value | keyvalue;let resultInd1 = index" class="dest-block">
+        <div class="ui grid m-0">
+          <div class="sixteen wide column row flight-dur-wrapper">
+            <div class="nine wide column">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="four wide column">
+                    <div *ngIf="resultInd1 == 0" class="flight-dir">
+                      ONWARDS
+                    </div>
+                    <div *ngIf="resultInd1 > 0" class="flight-dir">
+                      RETURNS
+                    </div>
+                  </div>
+                  <div class="six wide column exp-wrapper">
+                    <h4>Offer Expiration: </h4>
+                    <h5></h5>
+                  </div>
+                  <div class="six wide column exp-wrapper">
+                    <h4>Payment Expiration: </h4>
+                    <h5></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="seven wide column">
+              <div class="ui grid">
+                <div class="sixteen wide column row">
+                  <div class="two wide column flight-dir">
+                    <!-- ECONOMY -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 'displayLess': flagShow, -->
+        <div class="dest-block-content">
+          <div *ngFor="let flight of flight_Z1.value | keyvalue ; let segInd = index" class="dest-block-content-row">
+            <div *ngIf="!flagShow">
+              <button *ngIf="segInd== 0"
+              [ngClass]="{'show-more': segInd== 0, 'show-info': flightInfoOpen, 'align-showMore': displayFareBreakdown}"
+              (click)="setShowAll('show', resultInd ,segInd , flightSearchResults.result['DataLists'].OriginDestinationList[flight_Z1.key].DepartureCode['text'])">
+              <label class="show-options">
+                More flights ({{flight_Z1.value.length}}) <img src="./../../../../../assets/icons/downArrow-dblue.svg"
+                  width="9" height="9" />
+              </label>
+            </button>
+            </div>
+
+            <div [ngStyle]="{'display':segInd > 0 ? 'none' : 'block' }">
+              <div class="ui fluid container ">
+                <div class="outer-basic animated fadeIn">
+                  <div class="outer-basicForm">
+                    <form>
+                      <div class="ui grid m-0">
+                        <div class="sixteen wide column row airline-tickets _oneway p-t-0">
+                          <div class="ui nine wide column grid border-grid p-0"
+                          *ngIf="{ segValue : flight.value[flight.value?.flight].segment[0][0] , aSegValue : flight.value[flight.value?.flight].segment[0][flight.value[flight.value?.flight].segment[0].length -1],offValue: flight.value[flight.value?.flight].offers[0]} as variable ">
+                            <div class="ui twelve wide column grid text-left">
+                              <div class="four wide column text-center">
+                                <img
+                                  src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].OperatingCarrier['AirlineID'].text}}.png"
+                                  class="airline-tickets_airline-logo" />
+                                <p class="airline-tickets_title">
+                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['Name'].text}}
+                                </p>
+                                <p class="craft-title">
+                                  ({{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['AirlineID'].text}}-{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['FlightNumber'].text}}
+                                  )</p>
+                              </div>
+                              <div class="ui twelve wide column grid plane-grid flight_duration">
+                                <div class="three wide column">
+                                  <p class="airline-tickets_title">
+                                    <b>
+                                      {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].Departure['Time'].text}}
+                                    </b>
+                                  </p>
+                                  <p class="airline-tickets_airport">
+                                    {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].Departure['AirportCode'].text}}
+                                  </p>
+                                </div>
+                                <div class="ten wide column">
+                                  <div class="_crafts-border text-center">
+                                    <div class="_craft _craft-up">
+                                      <img src="./../../../../../../assets/img/blue-up.svg" />
+                                    </div>
+                                    <span>
+                                      {{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].Journey['Time'].text }}
+                                    </span>
+                                    <div class="_craft _craft-down">
+                                      <img src="./../../../../../../assets/img/blue-down.svg" />
+                                    </div>
+                                    <hr>
+                                  </div>
+                                  <p class="flight-type _highlight text-center">
+                                    <!-- <span class="aircraft-no">
+                                      (Aircraft No)
+                                    </span> -->
+                                    <span *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                      Non Stop
+                                    </span>
+                                    <span *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                      {{flight.value[flight.value?.flight].segment[0].length - 1}} Stop
+                                    </span>
+                                  </p>
+                                </div>
+                                <div class="three wide column">
+                                  <div class="airline-tickets_title">
+                                    <div *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                      <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.aSegValue]?.Arrival['Time'].text}}</b>
+                                    </div>
+                                    <div *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                      <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue]?.Arrival['Time'].text}}</b>
+                                    </div>
+                                  </div>
+                                  <div class="airline-tickets_airport">
+                                    <div *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                      <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.aSegValue]?.Arrival['AirportCode'].text}}</b>
+                                    </div>
+                                    <div *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                      {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue]?.Arrival['AirportCode'].text}}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="ui four wide column grid icon-block">
+                              <span id="_seg-active_{{segInd}}" class="icon-wrapper"
+                                (click)="flightDetails('flightsSegment',flight.value?.flight,''); showSegmentDropdown(flight.value?.flight)">
+                                <img src="./../../../../../../assets/icons/info.svg" title="Flight Info">
+                              </span>
+                              <span class="icon-wrapper" (click)="showSeatMapModal('seat-map',variable.segValue,variable.offValue)">
+                                <img src="./../../../../../assets/icons/seat-blue.svg" title="Seat Icon" />
+                                </span>
+                              <span id="_segBrndDisclsr-active_{{segInd}}" class="icon-wrapper" (click)="showFareBreakdown(flight.value?.flight)">
+                                <img src="./../../../../../assets/icons/plane-blue.svg" width="18"
+                                  title="Brand Disclosure" />
+                              </span>
+                            </div>
+                          </div>
+                          <div class="ui seven wide column priceclass">
+                            <div class="priceclass_price" *ngFor="let offer1 of flight.value[flight.value?.flight].offers | keyvalue">
+                              <div class="ui two wide column grid "style="display: inline-block;">
+                                <div class="ui sixteen wide column grid booking-class">
+                                  <div class="sixteen wide column padd-top-0">
+                                    <div class="_offerDiv" (click)="getDynamicPrice('offerChange',$event, flight_ZZ1.key, flight_Z1.key, flight.key, flight.value, offer1.key, offer1.value, resultInd1, flight_ZZ1)">
+                                     
+                                      <!-- <div> -->
+                                      <div class="_offerDiv booking-class_item flight-book-top"
+                                        [ngClass]="{'_active-0':  flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text'] == flightSearchResults.result.OffersGroup[resultInd].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text']}">
+                                        <div
+                                        *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass">
+                                          <p class="flight-dir-text">
+                                            <a
+                                              title="{{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}">
+                                              {{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}
+                                            </a>
+                                          </p>
+                                        </div>
+                                        <div class="text-center"
+                                          *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass">
+                                          <button (click)="eidtRbd($event)"
+                                            class="rbd-btn">
+                                            {{ flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.text['#text'] != undefined ? flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.text['#text'] :  flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.text != undefined ? flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.text : '' }}
+                                          </button>
+                                          <div (click)="$event.stopPropagation()" class="_editRbdDiv none">
+                                            <i (click)="closeEditRbd($event)" class="fa fa-times edit-rdb-close" aria-hidden="true"></i>
+                                            <input type="text" class="rbd-edit-input" (click)="rbdClick($event)" (keyup)="getDynamicPrice('rbdChange',$event, flight_ZZ1.key, flight_Z1.key, flight.key, flight.value, offer1.key, offer1.value, resultInd1, flight_ZZ1)">
+                                          </div>
+                                          <p class="avail_seat"> {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.attributes != null && flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.attributes.SeatsLeft != undefined ? flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.attributes.SeatsLeft : '' }}</p>
+                                          <p class="avail_seat_label">Seats Available </p>
+                                          <div *ngIf="objectKeys(flightSearchResults.result['FlightOffer'][flight_ZZ1.key]).length == 1" id="total_price_{{resultInd}}"
+                                            value="flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text']">
+                                            <p class="price">
+                                              {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text'] | number:'1.1-1'}}
+                                            </p>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div id="brand-disclosure_{{flight.value?.flight}}" class="sixteen wide column row fare-detail-wrapper _brandDisclosure fare-block" *ngIf="displayFareBreakdown">
+                          <div class="sixteen wide column">
+                            <div class="ui horizontal segments">
+                              <div *ngFor="let offer2 of flight.value[flight.value?.flight].offers | keyvalue" class="ui segment">
+                                <p class="route-name" *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer2.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass">
+                                  {{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}
+                                  </p>
+                                  <div class="ui list">
+                                        <ng-container *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer2.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass1">
+                                          <ng-container *ngIf="(flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass1.value].Descriptions.Description.Text[0] != undefined); else noBrandDisclosr" >
+                                    
+                                          <ng-container *ngFor="let ofText of flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass1.value]?.Descriptions.Description.Text | keyvalue">
+                                                <div class="fare-item">{{ ofText.value.Text }}</div>
+                                          </ng-container>
+                                        </ng-container>
+
+                                        <ng-template #noBrandDisclosr>
+                                          No Data Available From Supplier
+                                       </ng-template>
+
+                                        
+
+                                      </ng-container>
+                                </div>
+                          </div>
+                          </div>
+                          </div>
+                        </div>
+                        <div *ngFor="let segment1 of flight.value | keyvalue " class="flight-info">
+                          <div *ngFor="let segment2 of segment1.value | keyvalue ">
+                            <div *ngFor="let segment4 of segment2.value | keyvalue">
+                              <div class="ui grid">
+                                <div *ngFor="let segment3 of segment4.value | keyvalue"
+                                  class="sixteen wide column row flight-segment transition"
+                                  id="flight-segment-dropdown_{{flight.value?.flight}}">
+                                  <div class="ui container-fluid">
+                                    <div *ngIf=" segment2.key=='segment'">
+                                      <div class=" ui sixteen wide column grid header-box-segment">
+                                        <div class="ui sixteen wide column grid header-box-segment_row">
+                                          <div class="ui six wide column text-left">
+                                            <p>
+                                              <!-- {{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].SegmentReferences['attributes'].OnPoint}} -->
+                                              {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure['AirportCode'].text}}
+                                              -
+                                              <!-- {{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].SegmentReferences['attributes'].OffPoint}} -->
+                                              {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival['AirportCode'].text}}
+                                            </p>
+                                          </div>
+                                          <div class="ui ten wide column seg-padd text-right">
+                                            <p>Total flight duration:
+                                              <span>{{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].Journey['Time'].text  }}</span>
+                                            </p>
+                                          </div>
+                                        </div>
+                                        <div class="ui sixteen wide column grid no-ptb content-box-segment_row">
+                                          <div class="ui ten wide column grid">
+                                            <div class="ui sixteen wide column grid">
+                                              <div class="ui three wide column flight_data text-right">
+                                                <p>Departure</p>
+                                              </div>
+                                              <div class="two wide column seg-wrap">
+                                                <div class="flight-segment_airport">
+                                                  <img src="../../../../../assets/icons/black-up.svg" />
+                                                  <p>
+                                                    {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure['AirportCode'].text}}
+                                                  </p>
+                                                </div>
+                                              </div>
+                                              <div class="ten wide column ">
+                                                <p class="mar-top-12 center-content"><img
+                                                    src="./../../../../../../assets/icons/time.svg" /><strong>{{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure['Time'].text}}</strong>
+                                                  <span class="dot"></span>
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure['Date'].text}}
+                                                </p>
+                                                <p class="center-content"><img
+                                                    src="./../../../../../../assets/icons/location.svg" />
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure['AirportName'].text}}
+                                                  <ng-container *ngIf="(flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure.Terminal.Name | json) != '{}'">
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure.Terminal.Name != null && flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure.Terminal.Name != "" ? 'Terminal ' + flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Departure.Terminal.Name.text  : '' }}
+                                                </ng-container>
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div
+                                              class=" sixteen wide column row flight-segment_timeline  flight_vertical">
+                                              <div class="three wide column">
+                                              </div>
+                                              <div class="two wide column timeline-bar">
+
+                                              </div>
+                                              <div class="ten wide column">
+                                                <p class="mar-top-12 center-content">
+                                                  <img src="./../../../../../../assets/icons/time.svg" />
+                                                  Travel time:
+                                                  <!-- {{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].Journey['Time'].text | FlightTimeParser}} -->
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].FlightDetail.FlightDuration.Value.text }}
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="ui sixteen wide column grid">
+                                              <div class="ui three wide column flight_data text-right">
+                                                <p>Arrival</p>
+                                              </div>
+                                              <div class="two wide column  seg-wrap">
+                                                <div class="flight-segment_airport">
+                                                  <img src="../../../../../assets/icons/black-down.svg" />
+                                                  <p>
+                                                    {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival['AirportCode'].text}}
+                                                  </p>
+                                                </div>
+                                              </div>
+                                              <div class="ten wide column ">
+                                                <p class="mar-top-12 center-content"><img
+                                                    src="./../../../../../../assets/icons/time.svg" /><strong>{{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival['Time'].text}}</strong>
+                                                  <span class="dot"></span>
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival['Date'].text}}
+                                                </p>
+                                                <p class="center-content"><img
+                                                    src="./../../../../../../assets/icons/location.svg" />
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival['AirportName'].text}}
+                                                  <ng-container *ngIf="(flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival.Terminal.Name | json) != '{}'">
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival.Terminal.Name != null && flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival.Terminal.Name != "" && flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival.Terminal.Name != undefined ? 'Terminal ' + flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Arrival.Terminal.Name.text  : '' }}
+                                                </ng-container>
+                                                </p>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="ui six wide column flight-segment_text">
+                                            <div class="flight-owner-info">
+                                              <img
+                                                src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].OperatingCarrier['AirlineID'].text}}.png"
+                                                class="airline-tickets_airline-logo" />
+                                              <div>
+                                                <p>
+                                                  {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].OperatingCarrier['Name'].text}}
+                                                </p>
+                                                <p class="center-content">
+                                                  ({{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].OperatingCarrier['AirlineID'].text}} - {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].OperatingCarrier['FlightNumber'].text}})
+                                                </p>
+                                                <p class="center-content">
+                                                  Cabin: Economy
+                                                </p>
+                                              </div>
+                                            </div>
+                                            <div class="flight-owner-details">
+                                              <p class="center-content">
+                                                <img src="./../../../../../assets/icons/airline.svg"
+                                                  class="airline-tickets_airline-logo" />
+                                                Aircraft:
+                                                {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].Equipment['AircraftCode'].text}}
+                                              </p>
+                                              <p class="center-content"><img
+                                                  src="./../../../../../../assets/icons/flight-details.svg" />
+                                                Flight:
+                                                Details</p>
+                                              <p class="center-content"><img
+                                                  src="./../../../../../../assets/icons/operate.svg" />
+                                                Operated By:
+                                                {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].OperatingCarrier['Name'].text}}
+                                              </p>
+                                              <p class="center-content"><img
+                                                  src="./../../../../../../assets/icons/operate.svg" />
+                                                Marketed By:
+                                                {{flightSearchResults.result['DataLists'].FlightSegmentList[segment3.value].MarketingCarrier['Name'].text}}
+                                              </p>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--'displayLess': flagShow,-->
+            <div *ngIf="flagShow"
+              [ngClass]="{'flag': flagShow12 == (''+ flightSearchResults.result['DataLists'].OriginDestinationList[flight_Z1.key].DepartureCode['text'] + resultInd  )}">
+              <div [ngStyle]="{'display':segInd > 0 ? 'block' : 'none' }">
+                <div
+                  *ngIf="flagShow12 == (''+ flightSearchResults.result['DataLists'].OriginDestinationList[flight_Z1.key].DepartureCode['text'] + resultInd  )">
+                  <button *ngIf="segInd == 1" [ngClass]="{'show-less': segInd== 1 , 'show-less-info': flightInfoOpen}"
+                    (click)="setShowAll('hide', resultInd ,segInd , flightSearchResults.result['DataLists'].OriginDestinationList[flight_Z1.key].DepartureCode['text'])">
+                    <label class="show-options">
+                      Less flights <img src="./../../../../../assets/icons/upArrow-dblue.svg" width="9" height="9" />
+                    </label>
+                  </button>
+                  <div class="ui fluid container ">
+                    <div class="outer-basic animated fadeIn">
+                      <div class="outer-basicForm">
+                        <form>
+                          <div class="ui grid m-0">
+                            <div class="sixteen wide column row airline-tickets _oneway p-t-0">
+                              <div class="ui nine wide column grid border-grid p-0"
+                              *ngIf="{ segValue : flight.value[flight.value?.flight].segment[0][0] , aSegValue : flight.value[flight.value?.flight].segment[0][flight.value[flight.value?.flight].segment[0].length -1],offValue: flight.value[flight.value?.flight].offers[0]} as variable ">
+                                <div class="ui twelve wide column grid text-left">
+                                  <div class="four wide column text-center">
+                                    <img
+                                      src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].OperatingCarrier['AirlineID'].text}}.png"
+                                      class="airline-tickets_airline-logo" />
+                                    <p class="airline-tickets_title">
+                                      {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['Name'].text}}
+                                    </p>
+                                    <p class="craft-title">
+                                      ({{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['AirlineID'].text}}-{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].MarketingCarrier['FlightNumber'].text}}
+                                      )</p>
+                                  </div>
+                                  <div class="ui twelve wide column grid plane-grid flight_duration">
+                                    <div class="three wide column">
+                                      <p class="airline-tickets_title">
+                                        <b>
+                                          {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].Departure['Time'].text}}
+                                        </b>
+                                      </p>
+                                      <p class="airline-tickets_airport">
+                                        {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue].Departure['AirportCode'].text}}
+                                      </p>
+                                    </div>
+                                    <div class="ten wide column">
+                                      <div class="_crafts-border text-center">
+                                        <div class="_craft _craft-up">
+                                          <img src="./../../../../../../assets/img/blue-up.svg" />
+                                        </div>
+                                        <span>
+                                          {{flightSearchResults.result['DataLists'].FlightList[flight.value?.flight].Journey['Time'].text }}
+                                        </span>
+                                        <div class="_craft _craft-down">
+                                          <img src="./../../../../../../assets/img/blue-down.svg" />
+                                        </div>
+                                        <hr>
+                                      </div>
+                                      <p class="flight-type _highlight text-center">
+                                        <span *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                          Non Stop
+                                        </span>
+                                        <span *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                          {{flight.value[flight.value?.flight].segment[0].length - 1}} Stop
+                                        </span>
+                                      </p>
+                                    </div>
+                                    <div class="three wide column">
+                                      <div class="airline-tickets_title">
+                                        <div *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                          <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.aSegValue]?.Arrival['Time'].text}}</b>
+                                        </div>
+                                        <div *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                          <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue]?.Arrival['Time'].text}}</b>
+                                        </div>
+                                      </div>
+                                      <div class="airline-tickets_airport">
+                                        <div *ngIf="flight.value[flight.value?.flight].segment[0].length > 1">
+                                          <b>{{flightSearchResults.result['DataLists'].FlightSegmentList[variable.aSegValue]?.Arrival['AirportCode'].text}}</b>
+                                        </div>
+                                        <div *ngIf="flight.value[flight.value?.flight].segment[0].length == 1">
+                                          {{flightSearchResults.result['DataLists'].FlightSegmentList[variable.segValue]?.Arrival['AirportCode'].text}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="ui four wide column grid icon-block">
+                                  <span id="_seg-active_{{segInd}}" class="icon-wrapper"
+                                    (click)="flightDetails('flightsSegment',flight.value?.flight,''); showSegmentDropdown(flight.value?.flight)">
+                                    <img src="./../../../../../../assets/icons/info.svg" title="Flight Info">
+                                  </span>
+                                  <span class="icon-wrapper" (click)="showSeatMapModal('seat-map',variable.segValue,variable.offValue)">
+                                    <img src="./../../../../../assets/icons/seat-blue.svg" title="Seat Icon" />
+                                    </span>
+                                  <span id="_segBrndDisclsr-active_{{segInd}}" class="icon-wrapper" (click)="showFareBreakdown(flight.value?.flight)">
+                                    <img src="./../../../../../assets/icons/plane-blue.svg" width="18"
+                                      title="Brand Disclosure" />
+                                  </span>
+                                </div>
+                              </div>
+                              <div class="ui seven wide column priceclass">
+                                <div *ngFor="let offer1 of flight.value[flight.value?.flight].offers | keyvalue"
+                                  class="priceclass_price">
+                                  <div class="ui two wide column grid " style="display: inline-block;">
+                                    <div class="ui sixteen wide column grid booking-class">
+                                      <div class="sixteen wide column padd-top-0">
+                                        <div (click)="showFareBreakdown(flight.value?.flight)">
+                                          <div (click)="selectPrice(flight.key,flight.value?.flight,offer1.value,segment1.value,'return')">
+                                            <div class="booking-class_item flight-book-top"
+                                              [ngClass]="{'_active-0':  flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text'] == flightSearchResults.result.OffersGroup[resultInd].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text']}">
+                                              <div
+                                              *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass">
+                                                <p class="flight-dir-text">
+                                                  <a
+                                                    title="{{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}">
+                                                   {{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}
+                                                  </a>
+                                                </p>
+                                              </div>
+                                              <div class="text-center">
+                                                <button class="rbd-btn">{{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Code['text'] ? flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Code['text'] : "V"}}</button>
+                                                <p class="avail_seat">{{flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.PricedOffer.Associations[0].ApplicableFlight.FlightSegmentReference[0].ClassOfService.Code.text.SeatsLeft}}</p>
+                                                <p class="avail_seat_label">Seats Available 2</p>
+                                                <div *ngIf="resultInd1 == 1" id="total_price_{{resultInd}}"
+                                                  value="flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text']">
+                                                  <p class="price">
+                                                    {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer1.value]?.TotalPrice['DetailCurrencyPrice'].Total['text'] | number:'1.1-1'}}
+                                                  </p>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="sixteen wide column row fare-detail-wrapper fare-block" *ngIf="displayFareBreakdown">
+                              <div class="sixteen wide column">
+                                <div class="ui horizontal segments">
+                                  <div *ngIf="Array.isArray(flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass1.value]?.Descriptions.Description.Text)">
+                                        <div *ngFor="let offer2 of flight.value[flight.value?.flight].offers | keyvalue" class="ui segment">
+                                          <p class="route-name" *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer2.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass">
+                                            2  {{flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass.value]?.Name['text']}}
+                                            </p>
+                                            <div class="ui list">
+                                              <ng-container *ngIf="{value : flightSearchResults.result.OffersGroup[flight_ZZ1.key].Offer[offer2.value]?.PricedOffer['OfferPrice'][0]?.FareDetail['PriceClassReference'].text} as pClass1">
+
+                                                <ng-container *ngIf="(flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass1.value].Descriptions.Description.Text.Text == undefined); else noBrandDisclosr1" >
+                                      
+                                                <ng-container *ngFor="let ofText of flightSearchResults.result['DataLists'].PriceClassList['PriceClass'][pClass1.value]?.Descriptions.Description.Text | keyvalue">
+                                                      <div class="fare-item">{{ ofText.value.Text }}</div>
+                                                </ng-container>
+                                              </ng-container>
+                                              <ng-template #noBrandDisclosr1>
+                                                No Data Available From Supplier
+                                             </ng-template>
+
+                                            </ng-container>
+                                          </div>
+                                    </div>
+                                </div>
+                          
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="seven wide column border-right">
+            <div class="ui grid">
+              <div class="sixteen wide column row">
+                <div class="three wide column">
+                  <div *ngFor="let supplier of flight_ZZ1.value | keyvalue ;let resultInd22 = index">
+                    <div *ngIf="resultInd22 == 0" class=" flight-dir flight-owner">
+                      {{supplier.value[0][supplier.value[0].flight].owner}}
+                    </div>
+                  </div>
+                </div>
+                <div class="eight wide column">
+                  <div class="ui input fluid">
+                    <input type="text" placeholder="Enter Tourcode" value="" />
+                  </div>
+                </div>
+                <div class="two wide column">
+                  <a class="flight-owner">Apply</a>
+                </div>
+                <div class="three wide column"></div>
+              </div>
+            </div>
+          </div>
+          <div class="four wide column border-right text-center">
+            <!-- (click)="showFareDetails('fare_details')" -->
+            <!-- <a class="flight-owner" (click)="getFareDetails('fare_details', $event, flight_ZZ1,flightSearchResults.result.DataLists,slctdFlghtForFareRules, flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['attributes'].Code, flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text'])">Fare & Baggage Details</a> -->
+            <a class="flight-owner" (click)="getFareDetails('fare_details', $event, flight_ZZ1,flightSearchResults.result.DataLists)">Fare & Baggage Details</a>
+          </div>
+          <div class="five wide column"
+            *ngFor="let totalOffer1 of flight_ZZ1.value | keyvalue ;let resultInd33 = index">
+            <div *ngFor="let totalOffer2 of totalOffer1.value | keyvalue">
+              <div *ngFor="let totalOffer3 of totalOffer2.value[totalOffer2.value?.flight].offers | keyvalue">
+                <div *ngIf=" totalOffer2.key == '0' && totalOffer3.key == '0'" class="text-right">
+                  <div *ngIf="resultInd33 == 0">
+                    <div class=" price-block text-right">
+                      <p class="flight-dir">Total:</p>
+                      <p class="total-price _totalprice_txt_{{flight_ZZ1.key}}">
+                        {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['attributes'].Code}}
+                        <!-- {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text'] | flightDynamicUpdate: priceUpdateFlag :priceUpdateValue: flightIndexObj : flightSearchResults}} -->
+                        {{flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text'] | number:'1.1-1'}} 
+                      </p>
+                    </div>
+                    <div class="text-right bookings_btn-panel">
+                      <!-- <button 
+                      class="_bknwBtn_{{flight_ZZ1.key}}"
+                      attr.data-price="{{flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text']}}" class="ui button primary _button_book"
+                        (click)="forBooking($event,totalOffer2.key,totalOffer2.value?.flight,totalOffer3.value)"> -->
+
+                        <button 
+                        class="ui button primary _button_book _bknwBtn_{{flight_ZZ1.key}}"
+                        attr.data-price="{{flightSearchResults.result.OffersGroup[flight_ZZ1.key].AirlineOfferSnapshot['Lowest'].EncodedCurrencyPrice['text']}}" class="ui button primary _button_book"
+                          (click)="getFareDetails('Book_Now', $event, flight_ZZ1,flightSearchResults.result.DataLists)"
+                          [class.loading]="getFareDetailsBookNowLoader">
+                        Book Now</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<jw-modal id="fare_details" class="modal fare_details">
+ 
+  <div class="ui">
+    <h2>Fare & Baggage Details</h2>
+    <i class="close icon" (click)="closeModal('fare_details')"></i>
+    <app-fares-baggage [objSlctdFlghtForFareRules]=objSlctdFlghtForFareRules [fareBaggageArr]="fareBaggageArr"></app-fares-baggage>
+  </div>
+</jw-modal>
+
+<jw-modal id="tax-breakup" class="modal tax-breakup">
+  <div class="ui">
+    <h2>Tax Breakup</h2>
+    <i class="close icon" (click)="closeModal('tax-breakup')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YQ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 15.14
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YQ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 21.56
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          YR
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 18.00
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          G4
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 36.13
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          PZ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 7.77
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          QA
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 41.51
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          KJ
+        </div>
+        <div class="eight wide column right">
+          <div>
+            AED 27.95
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+<jw-modal id="brand_disclosure" class="modal brand_disclosure">
+  <div class="ui">
+    <h2>Fare & Baggage Details</h2>
+    <i class="close icon" (click)="closeModal('brand_disclosure')"></i>
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Checked Bag
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Carry Bag
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Changes
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Refund
+        </div>
+        <div class="eight wide column right">
+          <span class="price">&#36;</span>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Seating
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Meals
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Wi-Fi
+        </div>
+        <div class="eight wide column right">
+          <span class="price">&#36;</span>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Miles Accural
+        </div>
+        <div class="eight wide column right">
+          <div class="ui checkbox">
+            <input type="checkbox" checked title="Free">
+            <label></label>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          Lounge
+        </div>
+        <div class="eight wide column right">
+          <span class="price">&#36;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>
+<jw-modal id="seat-map" class="seat-map">
+  <app-seat-map></app-seat-map>
+</jw-modal>

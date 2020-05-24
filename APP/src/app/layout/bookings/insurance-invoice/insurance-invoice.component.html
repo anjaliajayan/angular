@@ -1,0 +1,60 @@
+
+<div><button class="ui primary button" style="position: absolute; top:-34px; right:34px" (click)="exportToPdf()">Export to PDF</button></div>
+<div class="outer-wrapper" id="content">
+    <table>
+        <tr>
+            <td class="logo-block">
+                <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+            </td>
+            <td class="right cust-info">
+                <p>{{username || uppercase }},</p>
+                <p>{{address1}},</p>
+                <p>{{address2}}</p>
+                <p>Tel: {{mobile}}</p>
+            </td>
+        </tr>
+    </table>
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking Code:</td>
+            <td>Policy Type: </td>
+            <td>Booking Reference: </td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{tripID}}</td>
+            <td>{{type}}</td>
+            <td>{{B_ref}}</td>
+        </tr>
+    </table>
+    <div class="ticket-block">
+        <table class="pax-table">
+            <tr>
+                <td>Policy Name</td>
+                <td>Status</td>
+                <td class="right">Amount ({{currency}})</td>
+            </tr>
+            <tr>
+                <td>{{policy_name}}</td>
+                <td>{{booking_status}}</td>
+                <td class="right">{{markupPrice}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="total right">Total Price: <span>{{markupPrice}}</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="payable-section">
+        <p>For further details please contact accounts dept</p>
+        <p>Phone:{{mobile}}</p>
+        <p>Email: {{email}}</p>
+        <p>Our Support Team is always ready to assist you. Please contact us on {{email}} for any assistance or feedback.</p>
+    </div> 
+    <div class="payable-section right">
+        <p class="thanks">Thanking You</p>
+        <p>Registration & Sales Team.</p>
+        <p>{{username || uppercase }}</p>
+        <p>{{email}}</p>
+    </div>
+</div>

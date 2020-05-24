@@ -1,0 +1,341 @@
+<div class="ui cards grid">
+  <div class="card six wide column bookings-card">
+    <div class="content">
+      <div class="header">
+        <span><b>Bookings Information</b></span>
+        <span class="bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              This Month <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item">Choice 1</div>
+                <div class="item">Disabled</div>
+                <div class="item">Choice 3</div>
+              </div>
+            </div>
+        </span>
+      </div>
+      <div class="description mt-2">
+        <div class="ui grid">
+          <div class="three wide column">
+            <p>Flights</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress warning progress-bar _01" data-value="78" data-total="120" id="flights-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.flights}}</p>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="three wide column">
+            <p>Hotels</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress warning progress-bar _02" data-value="16" data-total="bookingsInfo.hotels" id="hotels-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.hotels}}</p>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="three wide column">
+            <p>Activities</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress progress-bar _03" data-value="8" data-total="bookingsInfo.activities" id="activities-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.activities}}</p>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="three wide column pr-0">
+            <p>Car Hire</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress progress-bar _04" data-value="16" data-total="bookingsInfo.carHire" id="hire-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.carHire}}</p>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="three wide column">
+            <p>Transfers</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress warning progress-bar _05" data-value="6" data-total="bookingsInfo.transfers" id="transfers-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.transfers}}</p>
+          </div>
+        </div>
+        <div class="ui grid">
+          <div class="three wide column pr-0">
+            <p>Travel In.</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress warning progress-bar _06" data-value="16" data-total="bookingsInfo.travel" id="travel-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.travel}}</p>
+          </div>
+        </div>
+        <!-- <div class="ui grid">
+          <div class="three wide column">
+            <p>Cruise</p>
+          </div>
+          <div class="eleven wide column">
+            <div class="ui indicating progress warning progress-bar _07" data-value="13" data-total="bookingsInfo.cruise" id="cruise-pb">
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="two wide column text-left">
+            <p>{{bookingsInfo.cruise}}</p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- <div class="card five wide column floating-card">
+    <div class="content">
+      <div class="header">
+        <span><b>Floating Deposits</b></span>
+        <span class="bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              Sort by <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item">Choice 1</div>
+                <div class="item">Disabled</div>
+                <div class="item">Choice 3</div>
+              </div>
+            </div>
+        </span>
+      </div>
+      <div class="description">
+        <table class="ui very basic table">
+          <thead>
+            <tr>
+              <th>Supplier</th>
+              <th>Balance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TPConnects Air Arabia</td>
+              <td>AED <strong>31,055.92</strong></td>
+            </tr>
+            <tr>
+              <td>TPConnects FlyDubai</td>
+              <td>AED <strong>4,993,494.00</strong></td>
+            </tr>
+            <tr>
+              <td>TPConnects Flynas</td>
+              <td>AED <strong>4,958,793.10</strong></td>
+            </tr>
+            <tr>
+              <td>TPConnects QatarAirways</td>
+              <td>AED <strong>10,000.00</strong></td>
+            </tr>
+            <tr>
+              <td>TPConnects Lufthansa</td>
+              <td>AED <strong>10,000.00</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> -->
+  <div class="card four wide column packages-card">
+    <div class="content">
+      <div class="description">
+        <div class="ui grid">
+          <div class="eleven wide column p-0">
+              <div class="charts-grid">
+                <div class="ct-chart ct-perfect-fourth"></div>
+                <div class="placeholder-chart">
+                  <p class="placeholder-chart_title">Packages</p>
+                  <p class="placeholder-chart_label"> {{ presetInfo.total }} </p>
+                </div>
+              </div>
+              <div class="ui grid placeholder-chart-grid">
+                <div class="eight wide column active">
+                  <span>Active</span>
+                  <p> {{ presetInfo.active }} </p>
+                </div>
+                <div class="eight wide column">
+                  <span>In Active</span>
+                  <p> {{ presetInfo.inactive }} </p>
+                </div>
+              </div>
+          </div>
+          <div class="five wide column bg-indicators">
+            <div class="ui grid">
+              <div class="sixteen wide column">
+                <span><p>Total No. of Sub Agents</p></span>
+                <p> {{ presetInfo.subagents }} </p>
+              </div>
+              <div class="sixteen wide column">
+                <span><p>Total No. of Corporates</p></span>
+                <p> {{ presetInfo.corporates }} </p>
+              </div>
+              <div class="sixteen wide column">
+                <span><p>Total No. of Websites</p></span>
+                <p> {{ presetInfo.websites }} </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card eight wide column performance-card">
+    <div class="content">
+      <div class="header">
+        <div class="ui grid">
+          <span class="sixteen wide column"><b>Performance</b>  </span>
+          <span class="three wide column bookings-card_m-dropdown">
+              <div class="ui dropdown">
+                {{ performance_pos }} <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div (click)="fetchPerformanceChartData({pos: {}})" class="item">All POS</div>
+                  <div (click)="fetchPerformanceChartData({pos: obj})" class="item" *ngFor="let obj of POS">{{  obj.name }} </div>
+
+                  <!-- <div class="item">Disabled</div>
+                  <div class="item">Choice 3</div> -->
+                </div>
+              </div>
+          </span>
+          <span class="three wide column bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              {{ performance_product.name }} <i class="dropdown icon"></i>
+              <div class="menu">
+                <div (click)="fetchPerformanceChartData({product: obj})" class="item" *ngFor="let obj of productTypes">{{  obj.name }} </div>
+
+                <!-- <div class="item">Disabled</div>
+                <div class="item">Choice 3</div> -->
+              </div>
+            </div>
+          </span>
+          <span class="four wide column">
+            <div class="ui form">
+              <div class="grouped fields">
+                <div class="field">
+                  <div class="ui slider checkbox">
+                    <input type="checkbox" name="throughput" (change)="performance_type = !performance_type; displayPerformanceChart()">
+                    <span >Margin</span><label>Sales</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </span>
+          <span class="five wide column bookings-card_m-dropdown">
+            <!-- <div class="ui dropdown">
+              This {{ performance_filter }} <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item" (click)="fetchPerformanceChartData({filter: 'year'}) ">This Year</div>
+                <div class="item" (click)="fetchPerformanceChartData({filter: 'month'}) ">This Month</div>
+              </div>
+            </div> -->
+            <!-- {{ performance_filter }} -->
+
+            <span id="dateShow">
+                {{ performaceDateRange.start | date:format}} - {{ performaceDateRange.end | date:format }}
+            </span>
+            <input style="visibility: hidden;"  id="performance_date_range" (change)="console.log('ddddd')"  type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+
+          </span>
+        </div>
+      </div>
+      <div class="description mt-2">
+        <div class="ct-performance-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card seven wide column performance-card productivity-card">
+    <div class="content">
+      <div class="header">
+        <div class="ui grid">
+          <span class="sixteen wide column"><b >Productivity</b>  </span>
+          <span class="three wide column bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              {{ productivity_pos }} <i class="dropdown icon"></i>
+              <div class="menu">
+                <div (click)="fetchProductivityChartData({pos: {}})" class="item">All POS</div>
+                <div (click)="fetchProductivityChartData({pos: obj})" class="item" *ngFor="let obj of POS">{{  obj.name }} </div>
+
+                <!-- <div class="item">Disabled</div>
+                <div class="item">Choice 3</div> -->
+              </div>
+            </div>
+        </span>
+        <span class="three wide column bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              {{ productivity_product.name }} <i class="dropdown icon"></i>
+              <div class="menu">
+                <div (click)="fetchProductivityChartData({product: obj})" class="item" *ngFor="let obj of productTypes">{{  obj.name }} </div>
+
+                <!-- <div class="item">Disabled</div>
+                <div class="item">Choice 3</div> -->
+              </div>
+            </div>
+          </span>
+          <span class="six wide column bookings-card_m-dropdown">
+              <!-- <div class="ui dropdown">
+                This {{ productivity_filter }} <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item" (click)="fetchProductivityChartData({filter: 'day'})">This Day</div>
+                  <div class="item" (click)="fetchProductivityChartData({filter: 'month'})">This Month</div>
+                </div>
+              </div> -->
+              <span id="dateShow-productivity">
+                  {{ performaceDateRange.start | date:format}} - {{ performaceDateRange.end | date:format }}
+              </span>
+              <input style="visibility: hidden;"  id="productivity_date_range"  type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+  
+          </span>
+        </div>
+      </div>
+      <div class="description mt-2">
+        <div class="ct-productivity-chart"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card eight wide column performance-card logs-card">
+    <div class="content">
+      <div class="header">
+        <div class="ui grid">
+          <span class="six wide column"><b>Search Log Report</b></span>
+          <span class="seven wide column">
+          </span>
+          <span class="three wide column bookings-card_m-dropdown">
+            <div class="ui dropdown">
+              This Week <i class="dropdown icon"></i>
+              <div class="menu">
+                <div class="item">This Month</div>
+                <div class="item">This Year</div>
+                <!-- <div class="item">Choice 3</div> -->
+              </div>
+            </div>
+          </span>
+        </div>
+      </div>
+      <div class="description mt-2">
+        <div class="ct-logs-chart"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="outer-wrapper">
+    <table>
+        <tr>
+            <td class="logo-block">
+                <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+            </td>
+          <td class="right cust-info">
+            <p>{{userData.username}}</p>
+            <p>{{userData.salute}} {{userData.first_name}} {{userData.last_name}},</p>
+            <p>{{userData.address_1}},</p>
+            <p>Tel : {{userData.mobile}}</p>
+          </td>
+        </tr>
+    </table>
+    <div class="heading center">
+        Activities Service Invoice
+    </div>
+    <br/>
+    <div class="head-row left">
+        {{activityInvoiceInfo.activityName}}
+    </div>
+    <div class="head-row right">
+        Booking Date: {{activityBookingInfo.created | date:'dd/MM/yyyy'}}
+    </div>
+    <table class="detail-table">
+        <tr class="table-head-row">
+            <td>Booking Code</td>
+            <td>Supplier Ref. No </td>
+            <td>Duration</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>{{invoiceData.trip_id}}</td>
+            <td>{{activityInvoiceInfo.supplier_code}}</td>
+            <td>{{activityInvoiceInfo.duration}}</td>
+        </tr>
+    </table>
+    <div class="head-row left">
+<!--      21 June 2019-->
+        Service Date : {{getSlice(activityInvoiceInfo.ticketAvailabilityModes.ticketAvailabilityMode.serviceDate)}}
+    </div>
+    <div class="ticket-block">
+        <table class="table-head-row pax-table">
+            <tr>
+                <td>Name</td>
+                <td>VAT</td>
+                <td class="right">Amount(VAT Inclusive)</td>
+            </tr>
+            <tr class="table-content-row">
+                <td>{{activityInvoiceInfo.activityOccupancy.first_name+' '+activityInvoiceInfo.activityOccupancy.last_name}}</td>
+<!--                <td>SAR 13.36</td>-->
+                <td class="right">{{activityInvoiceInfo.currencyCode}} {{activityInvoiceInfo.markupPrice}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="payable-section">
+        <p>For further details please contact accounts dept</p>
+        <p>Phone: # 00918281411095</p>
+        <p>Email: info@test.com</p>
+        <p>Our Support Team is always ready to assist you. Please contact us on testtpc@gmail.com for any assistance or feedback.</p>
+    </div>
+    <div class="payable-section right">
+        <p class="thanks">Thanking You</p>
+        <p>Registration & Sales Team.</p>
+        <p>TPConnects 123</p>
+        <p>testtpc@gmail.com</p>
+    </div>
+</div>
+

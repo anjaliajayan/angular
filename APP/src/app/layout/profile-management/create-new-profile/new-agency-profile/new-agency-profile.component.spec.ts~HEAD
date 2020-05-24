@@ -1,0 +1,25 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { NewAgencyProfileComponent } from './new-agency-profile.component';
+
+describe('NewAgencyProfileComponent', () => {
+  let component: NewAgencyProfileComponent;
+  let fixture: ComponentFixture<NewAgencyProfileComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ NewAgencyProfileComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(NewAgencyProfileComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

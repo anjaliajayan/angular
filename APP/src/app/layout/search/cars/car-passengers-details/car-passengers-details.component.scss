@@ -1,0 +1,69 @@
+@import './../../hotels/hotels-search-results/hotels-search-results.component.scss';
+@import './../../cars/cars.component.scss';
+
+.outer-wrapper {
+    .ui.grid {
+        .item-block {
+                .item-image {
+                    background-image: url('./../../../../../assets/img/pax_car.jpg');
+                    background-size: contain;
+                    background-position: center;
+                    position: relative;
+                }
+                .item-details {
+                    .amenities-block {
+                        span{
+                            margin-right:5%;
+                            margin-bottom:2%;
+                            position: relative;
+                            top: -4px;
+                            left: 6px;
+                        }
+                        img{
+                            margin-left:12px !important;
+                            margin-right:0 !important;
+                        }
+                    }
+                } 
+                .detail-btn {
+                    background: none;
+                    border: none;
+                    color: #437ADA;
+                    &:hover {
+                        background:none;
+                    }
+                
+            }
+        } 
+            .confirm-btn {
+                background: #4E9B32;
+                border: none;
+                border-radius: 10px;
+                margin-left: 110px;
+                font-size: 11px;
+                padding: 10px;
+                padding-left: 50px;
+                padding-right: 50px;
+                color: #fff;
+                    &:hover {
+                        background:#4E9B32;
+                    }
+            }
+
+            .date-picker{
+                margin-top:10px;
+            }
+
+    }
+ }
+
+ @media(max-width:1440px){
+     .ui.grid.item-block{
+     .item-details{
+            .ui.grid.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column{
+                width:20% !important;
+                margin-bottom:14px;
+             }
+          }  
+       } 
+ }

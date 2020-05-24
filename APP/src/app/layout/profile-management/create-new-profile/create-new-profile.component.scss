@@ -1,0 +1,135 @@
+@import "./../../../../comon-styles/common.scss";
+
+.ui.grid+.grid {
+  margin-top: 0;
+}
+
+h3 span {
+  font-weight: 600 !important;
+  font-family: $font-family;
+  color: rgba($deep-blue-color, .8);
+}
+
+
+.checkbox_label {
+  color: rgba($deep-blue-color, .5) !important;
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
+
+h4 {
+  font-weight: 600 !important;
+  font-family: $font-family;
+  color: rgba($deep-blue-color, .8);
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600 !important;
+  font-family: $font-family !important;
+  color: rgba($deep-blue-color, .6);
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+label.label-text {
+  font-family: $font-family !important;
+  color: rgba($deep-blue-color, .6) !important;
+}
+
+.ui.checkbox label {
+  font-weight: 600 !important;
+  font-family: $font-family;
+  color: rgba($deep-blue-color, .5);
+  font-size: 14px;
+  margin-right: 18px;
+}
+
+.ui.form input[type=text],
+input {
+  background-color: rgba($primary-color, .15) !important;
+  border-color: transparent !important;
+  padding: 8px 15px !important;
+  margin-top: 6px;
+
+  @include placeholder {
+    font-family: $font-family;
+    color: rgba($primary-color, .65) !important;
+    font-weight: 600 !important;
+    font-size: 12px;
+  }
+}
+
+h3+.ui.container .outer-basic {
+  padding-top: 15px !important;
+}
+
+.checkbox_label {
+  color: rgba($deep-blue-color, .5) !important;
+  font-weight: 600 !important;
+}
+
+.btn-sticky {
+  position: absolute;
+  bottom: -22px;
+  display: block;
+  transform: translate(-50%, 22px);
+  left: 50%;
+}
+
+.newAgency_topAlign {
+  height: 47px;
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    opacity: .8;
+  }
+
+  &:hover {
+    img {
+      opacity: 1;
+    }
+  }
+}
+
+.outer-basicForm {
+  width: 100%;
+  height: auto;
+  padding: 20px !important;
+}
+
+.m-auto {
+  margin: 15px 0 0 auto;
+}
+
+.outer-basicForm,
+.outer-basicForm_secondary {
+  position: relative;
+}
+
+.stepper-grid {
+  padding-left: 100px;
+}
+
+
+.mtb {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+.mr {
+  margin-right: 20px;
+}
+
+.ui.form input[type=text],
+input {
+  margin-top: 0 !important;
+}

@@ -1,0 +1,546 @@
+@import "./../../../../comon-styles/common.scss";
+.outer-basic {
+    padding-bottom: 5px !important;
+
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    padding: 0px !important;
+}
+
+.outer-basic h3.booking-header {
+    // font-size: 28px;
+    // color: $primary-color;
+    // font-weight: 600 !important;
+    // margin-top: 0 !important;
+    // margin-bottom: 36px !important;
+    margin: 0;
+    color: #4F4F4F;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+    margin-bottom: 25px;
+}
+
+.form-inner {
+    padding: 0px;
+}
+
+label {
+    color: rgba($color: $deep-blue-color, $alpha: .5) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+}
+
+.trip-fields {
+    input {
+        background-color: rgba($color: $primary-color, $alpha: .18);
+        border: 0 !important;
+        @include placeholder {
+            font-weight: 600 !important;
+            color: $deep-blue-color;
+            font-size: 13px !important;
+        }
+    }
+}
+
+.bookings_pickers .input {
+    &.bookings_datepicker {
+        min-width: 120px;
+        max-width: 138px;
+    }
+    .ui.basic.floating.button {
+        padding: 10px !important;
+        color: rgba(152, 152, 152, 0.6) !important;
+        font-weight: 300 !important;
+        line-height: 11px;
+    }
+    .icon {
+        opacity: 1;
+        z-index: 100;
+        .bookings_input__placeholder-icon {
+            width: 24px;
+            margin-top: 6px;
+            &.cal {
+                width: 18px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .search.dropdown {
+        width: 218px;
+        border-right: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        .search {
+            margin-left: 42px !important;
+        }
+        .default.text {
+            font-size: 12px;
+            margin-right: 0 !important;
+            padding: 8px 0 0 38px !important;
+        }
+    }
+}
+
+.bookings_btn-panel {
+    padding: 20px 2px;
+}
+
+hr {
+    box-sizing: border-box;
+    overflow: visible;
+    border: 0.5px solid #e0e0e0;
+}
+
+td {
+    color: #4f4f4f;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    line-height: 11px;
+    text-align: center;
+}
+
+div {
+    .confirm {
+        width: 63px;
+    }
+    .confirm {
+        width: 63px;
+    }
+    .recConfirm {
+        height: 18px;
+        width: 62px;
+        // margin: 0 auto;
+        background-color: #c4f0b4;
+        color: #426f32;
+        font-size: 11px;
+        text-align: center;
+        line-height: 18px;
+        border-radius: $border-radius-secondary;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 600;
+        &.hold {
+            background-color: #f5e29b;
+            color: #6a5b1e;
+        }
+        &.void {
+            background-color: #e6e6e6;
+            color: #606060;
+        }
+        &.cancel {
+            background-color: #ff957c;
+            color: #7b301e;
+        }
+        &.refund {
+            background-color: #77acff;
+            color: #082e6a;
+        }
+        &.failed {
+            background-color: #ff9595;
+            color: #660a0a;
+        }
+    }
+    .tab.segment {
+        box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+    }
+    .field input::placeholder {
+        font-size: 12px;
+    }
+    .dropdown .text {
+        font-size: 12px;
+    }
+    .eye-icon {
+        font-size: 12px;
+        // box-shadow: $light-extended-shadow;
+        width: 30px;
+        height: auto;
+        border-radius: $border-radius-secondary;
+        display: block;
+        // margin-left: 15px;
+        &:hover {
+            // box-shadow: $primary-shadow;
+            cursor: pointer;
+            // transition: box-shadow .8s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    }
+    .b2c-list-user-table__segment-loader {
+        height: 450px;
+        background-color: white !important;
+        border: 0;
+        box-shadow: none;
+        .ui.inverted.dimmer {
+            background-color: white !important;
+        }
+        .eye-icon {
+            font-size: 12px;
+            color: #3867b1;
+        }
+    }
+}
+
+.ui.segment.b2c-list-user-table__segment-loader {
+    background-color: white;
+    border: 0;
+    box-shadow: none;
+    height: 450px;
+    .ui.active.dimmer {
+        background-color: white !important;
+    }
+}
+
+.download-img {
+    display: inline-block !important;
+    padding-top: 18px;
+    cursor: pointer;
+    .download-img_icon {
+        width: 25px;
+        margin-left: 20px;
+    }
+}
+
+.outer-basic {
+    form {
+        background: #fff;
+        padding: 0px;
+        margin: 24px;
+    }
+}
+
+.ui.form .eight.field.bookings_btn-panel {
+    padding: 0px;
+    text-align: right;
+}
+
+.agent-name-booking {
+    margin: auto 24px !important;
+    .eight.wide.field {
+        padding: 0px;
+        button {
+            margin-right: 0px;
+        }
+    }
+}
+
+.import-modal {
+    .ui {
+        position: relative;
+        .close.icon {
+            position: absolute;
+            right: 10px;
+            top: -5px;
+            cursor: pointer;
+        }
+    }
+    h2 {
+        font-style: normal;
+        font-weight: 600 !important;
+        font-size: 16px;
+        line-height: 21px;
+        color: #4f4f4f;
+        text-align: left;
+        padding: 4px 20px 12px;
+        border-bottom: 1px solid rgba(69, 103, 172, 0.1);
+    }
+    .content {
+        padding: 20px;
+        label {
+            text-transform: capitalize;
+            color: #1B1F26 !important;
+            font-weight: 500 !important;
+            font-size: 12px !important;
+        }
+        label~div, label~select {
+            margin-top: 12px;
+        }
+        h4 {
+            font-size: 15px;
+            line-height: 16px;
+            color: #4f4f4f;
+            text-align: left;
+            padding: 0px 0px 12px;
+            font-weight: 600;
+        }
+        ul {
+            list-style: disc;
+            padding-left: 24px;
+            li {
+                font-size: 13px;
+                line-height: 16px;
+                color: #4f4f4f;
+                text-align: left;
+                padding: 0px 0px 8px;
+            }
+        }
+        button:first-child {
+            margin-right: 12px;
+        }
+    }
+}
+
+@media (min-width:1200px) and (max-width: 1600px) {
+    .booking-header.booking_comp {
+        padding: 40px 24px 0px !important;
+    }
+    .ui.fluid .outer-basic .outer-basicForm .ui.form .booking-search-panel {
+        width: 92%;
+        padding: 0px;
+    }
+    .agent-name-booking {
+        margin: 0px 24px !important;
+    }
+}
+
+// @media (max-width: 1280px) {
+//     .booking-header.booking_comp {
+//         padding: 40px 20px 0px !important;
+//     }
+//     .ui.fluid .outer-basic .outer-basicForm .ui.form .booking-search-panel {
+//         width: 100%;
+//         padding: 0px;
+//     }
+//     .agent-name-booking {
+//         margin: 0px 20px !important;
+//     }
+// }
+
+@media (max-width: 1280px) {
+    .booking-header.booking_comp {
+        padding: 40px 20px 0px !important;
+    }
+    .ui.fluid .outer-basic .outer-basicForm .ui.form .booking-search-panel {
+        width: 100%;
+        padding: 0px;
+        display:block;
+        .trip-status{
+            width:25%;
+            display:inline-block;
+            margin-top:5px;
+            .status-input{
+                margin-top:5px;
+            } 
+        }
+    }
+   
+    .agent-name-booking {
+        margin: 0px 20px !important;
+    }
+
+    .ui.form {
+        .booking-field-wrapper {
+            display: block;
+            .bookings_pickers {
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .status-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+            }
+            .product-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .agent-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .supplier-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+        }
+
+        .button-wrapper{
+            display: block;
+            width: 70% !important;
+            .button-input{
+               display: block;
+               width: 70% !important;
+            }
+            // .button-align{
+            //     width: 160%;
+            //     padding-top: 25px !important;
+            //     padding-bottom: 0px !important;
+            //  }
+          }
+    }
+
+    .import-modal{
+        display:block;
+        .import-wrapper{
+            display: inline-block;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .booking-header.booking_comp {
+        padding: 40px 20px 0px !important;
+    }
+    .ui.fluid .outer-basic .outer-basicForm .ui.form .booking-search-panel {
+        width: 100%;
+        padding: 0px;
+        display:block;
+        .trip-status{
+            width:25%;
+            display:inline-block;
+            margin-top:5px;
+            .status-input{
+                margin-top:5px;
+            } 
+        }
+    }
+   
+    .agent-name-booking {
+        margin: 0px 20px !important;
+    }
+
+    .ui.form {
+        .booking-field-wrapper {
+            display: block;
+            .bookings_pickers {
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .status-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+            }
+            .product-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .agent-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .supplier-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+        }
+
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .booking-header.booking_comp {
+        padding: 40px 20px 0px !important;
+    }
+    .ui.fluid .outer-basic .outer-basicForm .ui.form .booking-search-panel {
+        width: 100%;
+        padding: 0px;
+        display:block;
+        .trip-status{
+            width:25%;
+            display:inline-block;
+            margin-top:5px;
+            .status-input{
+                margin-top:5px;
+            } 
+        }
+    }
+   
+    .agent-name-booking {
+        margin: 0px 20px !important;
+    }
+
+    .ui.form {
+        .booking-field-wrapper {
+            display: block;
+            .bookings_pickers {
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .status-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+            }
+            .product-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .agent-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+            .supplier-wrapper{
+                width: 33.33% !important;
+                display: inline-block;
+                margin-top:5px;
+            }
+        }
+    }
+}
+
+
+@media(max-width:891px){
+    .ui.form{
+        .booking-search-panel {
+        width: 100%;
+        padding: 0px;
+        display:block;
+        .trip-status{
+            width:100% !important;
+            display:inline-block;
+            margin-top:5px;
+            .status-input{
+                margin-top:5px;
+            } 
+        }
+        .trip-input{
+           width:auto !important;
+           margin-top:5px;
+        }
+        .button-wrapper{
+            display: block;
+            width: 100% !important;
+            .button-input{
+               display: block;
+               width: 100% !important;
+            }
+            .button-align{
+                width: 160%;
+                padding-top: 25px !important;
+                padding-bottom: 0px !important;
+             }
+          }
+      }
+   } 
+}
+
+// @media(max-width:797px){
+//     .ui.form{
+//         .button-wrapper{
+//             display: block;
+//             width: 190% !important;
+//             .button-input{
+//                display: block;
+//                width: 190% !important;
+//             }
+//             .button-align{
+//                 width: 160%;
+//                 padding-top: 25px !important;
+//                 padding-bottom: 0px !important;
+//              }
+//           }
+//       }
+//  } 
+
+
+

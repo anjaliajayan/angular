@@ -1,0 +1,65 @@
+.outer-segment {
+  // margin: 0px 20px 0px 15px;
+  margin: 0px;
+}
+.user {
+  padding: 0px 24px;
+}
+.user_title {
+  margin: 0;
+  font-style: normal;
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 23px;
+  color:#4F4F4F;
+}
+
+.ui.top.attached.tabular.menu {
+  margin-top: 25px;
+}
+
+.ui.top.attached.menu>.item {
+  border-radius: .28571429rem 0 0 0;
+  border-top-right-radius: 15px !important;
+}
+
+.ui.bottom.attached.active.tab.segment {
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  border-top-right-radius: 17px;
+}
+
+h3 {
+    margin-top: 24px !important;
+}
+
+.tab.segment {
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.outer-form,
+.outer_corpForm {
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin: 45px 32px 111px 25px;
+
+  &.booking {
+    border: 0 !important;
+  }
+}
+
+@media (max-width: 1440px) {
+    .outer-segment {
+        .user {
+            padding: 0px 24px;
+        }
+    }
+}
+
+@media (max-width: 1280px) {
+    .outer-segment {
+        .user {
+            padding: 0px 20px;
+        }
+    }
+}

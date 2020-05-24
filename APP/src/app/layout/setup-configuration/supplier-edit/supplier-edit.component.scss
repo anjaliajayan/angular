@@ -1,0 +1,114 @@
+.update-supplier {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+.update-header {
+    margin-left: 24px;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 23px;
+    color: #4F4F4F;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ui {
+    .fluid.container {
+        padding: 0 25px;
+    }
+    .right {
+        .floated {
+            margin-top: 1em;
+        }
+    }
+    .form {
+        .fields {
+            .wide.field {
+                padding-bottom: 0.8em;
+            }
+        }
+        .field>label {
+            font-weight: 400;
+        }
+    }
+}
+
+.ui.fluid.container {
+    padding: 0px !important;
+    background: none;
+    margin: 0;
+    margin-top: 24px;
+    .outer-basicForm {
+        padding: 0px;
+    }
+    .result-block {
+        padding-bottom: 72px !important;
+    }
+    .bookings_btn-panel {
+        margin-top: 24px;
+        button {
+            float: right;
+        }
+    }
+    .ui.checkbox input:checked~.box:before, .ui.checkbox input:checked~label:before {
+        border-color: #437ADA;
+    }
+    .ui.checkbox input:checked~.box:after, .ui.checkbox input:checked~label:after {
+        color: #437ADA;
+    }
+
+}
+
+.ui.basic.segment {
+    padding: 0px;
+    margin-bottom: 220px !important;
+    // h3 {
+    // margin: 40px auto 0px;
+    // width: 1100px;
+    // }
+}
+
+.ui.header {    
+    color: #4F4F4F;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: 600 !important;
+    line-height: 15px;
+    margin-bottom: 20px
+}
+
+@media (max-width: 1440px) {
+    .update-header {
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .update-header {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ui.grid>[class*="six column"].row>.column {
+        width: 33%!important;
+        margin-bottom: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .ui.grid>[class*="six column"].row>.column {
+        width: 50%!important;
+    }
+}

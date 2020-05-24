@@ -1,0 +1,377 @@
+<div class="outer-form">
+  <form class="ui form pos_basic_form" autocomplete="off"  [formGroup]="posBasicInfoForm" (ngSubmit)="savePosBasicInfo()">
+    <h4 class="ui header spacing ui-basic-header">Basic Information</h4>
+    <div class="field spacing">
+      <div class="ui four column grid fields custom-columns">
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.corporate_type.errors}">
+          <label>Business Type<span class="mandatory">*</span></label>
+          <select class="ui fluid dropdown" formControlName="corporate_type">
+            <option value="Agent"> Sub Agent / Branch Office </option>
+            <option value="B2C"> B2C </option>
+            <option value="API"> API OUT </option>
+            <option value="Mobile">Mobile</option>
+          </select>
+        </div>
+        <div class="four wide field" *ngIf="posBasicInfoForm.controls.domain_url"
+          [ngClass]="{'is-invalid': isSubmitted && gfc.domain_url.errors}">
+          <label>Domain Name</label>
+          <input type="text" name="domain_url" formControlName="domain_url" value="" placeholder="B2C Domain Name">
+        </div>
+        <div class="four wide field" *ngIf="posBasicInfoForm.controls.name" [ngClass]="{'is-invalid': isSubmitted && gfc.name.errors}">
+          
+          <label>Office Name<span class="mandatory">*</span></label>
+          <input type="text" name="name" formControlName="name" value="" placeholder="Office Name">
+        </div>
+        <div class="four wide field">
+          <label>Agent code</label>
+          <input type="text" name="agent_code" formControlName="agent_code" value="" placeholder="Agent Code">
+          <div *ngIf="gfc.agent_code.errors" class="invalid-feedback">
+            <div class="validations" *ngIf="gfc.agent_code.errors.pattern">
+             Please enter only numeric values
+            </div>
+            <!-- <div class="validations" *ngIf="gfc.agent_code.errors.minLength">
+              Please enter minimum 8 length character
+             </div> -->
+          </div>
+        </div>
+        <!-- <div class="four wide field">
+          <label>Branch Code</label>
+          <input type="text" name="branch_code" formControlName="associated_office" value="" placeholder="Branch Code">
+        </div> -->
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.email.errors}">
+          <label>Email<span class="mandatory">*</span></label>
+          <input type="email" name="email" formControlName="email" value="" placeholder="Email" class="email">
+          <div *ngIf="gfc.email.errors" class="invalid-feedback">
+            <div class="validations" *ngIf="gfc.email.errors.pattern">
+              Email must be a valid email address
+            </div>
+          </div>
+        </div>
+        <div class="four wide field">
+          <label>Contact Number</label>
+          <input type="number" name="contact" formControlName="contact" value="" placeholder="Contact Number">
+        </div>
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.payment_gateway.errors}">
+          <label>Payment Gateway<span class="mandatory">*</span></label>
+          <select class="ui fluid dropdown" formControlName="payment_gateway">
+            <option value=""> Payment Gateway </option>
+            <option value="1"> Yes </option>
+            <option value="0"> No </option>
+          </select>
+        </div>
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.currency_id.errors}">
+          <label>Operating Currency<span class="mandatory">*</span></label>
+          <select class="ui fluid search dropdown" formControlName="currency_id">
+            <option value=""> Operating Currency </option>
+            <option *ngFor="let currency of currencies" value="{{currency.code}}"> {{currency.name}} </option>
+          </select>
+        </div>
+        <div class="four wide field" *ngIf="posBasicInfoForm.controls.credit_limit"  [ngClass]="{'is-invalid': isSubmitted && gfc.credit_limit.errors}">
+          <label class="inline-label">Credit Limit<span class="mandatory">*</span>
+            <i class="fa fa-exclamation-circle tooltip">
+              <span class="tooltiptext">
+                The Maximum amount permitted for the Ofiice to do Transactions
+              </span>
+            </i></label>
+          <span class="unlimited"></span>
+          <input type="text" name="credit_limit" formControlName="credit_limit" value="" placeholder="Credit Limit" class="credit-limit"
+            required>
+            <div *ngIf="gfc.credit_limit.errors" class="invalid-feedback">
+              <div class="validations" *ngIf="gfc.credit_limit.errors.pattern">
+               Please enter only numeric values
+              </div>
+            </div>
+        </div>
+        <!--from shared module countrylist-->
+        <!-- <div class="four wide field">
+          <app-country-list></app-country-list>
+        </div>   -->
+        <!--from shared module countrylist-->
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.country_id.errors}">
+          <label>Operating Country<span class="mandatory">*</span></label>
+          <select class="ui fluid search dropdown" formControlName="country_id">
+            <option value=""> Operating Country</option>
+            <option *ngFor="let country of countries" value="{{country.country_id}}">{{country.country}}</option>
+          </select>
+        </div>
+        <div class="four wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.timezone_id.errors}">
+          <label>Operating Time Zone<span class="mandatory">*</span></label>
+          <select class="ui fluid search dropdown" formControlName="timezone_id">
+            <option value=""> Operating Time Zone</option>
+            <option *ngFor="let timezone of timezones" value="{{timezone.timezone_id}}">
+              {{ timezone.timezone_value }}
+            </option>
+          </select>
+        </div>
+        <div class="four wide field">
+          <label>Tax Number
+            <i class="fa fa-exclamation-circle tooltip">
+              <span class="tooltiptext">
+                GST / VAT in Invoice
+              </span>
+            </i></label>
+          <input type="text" name="business_id" formControlName="business_id" value="" placeholder="Tax Number">
+        </div>
+        <div class="four wide field" *ngIf="posBasicInfoForm.controls.numberOfUsers" 
+        [ngClass]="{'is-invalid': isSubmitted && gfc.numberOfUsers.errors}">
+          <label>Number of Users<span class="mandatory">*</span>
+            <i class="fa fa-exclamation-circle tooltip">
+              <span class="tooltiptext">
+                Maximum number of Users allowed for the office
+              </span>
+            </i></label>
+          <input type="text" name="numberOfUsers" formControlName="numberOfUsers" value="" placeholder="No of Users">
+          <div *ngIf="gfc.numberOfUsers.errors" class="invalid-feedback">
+            <div class="validations" *ngIf="gfc.numberOfUsers.errors.pattern">
+             Please enter only numeric values
+            </div>
+          </div>
+        </div>
+        <div class="four wide field">
+          <label>IATA Number</label>
+          <input type="text" name="iata_no" formControlName="iata_no" value="" placeholder="IATA Number">
+        </div>
+      </div>
+      <div class="ui grid spacing margin-bottom-15">
+        <div class="eight wide column tax-section gridstyle">
+          <div class="ui segment">
+            <h4 class="ui header">Airline TAX in Percentage</h4>
+            <div class="ui grid">
+              <div class="eight wide column gridstyle2">
+                <div class="ui segment tax_block">
+                  <p>Domestic : </p>
+                  <div class="sixteen wide field">
+                    <label>Tax Code</label>
+                    <input type="text" formControlName="domestictTaxCode" value="" placeholder="Tax Code">
+                  </div>
+                  <div class="sixteen wide field">
+                    <label>Tax in Percentage</label>
+                    <input type="text" formControlName="domestictTaxPercentage" value=""
+                      placeholder="Tax in Percentage">
+                  </div>
+                  <div class="sixteen wide field">
+                    <label>Currency</label>
+                    <select class="ui fluid search dropdown" formControlName="domestictTaxCurrency">
+                      <option value=""> Select Currency</option>
+                      <option *ngFor="let currency of currencies" value="{{currency.currency_id}}"> {{ currency.name }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="sixteen wide field">
+                    <label> Add Airport </label>
+                    <select class="ui dropdownThree fluid search multiple_search" id="airports"
+                      formControlName="domestictTaxAirport" multiple="" name="domestictTaxAirport" value="">
+                      <option value="" disabled selected>Select one category </option>
+                      <option *ngFor="let airport of airports" value="{{airport.AirportCode}}">
+                        {{ airport.AirportCode }}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="eight wide column gridstyle1">
+                <div class="ui segment tax_block">
+                  <p>International : </p>
+                  <div class="sixteen wide field">
+                    <label>Tax in Percentage</label>
+                    <input type="text" formControlName="internationalTaxPercentage" value=""
+                      placeholder="Tax in Percentage">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="eight wide column tax-section gridstyle3">
+          <div class="ui segment">
+            <h4 class="ui header">Non Airline TAX in Percentage</h4>
+            <div class="ui grid">
+              <div class="sixteen wide column">
+                <div class="ui segment tax_block">
+                  <p>Non Airline : </p>
+                  <div class="sixteen wide field">
+                    <label>Tax in Percentage</label>
+                    <input type="number" formControlName="nonAirlineTax" value="" placeholder="Tax in Percentage">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ui grid margin-bottom-15 card-section">
+          <div class="eight wide column gridstyle4">
+            <div class="ui segment tax-section">
+              <h4 class="ui header payment-header ">Card Details</h4>
+              <div class="ui grid">
+                <div class="nine wide field">
+                  <div class=" ui segment bg-grey">
+                    <p class="ui checkbox">
+                      <input type="checkbox" formControlName="amexCard">
+                      <label>Credit/Debit Card </label>
+                    </p>
+                    <div class="ui grid" *ngIf="posBasicInfoForm.controls.amexCard && posBasicInfoForm.controls.amexCard.value">
+                      <div class="sixteen wide column">
+                        <div class="ui ">
+                          <!-- <p>Amex Card Details : </p> -->
+                          <div *ngIf="posBasicInfoForm.controls.amex_card" formGroupName="amex_card"
+                            class="cardDetails">
+                            <div class="fields one">
+                              <div class="sixteen wide field">
+                                <input type="text" formControlName="cardHolderName" placeholder="Card Holders Name">
+                              </div>
+                            </div>
+                            <div class="fields two">
+                              <div class="seven wide field">
+                                <select class="ui fluid dropdown" formControlName="cardHolderType">
+                                  <option value=""> Card Type </option>
+                                  <option value="Visa"> Amex Card </option>
+                                  <option value="Visa"> Visa </option>
+                                  <option value="MasterCard"> Master Card </option>
+                                  <option value="AmericanExpress"> American Express </option>
+                                </select>
+                              </div>
+                              <div class="nine wide field">
+                                <input type="text" formControlName="cardnumber" value="" placeholder="Card Number">
+                              </div>
+
+                            </div>
+                            <div class="fields three">
+                              <div class="six wide field">
+                                <select class="ui fluid dropdown" formControlName="cardExpMonth">
+                                  <option value=""> Exp. Month </option>
+                                  <option value="01"> Jan (01) </option>
+                                  <option value="02"> Feb (02) </option>
+                                  <option value="03"> Mar (03) </option>
+                                  <option value="04"> Apr (04) </option>
+                                  <option value="05"> May (05) </option>
+                                  <option value="06"> Jun (06) </option>
+                                  <option value="07"> Jul (07) </option>
+                                  <option value="08"> Aug (08) </option>
+                                  <option value="09"> Sep (09) </option>
+                                  <option value="10"> Oct (10) </option>
+                                  <option value="11"> Nov (11) </option>
+                                  <option value="12"> Dec (12) </option>
+                                </select>
+                              </div>
+                              <div class="six wide field">
+                                <select class="ui fluid dropdown" formControlName="cardExpYear">
+                                  <option value=""> Exp. Year </option>
+                                  <option value="19"> 2019 </option>
+                                  <option value="20"> 2020 </option>
+                                  <option value="21"> 2021 </option>
+                                  <option value="22"> 2022 </option>
+                                  <option value="23"> 2023 </option>
+                                  <option value="24"> 2024 </option>
+                                  <option value="25"> 2025 </option>
+                                  <option value="26"> 2026 </option>
+                                  <option value="27"> 2027 </option>
+                                  <option value="28"> 2028 </option>
+                                  <option value="29"> 2029 </option>
+                                </select>
+                              </div>
+                              <div class="four wide field">
+                                <input type="text" formControlName="cardcvv" value="" placeholder="CVV">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="seven wide field">
+                  <div class=" ui segment bg-grey">
+                    <p class="ui checkbox">
+                      <input type="checkbox" formControlName="queue">
+                      <label>Queue </label>
+                    </p>
+                    <div class="ui grid" *ngIf="posBasicInfoForm.controls.queue_service && posBasicInfoForm.controls.queue_service.value"
+                      class="cardDetails">
+                      <div class="sixteen wide column">
+                        <div class="ui ">
+                          <!-- <p>Amex Card Details : </p> -->
+                          <div *ngIf="posBasicInfoForm.controls.queue_service" formGroupName="queue_service">
+                            <div class="fields one">
+                              <div class="sixteen wide field">
+                                <input type="text" formControlName="queue1" placeholder="">
+                              </div>
+                            </div>
+                            <div class="fields one">
+                              <div class="sixteen wide field">
+                                <input type="text" formControlName="queue2" placeholder="">
+                              </div>
+                            </div>
+                            <div class="fields one">
+                              <div class="sixteen wide field">
+                                <input type="text" formControlName="queue3" placeholder="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="eight wide column">
+            <div [hidden]="posBasicInfoForm.controls.corporate_type.value != 'Agent'" class="ui segment tax-section"
+              formGroupName="pos_negofares">
+              <h4 class="ui header payment-header">Fare Preference for Nego Fares</h4>
+              <div class="ui grid cardDetails">
+                <div class="eight wide field fare fare1">
+                
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="all" value="all"  [checked]="isChecked"  (change)="checkAllnego()">
+                    <label>All</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="publishedAndPrivate"
+                      value="759 758 70J ||Published and Private Fares">
+                    <label>Published and Private Fares</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="publishedOnly" value="759 70J||publishedOnly">
+                    <label>Published Only</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="tourOperatorSemiDeffered"
+                      value="759 758 ||Tour Operator Semi Deferred">
+                    <label>Tour Operator Semi Deferred</label>   
+                  </div>
+                </div>
+                <div class="eight wide field fare fare1">
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="tourOperatorDeffered"
+                      value="759 758 ||Tour Operator Deferred">
+                    <label>Tour Operator Deferred</label>
+                  </div>  
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="bulkContract" value="759 758||Contract Bulk">
+                    <label>Contract Bulk</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="privateOnly" value="759 758||privateOnly">
+                    <label>Private Only</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="marine" value="759 758||Marine">
+                    <label>Marine</label>
+                  </div>
+                  <div class="ui checkbox">
+                    <input type="checkbox" formControlName="humanitarian" value="759 758||Humanitarian">
+                    <label>Humanitarian</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pos_btn-panel spacing bookings_btn-panel">
+        <button class="ui button primary button align" type="submit">Save</button>
+      </div>
+    </div>
+  </form>
+</div>

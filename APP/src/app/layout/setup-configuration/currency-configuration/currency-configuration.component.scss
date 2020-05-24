@@ -1,0 +1,281 @@
+.update-header {
+    margin-left: 24px;
+    font-style: normal;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 23px;
+    color: #4F4F4F;
+}
+
+.ui.fluid.container {
+    padding: 25px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    padding: 30px 15px;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+hr {
+    box-sizing: border-box;
+    overflow: visible;
+    border: 0.5px solid #E0E0E0;
+}
+
+.update_btn {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background-color: #3867b1;
+    border: 1px solid #FFF;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    padding-right: 35px;
+    margin-top: 15px;
+}
+
+.update_text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    padding-left: 10px;
+}
+
+.field input::placeholder {
+    font-size: 14px;
+}
+
+.dropdown .text {
+    font-size: 12px;
+}
+
+.search_text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    text-align: center;
+}
+
+.addCurrency_btn {
+    margin-top: 20px;
+    border-radius: 3px;
+    background-color: #3867B1;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    margin: 20px 12px 20px 0px;
+}
+
+.icon {
+    opacity: 1;
+    z-index: 100;
+    .bookings_input__placeholder-icon {
+        width: 24px;
+        margin-top: 6px;
+        &.cal {
+            width: 16px;
+            margin-top: 0px;
+        }
+        &.call {
+            width: 18px;
+            margin-top: 0px;
+        }
+    }
+}
+
+span.action {
+    display: inline-block;
+    margin: 0px 5px;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.validations {
+    color: red;
+    font-size: 12px;
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20;
+    margin: 0px 0px 8px;
+}
+
+// .ui.form .three.wide.field,
+// .ui.form .field>.checkbox-field {
+//     margin-bottom: 16px;
+// }
+
+// .save_update {
+//     float: right;
+// }
+
+.btn-block {
+    button {
+        float: right;
+        margin-right: 12px;
+    }
+}
+
+.ui.fluid.container {
+    padding: 0px !important;
+    background: none;
+    .outer-basicForm {
+        padding: 0px;
+    }
+    .bookings_btn-panel.add_btn {
+        text-align: right;
+        margin-bottom: 24px;
+    }
+}
+
+.header-block {
+    .bookings_btn-panel.add_btn {
+       text-align: right;
+       margin: 24px 24px 0px 0px;
+    }
+}
+
+.result-block {
+
+    .outer-basicForm {
+        padding: 0px;
+        .ui.segment {
+            padding: 0px;
+        }
+    }
+}
+
+h3 {
+    margin-top: 24px !important;
+}
+
+.search-section {
+    margin: 0px 24px;
+    div {
+        padding: 0px;
+    }
+    .add-btn {
+        position: relative;
+    }
+    &.list-search-block {
+        margin: 0;
+        width: 1100px !important;
+        padding-left: 0px;
+        .bookings_btn-panel {
+            padding-left: 0px;
+            padding-top: 20px;
+        }
+    }
+}
+
+.search-btn-block {
+    text-align: right;
+    input {
+        width: 30%;
+        margin-right: 12px;
+        padding-left: 14px;
+    }
+    div {
+        display: inline-block;
+    }
+    .field.input_field {
+        position: relative;
+        top: -8px;
+    }
+    button:first-child {
+        margin-right: 12px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .update-header {
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .update-header {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .result-block {
+        margin: 6px !important;
+    }
+    .ui.form.header-block {
+        .five.fields {
+            margin: 6px !important;
+            h3 {
+                span {
+                    margin-left: 8px;
+                }
+            }
+        }
+    }
+    .ui.form {
+        .seven.wide.field.bookings_btn-panel {
+            text-align: right;
+            button.primary {
+                margin-right: 0px;
+            }
+        }
+    }
+    .ui.grid {
+        .search-section {
+            margin-bottom: 16px;
+            .wide.column {
+                padding: 0px;
+            }
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .ui.grid {
+        .search-section {
+            .wide.column {
+                width: 100% !important;
+                button {
+                    width: 100% !important;
+                }
+                margin-top: 12px;
+                &.search-btn-block {
+                    input {
+                        width: 100% !important;
+                        margin-bottom: 12px;
+                    }
+                    .bookings_btn-panel {
+                        display: block;
+                        button:first-child {
+                            margin-bottom: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .ui.form {
+        .seven.wide.field.bookings_btn-panel {
+            text-align: right;
+            button {
+                width: 100% !important;
+                margin-bottom: 0px;
+            }
+        }
+    }
+}

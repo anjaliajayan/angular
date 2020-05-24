@@ -1,0 +1,103 @@
+.ui.fluid.container {
+    padding: 0 25px;
+}
+
+.update-header {
+    display: block;
+    color: #4F4F4F;
+    font-size: 20px;
+    font-weight: 200;
+    line-height: 22px;
+    margin-bottom: 24px;
+}
+
+.outer-basic {
+    background-color: #FFF;
+    box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+hr {
+    box-sizing: border-box;
+    overflow: visible;
+    border: 0.5px solid #E0E0E0;
+}
+
+.update_btn {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background-color: #3867b1;
+    border: 1px solid #FFF;
+    box-shadow: inset 0 1px 34px 0 rgba(0, 0, 0, 0.5), 0 1px 1px 0 rgba(0, 0, 0, 0.5);
+    padding-right: 35px;
+    margin-top: 15px;
+}
+
+.update_text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 15px;
+    padding-left: 10px;
+}
+
+.field input::placeholder {
+    font-size: 12px;
+}
+
+.dropdown .text {
+    font-size: 12px;
+}
+
+.countryListUser {
+    padding: 0px !important;
+}
+
+#pieChart {
+    height: 370px;
+    width: 100%;
+}
+
+.report-section {
+    input {
+        height: auto;
+        min-height: 21px;
+        margin-right: 8px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20 !important;
+    margin: 0px 0px 8px;
+}
+
+.outer-basic {
+    min-height: 620px;
+}
+
+.ui.header {
+    color: #4F4F4F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 600 !important;
+    line-height: 15px;
+    margin-bottom: 18px;
+}

@@ -1,0 +1,22 @@
+<div class="outer animated fadeIn">
+  <div class="outer__airline-list">
+    <h3 class="air-title">Airline Deals</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item tourCode_title" [class.active]="activeTab && tabName=='first-tab'"
+      (click)="activateTab('first-tab')"><span>Tour Code/ Deal code</span></div>
+    <div class="item commision_title" [class.active]="activeTab && tabName=='second-tab'"
+      (click)="activateTab('second-tab')">Commission</div>
+      <div class="item commision_title" [class.active]="activeTab && tabName=='third-tab'"
+      (click)="activateTab('third-tab')">Airline Routes</div>
+  </div>
+  <div class="ui bottom attached active tab segment tabContent-block" [class.active]="activeTab && tabName=='first-tab'">
+    <app-tourcode></app-tourcode>
+  </div>
+  <div class="ui bottom attached tab segment tabContent-block" [class.active]="activeTab && tabName=='second-tab'">
+    <app-commission></app-commission>
+  </div>
+  <div class="ui bottom attached tab segment tabContent-block" [class.active]="activeTab && tabName=='third-tab'">
+    <app-airline-routes></app-airline-routes>
+  </div>
+</div>

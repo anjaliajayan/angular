@@ -1,0 +1,224 @@
+<div class="outer-segment">
+  <h3 class="booking-header booking_comp">My Bookings</h3>
+  <div class="outer-basic animated fadeIn">
+    <div class="outer-basicForm">
+      <form class="ui form" autocomplete="off" [formGroup]="filterForm" (ngSubmit)="searchBookings()">
+        <div class="form-inner booking-search-panel">
+          <div class="fields trip-fields">
+            <div class="five wide field trip-status">
+              <label>Trip ID</label>
+              <input type="text" name="trip-id" formControlName="trip_id" placeholder="Trip Id" />
+            </div>
+            <div class="five wide field trip-status status-input">
+              <label>Agent Reference</label>
+              <input type="text" name="agent-reference" formControlName="agent_reference"
+                placeholder="Agent Reference" />
+            </div>
+            <div class="six wide field button-wrapper">
+              <label></label>
+              <div class="bookings_btn-panel button-align">
+                <button class="ui primary  button" (click)="searchBookings();">
+                  Search
+                </button>
+                <button class="ui secondary reset button" (click)="filterFormReset()">
+                  Reset
+                </button>
+                <button class="ui export  button" (click)="showImportPNR('import-modal')">
+                  Import PNR
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="fields booking-field-wrapper">
+            <div class="three wide field bookings_pickers">
+                <label>Booking From Date</label>
+                <div class="ui left icon input">
+                    <input type="text" placeholder="Start Date" name="start_date" formControlName="start_date" value="" />
+                    <i class="icon">
+                      <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                    </i>
+                </div>
+            </div>
+            <div class="three wide field bookings_pickers">
+                <label>Booking To Date</label>
+                <div class="ui left icon input">
+                    <input type="text" placeholder="End Date" name="end_date" formControlName="end_date" value="" />
+                    <i class="icon">
+                      <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                    </i>
+                </div>
+            </div>
+            <div class="three wide field status-wrapper">
+              <label>Status</label>
+              <select class="ui fluid search dropdown" formControlName="status">
+                <option value="" selected disabled>Status</option>
+                <option value="Cancel">Cancelled</option>
+                <option value="Confirm">Confirmed</option>
+                <option value="Draft">Draft</option>
+                <option value="Hold">On Hold</option>
+                <option value="Partial">Partial</option>
+                <option value="Void">Void</option>
+                <option value="Refund">Refund</option>
+                <!-- <option *ngFor="let bstatus of bookingStatus" value="{{ bstatus }}">{{ bstatus }}</option> -->
+              </select>
+            </div>
+            <div class="three wide field product-wrapper">
+              <label class="trip-input">Products</label>
+              <select class="ui fluid search dropdown" formControlName="product_id">
+                <option value=""></option>
+                <option *ngFor="let product of activeProducts">{{product.key}}</option>
+              </select>
+            </div>
+            <div class="three wide field agent-wrapper">
+              <label  class="trip-input">Agents</label>
+              <select class="ui fluid search dropdown" formControlName="organisation_id">
+                <option value="" selected disabled>Agents</option>
+                <option *ngFor="let agent of agents" value="{{ agent.agent_code }}">{{ agent.name }}</option>
+              </select>
+            </div>
+            <div class="three wide field supplier-wrapper">
+              <label  class="trip-input">Suppliers</label>
+              <select class="ui fluid search dropdown" formControlName="supplier_id">
+                <option value="" selected disabled>Suppliers</option>
+                <option *ngFor="let supplier of suppliers" value="{{ supplier.supplier_code }}">{{ supplier.name }}
+                </option>
+              </select> 
+            </div>
+          </div>
+          <!-- <div [style.color]="'#ff00009e'" class="hidden">
+            Notes: Showing last 90days of booking as default. You can use date
+            filter to show old records
+            </div> -->
+        </div>
+      </form>
+      <div class="ui form" *ngIf="!bookingsLoader">
+          <div class="fields agent-name-booking">
+              <div class="eight wide field ui small header">Bookings Log</div>
+              <!-- <div class="ui divider"></div> -->
+              <div class="eight wide field bookings_btn-panel">
+                <button class="ui primary  button" (click)="searchBookings();">
+                  Search
+                </button>
+                  <button class="ui export button" (click)="exportData()" title="Export">
+                      Export
+                  </button>
+              </div>
+          </div>
+      </div>
+      <div class="user-table-list b2c-list-user-table result-block">
+        <div class="ui segment b2c-list-user-table__segment-loader" *ngIf="bookingsLoader">
+          <div class="ui active inverted dimmer">
+            <div class="ui text loader">Loading Bookings ...</div>
+          </div>
+          <p></p>
+        </div>
+        <ngx-datatable *ngIf="!bookingsLoader" #table class="table" [columnMode]="'force'" [headerHeight]="50"
+          [footerHeight]="50" [rowHeight]="'auto'" [rows]="bookings" 
+          [externalPaging]="true" [count]="totalBookings" [offset]="page" (page)="pageCallback($event)">
+          <ngx-datatable-column name="Trip ID" prop="trip_id">
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+              <a  (click)="viewBookings(row)" title="View Details">{{value}}</a>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Agent Reference" prop="agent_reference" headerClass="is-gender">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Booked By" prop="organisationName">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Booked Date&Time" prop="created">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Payment Type" prop="payment_type">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Amount" prop="amount">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Product" prop="productNames">
+            <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+              <a  (click)="viewBookings(row)" *ngIf="value =='Fligh'" >Flight</a>
+              <a  (click)="viewBookings(row)" *ngIf="value =='Ins '" >Insurance</a>
+              <a  (click)="viewBookings(row)" *ngIf="value =='Car '" >Car</a>
+              <a  (click)="viewBookings(row)" *ngIf="value =='Act '">Activity</a>
+              <a  (click)="viewBookings(row)" *ngIf="value =='Hotel '" >Hotel</a>
+            <!-- <span *ngIf="value =='Fligh'" >Flight</span>
+            <span *ngIf="value =='Ins '" >Insurance</span>
+            <span *ngIf="value =='Car '" >Car</span>
+            <span *ngIf="value =='Act '" >Activity</span>
+            <span *ngIf="value =='Hotel '" >Hotel</span> -->
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Supplier" prop="supplier">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              {{value}}</ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Status" prop="booking_status">
+            <ng-template let-value="value" ngx-datatable-cell-template>
+              <div class="recConfirm {{ value }}">{{ value }}</div>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Action">
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+              <i class="eye icon eye-icon" (click)="viewBookings(row)" title="View Details"></i>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
+
+<jw-modal id="import-modal" class="import-modal">
+  <div class="ui">
+    <h2>Import PNR</h2>
+    <i class="close icon" (click)="closeModal('import-modal')"></i>
+    <div class="ui grid content">
+      <div class="sixteen wide column row">
+        <div class="eight wide column">
+          <label>GDS PNR No</label>
+          <div class="ui input fluid">
+            <input type="text" placeholder="Enter GDS PNR No" />
+          </div>
+        </div>
+        <div class="four wide column">
+          <label>Provider</label>
+          <select class="ui fluid search dropdown" formControlName="organisation_id">
+            <option value="" selected disabled>Provider</option>
+          </select>
+        </div>
+        <div class="four wide column">
+          <label>Agent</label>
+          <select class="ui fluid search dropdown" formControlName="organisation_id">
+            <option value="" selected disabled>Agents</option>
+          </select>
+        </div>
+      </div>
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column">
+          <h4>Note:</h4>
+          <ul>
+            <li>
+              Terminal platform should be signoff/out of PNR context.
+            </li>
+            <li>
+              The PNR should have the Segment Details.
+            </li>
+            <li>
+              The PNR should have the Price Quote details and Form of payment.
+            </li>
+            <li>
+              The PNR should have the PAX details [Name, Passport Details, DOB,....].
+            </li>
+            <li>
+              PNR should have been created with OfficeId linked/bridge with Online Office id/PCC.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sixteen wide column row import-wrapper">
+        <div class="sixteen wide column text-right">
+          <button class="ui reset button" (click)="closeModal('import-modal')">Close</button>
+          <button class="ui primary button">Import</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</jw-modal>

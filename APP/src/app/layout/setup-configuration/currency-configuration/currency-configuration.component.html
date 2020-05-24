@@ -1,0 +1,141 @@
+<div class="ui form header-block">
+  <div class="five fields">
+    <div class="eight wide field">
+      <h3><span class="update-header">List Currencies</span></h3>
+    </div>
+  </div>
+</div>
+<div class="ui fluid container">
+  <div class="ui grid"  *ngIf="hideAddCurrecy">
+    <div class="sixteen wide column row search-section">
+      <div class="four wide column bookings_btn-panel add-btn">
+        <button class="ui primary button searchCurrency_btn" tabindex="0" (click)="addCurrency()">
+          <span class="search_text">+Add</span>
+        </button>
+      </div>
+
+        <div class="twelve wide column search-btn-block">
+          <input type="text"   [(ngModel)]="searchObject.currencyCode" name="currencyCode" placeholder="Search"/>
+          <div class="bookings_btn-panel">
+            <button class="ui primary button"  (click)="searchByCurrencyCode()">
+              <span> Search</span>
+            </button>
+            <button class="ui reset button" (click)="resetSearch()"> 
+              <span> Reset</span>
+            </button>
+          </div>
+        </div>
+
+    
+    </div>
+  </div>
+  <div class="outer-basic result-block">
+    <div class="outer-basicForm">
+      <form class="ui form" [formGroup]="currencyForm">
+        <div class="ui segment" *ngIf="showAddCurrency">
+          <h4 class="ui header"></h4>
+          <div class="five fields">
+            <div class="three wide field">
+              <label>From</label>
+              <input type="text" placeholder="From" formControlName="from" name="from">
+              <div class="validations" *ngIf="from.errors?.minlength">
+                Above field must be fixed 3 characters long.
+              </div>
+              <div class="validations" *ngIf="from.errors?.maxlength">
+                Above field must be fixed 3 characters long.
+              </div>
+              <div class="validations" *ngIf="from.errors?.pattern">
+                Above field must be strictly uppercase.
+              </div>
+            </div>
+            <div class="three wide field">
+              <label>To</label>
+              <input type="text" placeholder="To" formControlName="to" name="to">
+              <div class="validations" *ngIf="to.errors?.minlength">
+                Above field must be fixed 3 characters long.
+              </div>
+              <div class="validations" *ngIf="to.errors?.maxlength">
+                Above field must be fixed 3 characters long.
+              </div>
+              <div class="validations" *ngIf="to.errors?.pattern">
+                Above field must be strictly uppercase.
+              </div>
+            </div>
+            <div class="three wide field">
+              <label>Exchange</label>
+              <input type="number" placeholder="Exchange" formControlName="value" name="value" required>
+            </div>
+            <div class="seven wide field bookings_btn-panel">
+                <button class="ui button reset addCurrency_btn" tabindex="0" title="Reset" (click)="resetForm()">
+                  <span class="search_text"><i class="undo icon"></i></span>
+                </button>
+                <button class="ui button reset addCurrency_btn" tabindex="0" title="Cancel" (click)="cancelCurrency()">
+                  <span class="search_text">Cancel</span>
+                </button>
+                <button class="ui primary button addCurrency_btn save_update" *ngIf="!showUpdate" tabindex="0"
+                  title="Save currency" (click)="saveCurrency()">
+                  <span class="search_text">Save</span>
+                </button>
+                <button class="ui primary button addCurrency_btn save_update" *ngIf="showUpdate" tabindex="0"
+                  title="Save currency" (click)="updateCurrency()">
+                  <span class="search_text">Update</span>
+                </button>
+            </div>
+          </div>
+        </div>
+        <div class="ui segment" *ngIf="hideAddCurrecy">
+          
+          <!-- <div class="four fields">
+            <div class="three wide field">
+              <input type="text" placeholder="Type to filter the name column..." (keyup)="updateFilter($event)" />
+            </div>
+            <div class="seven wide field">
+              <button class="ui button searchCurrency_btn" tabindex="0">
+                <span class="search_text"><i class="search icon"></i></span>
+              </button>
+            </div>
+          </div> -->
+          <div class="currency-list b2c-list-user-table user-table-list">
+            <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              [rowHeight]="'auto'" [limit]="10" [rows]='NewListOfCurrencies'  [reorderable]="true"
+              [externalPaging]="true" [count]="totalListOfCurrencies" 
+              [sorts]="[{prop: 'from', dir: 'desc'}]" >
+              <ngx-datatable-column name="From" prop="from">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div>{{row.converter[0].from}}</div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="To" prop="to">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div>{{row.converter[0].to}}</div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Exchange" prop="value">
+                <ng-template let-row="row" ngx-datatable-cell-template>
+                  <div>{{row.converter[0].value}}</div>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Action">
+                <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                  <span (click)="editCurrency( row )" class="action" title="Edit Details">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span (click)="deleteCurrecy( row )" class="action" title="Delete Details">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../../assets/icons/delete-button.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+.anc_modal {
+    .traveller-wrapper {
+        .traveller_bag_section {
+            padding: 0px;
+            .title {
+                padding-left: 22px;
+                padding-right: 22px;
+                border-top: none;
+            }
+            .bag_detail_wrapper_row {
+                border: 1px solid rgba(69, 103, 172, 0.1);
+                border-right: none;
+                border-left: none;
+                padding: 0px;
+            }
+            .bag_detail_wrapper_col {
+                padding: 0px;
+            }
+            .item_row {
+                border-bottom: 1px solid rgba(69, 103, 172, 0.1);
+                border-right: 1px solid rgba(69, 103, 172, 0.1);
+                padding: 18px 24px;
+                &:last-child {
+                    border-bottom: none;
+                }
+                span.bag_typ {
+                    font-weight: 700 !important;
+                    font-size: 12px;
+                    line-height: 13px;
+                    color: #333D4E;
+                }
+                span.avail {
+                    font-size: 11px;
+                    line-height: 11px;
+                    color: rgba(49, 75, 119,0.9);
+                }
+                button {
+                    background: #437ADA;
+                    border-radius: 7.24448px;
+                    width: 26px;
+                    height: 24px;
+                    border: transparent;
+                    color: #fff;
+                    margin: 0px 4px;
+                    cursor: pointer;
+                }
+                input {
+                    color: rgba(49, 75, 119, 0.9);
+                    font-size: 11px;
+                    border: 1px solid rgba(6, 40, 98, 0.1);
+                    box-sizing: border-box;
+                    border-radius: 7.24448px;
+                    width: 44px;
+                    height: 25px;
+                    text-align: center;
+                }
+                .ui.selection.dropdown .menu>.item {
+                    font-size: 11px;
+                }
+                .bag_dropdown {
+                    .text {
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        max-width: 120px;
+                        overflow: hidden;
+                    }
+                }
+            }
+            .bag_price_wrapper {
+                margin-top: 48px;
+                text-align: center;
+                p {
+                    font-size: 12px;
+                    line-height: 13px;
+                    color: rgba(51, 61, 78, 0.9);
+                }
+                .bag_price {
+                    font-size: 15px;
+                    line-height: 18px;
+                    color: #333D4E;
+                    margin-bottom: 16px;
+                    padding-top: 8px;
+                }
+                button {
+                    background: #fff;
+                    border: 1px solid rgba(6, 40, 98, 0.1);
+                    box-sizing: border-box;
+                    border-radius: 3px;
+                    font-size: 10px;
+                    line-height: 12px;
+                    color: #437ADA;
+                    padding: 8px 28px;
+                    cursor: pointer;
+                    font-weight: 700;
+                    &.active {
+                        background: rgba(67, 122, 218, 0.08);
+                    }
+                }
+            }
+            .bag_desc_row {
+                background: rgba(67, 122, 218, 0.05);
+                padding: 10px 20px;
+                p {
+                    font-weight: 500;
+                    font-size: 11px;
+                    line-height: 12px;
+                    color: rgba(51, 61, 78, 0.6);
+                    width: 200px;
+                    margin-right: 8px;
+                    margin-bottom: 8px;
+                }
+            }
+        }
+    }
+}

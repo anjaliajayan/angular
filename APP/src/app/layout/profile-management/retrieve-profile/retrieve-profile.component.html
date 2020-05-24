@@ -1,0 +1,155 @@
+<h3><span class="update-header">Retrive Profile</span></h3> 
+
+    <div class="ui fluid container">
+      <div class="outer-basic">
+        <div class="outer-basicForm">
+          <form [formGroup]="filterForm"  (ngSubmit)="filterFormSubmit()" class="ui form search-field-wrapper">
+            <div class="four fields">
+              <!-- <div class="two wide field">
+                <select class="ui fluid dropdown" formControlName="filter_type" name="filter_type">
+                  <option value="all">All</option>    
+                </select>
+              </div> -->
+              <!-- <div class="one wide field"></div> -->
+              <div class="four wide field">
+                <input type="text" placeholder="Search" formControlName="search_request"  name="search_request">
+              </div>
+              <div class="twelve wide field bookings_btn-panel">
+                <button type="submit"
+               
+                 class="ui primary button filter_btn" >
+                  <span class="filter_list">Search </span>
+                </button>
+                <button  type="button" class="ui reset button filter_btn_reset"  (click)="resetFilter()">
+                  <span class="filter_list">Reset</span>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <form class="ui form">
+            <div class="form-inner">
+
+              <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                [rowHeight]="'auto'" [limit]="10" [rows]='NewTravellerProfile' [sortType]="'multi'" [reorderable]="true"
+                [sorts]="[{prop: 'id', dir: 'desc'}]">
+                <!-- <ngx-datatable-column name="record_locator" prop="record_locator">
+                </ngx-datatable-column> -->            
+                <ngx-datatable-column name="Profile Id" prop="id">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Name" >
+                   <ng-template ngx-datatable-cell-template  let-row="row" let-column="column" >
+                    <span *ngIf="row.first_name"> {{row.first_name +' '+row.last_name}}</span>
+                    <span *ngIf="row.first_name === null">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="PassportNo" prop="passport">ckout 
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="frequent Flyer" *ngFor="let data of airlineData">
+                  <ng-template ngx-datatable-cell-template >
+                    <span>{{data.frequent_flyersoption}} </span>
+                 
+                  
+                    <!-- <span *ngIf="data.frequent_flyersoption == ''">---</span> -->
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Contact" prop="mobile_number">
+
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Email" prop="email_address1">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value" class="email">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Company Name" prop="company_name">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Employee Id" prop="employeeId">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value}}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column name="Created" prop="created">
+                  <ng-template ngx-datatable-cell-template let-value="value">
+                    <span *ngIf="value">{{value }}</span>
+                    <span *ngIf="!value">---</span>
+                  </ng-template>
+                </ngx-datatable-column>
+              
+            
+                <ngx-datatable-column  >
+                 
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Edit" >
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <i class="icon">
+                      <i class="fa fa-edit" (click)="viewCourseTrainings(row)"></i>
+                      <!-- <img class="bookings_input__placeholder-icon "
+                        src="./../../../../assets/img/edit.png" (click)="viewCourseTrainings(row)"/> -->
+                      </i>
+                  </ng-template>
+                </ngx-datatable-column>
+                
+                <ngx-datatable-column name="Online">
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <i class="fa fa-globe"  (click)="viewBookingPage(row)">
+                    </i>
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="Delete">
+                  <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <i class="icon">
+                      <i class="fa fa-trash" (click)="deleteUser(row)"></i>
+                      <!-- <img class="bookings_input__placeholder-icon"
+                        src="./../../../../assets/img/delete-button.png" (click)="deleteUser(row)" /> -->
+                      </i>
+                  </ng-template>
+                </ngx-datatable-column>
+              </ngx-datatable>
+              <!--future use-->
+              <!-- <div class="fields">
+                <div class="bookings_btn-panel">
+                  <button class="ui primary  button">
+                    Transfer
+                  </button>
+                  <button class="ui primary  button">
+                    Select
+                  </button>
+                  <button class="ui primary  button">
+                    Deactivate
+                  </button>
+                  <button class="ui primary  button">
+                    Activate
+                  </button>
+                  <button class="ui primary  button">
+                    Open
+                  </button>
+                </div>
+              </div> -->
+              <!--future use-->
+            </div>
+          </form>
+        </div>
+     
+    </div>
+ 
+ 
+    

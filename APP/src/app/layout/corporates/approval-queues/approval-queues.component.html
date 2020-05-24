@@ -1,0 +1,520 @@
+<div class="corporate_outer">
+  <div class="corporate_outer__que">
+    <h3 class="aproval_que">Approval Queues</h3>
+  </div>
+  <div class="ui top attached tabular menu">
+    <div class="active item corporate_que__tabOne" [class.active]="activeTab && tabName=='first-tab'"
+      (click)="activateTab('first-tab')"><span>All Requests</span></div>
+    <div class="item corporate_que__tabTwo" [class.active]="activeTab && tabName=='second-tab'"
+      (click)="activateTab('second-tab')">Approved Request</div>
+    <div class="item corporate_que__tabThree" [class.active]="activeTab && tabName=='third-tab'"
+      (click)="activateTab('third-tab')">Ticketed</div>
+    <div class="item corporate_que__tabFour" [class.active]="activeTab && tabName=='fourth-tab'"
+      (click)="activateTab('fourth-tab')">Offline Booking</div>
+    <div class="item corporate_que__tabFive" [class.active]="activeTab && tabName=='five-tab'"
+      (click)="activateTab('five-tab')">Cost Saving</div>
+  </div>
+  <div class="ui bottom attached active tab segment" [class.active]="activeTab && tabName=='first-tab'">
+    <div class="ui fluid container">
+      <div class="approval_que_wrapper">
+        <div class="ui form">
+          <div class="six fields">
+            <div class="three wide field">
+              <input type="text" name="requestId" placeholder="Request ID/ Booking ReferenceID">
+            </div>
+            <div class="three wide field">
+              <input type="text" name="employeeId" placeholder="Employee ID">
+            </div>
+            <div class="three wide field">
+              <input type="text" name="passengerNmae" placeholder="Passenger(first name)">
+            </div>
+            <div class="three wide field">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="organisation">
+                <i class="dropdown icon"></i>
+                <div class="default text">Organisation</div>
+                <div class="menu">
+                  <div class="item" data-value="1">-----</div>
+                  <div class="item" data-value="0">-----</div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide field">
+              <input type="text" name="startDate" class="start-date" placeholder="Start Date" />
+              <i class="icon">
+                <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+              </i>
+            </div>
+            <div class="three wide field">
+              <input type="text" name="endDate" class="end-date" placeholder="End Date" />
+              <i class="icon">
+                <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+              </i>
+            </div>
+          </div>
+          <div class="six fields">
+            <div class="three wide field">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="status">
+                <i class="dropdown icon"></i>
+                <div class="default text">Status</div>
+                <div class="menu">
+                  <div class="item" data-value="1">Active</div>
+                  <div class="item" data-value="0">Inactive</div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide field">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="status">
+                <i class="dropdown icon"></i>
+                <div class="default text">All products</div>
+                <div class="menu">
+                  <div class="item" data-value="1">-----</div>
+                  <div class="item" data-value="0">----</div>
+                </div>
+              </div>
+            </div>
+            <div class="five wide field">
+              <button class="ui button allReq_search">
+                <span class="allReq_text">Search</span>
+              </button>
+              <button class="ui button allReq_reset">
+                <span class="allReq_text">Reset</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="user-table-list b2c-list-user-table">
+          <table class="ui stackable celled table">
+            <thead>
+              <tr class="center aligned">
+                <th>S/No</th>
+                <th>Booking Date</th>
+                <th>Booking Reference</th>
+                <th>Employee ID</th>
+                <th>Pasenger Name</th>
+                <th>Booking Creator</th>
+                <th>Department Name</th>
+                <th>Approval History</th>
+                <th>Product</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="bookingDate">----</td>
+                <td data-label="bookingReference">------</td>
+                <td data-label="employeeId">------</td>
+                <td data-label="passengerName">------</td>
+                <td data-label="bookingCreator">-------</td>
+                <td data-label="deptName">-------</td>
+                <td data-label="approvalHistory"><a href="url">View</a></td>
+                <td data-label="product">-------</td>
+                <td data-label="status"><span class="approved_text">Approved</span></td>
+              </tr>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="bookingDate">----</td>
+                <td data-label="bookingReference">------</td>
+                <td data-label="employeeId">------</td>
+                <td data-label="passengerName">------</td>
+                <td data-label="bookingCreator">-------</td>
+                <td data-label="deptName">-------</td>
+                <td data-label="approvalHistory"><a href="url">View</a></td>
+                <td data-label="product">-------</td>
+                <td data-label="status"><span class="pending_text">Pending</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="18">
+                  <div class="ui right floated pagination menu">
+                    <a class="icon item"><i class="left chevron icon"></i></a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">3</a>
+                    <a class="item">4</a>
+                    <a class="icon item"><i class="right chevron icon"></i></a>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment" [class.active]="activeTab && tabName=='second-tab'">
+    <div class="ui fluid container">
+      <div class="approval_req_wrapper">
+        <div class="ui form">
+          <div class="six fields">
+            <div class="three wide field">
+              <input type="text" name="requestId" placeholder="Request ID/ Booking ReferenceID">
+            </div>
+            <div class="three wide field">
+              <input type="text" name="employeeId" placeholder="Employee ID">
+            </div>
+            <div class="three wide field">
+              <input type="text" name="passengerNmae" placeholder="Passenger(first name)">
+            </div>
+            <div class="three wide field">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="organisation">
+                <i class="dropdown icon"></i>
+                <div class="default text">Organisation</div>
+                <div class="menu">
+                  <div class="item" data-value="1">-----</div>
+                  <div class="item" data-value="0">-----</div>
+                </div>
+              </div>
+            </div>
+            <div class="three wide field">
+              <input type="text" name="startDate" class="start-date" placeholder="Start Date" />
+              <i class="icon">
+                <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+              </i>
+            </div>
+            <div class="three wide field">
+              <input type="text" name="endDate" class="end-date" placeholder="End Date" />
+              <i class="icon">
+                <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+              </i>
+            </div>
+          </div>
+          <div class="six fields">
+            <div class="three wide field">
+              <div class="ui selection dropdown">
+                <input type="hidden" name="products">
+                <i class="dropdown icon"></i>
+                <div class="default text">All products</div>
+                <div class="menu">
+                  <div class="item" data-value="1">-----</div>
+                  <div class="item" data-value="0">----</div>
+                </div>
+              </div>
+            </div>
+            <div class="five wide field">
+              <button class="ui button allReq_search">
+                <span class="allReq_text">Search</span>
+              </button>
+              <button class="ui button allReq_reset">
+                <span class="allReq_text">Reset</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="user-table-list b2c-list-user-table">
+          <table class="ui stackable celled table">
+            <thead>
+              <tr class="center aligned">
+                <th>S/No</th>
+                <th>Booking Date</th>
+                <th>Booking Reference</th>
+                <th>Employee ID</th>
+                <th>Pasenger Name</th>
+                <th>Booking Creator</th>
+                <th>Department Name</th>
+                <th>Approval History</th>
+                <th>Product</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="bookingDate">----</td>
+                <td data-label="bookingReference">------</td>
+                <td data-label="employeeId">------</td>
+                <td data-label="passengerName">------</td>
+                <td data-label="bookingCreator">-------</td>
+                <td data-label="deptName">-------</td>
+                <td data-label="approvalHistory"><a href="url">View</a></td>
+                <td data-label="product">-------</td>
+                <td data-label="status"><span class="approved_text">Approved</span></td>
+              </tr>
+              <tr class="center aligned">
+                <td data-label="s/no">----</td>
+                <td data-label="bookingDate">----</td>
+                <td data-label="bookingReference">------</td>
+                <td data-label="employeeId">------</td>
+                <td data-label="passengerName">------</td>
+                <td data-label="bookingCreator">-------</td>
+                <td data-label="deptName">-------</td>
+                <td data-label="approvalHistory"><a href="url">View</a></td>
+                <td data-label="product">-------</td>
+                <td data-label="status"><span class="pending_text">Pending</span></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="18">
+                  <div class="ui right floated pagination menu">
+                    <a class="icon item"><i class="left chevron icon"></i></a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">3</a>
+                    <a class="item">4</a>
+                    <a class="icon item"><i class="right chevron icon"></i></a>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment" [class.active]="activeTab && tabName=='third-tab'">
+    <div class="ui fluid container">
+      <div class="ui form">
+        <div class="six fields">
+          <div class="three wide field">
+            <input type="text" name="tripId" placeholder="Trip ID/ Booking Reference    ">
+          </div>
+          <div class="three wide field">
+            <input type="text" name="employeeId" placeholder="Employee ID">
+          </div>
+          <div class="three wide field">
+            <input type="text" name="passengerNmae" placeholder="Passenger(first name)">
+          </div>
+          <div class="three wide field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="organisation">
+              <i class="dropdown icon"></i>
+              <div class="default text">Organisation</div>
+              <div class="menu">
+                <div class="item" data-value="1">-----</div>
+                <div class="item" data-value="0">-----</div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="all">
+              <i class="dropdown icon"></i>
+              <div class="default text">All</div>
+              <div class="menu">
+                <div class="item" data-value="1">-----</div>
+                <div class="item" data-value="0">-----</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="six fields">
+
+          <div class="three wide field">
+            <input type="text" name="startDate" class="start-date" placeholder="Start Date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div>
+          <div class="three wide field">
+            <input type="text" name="endDate" class="end-date" placeholder="End Date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div>
+          <div class="five wide field">
+            <button class="ui button allReq_search">
+              <span class="allReq_text">Search</span>
+            </button>
+            <button class="ui button allReq_reset">
+              <span class="allReq_text">Reset</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="user-table-list b2c-list-user-table">
+        <table class="ui stackable celled table">
+          <thead>
+            <tr class="center aligned">
+              <th>S/No</th>
+              <th>Trip ID</th>
+              <th>Tour Code Name</th>
+              <th>Booking Date</th>
+              <th>Booking Reference</th>
+              <th>Employee ID</th>
+              <th>Request Creator</th>
+              <th>In policy /out of policy</th>
+              <th>Department</th>
+              <th>Approval History</th>
+              <th>Amount</th>
+              <th>Product</th>
+              <th>Booking Status</th>
+              <th>View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="center aligned">
+              <td data-label="s/no">----</td>
+              <td data-label="tripId">----</td>
+              <td data-label="tourCodeName">------</td>
+              <td data-label="bookingDate">------</td>
+              <td data-label="bookingReference">------</td>
+              <td data-label="employeeID">-------</td>
+              <td data-label="requestCreator">-------</td>
+              <td data-label="inpolicy">-------</td>
+              <td data-label="department">-------</td>
+              <td data-label="approvalHistory">------</td>
+              <td data-label="amount">-------</td>
+              <td data-label="product">-------</td>
+              <td data-label="bookingStatus"><span class="approved_text">Hold</span></td>
+              <td data-label="view"><a href="url">View</a></td>
+            </tr>
+            <tr class="center aligned">
+              <td data-label="s/no">----</td>
+              <td data-label="tripId">----</td>
+              <td data-label="tourCodeName">------</td>
+              <td data-label="bookingDate">------</td>
+              <td data-label="bookingReference">------</td>
+              <td data-label="employeeID">-------</td>
+              <td data-label="requestCreator">-------</td>
+              <td data-label="inpolicy">-------</td>
+              <td data-label="department">-------</td>
+              <td data-label="approvalHistory"></td>
+              <td data-label="amount">-------</td>
+              <td data-label="product">-------</td>
+              <td data-label="bookingStatus"><span class="approved_text">Hold</span></td>
+              <td data-label="view"><a href="url">View</a></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="18">
+                <div class="ui right floated pagination menu">
+                  <a class="icon item"><i class="left chevron icon"></i></a>
+                  <a class="item">1</a>
+                  <a class="item">2</a>
+                  <a class="item">3</a>
+                  <a class="item">4</a>
+                  <a class="icon item"><i class="right chevron icon"></i></a>
+                </div>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment" [class.active]="activeTab && tabName=='fourth-tab'">
+    <div class="ui fluid container">
+      <div class="user-table-list b2c-list-user-table">
+        <table class="ui stackable celled table">
+          <thead>
+            <tr class="center aligned">
+              <th>S/No</th>
+              <th>Name</th>
+              <th>Employee Name</th>
+              <th>Nationality</th>
+              <th>Booking Reference</th>
+              <th>Employee ID</th>
+              <th>Company/ Department</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="center aligned">
+              <td data-label="s/no">----</td>
+              <td data-label="name">----</td>
+              <td data-label="employeeName">------</td>
+              <td data-label="nationality">------</td>
+              <td data-label="bookingReference">------</td>
+              <td data-label="employeeID">-------</td>
+              <td data-label="companyDepartment">-------</td>
+              <td data-label="details"><a href="url">View</a></td>
+            </tr>
+            <tr class="center aligned">
+              <td data-label="s/no">----</td>
+              <td data-label="name">----</td>
+              <td data-label="employeeName">------</td>
+              <td data-label="nationality">------</td>
+              <td data-label="bookingReference">------</td>
+              <td data-label="employeeID">-------</td>
+              <td data-label="companyDepartment">-------</td>
+              <td data-label="details"><a href="url">View</a></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="18">
+                <div class="ui right floated pagination menu">
+                  <a class="icon item"><i class="left chevron icon"></i></a>
+                  <a class="item">1</a>
+                  <a class="item">2</a>
+                  <a class="item">3</a>
+                  <a class="item">4</a>
+                  <a class="icon item"><i class="right chevron icon"></i></a>
+                </div>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="ui bottom attached tab segment" [class.active]="activeTab && tabName=='five-tab'">
+    <div class="ui fluid container">
+      <div class="ui form">
+        <div class="six fields">
+          <div class="three wide field">
+            <input type="text" name="startDate" class="start-date" placeholder="Start Date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div>
+          <div class="three wide field">
+            <input type="text" name="endDate" class="end-date" placeholder="End Date" />
+            <i class="icon">
+              <img src="./../../../../assets/icons/calendar.svg" class="corporate_input__placeholder-icon cal" />
+            </i>
+          </div>
+          <div class="three wide field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="corporate">
+              <i class="dropdown icon"></i>
+              <div class="default text">Corporate</div>
+              <div class="menu">
+                <div class="item" data-value="1">-----</div>
+                <div class="item" data-value="0">-----</div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="staff">
+              <i class="dropdown icon"></i>
+              <div class="default text">Staff</div>
+              <div class="menu">
+                <div class="item" data-value="1">-----</div>
+                <div class="item" data-value="0">-----</div>
+              </div>
+            </div>
+          </div>
+          <div class="three wide field">
+            <div class="ui selection dropdown">
+              <input type="hidden" name="all">
+              <i class="dropdown icon"></i>
+              <div class="default text">All</div>
+              <div class="menu">
+                <div class="item" data-value="1">-----</div>
+                <div class="item" data-value="0">-----</div>
+              </div>
+            </div>
+          </div>
+          <div class="five wide field">
+            <button class="ui button allReq_search">
+              <span class="allReq_text">Search</span>
+            </button>
+            <button class="ui button allReq_reset">
+              <span class="allReq_text">Reset</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

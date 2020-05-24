@@ -1,0 +1,225 @@
+<h3><span class="update-header">List of Registrations</span></h3>
+<div class="ui fluid container">
+    <div class="outer-basic">
+        <div class="outer-basicForm">
+            <div class="ui form">
+                <div class="user-table-list b2c-list-user-table">
+                    <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]='registrations'>
+                        <ngx-datatable-column name="Company Name" prop="company_name">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Address" prop="company_address">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Mobile" prop="company_mobile">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Contact Person" prop="first_name">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Action">
+                            <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                                <a class="nav-link edit" (click)="viewUser(row,'custom-modal-1')" title="View Details">
+                                    <i class="icon">
+                    <i class="eye icon corporate_input__placeholder-icon cal"></i>
+                                    </i>
+                                </a>
+                                &nbsp;
+                                <a class="nav-link edit" (click)="deleteUser(row)" title="Delete User">
+                                    <i class="trash alternate icon corporate_input__placeholder-icon call">
+                    <!-- <img src="./../../../../assets/icons/delete-button.png"
+                      class="corporate_input__placeholder-icon call" /> -->
+                  </i>
+                                </a>
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <jw-modal id="custom-modal-1" class="register-modal">
+        <div class="ui" *ngIf="showDetailModal">
+            <i class="close icon" (click)="closeModal('custom-modal-1');"></i>
+            <div class="header title">
+                <b>{{getInfo.company_name}}</b> details
+            </div>
+            <div class="ui fluid container">
+                <div class="form-inner">
+                    <h4 class="ui  header"><span class="basic-header">AGENCY DETAILS</span></h4>
+                    <div class="field">
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>Zipcode</th>
+                                    <th>Address</th>
+                                    <th>Mobile</th>
+                                    <th>Phone</th>
+                                    <th>Country</th>
+                                    <th>Currency</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{getInfo.zip_code}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.company_address}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.company_mobile}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.company_phone}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.country_id}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.currency_id}}
+                                    </td>
+                            </tbody>
+                        </table>
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Designation</th>
+                                    <th>Email</th>
+                                    <th>City</th>
+                                    <th>Time Zone</th>
+                                    <th>Website</th>
+                                    <th>Logo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{getInfo.username}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.password}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.designation}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.customer_email}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.city_id}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.time_zone}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.website}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.logo}}
+                                    </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="field">
+                    <hr>
+                </div>
+                <div class="form-inner">
+                    <h4 class="ui header cust_info_head"><span class="basic-header">CUSTOMER INFORMATION</span></h4>
+                    <div class="field">
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                    <th>Password</th>
+                                    <th>Designation</th>
+                                    <th>Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        {{getInfo.first_name}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.last_name}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.username}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.password}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.designation}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.customer_email}}
+                                    </td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="field">
+                        <table class="ui celled table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="bold">Accounts</span></td>
+                                    <td>
+                                        {{getInfo.contact_accounts_name}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_accounts_email}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_accounts_phone}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Reservations/Operations</span></td>
+                                    <td>
+                                        {{getInfo.contact_operations_name}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_operations_email}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_operations_phone}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="bold">Management</span></td>
+                                    <td>
+                                        {{getInfo.contact_managment_name}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_managment_email}}
+                                    </td>
+                                    <td>
+                                        {{getInfo.contact_managment_phone}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="actions bookings_btn-panel">
+                <div class="ui reset deny button" (click)="closeModal('custom-modal-1');">
+                    Close
+                </div>
+                <div class="ui primary button">
+                    Create New Agent
+                </div>
+            </div>
+        </div>
+    </jw-modal>

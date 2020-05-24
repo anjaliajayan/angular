@@ -1,0 +1,135 @@
+.insurance.card-wrapper {
+    height: auto;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+    .insurance_title {
+        margin: 0;
+        padding: 0 0 24px 0px;
+        font-style: normal;
+        font-weight: 400 !important;
+        font-size: 20px;
+        line-height: 23px;
+        color:#4F4F4F;
+    }
+    .ui.attached.menu {
+        max-width: calc(100% - 18px);
+    }
+    .ui.tab.segment {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding: 0px 14px;
+    }
+    .insurance-grid {
+        padding-left: 0px;
+    }
+    .insurance-search-block {
+        background: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(60,64,67, 0.3), 0 4px 8px 3px rgba(60,64,67, 0.15);
+        border-radius: 10px;
+        margin: 0px;
+        padding: 24px;
+    }
+    label {
+        line-height: 13px;
+        padding-bottom: 13px;
+    }
+    label~div {
+        margin-top: 12px;
+        width: 100%;
+    }
+    .ui.icon {
+        i.icon {
+            img {
+                margin-top: 11px;
+            }
+        }
+    }
+    .select {
+        min-width: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    .bookings_btn-panel {
+        text-align: right;
+    }
+}
+
+@media (min-width: 1440px) {
+    .insurance.card-wrapper {
+        .ui.grid>.column.row>[class*="sixteen wide"].column.insurance-grid, 
+        .ui.grid>.row>[class*="sixteen wide"].column.insurance-grid {
+            width: 1200px !important;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .insurance.card-wrapper {
+        .ui.grid>.column.row>[class*="six wide"].column, 
+        .ui.grid>.row>[class*="six wide"].column {
+            width: 50% !important;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .adult-child-wrapper {
+        .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+            width: 36% !important;
+        }
+        .ui.grid>.column.row>[class*="seven wide"].column, .ui.grid>.row>[class*="seven wide"].column {
+            width: 64% !important;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .insurance.card-wrapper {
+        .ui.grid>.column.row>[class*="eight wide"].column, .ui.grid>.row>[class*="eight wide"].column {
+            width: 100% !important;
+            &:first-child {
+                padding-bottom: 14px;
+            }
+        }
+        .ui.grid>.column.row>[class*="twelve wide"].column, .ui.grid>.row>[class*="twelve wide"].column {
+            width: 100% !important;
+        }
+        .ui.grid>.column.row>[class*="six wide"].column, .ui.grid>.row>[class*="six wide"].column {
+            width: 100% !important;
+            &:first-child {
+                padding-bottom: 14px;
+            }
+        }
+        .ui.grid>[class*="sixteen wide"].column {
+            padding-bottom: 8px;
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .adult-child-wrapper {
+        .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+            width: 50% !important;
+        }
+        .ui.grid>.column.row>[class*="seven wide"].column, .ui.grid>.row>[class*="seven wide"].column {
+            width: 100% !important;
+            padding-top: 14px;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .adult-child-wrapper {
+        .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+            width: 100% !important;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .insurance.card-wrapper .insurance-search-block {
+        padding: 24px 8px;
+    }
+}

@@ -1,0 +1,327 @@
+<div class="activities card-wrapper animated fadeInUp">
+    <div class="container">
+      <h3 class="activities_title" *ngIf="showSearchResult">{{screenTitle}}</h3>
+      <h3 class="activities_title" *ngIf="!showSearchResult">Activities Result</h3>
+
+    </div>
+    <div class="ui bottom attached active tab segment">
+        <form [formGroup]="activitySearchForm" autocomplete="off" *ngIf="showSearchResult">
+            <div class="conatiner-fluid">
+                <div class="ui grid">
+                    <div class="sixteen wide column row">
+                        <div class="sixteen wide column activity-grid">
+                            <div class="ui grid activity-search-block icon-display">
+                                <div class="sixteen wide column row">
+                                    <div class="six wide column">
+                                        <label>Destination</label>
+                                        <div class="ui left icon input fluid">
+
+                                            <select #activitypickUpCity class="ui fluid search dropdown dropdownCity city-select" (onchange)="onChange($event)" formControlName="destination" required >
+                                                <option value="">Destination</option>
+                                             <!--<option class="city" *ngFor="let city of cities" value="{{city.label}}">{{city.label}}</option>-->
+                                            </select>
+                                            <i class="icon">
+                                                <img src="./../../../../assets/icons/pin-drop.svg"
+                                                class="pass_input__placeholder-icon cal" />
+                                            </i>
+                                        </div>
+                                    </div>
+                                    <div class="ten wide column">
+                                        <div class="ui grid">
+                                            <div class="sixteen wide column row">
+                                                <div class="eight wide column date-block">
+                                                    <label>Start Date</label>
+                                                    <div class="ui left icon input fluid">
+                                                        <input type="text" placeholder="Start Date" formControlName="startDate"
+                                                        name="startDate" value="" required />
+                                                        <i class="icon">
+                                                            <img src="./../../../../../assets/icons/calendar.svg"
+                                                            class="pass_input__placeholder-icon cal" />
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                                <div class="eight wide column  date-block">
+                                                    <label>End Date</label>
+                                                    <div class="ui left icon input fluid">
+                                                        <input type="text" placeholder="End Date" formControlName="endDate"
+                                                        name="endDate" value="" required />
+                                                        <i class="icon">
+                                                            <img src="./../../../../../assets/icons/calendar.svg"
+                                                            class="pass_input__placeholder-icon cal" />
+                                                        </i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="six wide column">
+                                        <div class="ui grid travel-info">
+                                            <div class="sixteen wide column row">
+                                                <div class="sixteen wide column">
+                                                    <label>Travellers</label>
+                                                    <a *ngIf="activiy_childrens>0" (click)="clearActiveChilderns($event)">Clear</a>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row pt-0">
+                                                <div class="sixteen wide column">
+                                                    <div class="ui grid">
+                                                        <div class="sixteen wide column row">
+                                                            <div class="four wide column passenger-drop passenger-input">
+                                                                <label>Adult</label>
+                                                                <div class="ui fluid input">
+                                                                    <select class="ui fluid search dropdown" formControlName="activity_adults" value="0">
+                                                                      <option value="" selected>0</option>
+                                                                      <option value="1">1</option>
+                                                                      <option value="2">2</option>
+                                                                      <option value="3">3</option>
+                                                                      <option value="4">4</option>
+                                                                      <option value="5">5</option>
+                                                                      <option value="6">6</option>
+                                                                      <option value="7">7</option>
+                                                                      <option value="8">8</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="four wide column  passenger-drop passenger-input">
+                                                                <label>Child</label>
+                                                                <div class="ui fluid input">
+                                                                    <select class="ui fluid search dropdown"  [(ngModel)]="activiy_childrens" formControlName="activiy_childrens" value="0">
+                                                                        <option value="" selected>0</option>
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="sixteen wide column row child-age-block" *ngIf="activiy_childrens>0 && clearallActiveChilderns">
+                                                <div class="sixteen wide column">
+                                                    <label>
+                                                        <!-- Children's Age -->
+                                                    </label>
+                                                    <div class="ui grid">
+                                                        <div class="sixteen wide column row pt-0">
+                                                          <div class="four wide column age-size" *ngIf="activiy_childrens>0">
+                                                            <label>Child Age</label>
+                                                            <div>
+                                                              <select class="ui fluid search dropdown" formControlName="activity_child_one">
+                                                                <option value="0">0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                          <div class="four wide column age-size" *ngIf="activiy_childrens>1">
+                                                            <label>Child Age</label>
+                                                            <div>
+                                                              <select class="ui fluid search dropdown" formControlName="activity_child_two" >
+                                                                <option value="" selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                          <div class="four wide column age-size" *ngIf="activiy_childrens>2">
+                                                            <label>Child Age</label>
+                                                            <div>
+                                                              <select class="ui fluid search dropdown"  formControlName="activity_child_three">
+                                                                <option value="" selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                          <div class="four wide column age-size" *ngIf="activiy_childrens>3">
+                                                            <label>Child Age</label>
+                                                            <div>
+                                                              <select class="ui fluid search dropdown" formControlName="activity_child_four">
+                                                                <option value="" selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                        <!-- </div>
+                                                        <div class="sixteen wide column row"> -->
+                                                          <div class="four wide column age-size" *ngIf="activiy_childrens>4">
+                                                            <label>Child Age</label>
+                                                            <div>
+                                                              <select class="ui fluid search dropdown" formControlName="activity_child_five">
+                                                                <option value="" selected>0</option>
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                                <option value="5">5</option>
+                                                                <option value="6">6</option>
+                                                                <option value="7">7</option>
+                                                                <option value="8">8</option>
+                                                                <option value="9">9</option>
+                                                                <option value="10">10</option>
+                                                                <option value="11">11</option>
+                                                                <option value="12">12</option>
+                                                                <option value="13">13</option>
+                                                                <option value="14">14</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                              </select>
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ten wide column markup-block">
+                                        <div class="ui grid ">
+                                            <div class="sixteen wide column row">
+                                                <div class="eight wide column">
+                                                    <label>Markup By</label>
+                                                    <div class="ui selection  select">
+
+                                                      <select class="ui fluid search dropdown" formControlName="markupBy">
+                                                        <option value="by_amount" selected="selected">Amount</option>
+                                                        <option value="by_percentage">Percentage</option>
+                                                      </select>
+                                                    </div>
+                                                </div>
+                                                <div class="eight wide column">
+                                                    <label>Markup Value</label>
+                                                    <div class="ui input fluid">
+                                                        <input type="number" placeholder="Markup Value" name="Markup_value" value="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sixteen wide column row">
+                                    <div class="sixteen wide column bookings_btn-panel">
+                                      <button [disabled]="searchBoxCard" class="ui primary button" (click)="searchActivity()">
+                                        <i *ngIf="searchActivitySpinner" class="fa fa-spinner fa-spin"></i>  Search
+                                      </button>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="searchResult">
+<!--        <div *ngIf="searchActivitysResult.length <= 0 && (searchActivitysResult)">-->
+<!--          <div class="alert alert-warning">-->
+<!--            No result found.-->
+<!--          </div>-->
+<!--        </div>-->
+        <div *ngIf="searchActivitysResult.length > 0">
+          <div>
+              <app-activity-details [ActivitySearchCriteria]="activitySearchCriteria" [activity]="searchActivitysResult"></app-activity-details>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!-- <a (click)="showCancelModal('cancel-modal')">Cancellation</a> -->
+
+<jw-modal id="cancel-modal" class="cancel-modal modal">
+    <div class="ui grid">
+        <div class="sixteen wide column row p-0">
+            <div class="sixteen wide column">
+                <h2>Cancellation Policy</h2>
+                <i class="close icon" (click)="closeModal('cancel-modal')"></i>
+            </div>
+        </div>
+        <div class="sixteen wide column row border-block cancel-block">
+            <div class="sixteen wide column p-0">
+                <div class="ui grid m-12">
+                    <div class="sixteen wide column row borderBottom">
+                        <div class="twelve wide column">
+                            <div class="ui grid m-12">
+                                <div class="sixteen wide column row borderLeft">
+                                    <div class="eight wide column">
+                                        <div class="label">From Date:</div>
+                                        <div class="date">Feb 9, 2020, 4:46pm</div>
+                                    </div>
+                                    <div class="eight wide column">
+                                        <div class="label">To Date:</div>
+                                        <div class="date">Feb 26, 2020, 11:59pm</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="four wide column">
+                            <div class="price-total">SAR 693.56</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>

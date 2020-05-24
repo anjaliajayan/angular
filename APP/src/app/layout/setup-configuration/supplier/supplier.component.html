@@ -1,0 +1,204 @@
+<h3><span class="update-header">List of Suppliers</span></h3>
+<div class="ui fluid container">
+  <div class="outer-basic result-block">
+    <div class="outer-basicForm">
+      <div class="ui form">
+        <div class="ui segment">
+          <div class="currency-list b2c-list-user-table user-table-list">
+            <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+              [rowHeight]="'auto'" [limit]="10" [rows]='NewListOfSuppliers' [sortType]="'multi'" [reorderable]="true"
+              [externalPaging]="true" [count]="totalListOfSupplier" [offset]="supplierPage"
+              [sorts]="[{prop: 'created', dir: 'asc'}]" (page)="pageCallback($event)">
+              <ngx-datatable-column name="Name Of Suppliers" prop="supplier_code">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Flights" prop="is_flight">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Hotel" prop="is_hotel">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Activities" prop="is_activities">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Car Hire" prop="is_car">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Transfer" prop="is_transfers">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- <ngx-datatable-column name="Cruises" prop="is_cruises">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span *ngIf="value == true"><i class="icon">
+                  <img src="./.././../../../assets/icons/checkmark.png" class="bookings_input__placeholder-icon cal" />
+                </i></span>
+              <span *ngIf="value == false">
+                <i class="icon">
+                  <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                </i>
+              </span>
+            </ng-template>
+          </ngx-datatable-column> -->
+              <ngx-datatable-column name="Insurance" prop="is_insurance">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value == false">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./.././../../../assets/icons/cross.png" class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <!--future use-->
+              <!-- <ngx-datatable-column name="Holiday Package" prop="name">
+            </ngx-datatable-column> -->
+              <ngx-datatable-column name="Status" prop="is_active">
+                <ng-template ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="value == true" title="Active">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../../assets/icons/checkmark.png"
+                        class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                  <span *ngIf="value != true" title="Inactive">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../../assets/icons/cross.png"
+                        class="bookings_input__placeholder-icon call" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Total Booking" prop="bookingCount">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Amount" prop="bookingCount">
+              </ngx-datatable-column>
+              <ngx-datatable-column name="Currency">
+                <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                  <span *ngIf="row.currency !=null">
+                    {{row.currency.code}}
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- <ngx-datatable-column name="Amount" prop="name">
+            </ngx-datatable-column> -->
+              <ngx-datatable-column name="Edit">
+                <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                  <span (click)="editSupplier( row )" class="action" title="Edit Details">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <!-- <i class="icon">
+                      <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                    </i> -->
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <!-- <ngx-datatable-column name="Edit">
+                <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                    <span class="action" title="Edit user" (click)="editSupplier(row)">
+                      <i class="icon">
+                        <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                      </i>
+                    </span>
+                  </ng-template>
+            </ngx-datatable-column> -->
+              <!-- <ngx-datatable-column name="Delete">
+                <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+                    <ng-container *ngIf="row.is_deleted == 0">
+                      <span class="action" title="Delete">
+                        <i class="icon" >
+                          <img src="./../../../../../assets/icons/delete-button.png"
+                            class="bookings_input__placeholder-icon cal" />
+                        </i>
+                      </span>
+                    </ng-container>
+                    <ng-container *ngIf="row.is_deleted == 1">
+                      <span class="action" title="Delete">
+                        ---
+                      </span>
+                    </ng-container>
+                  </ng-template>
+            </ngx-datatable-column> -->
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

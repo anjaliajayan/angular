@@ -1,0 +1,200 @@
+<div class="outer-wrapper" *ngIf="invoiceData != undefined" id="content">
+            <table>
+                <tr>
+                    <td class="logo-block">
+                        <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+                    </td>
+                    <td class="right cust-info">
+                        <p>{{userInfo['organisation.name']}},</p>
+                        <p>{{userInfo['organisation.address_1']}}</p>
+                        <p>{{userInfo['organisation.address_2']}}</p>
+                    </td>
+                </tr>
+            </table>
+            <table class="detail-table">
+                <tr class="table-head-row">
+                    <td>Booking Reference:</td>
+                    <td>Booking Confirmation Date: </td>
+                </tr>
+                <tr class="table-content-row">
+                    <td>{{invoiceData.trip_id}}</td>
+                    <td>{{invoiceData.created | date:fullDate}}</td>
+                </tr>
+            </table>
+            <div class="flight-wrapper" *ngFor="let flightInfo of invoiceData.trip_detail.segment_details;let i=index">
+                <table class="flight-table">
+                    <tr class="heading">
+                        <td>Trip Details</td>
+                    </tr>
+                </table>
+                <div class="flight-info-section">
+                    <div>
+                        <div class="right flight-detail flight-time">{{flightInfo.segment_departure_time}}</div>
+                        <div class="center flight-detail flight-dur">{{flightInfo.segment_flight_duration  }}</div>
+                        <div class="flight-detail flight-time">{{flightInfo.segment_arrival_time ? flightInfo.segment_arrival_time : "-" }}</div>
+                        <div class="center flight-detail flight-logo">
+                            <img
+                            src="https://s3-us-west-2.amazonaws.com/tpconnects-property/airline/{{SupplierCodeImage}}.png"
+                            class="airline-tickets_airline-logo" />
+                        </div>
+                    </div>
+                    <div>
+                        <div class="right flight-detail">{{flightInfo.segment_departure_airport_code}}</div>
+                        <div class="center flight-detail line"></div>
+                        <div class="flight-detail">{{flightInfo.segment_arrival_airport_code}}</div>
+                        <div class="center flight-detail flight-name">
+                            {{flightInfo.segment_marketing_airline_name}}
+                        </div>
+                    </div>
+                    <div class="airport-info">
+                        <div class="right flight-detail airport" style="max-width: 200px; display:inline-block">{{flightInfo.segment_departure_airport_name}}</div>
+                        <div class="flight-detail"></div>
+                        <div class="flight-detail" style="max-width: 200px; display:inline-block">{{flightInfo.segment_arrival_airport_name}}</div>
+                        <div class="center flight-detail flight-number">
+                            <!-- ({{flightInfo.equipment_name}} {{flightInfo.segment_airline_id.split('\"')}} -->
+                            <!-- {{flightInfo.segment_marketing_flight_number}}) -->
+                            <!-- <span>{{flightInfo.segment_airline_id.split('\"')}}
+                                {{flightInfo.segment_flight_number}}</span> -->
+                              {{SupplierCodeImage}}
+                                {{flightInfo.segment_marketing_flight_number}}
+                                
+                        </div>
+                    </div>
+                    <div class="airport-info">
+                        <div class="right flight-detail airport">Terminal {{flightInfo.segment_departure_terminal}}</div>
+                        <div class="flight-detail"></div>
+                        <div class="flight-detail">Terminal {{flightInfo.segment_arrival_terminal}}</div>
+                        <div class="center flight-detail flight-number">
+        
+                        </div>
+                    </div>
+                    <div>
+                        <div class="right flight-detail flight-date">{{flightInfo.segment_departure_date  | date }}</div>
+                        <div class="center flight-detail"></div>
+                        <div class="flight-detail flight-date">{{flightInfo.segment_arrival_date |date}}</div>
+                        <div class="center flight-detail flight-type">
+                            {{classOfService[i]}} 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="detail-table traveller-table">
+                <tr class="table-head-row">
+                    <td>Traveller(s) Name</td>
+                    <td>Passenger Type</td>
+                    <td>PNR No</td>
+                    <td>Ticket No</td>
+                    <td>Price</td>
+                </tr>
+                <tr class="table-content-row" *ngFor="let paxInfo of invoiceData.passenger_details;let i=index">
+
+                    <td>{{paxInfo.pax_first_name}} {{paxInfo.pax_last_name}}</td>
+                    <td>{{paxInfo.pax_type}}</td>
+                    <td>{{invoiceData.bookings_flights[0].pnr_no}}</td>
+                    <td *ngIf="invoiceData.bookings_flights[0].flight_tickets.length != 0">{{invoiceData.bookings_flights[0].flight_tickets[i].ticket_number}}</td>
+                    <td *ngIf="invoiceData.bookings_flights[0].flight_tickets.length == 0">No Ticket</td>
+                    <td>{{invoiceData.booking_currency}} {{PriceDetails[i].total | number:'1.0-2'}}</td>
+                </tr>
+            </table>
+            <!-- <div class="ticket-block"> -->
+                <!-- <table>
+                    <tr>
+                        <td>EMD Details</td>
+                    </tr>
+                </table>
+                <table class="pax-table">
+                    <tr>
+                        <td>Traveller</td>
+                        <td>Services Type</td>
+                        <td>Airline</td>
+                        <td>EMD Number</td>
+                        <td>Route</td>
+                        <td>Price</td>
+                    </tr>
+                    <tr>
+                        <td>MR IFEANYI NWAONICHA</td>
+                        <td>Baggage</td>
+                        <td>Emirates</td>
+                        <td>258963</td>
+                        <td>DOH-AMM</td>
+                        <td>80.00</td>
+                    </tr>
+                    <tr>
+                        <td>MR IFEANYI NWAONICHA</td>
+                        <td>Meal</td>
+                        <td>Emirates</td>
+                        <td>58963</td>
+                        <td>DOH-AMM</td>
+                        <td>30.00</td>
+                    </tr>
+                    <tr>
+                        <td>MR IFEANYI NWAONICHA</td>
+                        <td>Seat</td>
+                        <td>Emirates</td>
+                        <td>58963</td>
+                        <td>DOH-AMM</td>
+                        <td>30.00</td>
+                    </tr>
+                    <tr></tr>
+                </table>
+            </div> -->
+            <div class="ticket-block">
+                <table>
+                    <tr>
+                        <td>Price Details (AED)</td>
+                    </tr>
+                </table>
+                <table class="pax-table">
+                    <tr>
+                        <td>Passenger Type</td>
+                        <td>Base Fare</td>
+                        <td>Tax</td>
+                        <td>Service Fee</td>
+                        <td class="right">Total</td>
+                    </tr>
+                    <tr *ngFor="let data of PriceDetails">
+                        <td>{{data.paxType }}</td>
+                        <td>{{data.baseFare | number:'1.0-2'}}</td>
+                        <td>{{data.tax | number:'1.0-2'}}</td>
+                        <td>-</td>
+                        <td class="right">{{data.total | number:'1.0-2'}}</td>
+                    </tr>
+                    <tr *ngIf="invoiceData.bookings_flights[0].flight_ticket_emds.length != 0">
+                        <td>Baggage</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="right">80.00</td>
+                    </tr>
+                    <tr *ngIf="invoiceData.bookings_flights[0].flight_ticket_emds.length != 0">
+                        <td>Meal</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="right">30.00</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="total right">Total Flight Price: <span>{{invoiceData.booking_currency}} {{invoiceData.amount | number:'1.0-2'}}</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="payable-section">
+                <p>For further details please contact accounts dept</p>
+                <p>Phone: {{userInfo["organisation.contact_mobile_number"]}}</p>
+                <p>Email: {{userInfo['organisation.email']}}</p>
+                <p>Our Support Team is always ready to assist you. Please contact us on testtpc@gmail.com for any assistance or feedback.</p>
+            </div> 
+            <div class="payable-section right">
+                <p class="thanks">Thanking You</p>
+                <p>Registration & Sales Team.</p>
+                <p>{{userInfo['organisation.name']}}</p>
+                <p>{{userInfo['email']}}</p>
+            </div>
+        </div>
+
+   <div> <button class="ui primary button" (click)="exportToPdf()">Export to PDF</button></div>
+

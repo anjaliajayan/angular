@@ -1,0 +1,81 @@
+<app-pos-edit-button></app-pos-edit-button>
+<div class="outer-form">
+    <form class="ui form pos_basic_form"  autocomplete="off"[formGroup]="officeAddressForm" (ngSubmit)="storeOfficeAddress()">
+      <!-- Office address part -->
+      <h4 class="ui header spacing">Office Address</h4>
+      <div class="field spacing">
+        <div class="ui four column grid fields custom-columns">
+          <div class="four wide field">
+            <label>Office Name</label>
+            <input type="text" name="contact_person_name" formControlName="contact_person_name" placeholder="Office Name">
+          </div>
+          <div class="four wide field">
+            <label>Mobile Number</label>
+            <input type="number" formControlName="contact_mobile_number" name="contact_mobile_number"
+              placeholder="Mobile Number">
+          </div>
+          <div class="four wide field">
+            <label>Email</label>
+            <input type="email" formControlName="contact_person_email" placeholder="Email ID">
+            <!-- <div *ngIf="contact_person_email.invalid && (contact_person_email.dirty || contact_person_email.touched)"
+              class="validations">
+              <div class="validations" *ngIf="contact_person_email.errors?.pattern">
+                Email must be a valid email address
+              </div>
+            </div> -->
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].address_1.status == 'INVALID')}">
+            <label>Address 1</label>
+            <input type="text" formControlName="address_1" placeholder="Address1">
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].address_2.status == 'INVALID')}">
+            <label>Address 2</label>
+            <input type="text" formControlName="address_2" placeholder="Address2">
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].contact_country_id.status == 'INVALID')}">
+            <label>Country</label>
+            <select class="ui fluid search dropdown" formControlName="contact_country_id"
+              (change)="passCountryId($event.target.value)">
+              <option value=""> Country </option>
+              <option *ngFor="let country of countries" value="{{country.country_id}}"> {{country.country}}
+              </option>
+            </select>
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].city_id.status == 'INVALID')}">
+            <label>City</label>
+            <select class="ui fluid search dropdown" formControlName="city_id">
+  
+              <option *ngFor="let city of cities" value="{{city.city_id}}">{{city.name}}</option>
+            </select>
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].state_province.status == 'INVALID')}">
+            <label>State/Province</label>
+            <input type="text" formControlName="state_province" placeholder="State / Province">
+          </div>
+          <div class="four wide field"
+            [ngClass]="{'error': (isSubmitted && officeAddressForm['controls'].officeAddress['controls'].zip.status == 'INVALID')}">
+            <label>Zip Code</label>
+            <input type="text" formControlName="zip" placeholder="Zip code">
+            <!-- <div *ngIf="zip.invalid && (zip.dirty || zip.touched)" class="validations">
+              <div class="validations" *ngIf="zip.errors?.pattern">
+                Zip code must be a valid number
+              </div>
+            </div> -->
+          </div>
+  
+        </div>
+        <div class="buttonstyle">
+        <button mat-button class="ui button primary button_align" type="submit">Save</button>
+        <button mat-button class="ui button reset button_align" (click)="cancelOfficeDetails()">Cancel</button>
+        </div>
+      </div>
+      <div class="pos_btn-panel spacing">
+ 
+      </div>
+    </form>
+  </div>

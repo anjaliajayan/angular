@@ -1,0 +1,166 @@
+<h3 class="booking-header">Floating Deposits</h3>
+
+<div class="ui fluid container">
+  <div class="outer-basic result-block floating-wrapper">
+    <form class="ui form " autocomplete="off" [formGroup]="addFloatingForm" enctype="multipart/form-data">
+      <div class="outer-basicForm">
+        <!-- <h4><b>Floating Deposits Request</b></h4><br><br> -->
+        <div class="field">
+          <div class="five fields">
+            <!-- <div class="four wide field"
+              [ngClass]="{'error': ((submitted && f.supplier_data.errors) && f.supplier_data.errors.required) }">
+              <label>Select Supplier<span class="mandatory">*</span></label>
+              <select formControlName="supplier_data" class=" ui fluid search selection dropdown">
+                <option value="" selected>Select Supplier</option>
+                <option *ngFor="let supplier of suppliers" value="{{66+'||'+supplier.supplier+'||'+supplier.currency}}">
+                  {{supplier.supplier}}
+                </option>
+              </select>
+            </div> -->
+            <div class="four wide field">
+              <label>IATA Number</label>
+              <input type="text" name="agency_iata_num" formControlName="agency_iata_num" placeholder="IATA">
+              <div class="validations" *ngIf="agency_iata_num.errors?.pattern">
+                Above field must be strictly Numeric Values.
+              </div>
+            </div>
+            <div class="four wide field">
+              <label>Agency Name</label>
+              <input type="text" name="agencyName" formControlName="agency_name" disabled placeholder="Agency Name">
+            </div>
+            <div class="four wide field">
+              <label>Agency Country</label>
+              <input type="text" name="agencyCountry" formControlName="agency_country" disabled>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="field">
+            <div class="five fields">
+              <div class="four wide field">
+                <label>Available Currency</label>
+                <input type="text" name="agencyCountry" formControlName="agency_currency" disabled>
+              </div>
+              <div class="four wide field">
+                <label>Available Balance</label>
+                <input type="text" name="availableBalance" formControlName="available_balance" disabled
+                  placeholder="Available Balance">
+              </div>
+              <div class="four wide field">
+                <label>Floating Deposit Type</label>
+                <input type="text" name="agencyCountry" formControlName="topup_type" readonly>
+              </div>
+              <div class="four wide field"
+                [ngClass]="{'error': ((submitted && f.topup_subtype.errors) && f.topup_subtype.errors.required) }">
+                <label>Floating Deposit Sub Type<span class="mandatory">*</span></label>
+                <select class=" ui fluid search selection dropdown" formControlName="topup_subtype">
+                  <option value="" selected>Select Sub Type</option>
+                  <option value="Bank Transfer" selected>Bank Transfer</option>
+                  <option value="Cash Deposit" selected>Cash Deposit</option>
+                  <option value="Cheque Deposit" selected>Cheque Deposit</option>
+                  <option value="Credit Card" selected>Credit Card</option>
+                  <!-- <option *ngFor="let subT of topupSubtype" value="{{subT}}">
+                    {{subT}}
+                  </option> -->
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="field">
+                        <hr>
+                    </div> -->
+          <!-- <h4 class="ui header">Floating Deposit Type</h4> -->
+        </div>
+        <!-- <div class="field">
+                    <hr>
+                </div> -->
+        <!-- <h4 class="ui header">Floating Deposit Details</h4> -->
+        <div class="field">
+          <div class="five fields">
+            <div class="four wide field">
+              <label>Topup type</label>
+              <input type="text" name="topup_purpose" formControlName="topup_purpose" readonly>
+            </div>
+            <div class="four wide field">
+              <label>Bank Name</label>
+              <input type="text" name="bankName" formControlName="bank_name" readonly placeholder="Bank Name">
+            </div>
+            <div class="four wide field">
+              <label>Bank Account Number</label>
+              <input type="text" name="bankAccNumber" formControlName="bank_account_no" readonly
+                placeholder="Bank Account Number">
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="five fields">
+            <div class="four wide field bookings_pickers"
+              [ngClass]="{'error': ((submitted && f.payment_date.errors) && f.payment_date.errors.required) }">
+              <label>Payment Date<span class="mandatory">*</span></label>
+              <div class="ui left icon input ">
+                <input type="text" placeholder="Payment Date" formControlName="payment_date" name="payment_date"
+                  value="" />
+                <i class="icon">
+                  <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                </i>
+              </div>
+            </div>
+            <div class="four wide field"
+              [ngClass]="{'error': ((submitted && f.payment_currency.errors) && f.payment_currency.errors.required) }">
+              <label>Payment Currency<span class="mandatory">*</span></label>
+              <select class=" ui fluid search selection dropdown" formControlName="payment_currency">
+                <option value="" selected>Payment Currency</option>
+                <option *ngFor="let currency of currencies" value="{{currency.code}}">
+                  {{currency.code}}
+                </option>
+              </select>
+            </div>
+            <div class="four wide field">
+              <label>Payment Type</label>
+              <input type="text" name="payment_type" formControlName="payment_type" readonly placeholder="Payment Type">
+            </div>
+            <div class="four wide field"
+              [ngClass]="{'error': ((submitted && f.payment_amount.errors) && f.payment_amount.errors.required) }">
+              <label>Payment Amount<span class="mandatory">*</span></label>
+              <input type="text" name="payment_amount" formControlName="payment_amount" placeholder="Payment Amount"
+                name="payment_amount">
+              <div class="validations" *ngIf="payment_amount.errors?.pattern">
+                Above field must be strictly Numeric Values.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <div class="five fields">
+            <div class="four wide field">
+              <label>Reference Number</label>
+              <input type="text" name="request_no" formControlName="request_no" placeholder="Reference Number">
+              <div class="validations" *ngIf="request_no.errors?.pattern">
+                Above field must be strictly Numeric Values.
+              </div>
+            </div>
+            <div class="four wide field">
+              <label>Deposited By</label>
+              <input type="text" name="request_initiator" formControlName="request_initiator"
+                placeholder="Deposited By">
+            </div>
+            <div class="four wide field">
+              <label>Document Reference</label>
+              <!-- <input type="file" formControlName="attachment"  accept="image/*" > -->
+              <input #file type="file" accept='image/*' (change)="preview(file.files)" />
+              <img [src]="imgURL" height="200" *ngIf="imgURL">
+            </div>
+          </div>
+        </div>
+        <!-- <h4 class="ui header">Document Reference Attachment</h4> -->
+        <div class="field">
+          <div class="sixteen wide field bookings_btn-panel">
+            <button class="ui primary button float-sub-btn" (click)="submitAddFloating()">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

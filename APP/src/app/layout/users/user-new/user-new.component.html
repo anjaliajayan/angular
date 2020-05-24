@@ -1,0 +1,202 @@
+<div class="ui fluid container">
+  <div class="ui grid">
+    <div class="sixteen wide column row">
+      <div class="eight wide column">
+        <h3><span class="update-header">New User</span></h3>  
+      </div>
+      <div class="eight wide column bookings_btn-panel text-right">
+        <a class="ui primary button roleActionButton" routerLink="../">
+          <span class="tourCode_text">List Users</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="outer-basic">
+    <div class="outer-basicForm">
+      <div class="ui form">
+        <div class="email-list b2c-list-user-table">
+          <form [formGroup]="newUserForm" (submit)="btnSubmitHandler()" autocomplete="off">
+            <div class="ui grid main-wrapper">
+              <div class="eleven wide column outer-wrapper">
+                <div class="shadow-sm p-5 mb-5 bg-white rounded">
+                  <div class="ui grid first-wrapper">
+                    <div class="three wide column second-wrapper">
+                      <!-- <div class="field">
+                        <label for="">Salutation<span class="mandatory">*</span></label>
+                        <select class="ui dropdown fluid" formControlName="saluation">
+                          <option *ngFor="let saluteName of saluteNames" value="{{ saluteName }}">{{ saluteName }}</option>
+                        </select>
+                      </div> -->
+                      <div class="three wide column second-wrapper">
+                        <label>Title</label>
+                        <select class="ui fluid dropdown" formControlName="saluation">
+                          <option value="Mr.">Mr.</option>
+                          <option value="Master">Master</option>
+                          <option value="Mrs.">Mrs.</option>
+                          <option value="Miss">Miss</option>
+                          <option value="Ms.">Ms.</option>
+                          <option value="Dr.">Dr.</option>
+                          <!-- <option *ngFor="let salute of saluteNames" value="{{salute}}">{{salute}}</option> -->    
+                        </select>
+                      </div>
+                    </div>
+                    <div class="six wide column second-wrapper">
+                      <div class="field"   [ngClass]="{'is-invalid': formIsSubmitted && gfc.first_name.errors}">
+                        <label for="">First Name<span class="mandatory">*</span></label>
+                        <input type="text" formControlName="first_name"  placeholder="Firstname"/>
+                      </div>
+                    </div>
+                    <div class="six wide column second-wrapper">
+                      <div class="field"   [ngClass]="{'is-invalid': formIsSubmitted && gfc.last_name.errors}">
+                        <label for="">Last Name <span class="mandatory">*</span></label>
+                        <input type="text" name="" formControlName="last_name" placeholder="Last Name"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui grid personal-wrapper">
+                    <div class="five wide column field-wrapper">
+                      <div class="field" [ngClass]="{'is-invalid': formIsSubmitted && gfc.mobile.errors}">
+                        <label for="">Contact Number<span class="mandatory">*</span></label>
+                        <input type="number" id="" formControlName="mobile" placeholder="Contact number">
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field">
+                        <label for="">Initial</label>
+                        <input type="text" id="" formControlName="initial" placeholder="Enter initial">
+                      </div>
+                    </div>
+                    <div class="four wide column field-wrapper">
+                      <div class="field">
+                        <label for="">Gender</label>
+                        <select class="ui dropdown fluid" formControlName="sex">
+                          <option value="male">Male</option>
+                          <option value="female">Female</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field" [ngClass]="{'is-invalid': formIsSubmitted && gfc.is_active.errors}">
+                        <label for="">Status<span class="mandatory">*</span></label>
+                        <select class="ui dropdown fluid" formControlName="is_active">
+                          <option value="1">Active</option>
+                          <option value="0">Inactive</option>
+                          <!-- <option *ngFor="let status of statusRow" value="{{ status.id }}">{{ status.value }}</option> -->
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field">
+                        <label for="inputAddress">Address</label>
+                        <input type="text" id="inputAddress" placeholder="1234 Main St" formControlName="address_1">
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field">
+                        <label for="inputAddress2">Address 2</label>
+                        <input type="text" id="inputAddress2" placeholder="Apartment, studio, or floor"
+                          formControlName="address_2">
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field" [ngClass]="{'is-invalid': formIsSubmitted && gfc.country_id.errors}">
+                        <label for="">Country<span class="mandatory">*</span></label>
+                        <select class="ui dropdown fluid search" formControlName="country_id" required>
+                          <option value="">Select</option>
+                          <option *ngFor="let country of countries" [value]="country.country_id">{{ country.country }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field"  [ngClass]="{'is-invalid': formIsSubmitted && gfc.organisation_id.errors}">
+                        <label for="">POS<span class="mandatory">*</span></label>
+                        <select class="ui dropdown fluid search" formControlName="organisation_id" (change)="getOrgBranches($event.target.value)" required>
+                          <option value="">Select</option>
+                          <option *ngFor="let organization of organizations" [value]="organization.organisation_id">
+                            {{ organization.name  }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field">
+                        <label for="">POS Branch</label>
+                        <select class="ui dropdown fluid search" formControlName="branch_id">
+                          <option value="">Select Branch</option>
+                          <option value="{{ branch.id }}" *ngFor="let branch of branches">{{ branch.name }}</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="five wide column field-wrapper">
+                      <div class="field"  [ngClass]="{'is-invalid': formIsSubmitted && gfc.role_id.errors}">
+                        <label for="">Role<span class="mandatory">*</span></label>
+                        <select class="ui dropdown fluid" formControlName="role_id">
+                          <option value="">Select</option>
+                          <option *ngFor="let userRole of userRoles" [value]="userRole.role_id">{{ userRole.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="five wide column inner-wrapper">
+                <div class="ui grid user-wrapper">
+                  <div class="twelve wide column login-wrapper">
+                    <div class="field" [ngClass]="{'is-invalid': formIsSubmitted && gfc.username.errors}" >
+                      <label for="">Username <span class="mandatory">*</span></label>
+                      <input type="text" id="" formControlName="username" placeholder="User name">
+                      <div *ngIf="gfc.username.errors" class="invalid-feedback">
+                        <div class="validations" *ngIf="gfc.username.errors.pattern">
+                        Username must be a Alphanumeric 
+                        </div>
+                      </div>
+                    </div>                 
+                  </div>
+                  <div class="twelve wide column login-wrapper">
+                    <div class="field"  [ngClass]="{'is-invalid': formIsSubmitted && gfc.email.errors}" >
+                      <label for="">Email<span class="mandatory">*</span> </label>
+                      <input type="email" id="" formControlName="email" placeholder="Email address">
+                      <div *ngIf="gfc.email.errors" class="invalid-feedback">
+                        <div class="validations" *ngIf="gfc.email.errors.pattern">
+                          Email must be a valid email address
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="twelve wide column login-wrapper">
+                    <div class="field"  [ngClass]="{'is-invalid': formIsSubmitted && gfc.password.errors}">
+                      <label for="">Password <span class="mandatory">*</span></label>
+                      <input type="password" id="" placeholder="Password" formControlName="password" name="password" (change)="validatePassword()">
+                      <div *ngIf="gfc.password.errors" class="invalid-feedback">
+                        <!-- <div class="validations"  *ngIf="gfc.password.errors.required">Password is required</div> -->
+                        <div class="validations"  *ngIf="gfc.password.errors.pattern">Password must be valid</div>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="twelve wide column login-wrapper">
+                    <div class="field"  [ngClass]="{'is-invalid': formIsSubmitted && gfc.cpassword.errors}" >
+                      <label for="">Confirm Password <span class="mandatory">*</span></label>
+                      <input type="password" id="" placeholder="Password" formControlName="cpassword" name="cpassword" (change)="validatePassword()">
+                      <div *ngIf="gfc.cpassword.invalid && (gfc.cpassword.dirty || gfc.cpassword.touched)" class="validations">
+                        <div class="validations" *ngIf="gfc.cpassword.errors.required">
+                          Confirm Password is required
+                        </div>
+                        <div class="validations" *ngIf="gfc.cpassword.errors.unmatched">
+                          Password is not matching
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="btn-wrapper">
+             <button type="submit" class="ui primary button">Save User</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

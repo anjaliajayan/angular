@@ -1,0 +1,246 @@
+.bookings_btn-panel {
+    padding: 20px 2px 0px;
+    text-align: right;
+}
+
+.bookings_pickers .input {
+    &.bookings_datepicker {
+        min-width: 120px;
+        max-width: 138px
+    }
+    .ui.basic.floating.button {
+        padding: 10px !important;
+        color: rgba(152, 152, 152, 0.6) !important;
+        font-weight: 300 !important;
+        line-height: 11px;
+    }
+    .icon {
+        opacity: 1;
+        z-index: 100;
+        .bookings_input__placeholder-icon {
+            width: 24px;
+            margin-top: 6px;
+            &.cal {
+                width: 18px;
+                margin-top: 10px;
+            }
+        }
+    }
+    .search.dropdown {
+        width: 218px;
+        border-right: 0;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        .search {
+            margin-left: 42px !important;
+        }
+        .default.text {
+            font-size: 12px;
+            margin-right: 0 !important;
+            padding: 8px 0 0 38px !important;
+        }
+    }
+}
+
+.corporate_input__placeholder-icon {
+    position: relative;
+    width: 18px;
+    bottom: 28px;
+    left: 9px;
+}
+
+table {
+    font-family: 'Roboto', sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 300px;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    padding: 20px;
+}
+
+.minimise-icon {
+    float: right;
+}
+
+mat-selection-list {
+    max-height: 200px;
+    overflow: auto;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #0000001c;
+}
+
+.main_report-org__scroll {
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #0000001c;
+}
+
+.add-arrow-icon {
+    position: relative;
+    padding: 31px;
+    display: flex;
+    flex-direction: column;
+}
+
+// .box-container {
+//     width: 50%;
+//     position: relative;
+//     left: 20%;
+// }
+
+.dual-list-choose-org {
+    // padding: 20px;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    width: 75%;
+    margin: 0 auto 20px;
+}
+
+.seven.wide.field.dual-choose {
+    // margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+.output-pivot {
+    margin-top: 30px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.tab.segment {
+    box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.ui.top.attached.tabular.menu {
+    margin-top: 25px;
+}
+
+.ui.bottom.attached.active.tab.segment {
+    border-bottom-left-radius: 17px;
+    border-bottom-right-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+.ui.top.attached.menu>.item {
+    border-radius: .28571429rem 0 0 0;
+    border-top-right-radius: 15px !important;
+}
+
+.dynamic-report-header {
+    position: relative;
+    left: 32%;
+    color: #0000007a;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20;
+    margin: 0px 0px 8px;
+}
+
+.ui.form .three.wide.field {
+    margin-bottom: 16px;
+}
+
+.ui.divider {
+    margin-bottom: 30px;
+}
+
+// .result-block {
+//     width: 1000px;
+//     margin: 32px auto;
+// }
+
+.fields {
+    justify-content: center;
+}
+
+.output-pivot {
+    width: auto;
+    margin: 32px;
+    table {
+        background: #fff;
+        padding: 30px 40px;
+        box-shadow: 0px 2px 6px rgba(6, 40, 98, 0.1) !important;
+        border-radius: 4.96141px;
+    }
+}
+
+.agent-name-booking {
+    margin: auto 32px !important;
+    .eight.wide.field {
+        padding: 0px;
+        button {
+            margin-right: 0px;
+        }
+    }
+}
+
+.eight.field.bookings_btn-panel {
+    padding: 0px;
+    text-align: right;
+}
+@media (max-width: 1440px) {
+    .result-block {
+        width: auto;
+        margin: 24px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .result-block {
+        width: auto;
+        margin: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .ui.form .six.wide.field {
+        width: 42.5% !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .ui.top.attached.tabular.menu {
+        display: block;
+        .item {
+            padding: 12px 0px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .field {
+        .six.wide.field:first-child {
+            padding-bottom: 16px;
+        }
+    }
+    .result-block {
+        margin: 20px 8px !important;
+    }
+    .dual-list-choose-org {
+        width: 100%;
+    }
+    .output-pivot {
+        margin: 32px 12px !important;
+    }
+    .agent-name-booking .eight.wide.field button {
+        margin-top: 12px;
+    }
+}

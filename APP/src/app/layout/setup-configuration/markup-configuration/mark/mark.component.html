@@ -1,0 +1,162 @@
+<div class="ui fluid container">
+  <form class="ui form" name="form" #f="ngForm" novalidate>
+    <div [ngClass]="{'head-search-block': (showAddMarkupForm) }">
+      <div class="fields search-section" [ngClass]="{'list-search-block': (showAddMarkupForm) }">
+        <div class="four wide field bookings_btn-panel">
+          <button class="ui primary button filterMarkUp_btn" tabindex="0" (click)="onClickAddNewMarkup(true)"
+            *ngIf="showListMarkup">
+            <span class="filterMarkUp_list">Add New Markup</span>
+          </button>
+          <a href="javascript:void(0)" class="ui filterMarkUp_btn goto_list" tabindex="0" (click)="onClickListMarkup()"
+            *ngIf="showAddMarkupForm">
+            <span class="">
+              <!-- <img src="../../../../../assets/icons/goto_link_arrow.svg" class="goto-link" /> -->
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>
+              Go to List Markup
+            </span>
+          </a>
+        </div>
+        <div class="twelve wide field search-btn-block" *ngIf="showListMarkup">
+          <!-- <div class="ten wide field"> -->
+          <input type="text" placeholder="Markup Name" [(ngModel)]="searchObject.markupname" name="markupname">
+          <!-- </div> -->
+          <div class="bookings_btn-panel">
+            <button (click)="searchChange()" class="ui primary button addNewGroup_btn" tabindex="0">
+              <span class="addNewGroup-text"> Search </span>
+            </button>
+            <button (click)="resetFilter()" class="ui reset button addNewGroup_btn" tabindex="0">
+              <span class="addNewGroup-text"> Reset </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-markup result-block" *ngIf="showAddMarkupForm"
+      [ngClass]="{'list-code-block': (showAddMarkupForm) }">
+      <app-add-markup [groupId]="groupId" [groupData]="groups" [supplierData]="allSuppliers" [flag]='flag'
+        [mark]="markupRow" [flagEdit]='flagEdit' (dataToParent)="eventFromChild($event)"></app-add-markup>
+    </div>
+    <div class="list-markup result-block" *ngIf="showListMarkup">
+      <!-- <div class="field">
+        <div class="five fields">
+        </div>
+      </div> -->
+      <div class="user-table-list b2c-list-user-table" *ngIf="showListMarkup">
+        <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'" [rows]='filteredMarkupsList' [count]="totalCount" [offset]="offset"
+          [externalPaging]="true" (page)="pageCallback($event)" [sorts]="[{prop: 'created', dir: 'desc'}]">
+          <ngx-datatable-column name="Group Name" prop="sale">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              {{ value.name }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Group Name" prop="sale">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              {{ value.name }}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Markup Name">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <ng-container *ngIf="row.title && row.title !=null; then showTitle; else noTitle">
+              </ng-container>
+              <ng-template #showTitle>
+                {{row.title}}
+              </ng-template>
+              <ng-template #noTitle>
+                ---
+              </ng-template>
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="Markup id" prop="markup_id">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              {{ value}}
+            </ng-template>
+          </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Created" prop="created">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              {{ value | amDateFormat:'LL'}}
+            </ng-template>
+          </ngx-datatable-column> -->
+          <ngx-datatable-column name="Mark up Value" prop="markup_flight">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <ng-container *ngIf="value.markup_mode=='by_percentage'; then showPer; else noPer">
+              </ng-container>
+              <ng-template #showPer>
+                {{ value.markup}}%
+              </ng-template>
+              <ng-template #noPer>
+                {{ value.markup}}
+              </ng-template>
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="Preference" prop="priority">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span *ngIf="value == 1"> Inherit </span>
+              <span *ngIf="value != 1"> Override </span>
+            </ng-template>
+          </ngx-datatable-column> -->
+          <ngx-datatable-column name="Sale Type" prop="sale">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              <span *ngIf="value.is_stop_sale == 1"> Stop Sale </span>
+              <span *ngIf="value.is_free_sale == 1"> Free Sale </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="Sale Start Date" prop="sale">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value.start_date | amDateFormat:'LL'}}
+            </ng-template>
+          </ngx-datatable-column> -->
+          <!-- <ngx-datatable-column name="Sale End Date" prop="end_date">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value.end_date | amDateFormat:'LL'}}
+            </ng-template>
+          </ngx-datatable-column> -->
+          <ngx-datatable-column name="Status" prop="is_active">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+              <span *ngIf="value == 1" title="Active" (click)="statusToggle(row)">
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                <!-- <i class="icon" title="click to deactivate">
+                  <img src="./../../../../../assets/icons/checkmark.png" class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+              <span *ngIf="value != 1" title="Inactive" (click)="statusToggle(row)">
+                <i class="fa fa-times" aria-hidden="true"></i>
+                <!-- <i class="icon" title="click to activate">
+                  <img src="./../../../../../assets/icons/cross.png" class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Created" prop="created">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}</ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Actions">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <span (click)="editMark( row )" class="action" title="Edit Details">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <!-- <i class="icon">
+                  <img src="./../../../../../assets/icons/edit.png" class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+              <span (click)="deleteMark( row )" class="action" title="Delete Details">
+                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <!-- <i class="icon">
+                  <img src="./../../../../../assets/icons/delete-button.png"
+                    class="bookings_input__placeholder-icon cal" />
+                </i> -->
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <!-- <ngx-datatable-column name="view">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <span  class="action" title="Edit User">
+                <i class="icon">
+                  <img src="./../../../../../assets/icons/add_icon.png" class="bookings_input__placeholder-icon cal" />
+                </i>
+              </span>
+         
+            </ng-template>
+          </ngx-datatable-column> -->
+        </ngx-datatable>
+      </div>
+    </div>
+  </form>
+</div>

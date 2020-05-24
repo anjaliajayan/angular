@@ -1,0 +1,224 @@
+<jw-modal id="disability-modal" class="anc_modal">
+    <div class="ui">
+        <h2>Special Assistance</h2>
+        <i class="close icon" (click)="closeModal('disability-modal')"></i>
+        <div class="ui grid">
+            <div class="sixteen wide column row traveller-wrapper">
+                <div class="five wide column traveller-list-block">
+                    <div class="ui tabular menu">
+                        <div class="item active" data-tab="traveller-tab1">
+                            <span class="name">Traveller Name</span>
+                            <span class="type">ADT</span>
+                        </div>
+                        <div class="item" data-tab="traveller-tab2">
+                            <span class="name">Traveller Name</span>
+                            <span class="type">CHD</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="eleven wide column travller-detail-block traveller_bag_section">
+                    <div class="ui tab active" data-tab="traveller-tab1">
+                        <div class="route-block">
+                            <div class="ui styled accordion">
+                                <div class="title active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>DXB - COK</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon" (click)="showWheelchairDetails()" [ngClass]="{'active' : showWheelchair}"></i>
+                                                    </div>
+                                                    <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                                                        <p>This is what included in mobility service 1</p>
+                                                        <p>Assisstance to and from the aircraft (depending on the airport this
+                                                            will be either by electric buggy or airport wheelchair)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>COK - DXB</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon" (click)="showWheelchairDetails()" [ngClass]="{'active' : showWheelchair}"></i>
+                                                    </div>
+                                                    <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                                                        <p>This is what included in mobility service 1</p>
+                                                        <p>Assisstance to and from the aircraft (depending on the airport this
+                                                            will be either by electric buggy or airport wheelchair)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui tab" data-tab="traveller-tab2">
+                        <div class="route-block">
+                            <div class="ui styled accordion">
+                                <div class="title active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>DXB - COK</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content active">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon" (click)="showWheelchairDetails()" [ngClass]="{'active' : showWheelchair}"></i>
+                                                    </div>
+                                                    <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                                                        <p>This is what included in mobility service 1</p>
+                                                        <p>Assisstance to and from the aircraft (depending on the airport this
+                                                            will be either by electric buggy or airport wheelchair)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="title">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row p-0">
+                                            <div class="five wide column line"></div>
+                                            <div class="six wide column route">
+                                                <span>COK - DXB</span>
+                                            </div>
+                                            <div class="five wide column line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <div class="ui grid">
+                                        <div class="sixteen wide column row">
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon" (click)="showWheelchairDetails()" [ngClass]="{'active' : showWheelchair}"></i>
+                                                    </div>
+                                                    <div *ngIf="showWheelchair" class="showWheelDetail fade-in">
+                                                        <p>This is what included in mobility service 1</p>
+                                                        <p>Assisstance to and from the aircraft (depending on the airport this
+                                                            will be either by electric buggy or airport wheelchair)</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="eight wide column">
+                                                <div class="disability-wrapper">
+                                                    <div class="info">
+                                                        <h3>Wheelchair-3-Customer-Manual</h3>
+                                                        <p>AED
+                                                            <strong>00</strong>
+                                                        </p>
+                                                        <i class="dropdown icon"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sixteen wide column row action-block">
+                <div class="ten wide column">
+                    <h5>Note:</h5>
+                    <p>The maximum dimensions we can accomodate are (cm):</p>
+                    <p>L:140, D:85, H:152</p>
+                    <p>Max weight(kg): 250</p>
+                </div>
+                <div class="six wide column bookings_btn-panel">
+                    <button class="ui export button" (click)="closeModal('disability-modal')">Cancel</button>
+                    <button class="ui primary button">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>

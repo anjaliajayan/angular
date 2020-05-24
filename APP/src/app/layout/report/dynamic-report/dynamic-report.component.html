@@ -1,0 +1,114 @@
+<div class="ui top attached tabular menu ">
+    <div class="item " data-tab="first" routerLink="/report/booking-report">
+        Booking
+    </div>
+    <div class="item " data-tab="second" routerLink="/report/segment-report">Segment</div>
+    <div class="item" data-tab="third" routerLink="/report/mis-report">MIS</div>
+    <div class="item" data-tab="fourth" routerLink="/report/search-log-report">Search Log</div>
+    <div class="item" data-tab="fifth" routerLink="/report/audit-report">Audit Trail Log</div>
+    <div class="item" data-tab="sixth" routerLink="/report/ticket-report">Ticket</div>
+    <div class="item active" data-tab="seventh" routerLink="/report/dynamic-report">Dynamic Report</div>
+</div>
+<div class="ui bottom attached tab segment tabContent-block active" data-tab="seventh">
+    <div class="ui fluid container">
+        <div class="box-container">
+            <div class="ui one column grid">
+                <div class="column">
+                    <form [formGroup]="dynamicReportForm" (ngSubmit)="showReport()" class="ui form ">
+                        <div class="ui segment">
+                            <div class="">
+                                <div class="result-block">
+                                    <div class="ui small header">Choose Parameters</div>
+                                    <div class="ui divider"></div>
+                                    <div class="field">
+                                        <div class="fields">
+                                            <div class="six wide field dual-choose" [ngClass]="{'error': ((submitted && f.reportBy.errors) && f.reportBy.errors.required) }">
+                                                <label>Report By <span class="mandatory">*</span></label>
+                                                <div class="ui fluid search selection dropdown">
+                                                    <input type="hidden" formControlName="reportBy" name="reportBy" value="" required>
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text">Report By</div>
+                                                    <div class="menu">
+                                                        <!-- <div class="item" (click)="setReportBy('option')">Choose option</div> -->
+                                                        <div class="item" (click)="setReportBy('organisation')">Organisation</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="six wide field dual-choose">
+                                                <label>Report Type</label>
+                                                <div class="ui fluid search selection dropdown">
+                                                    <input type="hidden" formControlName="reportType" name="reportType" value="">
+                                                    <i class="dropdown icon"></i>
+                                                    <div class="default text">Report Type</div>
+                                                    <div class="menu">
+                                                        <div class="item" (click)="setReportType('filghtBooking')">Filght|Detail Booking</div>
+                                                        <!-- <div class="item" (click)="setReportType('transaction')">Transaction Report</div> -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- for dual-list -->
+                                    <div *ngIf="showChooseOrg">
+                                        <div class="dual-list-choose-org">
+                                            <dual-list [source]="source" [(destination)]="confirmed"></dual-list>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="field">
+                                        <div class="fields">
+                                        </div>
+                                    </div> -->
+                                    <br>
+                                    <div class="field">
+                                        <div class="fields">
+                                            <div class="six wide field bookings_pickers" [ngClass]="{'error': ((submitted && f.reportStartDate.errors) && f.reportStartDate.errors.required) }">
+                                                <label>Start Date<span class="mandatory">*</span></label>
+                                                <div class="ui left icon input">
+                                                    <input type="text" placeholder="Start Date" formControlName="reportStartDate" name="reportStartDate" value="" required />
+                                                    <i class="icon">
+                                                        <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                            <div class="six wide field bookings_pickers" [ngClass]="{'error': ((submitted && f.reportEndDate.errors) && f.reportEndDate.errors.required) }">
+                                                <label>End Date<span class="mandatory">*</span></label>
+                                                <div class="ui left icon input">
+                                                    <input type="text" placeholder="End Date" formControlName="reportEndDate" name="reportEndDate" value="" required />
+                                                    <i class="icon">
+                                                        <i class="fa fa-calendar-o bookings_input__placeholder-icon cal" aria-hidden="true"></i>
+                                                    </i>          
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="fields">
+                                            <div class="sixteen wide field bookings_btn-panel">
+                                                <button class="ui primary  button">
+                                                    Show Report
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="fields agent-name-booking" *ngIf="showExportButton">
+                                    <div class="eight wide field ui small header">Dynamic Report</div>
+                                    <div class="eight wide field bookings_btn-panel">
+                                        <button class="ui export button" (click)="exportPivotData()" *ngIf="showExportButton" title="Export">
+                                            Export
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="output" class="output-pivot"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- <button class="ui active button" *ngIf="showExportButton" (click)="exportPivotData()">
+            <i class="download icon"></i>
+            Export
+        </button> -->
+    </div>
+</div>

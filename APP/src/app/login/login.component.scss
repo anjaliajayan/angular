@@ -1,0 +1,199 @@
+@import "./../../comon-styles/common.scss";
+
+.login-grid {
+  height: calc(100vh + 30px);
+  overflow: hidden;
+  background-color: $deep-blue-color;
+  background-color: linear-gradient(360deg, #3964AE -12.16%, #062862 104.55%);
+  background-image: url('./../../assets/img/pattern-bg.svg');
+  background-repeat: repeat;
+  background-position: center;
+
+  .login-grid_content {
+    position: relative;
+
+    .five.wide.column {
+      position: relative;
+      z-index: 1000000;
+    }
+
+    form {
+      text-align: center;
+      margin-top: 130px;
+
+      .ui.checkbox {
+        margin: 8px 0;
+      }
+
+      .ui.checkbox .box:before,
+      .ui.checkbox label:before {
+        border: 2px solid $primary-color;
+      }
+
+      &.arora-card {
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+
+        &.otp-card {
+          .button {
+            margin-top: 20px;
+          }
+        }
+
+        .ui.header {
+          color: $deep-blue-color;
+          font-weight: 600 !important;
+        }
+
+        p {
+          color: rgba($color: $deep-blue-color, $alpha: .5);
+        }
+      }
+
+      input {
+        border: 0 !important;
+        background-color: rgba($color: $primary-color, $alpha: .15);
+
+        &:first-child {
+          margin-top: 14px;
+        }
+
+        @include placeholder {
+          font-weight: 400 !important;
+          text-align: left;
+          color: $deep-blue-color;
+          opacity: .5;
+        }
+      }
+
+      .ui.button {
+        background-color: $primary-color !important;
+        min-width: 100% !important;
+      }
+
+      .login-grid_content__title {
+        font-size: 28px;
+        font-weight: 300;
+      }
+
+      .login-grid_content__logo {
+        padding: 0 16px 15px;
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+      }
+
+      label,
+      .field {
+        font-weight: 400 !important;
+        text-align: left;
+        color: $secondary-color;
+      }
+
+      button {
+        width: 100%;
+        max-width: 133px;
+        border-radius: 50px;
+        font-weight: 300;
+      }
+    }
+
+    .login-grid_content__placeholder-img {
+      position: fixed;
+      bottom: 0px;
+      z-index: 0;
+      width: 100%;
+      max-width: calc(100% - 400px);
+      height: auto;
+    }
+  }
+
+  .login-grid_bg-color {
+    background-color: #3867B1;
+    position: relative;
+
+
+    @keyframes flickerAnimation {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-o-keyframes flickerAnimation {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-moz-keyframes flickerAnimation {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes flickerAnimation {
+      0% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.25;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .animate-flicker {
+      -webkit-animation: flickerAnimation 4s infinite;
+      -moz-animation: flickerAnimation 4s infinite;
+      -o-animation: flickerAnimation 4s infinite;
+      animation: flickerAnimation 4s infinite;
+    }
+
+    .login-grid_pattern {
+      width: 100%;
+      max-width: 552px;
+      display: block;
+      margin: 0 auto;
+
+      &:first-child {
+        margin-top: 60px;
+      }
+    }
+
+    .login-grid_logo {
+      position: absolute;
+      right: 42px;
+      bottom: 42px;
+      z-index: 10;
+      width: 100%;
+      max-width: 160px;
+    }
+  }
+}

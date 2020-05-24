@@ -1,0 +1,125 @@
+<div class="outer-wrapper">
+    <table>
+        <tr>
+            <td class="logo-block">
+                <img src="./../../../../assets/img/tp-logo.svg" title="TP Connects"/>
+            </td>
+            <td class="right cust-info">
+              <p>{{userData.username}}</p>
+              <p>{{userData.salute}} {{userData.first_name}} {{userData.last_name}},</p>
+              <p>{{userData.address_1}},</p>
+              <p>Tel : {{userData.mobile}}</p>
+            </td>
+        </tr>
+    </table>
+    <div class="heading center">
+        Car Service Invoice
+    </div>
+    <br/>
+    <div class="ticket-block">
+        <table class="table-head-row pax-table">
+            <tr>
+                <td>Booking Details</td>
+                <td></td>
+            </tr>
+            <tr class="table-content-row">
+                <td class="table-head-row">Pick-Up: <span>{{searchCriteria.pickUp}}</span></td>
+                <td>Drop-Off:<span>{{searchCriteria.dropOff}}</span></td>
+            </tr>
+            <tr class="table-content-row">
+                <td>Pickup Date & Time: <span>{{searchCriteria.startDate | date:'dd MMM yyyy'}} - {{searchCriteria.startTime}}</span></td>
+                <td>Drop-Off Date & Time: <span>{{searchCriteria.endDate | date:'dd MMM yyyy'}} - {{searchCriteria.endTime}}</span></td>
+            </tr>
+            <tr class="table-content-row">
+                <td>Booking Id: <span>{{invoiceData.trip_id}}</span></td>
+                <td>Supplier Reference: <span>{{carInvoiceInfo.supplier_code}}</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="ticket-block">
+        <table class="table-head-row pax-table">
+            <tr>
+                <td>Car Details</td>
+                <td></td>
+            </tr>
+            <tr class="table-content-row">
+                <td class="table-head-row">Car Name: <span> {{carInvoiceInfo.carName}}</span></td>
+                <td>Company Name: <span>{{carInvoiceInfo.carCompanyName}}</span></td>
+            </tr>
+            <tr class="table-content-row">
+                <td>Car Class: <span>{{carInvoiceInfo.carClass}}</span></td>
+                <td>Transmission: <span>{{carInvoiceInfo.transmission}}</span></td>
+            </tr>
+            <tr class="table-content-row">
+                <td>Luggage: <span> {{carInvoiceInfo.luggageLarge}} Larger <span *ngIf="carInvoiceInfo.luggageSmall"> + {{carInvoiceInfo.luggageSmall}} Small</span></span></td>
+                <td>AC:<span>Yes</span></td>
+            </tr>
+        </table>
+    </div>
+    <table class="detail-table" *ngIf="carInvoiceInfo.ServiceList">
+        <tr class="table-head-row">
+            <td>Booking Code</td>
+            <td>Supplier Ref. No </td>
+            <td>Hotel Confirmation No</td>
+            <td>Night(s)</td>
+        </tr>
+        <tr class="table-content-row">
+            <td>TSS51069D2027S</td>
+            <td>2985625</td>
+            <td>2985625</td>
+            <td>1</td>
+        </tr>
+    </table>
+    <div class="head-row left">
+        Check In : 23 March 2020 Check Out : 24 March 2020
+    </div>
+    <div class="ticket-block">
+        <table class="table-head-row pax-table">
+            <tr>
+                <td>Contact Info</td>
+                <td>Booking Date</td>
+                <td>VAT</td>
+                <td></td>
+                <td>Amount Paid</td>
+                <td></td>
+                <td>Due at Pickup</td>
+                <td></td>
+            </tr>
+            <tr class="table-content-row">
+                <td>{{carInvoiceInfo.carOccupancy.first_name+' '+carInvoiceInfo.carOccupancy.last_name}}</td>
+                <td>{{carBookingInfo.created | date:'dd/MM/yyyy'}}</td>
+                <td>{{carInvoiceInfo.currency}} {{carInvoiceInfo.Programs.Program.mandatoryFees.appliedTotalTax}}</td>
+                <td></td>
+                <td>{{carInvoiceInfo.currency}} {{carInvoiceInfo.Programs.Program.mandatoryFees.value+carInvoiceInfo.markupPrice}}</td>
+                <td></td>
+                <td>{{carInvoiceInfo.currency}} {{carInvoiceInfo.Programs.Program.mandatoryFees.value}}</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="head-row total">(VAT Inclusive)Total Price
+                 paid: <span>{{carInvoiceInfo.currency}} {{carInvoiceInfo.Programs.Program.mandatoryFees.value+carInvoiceInfo.markupPrice+carInvoiceInfo.Programs.Program.mandatoryFees.appliedTotalTax}}</span></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+            </tr>
+        </table>
+    </div>
+    <div class="payable-section">
+        <p>For further details please contact accounts dept</p>
+        <p>Phone: # 00918281411095</p>
+        <p>Email: info@test.com</p>
+        <p>Our Support Team is always ready to assist you. Please contact us on testtpc@gmail.com for any assistance or feedback.</p>
+    </div>
+    <div class="payable-section right">
+        <p class="thanks">Thanking You</p>
+        <p>Registration & Sales Team.</p>
+        <p>TPConnects 123</p>
+        <p>testtpc@gmail.com</p>
+    </div>
+</div>
+
+

@@ -1,0 +1,180 @@
+.ui.fluid.container {
+    // padding: 0 40px;
+}
+
+.update-header {
+    display: block;
+    margin-bottom: 24px;
+    font-weight: 400 !important;
+    font-size: 20px;
+    line-height: 23px;
+    color:#4F4F4F;
+    margin: 24px;
+}
+
+.outer-basic {
+    background-color: #FFF;
+    box-shadow: 0 0px 3px rgba(60, 64, 67, 0.3), 0 4px 8px 2px rgba(60, 64, 67, 0.15);
+    border-radius: 4.96141px;
+    // width: 1100px;
+    margin: 24px 24px 180px;
+}
+
+.outer-basicForm {
+    width: 100%;
+    height: auto;
+}
+
+.basic-header {
+    font-family: 'Roboto', sans-serif;
+}
+
+hr {
+    box-sizing: border-box;
+    overflow: visible;
+    border: 0.5px solid #E0E0E0;
+}
+
+.update_text {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 15px;
+    padding-left: 10px;
+}
+
+.field input::placeholder {
+    font-size: 12px;
+}
+
+.dropdown .text {
+    font-size: 12px;
+}
+
+.countryListUser {
+    padding: 0px !important;
+}
+
+.validations {
+    color: red;
+    font-size: 12px;
+}
+
+.ui.form .field>label {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+    color: #181B20 !important;
+    margin: 0px 0px 0px;
+}
+
+.ui.form {
+    .five.wide.field, .eight.wide.field, .four.wide.field {
+        margin-bottom: 16px;
+    }
+}
+
+i.icon {
+    margin-top: 24px;
+}
+
+.ui.fluid .outer-basic .outer-basicForm {
+    padding: 24px 24px 70px;
+    // margin-block-end: 60px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: left;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -160px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.ui.fluid .outer-basic .outer-basicForm .ui.form .field>label {
+    color: #181B20 !important;
+}
+
+// .bookings_btn-panel {
+//     text-align: right;
+//     width: 1100px;
+//     margin-top: 22px;
+// }
+
+.ui.fluid.container {
+    // padding: 0px !important;
+    background: none;
+    // width: 1100px;
+    // margin: 0 !important;
+    // .bookings_btn-panel {
+    //     text-align: right;
+    //     padding: 32px 0px;
+    //     position: absolute;
+    //     bottom: -140px;
+    //     right: -50px;
+    //     .button {
+    //         margin-right: 0px;
+    //         margin-bottom: 0px;
+    //     }
+    // }
+}
+
+.fluid-ui{
+    padding: 24px
+}
+
+.bookings_btn-panel {
+    position: relative;
+    top: 32px;
+    right: -24px;
+    button {
+        float: right;
+        margin-right: 24px;
+        margin-top: -32px;
+    }
+}
+
+.fields {
+    label {
+        padding-bottom: 8px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .outer-basic {
+        width: auto;
+        margin: 24px;
+    }
+    .update-header {
+        margin-left: 24px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .outer-basic {
+        margin: 20px;
+    }
+    .update-header {
+        margin-left: 20px;
+    }
+}

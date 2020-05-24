@@ -1,0 +1,34 @@
+.fare-rules_loader {
+    width: 14px !important;
+    height: auto;
+  }
+
+.rules-block {
+  h3 {
+    margin: 0;
+    margin-bottom: 16px;
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 14px;
+    line-height: 15px;
+    color: rgba(46, 41, 32, 0.8);
+    text-transform: capitalize;
+  }
+  ul {
+    padding-left: 40px;
+    list-style: disc;
+    li {
+      color: rgba(51, 51, 51, 0.8);
+      font-size: 11px;
+      line-height: 20px;
+    }
+  }
+}
+.total-fare-block {
+  margin-top: 12px;
+}
+
+.ui.styled.accordion .title i.dropdown.icon {
+  position: relative;
+  top: -12px;
+}

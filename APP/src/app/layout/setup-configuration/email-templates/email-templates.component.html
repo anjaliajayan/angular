@@ -1,0 +1,82 @@
+<h3><span class="update-header">Email templates</span></h3>
+<div class="ui fluid container">
+    <div class="outer-basic result-block">
+        <div class="outer-basicForm">
+            <div class="ui form">
+                <div class="email-list b2c-list-user-table  user-table-list">
+                    <ngx-datatable #table class="table" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10" [rows]="NewListOfEmails" [sortType]="'multi'" [reorderable]="true" [sorts]="[{ prop: 'id', dir: 'desc' }]">
+                        <ngx-datatable-column name="Name" prop="email_template_name">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Function" prop="email_template_function">
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Created Date" prop="created_at">
+                            <ng-template ngx-datatable-cell-template let-value="value">{{value | date: 'dd/MM/yyyy'}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="status" prop="status">
+                            <ng-template ngx-datatable-cell-template let-value="value">
+                                <span *ngIf="value == true" title="Active">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                    <!-- <i class="icon">
+                                        <img src="./../../../../../assets/icons/checkmark.png" class="bookings_input__placeholder-icon cal" />
+                                    </i> -->
+                                </span>
+                                <span *ngIf="value != true" title="Inactive">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                    <!-- <i class="icon">
+                                        <img src="./../../../../../assets/icons/crossX.png" class="bookings_input__placeholder-icon cal" />
+                                    </i> -->
+                                </span>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Action" prop="email_template_id">
+                            <ng-template let-value="value" ngx-datatable-cell-template>
+                                <a><i class="eye icon eye-icon" title="View Template" (click)="editTemplate(value, 'custom-modal-1')"></i></a>
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+    <jw-modal id="custom-modal-1" class="emailTemplateModal">
+        <div class="ui" *ngIf="showDetailModal">
+            <i class="close icon" (click)="closeModal('custom-modal-1')"></i>
+            <div class="header">
+                Email Template Form
+            </div>
+            <div class="ui container">
+                <div class="form-inner">
+                    <form class="ui form" [formGroup]="templateForm" (ngSubmit)="updateTemplate('custom-modal-1')">
+                        <div class="form-inner">
+                            <div class="fields">
+                                <div class="field" [ngClass]="{
+                                        error:
+                                        submitted &&
+                                        f.email_template_name.errors &&
+                                        f.email_template_name.errors.required
+                                    }">
+                                    <label>Email Template Name</label>
+                                    <input type="text" name="email_template_name" formControlName="email_template_name" placeholder="Email Template Name" />
+                                </div>
+                                <div class="field ckEditor-area">
+                                    <ckeditor data="" formControlName="email_template_description"></ckeditor>
+                                    <div *ngIf="submitted &&  f.email_template_description.errors && f.email_template_description.errors.required">
+                                        Please enter template description
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fields">
+                                <div class="bookings_btn-panel">
+                                    <button class="ui primary  button">
+                                        Update
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </jw-modal>
+</div>

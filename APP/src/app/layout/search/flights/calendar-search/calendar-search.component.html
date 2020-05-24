@@ -1,0 +1,262 @@
+<div class="ui grid">
+    <div class="sixteen wide column row head-wrap">
+        <div class="sixteen wide column">
+            <div class="seg-label">Departure</div>
+        </div>
+    </div>
+    <div class="sixteen wide column row cal-block">
+        <div class="one wide column">
+            <div class="seg-label vert">Return</div>
+        </div>
+        <div [ngClass]="{
+        'eleven wide column table-wrapper': flightRateInfo,
+        'fifteen wide column': !flightRateInfo
+        }">
+            <table class="ui celled table text-center">
+                <thead>
+                    <tr>
+                        <th class="blank"></th>
+                        <th>
+                            Friday
+                            <p>20 Mar 2020</p>
+                        </th>
+                        <th>
+                            Saturday
+                            <p>21 Mar 2020</p>
+                        </th>
+                        <th>
+                            Sunday
+                            <p>22 Mar 2020</p>
+                        </th>
+                        <th>
+                            Monday
+                            <p>23 Mar 2020</p>
+                        </th>
+                        <th>
+                            Tuesday
+                            <p>24 Mar 2020</p>
+                        </th>
+                        <th>
+                            Wednesday
+                            <p>25 Mar 2020</p>
+                        </th>
+                        <th>
+                            Thursday
+                            <p>26 Mar 2020</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="main-cell">Friday</td>
+                        <td class="flight-rate-info" (click)="showFlightRateInfo()">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/ba-logo.png" />
+                            British Airways
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Saturday</td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/ba-logo.png" />
+                            British Airways
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Sunday</td>
+                        <td></td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Monday</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Tuesday</td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/ba-logo.png" />
+                            British Airways
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Wednesday</td>
+                        <td></td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="main-cell">Thursday</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="flight-rate-info">
+                            <img src="./../../../../assets/img/Emirates-logo.png" />
+                            Emirates
+                            <p class="rate">AED 1800</p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="four wide column" *ngIf="flightRateInfo">
+            <div class="ui grid rate-info-block">
+                <div class="sixteen wide column row route-seg-detail">
+                    <div class="sixteen wide column">
+                        <div class="ui grid">
+                            <div class="sixteen wide column row">
+                                <div class="sixteen wide column text-center">
+                                    <h4>Depart</h4>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                                <div class="eight wide column">
+                                    <p>DXB <span class="arrow">&rarr;</span> COK</p>
+                                </div>
+                                <div class="eight wide column">
+                                    <p class="text-right">Wed, 19-02-2020</p>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                                <div class="five wide column">
+                                    <p class="route-time">12:50</p>
+                                    <p class="route-seg">DXB</p>
+                                </div>
+                                <div class="six wide column">
+                                    <p class="route-dur">8h 30m</p>
+                                    <p class="route-line"></p>
+                                </div>
+                                <div class="five wide column">
+                                    <p class="route-time">12:50</p>
+                                    <p class="route-seg">COK</p>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row route-flight-info">
+                                <div class="four wide column">
+                                    <p>EK1777</p>
+                                </div>
+                                <div class="four wide column">
+                                    <p>Emirates</p>
+                                </div>
+                                <div class="four wide column">
+                                    <p>788</p>
+                                </div>
+                                <div class="four wide column">
+                                    <img src="./../../../../assets/img/Emirates-logo.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sixteen wide column row route-seg-detail">
+                    <div class="sixteen wide column">
+                        <div class="ui grid">
+                            <div class="sixteen wide column row">
+                                <div class="sixteen wide column text-center">
+                                    <h4>Return</h4>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                                <div class="eight wide column">
+                                    <p>DXB <span class="arrow">&rarr;</span> COK</p>
+                                </div>
+                                <div class="eight wide column">
+                                    <p class="text-right">Wed, 19-02-2020</p>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row">
+                                <div class="five wide column">
+                                    <p class="route-time">12:50</p>
+                                    <p class="route-seg">DXB</p>
+                                </div>
+                                <div class="six wide column">
+                                    <p class="route-dur">8h 30m</p>
+                                    <p class="route-line"></p>
+                                </div>
+                                <div class="five wide column">
+                                    <p class="route-time">12:50</p>
+                                    <p class="route-seg">COK</p>
+                                </div>
+                            </div>
+                            <div class="sixteen wide column row route-flight-info">
+                                <div class="four wide column">
+                                    <p>EK1777</p>
+                                </div>
+                                <div class="four wide column">
+                                    <p>Emirates</p>
+                                </div>
+                                <div class="four wide column">
+                                    <p>788</p>
+                                </div>
+                                <div class="four wide column">
+                                    <img src="./../../../../assets/img/Emirates-logo.png" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<app-pos-edit-button></app-pos-edit-button>
+
+<div class="outer-segment">
+  <!-- <h3 class="booking-header booking_comp">Branches</h3> -->
+  <div class="outer-basic animated fadeIn">
+    <div class="outer-basicForm">
+      <div class="ui segment">
+        <form class="ui form pos_basic_form" autocomplete="off" [formGroup]="branchForm">
+          <!-- Office address part -->
+          <h4 class="ui header spacing">Branch Details</h4>
+          <div class="field spacing">
+            <div class="ui four column grid fields custom-columns">
+              <div class="three wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.name.errors}">
+                <label>Branch Name<span class="mandatory">*</span></label>
+                <input type="text" name="name" formControlName="name" placeholder="Branch Name" required>
+              </div>
+              <div class="three wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.branch_code.errors}">
+                <label>Branch Code<span class="mandatory">*</span></label>
+                <input type="text" name="branch_code" formControlName="branch_code" value="" placeholder="Branch Code"
+                  required>
+                <div *ngIf="gfc.branch_code.errors" class="invalid-feedback">
+                  <div class="validations" *ngIf="gfc.branch_code.errors.pattern">
+                    Branch code must be alphanumeric
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field" [ngClass]="{'is-invalid': isSubmitted && gfc.email.errors}">
+                <label>Email<span class="mandatory">*</span></label>
+                <input type="text" formControlName="email" placeholder="Email" name="email" class="email" required>
+                <div *ngIf="gfc.email.errors" class="invalid-feedback">
+                  <div class="validations" *ngIf="gfc.email.errors.pattern">
+                    Email must be a valid email
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field">
+                <label>Address 1</label>
+                <input type="text" formControlName="address_1" placeholder="Address1" name="address_1">
+              </div>
+              <div class="three wide field">
+                <label>Address 2</label>
+                <input type="text" formControlName="address_2" placeholder="Address2">
+              </div>
+            </div>
+            <div class="ui four column grid fields">
+              <div class="sixteen wide field text-right bookings-btn_panel">
+                <button mat-button class="ui button primary button_align" *ngIf="!showUpdate" type="submit"  (click)="saveBraches()">Save</button>
+                <button mat-button class="ui button primary button_align" (click)="updateBranch()" *ngIf="showUpdate">Update</button>
+                <button mat-button class="ui button reset button_align" (click)="cancelOfficeDetails()">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="pos_btn-panel spacing">
+          </div>
+        </form>
+      </div>
+      <div class="user-table-list b2c-list-user-table result-block">
+        <ngx-datatable #table class="table" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+          [rowHeight]="'auto'" [limit]="10" [rows]="branchesdata" [sortType]="'multi'" [reorderable]="true"
+          [sorts]="[{ prop: 'id', dir: 'desc' }]">
+          <!-- <ngx-datatable-column name="Id" prop="id">
+          </ngx-datatable-column> -->
+          <ngx-datatable-column name="Branch Name" prop="name">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Branch Code" prop="branch_code">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Email" prop="email">
+            <ng-template let-row="row" ngx-datatable-cell-template>
+              <span title="Email" class="email">
+                {{row.email}}
+              </span>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Address 1" prop="address_1">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Address 2" prop="address_2">
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Date" prop="created_at">
+            <ng-template ngx-datatable-cell-template let-value="value">{{value |date: 'dd/MM/yyyy h:mm a'}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Delete">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <ng-container>
+                <span class="action" title="Delete">
+                  <i class="fa fa-trash-o" aria-hidden="true" (click)="deleteTourCode(row)"></i>
+                </span>
+              </ng-container>
+            </ng-template>
+          </ngx-datatable-column>
+                <ngx-datatable-column name="Edit">
+            <ng-template let-row="row" ngx-datatable-cell-template let-value="value">
+              <ng-container>
+                <span class="action" title="Delete">
+                  <i class="fa fa-edit" aria-hidden="true" (click)="editbranch(row)"></i>
+                </span>
+              </ng-container>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+      </div>
+      <!-- <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="sixteen wide column text-right btn-wrap">
+            <button class="ui button primary button_align" (click)="createBranch()">ADD</button>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

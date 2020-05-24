@@ -1,0 +1,51 @@
+export interface UserRole {
+    agent: Boolean,
+    admin: Boolean,
+    corporate: Boolean,
+    users_id: {
+        type: Number,
+        primaryKey: true
+    },
+    username: String,
+    agent_code: Number,
+    profile_image: String,
+    locale: {
+        type: String,
+        defaultValue: 'en'
+    },
+    first_name: String,
+    last_name: String,
+    sex: String,
+    mobile: String,
+    email: String,
+    password: String,
+    address_1: String,
+    address_2: String,
+    code: String,
+    phone_code: String,
+    agent_name: String,
+    security_answer: String,
+    group_id: Number,
+    country_id: Number,
+    is_banned: Boolean,
+    is_validated: Boolean,
+    is_login: Boolean,
+    created: Date,
+    status: Boolean,
+    is_active: Number,
+    security_id: Number,
+    // salute: {
+        //     type: String,
+        //     values: String
+        // },
+    organisation_id: Number,
+    api_key: String,
+    show_nationality: Boolean,
+    cost_center: String,
+    readonly: Boolean,
+    menu_permission: String,
+    initial: String,
+    numberOfUsers: Number,
+    target_amount: String
+    modified: Date,
+}

@@ -1,0 +1,839 @@
+@import "./../../../../../comon-styles/common.scss";
+
+.ui.grid+.grid {
+  margin-top: 0;
+}
+
+h3 span {
+  font-weight: 600 !important;
+  font-family: $font-family;
+  color: rgba($deep-blue-color, .8);
+}
+
+
+.checkbox_label {
+  height: 13px !important;
+  color: #828282 !important;
+  font-family: Ubuntu !important;
+  font-size: 12px !important;
+  font-weight: 300 !important;
+}
+
+h4 {
+  font-weight: 400 !important;
+  font-family: $font-family;
+  color: rgba(79, 79, 79, 0.9);
+  font-size: 18px;
+  padding-left: 9px !important;
+}
+
+label {
+  display: block;
+  font-weight: 400 !important;
+  font-family: $font-family !important;
+  color: rgba($deep-blue-color, .6);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+label.label-text {
+  font-family: $font-family !important;
+  color: rgba($deep-blue-color, .6) !important;
+}
+
+.ui.radio.checkbox label {
+  font-weight: 400 !important;
+  font-family: $font-family;
+  color: rgba($deep-blue-color, .5);
+  font-size: 14px;
+  margin-right: 18px;
+}
+
+.radio-block {
+  .ui.checkbox input:checked~.box:before, .ui.checkbox input:checked~label:before {
+    border-color: #4567AC;
+  }
+
+  .ui.radio.checkbox .box:before, .ui.radio.checkbox label:before, .ui.radio.checkbox .box:after, .ui.radio.checkbox label:after, .ui.checkbox input[type=radio] {
+    top: -2px;
+  }
+
+  .ui.checkbox input:checked~.box:after, .ui.checkbox input:checked~label:after {
+    color: #4567AC;
+    background-color: #4567AC;
+  }
+}
+
+.check-block {
+  .ui.checkbox .box:before, .ui.checkbox label:before {
+    top: -2px;
+  }
+  .ui.checkbox input:checked~.box:after, .ui.checkbox input:checked~label:after {
+    color: #4567AC;
+  }
+  .ui.checkbox input:checked~.box:before, .ui.checkbox input:checked~label:before {
+    border-color: #4567AC;
+  }
+}
+
+.ui.form input[type=text],
+input {
+ 
+  padding: 8px 15px !important;
+  // width: 72% !important;
+
+  
+}
+
+.mtb {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.ml {
+  margin-left: 20px;
+}
+
+.mr {
+  margin-right: 20px;
+}
+
+.booking-header {
+  color: #4F4F4F;
+  font-family: Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 22px;
+  margin-left: 22px;
+}
+
+.outer-basic {
+  background-color: #FFF;
+  box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.outer-basicForm {
+  width: 100%;
+  height: auto;
+  padding: 0px;
+}
+
+.bookings_pickers .input {
+
+  &.bookings_datepicker {
+    min-width: 120px;
+    max-width: 138px
+  }
+
+  .ui.column.grid>input.move-left
+{
+  margin-left:20px !important;
+
+}
+
+  .ui.basic.floating.button {
+    padding: 10px !important;
+    color: rgba(152, 152, 152, 0.6) !important;
+    font-weight: 300 !important;
+    line-height: 11px;
+  }
+
+  .icon {
+    opacity: 1;
+    z-index: 100;
+
+    .bookings_input__placeholder-icon {
+      width: 24px;
+      margin-top: 6px;
+
+      &.cal {
+        width: 18px;
+        margin-top: 10px;
+      }
+    }
+  }
+}
+
+.bground{
+
+background-color:transparent !important;
+border: 2px solid #A6B1C3 !important;
+cursor:pointer;
+}
+
+.stepper-grid-content {
+  display: none;
+  &._active {
+    display: block;
+  }
+}
+
+f .outer-basic {
+  background-color: #FFF;
+  box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-top: 15px !important;
+}
+
+  .search.dropdown {
+    width: 218px;
+    border-right: 0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    .search {
+      margin-left: 42px !important;
+    }
+
+    .default.text {
+      font-size: 12px;
+      margin-right: 0 !important;
+      padding: 8px 0 0 38px !important;
+    }
+    &.title-dropdown {
+      .default.text {
+        margin-right: auto !important;
+        padding: 0px 14px !important;
+        top: -2px;
+      }
+    }
+  }
+
+.trailing_button {
+  position: absolute;
+  right: 0;
+}
+
+.newAgency_topAlign {
+  padding-top: 1vh;
+}
+
+td {
+  color: #4F4F4F;
+  font-family: Helvetica;
+  font-size: 10px;
+  line-height: 11px;
+  text-align: center;
+}
+
+th {
+  color: #4F4F4F;
+  font-family: Helvetica;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 11px;
+  text-align: center;
+}
+
+
+
+.confirm {
+  width: 63px;
+}
+
+.recConfirm {
+  height: 18px;
+  width: 62px;
+  background-color: #72D44F;
+  color: white;
+  padding-top: .5vh;
+}
+
+.tab.segment {
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.field input::placeholder {
+  font-size: 12px;
+}
+
+
+.outer-basic_secondary {
+  background-color: #FFF;
+  box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.outer-basicForm_secondary {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+
+.right_links {
+  position: absolute;
+  right: 0;
+  padding-top: 1vh;
+  padding-right: 8vh;
+}
+
+.outer-basic_tertiary {
+  background-color: #FFF;
+  box-shadow: 3px 1px 4px 0 rgba(0, 0, 0, 0.4);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.outer-basicForm_tertiary {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+
+hr {
+  box-sizing: border-box;
+  height: 1px;
+  border: 0.5px solid #E0E0E0;
+}
+
+.dropdown .text {
+  font-size: 12px;
+}
+
+.bookings_btn-panel.trailing_button {
+  margin-right: 45px;
+}
+
+.ui.fluid.container {
+  padding: 28px;
+}
+
+
+
+.ui.selection.dropdown{
+
+  margin-left: 349px;
+  border: 1px solid #437ADA;
+  box-sizing: border-box;
+  border-radius: 5.12155px;
+}
+
+
+.gender-label{
+font-family: Work Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 10px;
+line-height: 12px;
+color: #122A58;
+
+}
+
+
+
+.ui.search.dropdown{
+  margin-right: 394px !important;
+  border: 1px solid #437ADA;
+  box-sizing: border-box;
+  border-radius: 5.12155px;
+  width: 100%;
+}
+.dropdown-data{
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 10.2431px;
+line-height: 12px;
+
+color: #062862;
+}
+.profile-label{
+font-family: Work Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 9px;
+
+
+
+
+opacity: 0.8;
+}
+
+.ui.button {
+  margin-left: 42px;
+}
+
+
+.stepper-grid .stepper-grid_step .stepper-grid_step__step-icon div {
+  div.image {
+    margin: 0 auto;
+    background-color: $secondary-color;
+
+    &._travel {
+      @include mask-svg-div('./../../../../../assets/img/travel.svg');
+    }
+
+    &._user {
+      @include mask-svg-div('./../../../../../assets/img/personal.svg');
+    }
+
+    &._payment {
+      @include mask-svg-div('./../../../../../assets/img/payment.svg');
+    }
+
+    &._remarks {
+      @include mask-svg-div('./../../../../../assets/img/remarks.svg');
+    }
+
+    &._airline {
+      @include mask-svg-div('./../../../../../assets/img/airline-preferences.svg');
+    }
+  }
+}
+
+.ui.fluid.selection.dropdown{
+margin-left:0px
+
+}
+.ui.fluid .outer-basic .outer-basicForm {
+  padding: 0px;
+}
+
+.ui.grid.info-block {
+  margin: 0px;
+  .ui.search.dropdown {
+    & > input.search {
+      padding: 8px 14px;
+    }
+    .menu {
+      width: 100%;
+    }
+    .dropdown.icon {
+      position: relative;
+      top: 14px;
+      right: 14px;
+    }
+  }
+  .ui.search.dropdown > input.search {
+      padding: 8px 14px;
+  }
+}
+
+
+.ui.column.grid > input.adjust{  
+    width:77.5% !important;
+}
+
+.resize{
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 1.5px;
+}
+
+.renew{
+
+  margin-top: 1rem !important;
+  margin-left: 2px !important;
+}
+.reform{
+  margin-top: 30px;
+  height: 30px !important;
+}
+
+.adjust{
+  width:0% !important;
+}
+
+.scrolling{
+  scroll-behavior: smooth !important;
+}
+
+.width_adjust{
+
+  width:100%!important;
+}
+
+.ui.search.dropdown.flow-size {
+
+margin-right: 0% !important;
+width: 70% !important;
+&>input.search {
+padding: 2px 1px;
+}
+.dropdown.icon {
+  position: relative;
+  top: 14px;
+  right: 14px;
+}
+.menu {
+  width: 100%;
+}
+}
+
+.assign-left{
+  margin-left:11px  !important;
+
+}
+.pull-left {
+
+  margin-left:-80px !important;
+}
+.define-width{
+
+  width: 50% !important;
+}
+
+.apply-width{
+
+  width: 40% !important;
+}
+
+.pull-right{
+
+  margin-right:-20px !important;
+}
+
+
+
+.ui.column.grid>.pull-down{
+  margin-top: 33px !important
+}
+
+.form-left{
+  margin-left: 0px !important
+}
+
+
+.ui.button>.bring-down{
+
+  margin-bottom:-60px ;
+}
+
+.push-right{
+
+  margin-left: 1360px !important;
+}
+.push-left{
+
+  position: absolute !important;
+}
+
+.bring-left{
+  margin-left:18px !important;
+
+}
+
+.bring-right{
+  margin-left:18px !important;
+ 
+}
+.indent{
+
+  margin: 0px;
+}
+
+
+
+.align.front{
+  margin-right:50px !important;
+
+}
+.ui.form {
+  input.element-width{
+
+  width: 100% !important;
+  }
+}
+
+.ui.form {
+  input.element-set{
+
+  width: 100% !important;
+  padding: .67857143em 1em !important;
+  }
+}
+
+.ui.form {
+  input.grid-width{
+
+  width: 92% !important;
+  }
+}
+
+
+.ui.form {
+  input.text-colour{
+
+  width: 100% !important;
+  }
+}
+
+.ui.form {
+  input.start-form{
+
+    padding-right: 1em !important;
+    padding-left: 2.67142857em!important;
+  }
+}
+
+
+.validations {
+  color: red;
+  font-size: x-small;
+}
+
+.ui.form {
+  input.padding_in{
+
+    padding-right: 1em !important;
+    
+  }
+}
+
+.ui.search.dropdown {
+   input.default.text {
+    padding:0 !important ;
+   }
+  }
+
+
+  .reduce-size{
+
+    width:100% !important ;
+  }
+
+  .width_format{
+    width:120% !important;
+  }
+
+
+.allign-down{
+
+  margin-top: 11px !important;
+}
+.down {
+  
+  margin-top: 11px !important;
+}
+
+.bring-down{
+
+  margin-top: 13px !important;
+  width:80% !important;
+}
+
+.move{
+
+margin-top:0px !important;
+margin-right: auto !important;
+    justify-content: center;
+}
+
+.keep_right{
+  position: relative;
+  top: 10px;
+  left: 0px;
+}
+.box-size{
+
+  width: 30% !important;
+}
+
+.allign-left{
+
+  margin-left:0px !important;
+  margin-top: 19px !important;
+  padding-top: 12px;
+}
+
+.align-left-block {
+  margin: 0px 12px 12px 12px !important;
+  padding-top: 12px;
+}
+
+.form-down{
+margin-top: 19px !important;
+}
+
+.fix-down{
+
+  margin-top:32px !important;
+}
+
+.assign_right{
+
+  margin-left:1% !important;
+  width: 100% !important;
+}
+.assign_left{
+
+  margin-left:-10px!important;
+}
+
+.padding_left{
+  font-size: 12px;
+  margin-right: 0 !important;
+  padding: 0 !important;
+}
+
+.resize-left{
+
+  margin-top: 9px !important;
+  margin-left:20px  !important;
+  width:16px !important;
+}
+
+.pull-down{
+
+  margin-top:25px  !important;
+}
+
+.addrr-block {
+  div.ui.input.adr {
+    margin-bottom: 16px;
+  }
+  div.validations.phone-valid {
+    position: relative;
+    top: -12px;
+  }
+}
+
+.ui.input .phone-code {
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  max-width: 32% !important;
+  &:active, &:focus {
+      border-color: rgba(6, 40, 98, 0.2) !important;
+      border-width: 1px !important;
+      min-width: 7em !important;
+  }
+}
+
+.ui.input .phone-no {
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-left: none !important;
+  &:active, &:focus {
+      border-color: rgba(6, 40, 98, 0.2) !important;
+      border-width: 1px !important;
+  }
+}
+
+.p-0 {
+  padding: 0px;
+}
+
+#personal {
+  padding-bottom: 6px;
+}
+
+.airline-custom {
+  margin-top: 26px;
+}
+
+h4.hotel {
+  margin-top: 24px;
+}
+
+.stepper-grid.stepper-wrapper-grid {
+    .stepper-grid_step.stepper-wrapper {
+        cursor: default;
+        .stepper-grid_step__step-icon {
+            cursor: pointer;
+            label {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media (min-width: 1680px) {
+  .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column {
+    width: 20% !important;
+  }
+  .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+    width: 27.25%!important;
+  }
+}
+
+@media (max-width: 1564px) {
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+    width: 15%!important;
+  }
+}
+
+@media (max-width: 1354px) {
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+    width: 20%!important;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+    width: 19.5% !important;
+  }
+  .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+    width: 27.75%!important;
+  }
+}
+
+@media (max-width: 1120px) {
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+    width: 23.5% !important;
+  }
+  .ui.grid>.column.row>[class*="three wide"].column, .ui.grid>.row>[class*="three wide"].column {
+    width: 28.75%!important;
+  }
+  .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column {
+    width: 33.25%!important;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 810px) {
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column {
+    width: 35.5% !important;
+  }
+  .ui.grid>.column.row>[class*="six wide"].column.add-airline, .ui.grid>.row>[class*="six wide"].column.add-airline {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column,
+  .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column {
+    width: 50%!important;
+  }
+  .ui.grid>.column.row>[class*="six wide"].column.add-airline, .ui.grid>.row>[class*="six wide"].column.add-airline {
+    width: 100% !important;
+  }
+  h3 + .ui.fluid.container {
+    padding: 20px 8px 28px !important;
+    .outer-basic {
+      padding: 24px 12px !important;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .ui.grid>.column.row>[class*="four wide"].column, .ui.grid>.row>[class*="four wide"].column,
+  .ui.grid>.column.row>[class*="five wide"].column, .ui.grid>.row>[class*="five wide"].column,
+  .ui.grid>.column.row>[class*="two wide"].column, .ui.grid>.row>[class*="two wide"].column,
+  .ui.grid>.column.row>[class*="three wide"].column, .ui.grid>.row>[class*="three wide"].column {
+    width: 100%!important;
+  }
+  .ui.grid {
+    .title-traveller {
+      .ui.search.dropdown {
+        width: 50% !important;
+      }
+    }
+    .doc-head {
+      margin-bottom: 12px;
+    }
+  }
+  .ui.form .fields.doc-head {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ui.input .phone-code {
+    min-width: 60px !important;
+  }
+}

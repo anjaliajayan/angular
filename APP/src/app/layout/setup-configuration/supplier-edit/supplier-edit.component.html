@@ -1,0 +1,212 @@
+<div class="ui basic segment">
+  <div class="ui fluid container">
+    <h3><span class="update-header">Update Supplier</span></h3>
+  </div>
+  <div class="ui fluid container supplier-edit">
+    <div class="outer-basic result-block">
+      <div class="outer-basicForm">
+        <div class="ui">
+          <form class="ui form" #Form="ngForm" [formGroup]="supplierUpdateForm">
+            <div class="four fields">
+              <div class="five wide field">
+                <label>Supplier code</label>
+                <input type="text" placeholder="Supplier code" formControlName="supplier_code" name="supplier_code" disabled>
+              </div>
+              <div class="five wide field">
+                <label>Email</label>
+                <input type="email" placeholder="Email" class="email" formControlName="email" name="email" disabled>
+              </div>
+              <div class="five wide field">
+                <label>Contact Number</label>
+                <input type="text" placeholder="Contact number" formControlName="contact" name="contact" disabled>
+              </div>
+            </div>
+            <div class="five fields">
+              <div class="five wide field">
+                <label>Select Country</label>
+                <select class="ui fluid search dropdownthree" formControlName="country_id" name="country_id">
+                  <option class="item" *ngFor="let country of countries" value="{{country.country_id}}">{{country.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="five wide field">
+                <label>Select Organisation</label>
+                <select class="ui fluid search dropdownOne" formControlName="organisation_id" name="organisation_id"
+                  required>
+                  <option class="item" *ngFor="let agent of agents" value="{{agent.agent_code}}">{{agent.name}}</option>
+                </select>
+              </div>
+              <div class="five wide field">
+                <label>Website Url</label>
+                <input type="text" placeholder="Website Url" formControlName="website" name="website">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <label>Status</label>
+                <select class="ui fluid dropdownTwo " formControlName="status">
+                  <option *ngFor="let status of statusRow" value="{{status.id}}">{{status.value}}</option>
+                </select>
+              </div>
+              <div class="five wide field">
+                <label>Credit Limit</label>
+                <div class="ui disabled input">
+                  <input type="number" placeholder="Credit Limit" formControlName="credit_limit" name="credit_limit">
+                </div>
+              </div>
+              <div class="five wide field">
+                <label>Credit Days</label>
+                <input type="number" placeholder="Credit Days" formControlName="credit_days" name="credit_days">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <label>Currency</label>
+                <div class="ui disabled input">
+                  <input type="text" placeholder="Currency" formControlName="currency_id" name="currency_id">
+                </div>
+              </div>
+              <div class="five wide field">
+                <label>Notification Balance</label>
+                <div class="ui disabled input">
+                  <input type="text" placeholder="notification" formControlName="notification" name="notification">
+                </div>
+              </div>
+            </div>
+            <h4 class="ui header">Supplier Products</h4>
+            <div class="ui grid">
+              <div class="six column row">
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="flight" disabled>
+                    <label>Flight</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="hotel" disabled>
+                    <label>Hotel</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="activities" disabled>
+                    <label>Activities</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="car_hire" disabled>
+                    <label>Car Hire</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="insurance" disabled>
+                    <label>Travel Insurances</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <h4 class="ui header">After Sales Products</h4>
+            <div class="ui grid">
+              <div class="six column row">
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="reissue" formControlName="reissue">
+                    <label>Reissue</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui  checkbox">
+                    <input type="checkbox" name="refund" formControlName="refund">
+                    <label>Refund</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui  checkbox">
+                    <input type="checkbox" name="refund_same" formControlName="refund_same">
+                    <label>Refund Same Day</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui  checkbox">
+                    <input type="checkbox" name="void_all" formControlName="void_all">
+                    <label>Void All</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="void_single" formControlName="void_single">
+                    <label>Void Single</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="split" formControlName="split">
+                    <label>Split</label>
+                  </div>
+                </div>
+              </div>
+              <div class="six column row">
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="cancel" formControlName="cancel">
+                    <label>Cancel</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="hold" formControlName="hold">
+                    <label>Hold</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="reterive" formControlName="reterive">
+                    <label>Retrieve</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="free_service" formControlName="free_service">
+                    <label>Free Services</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="paid_service" formControlName="paid_service">
+                    <label>Paid Services</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="seats" formControlName="seats">
+                    <label>Seats</label>
+                  </div>
+                </div>
+              </div>
+              <div class="six column row">
+                <div class="column">
+                  <div class="ui checkbox">
+                    <input type="checkbox" name="fare_rules" formControlName="fare_rules">
+                    <label>Fair rule Services</label>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui disabled checkbox">
+                    <input type="checkbox" name="iata_card" formControlName="iata_card">
+                    <label>Iata card</label>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="bookings_btn-panel">
+              <button class="ui primary button" (click)="updateSupplier()">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

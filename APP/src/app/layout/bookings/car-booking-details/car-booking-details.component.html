@@ -1,0 +1,380 @@
+<div class="booking-details-wrapper" *ngIf="!displayVoucher && !displayInvoice">
+  <!--Warning block-->
+  <!-- <div class="animated fadeInUp delay-2s" [class.loading]="bookingDetailsLoader">
+    <div class="ui grid">
+      <div class="sixteen wide column row">
+        <div class="sixteen wide column warning-block">
+          <p class="warning-msg">
+            Dear customer your flight from CCJ to SIN has changed to SQ123 CCJ KUL on 23-Jan-2020 at 04:45:00
+          </p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="arora-card animated fadeIn detail-wrapper" >
+    <form [formGroup]="bookingDetailForm" autocomplete="off">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid">
+          <div class="ten wide column padding-top-bottom">
+            <h3 class="arora-card_title">Trip Details</h3>
+          </div>
+          <div class="six wide column text-right padding-top-bottom">
+            <!-- <h5 class="right booking_title">Booking By User</h5>
+            <p class="ui right booked_user">{{bookUsername}}</p> -->
+          </div>
+        </div>
+        <div class="ui sixteen wide column grid padding-top-bottom">
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Trip ID</h5>
+            <p>
+              <input name="trip_id" value="{{allBookingDetails.trip_id}}"  readonly class="textFields">
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Agent Reference</h5>
+            <p>
+              <input name="reference" readonly class="textFields"  value="{{allBookingDetails.agent_reference}}">
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Booking Date</h5>
+            <p>
+              <input name="booked_date" value="{{allBookingDetails.created}}" readonly>
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Booked By User</h5>
+            <!-- <p class="ui right booked_user">{{bookUsername}}</p> -->
+            <p>
+              <input name="reference"  class="textFields booked_user"
+                     value="{{allUserDetails.username}}" readonly/>
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Ticketed By</h5>
+            <p>
+              <input name="ticket_user" readonly class="textFields" value="TP Connects">
+            </p>
+          </div>
+        </div>
+        <div class="ui sixteen wide column grid padding-top-bottom">
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Total Sale Amount</h5>
+            <p>
+              <input readonly class="textFields" value="{{allBookingDetails.markup_price}}">
+            </p>
+          </div>
+          <!-- </div>
+        <div class="ui sixteen wide column grid padding-top-bottom"> -->
+          <div class="three wide column">
+            <h5 class="arora-card_el-title">Total Net Due Amount</h5>
+            <p>
+              <input readonly class="textFields" value="{{allBookingDetails.markup_price}}">
+            </p>
+          </div>
+        </div>
+        <!-- <div class="ui sixteen wide column grid padding-top-bottom">
+          <div class="three wide column">
+            <h5 class="arora-card_el-title sale-amount">Total Sale Amount</h5>
+            <p>
+              <span class="sale-amount_currency"></span>
+              <span class="sale-amount_details">
+                <input name="total_sale" [value]="bookingDetailForm.get('total_sale').value | currency:bookingDetailForm.get('booking_currency').value :'symbol':'4.2-2'"
+                  formControlName="total_sale" readonly class="textFields">
+              </span>
+            </p>
+          </div>
+          <div class="three wide column">
+            <h5 class="arora-card_el-title net-amount">Total Net Amount</h5>
+            <p>
+              <span class="net-amount_details">
+                <span class="net-amount_currency"></span>
+              </span>
+              <span class="net-amount_rate">
+                <input name="net_amount" [value]="bookingDetailForm.get('net_amount').value | currency:bookingDetailForm.get('booking_currency').value:'symbol':'4.2-2'"
+                  formControlName="net_amount" readonly class="textFields">
+              </span>
+            </p>
+          </div>
+        </div> -->
+        <div class="ui sixteen wide column grid padding-top-bottom">
+          <div class="eight wide column add-btn-block">
+            <p class="ui button">
+              <a routerLink="/search/flights">Add Flight</a>
+            </p>
+            <p class="ui button">
+              <a routerLink="/search/hotels">Add Hotel</a>
+            </p>
+          </div>
+          <div class="eight wide column text-right button-grid">
+            <p class="ui primary basic button">
+              <a (click)="sendVoucherMail('send_voucher')">Send voucher mail</a>
+            </p>
+            <p class="ui primary basic button">
+              <a (click)="showVoucher(bookingTrip_id)">Print voucher</a>
+            </p>
+            <br>
+            <!-- <p class="ui primary basic button">
+              <a (click)="bookingVoucher(bookingTrip_id)">Print without price</a>
+            </p>-->
+            <p class="ui primary basic button">
+              <a (click)="showInvoice(bookingTrip_id)">Print invoice</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="animated fadeInUp delay-1s" [class.loading]="bookingDetailsLoader">
+    <!-- <h3 class="booking-header">Flight Details</h3>
+    <h5 class="ui header textFields _inverse">Ticketing Deadline <span>n/a</span></h5> -->
+    <!-- <div class="ui grid flight-head-block">
+      <div class="ui sixteen wide column grid">
+        <div class="five wide column flight-header">
+          <h3>Insurance Details</h3>
+        </div>
+        <div class="eleven wide column right pnr_btns">
+        </div>
+      </div>
+    </div> -->
+
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section">
+          <div class="five wide column">
+            <h3 class="arora-card_title">Travellers Details</h3>
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #myTable class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                     [rowHeight]="'auto'" [limit]="10" [rows]='newTravellerData' [sortType]="'multi'" [reorderable]="true"
+                     [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="#" prop="category">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name" prop="name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Phone" prop="phone">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Email" prop="email">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Travellers" prop="travellers">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            Adults:{{row.adults}} <br/>Child:{{row.child}}
+          </ng-template>
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+    <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section">
+          <div class="five wide column">
+            <h3 class="arora-card_title">Car Details</h3>
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                     [rowHeight]="'auto'" [limit]="10" [rows]='carDetail' [sortType]="'multi'" [reorderable]="true"
+                     [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Car Name" prop="carName">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            <strong>{{row.carName }}</strong>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Plan" prop="plan">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Start Date" prop="startDate">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            {{row.startDate | date:'mediumDate'}}{{row.startTime}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="End Date" prop="endDate">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            {{row.endDate | date:'mediumDate'}}{{row.endTime}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Cancellation" prop="cancellation_policy">
+          <ng-template ngx-datatable-cell-template let-row="cancellation_policy">
+            <span *ngIf="cancellation_policy!==undefined">
+              <span *ngFor="let cancel of cancellation_policy">
+              <strong>From Date:</strong> {{cancel.fromDate | date:'medium'}}<br/><strong>To Date:</strong>{{cancel.endDate | date:'medium'}}-<span>{{cancel.markupPrice}}</span><!--{{cancel.currencyCode}}-->
+              </span>
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <!--        <ngx-datatable-column  name="Actions">-->
+        <!--          <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>-->
+        <!--        <button class="ui primary button floated" (click)="cancelTicket()">Cancel</button>-->
+        <!--        <button class="ui primary button floated" (click)="orderRetrieve()">Retrieve</button>-->
+        <!--          </ng-template>-->
+        <!--        </ngx-datatable-column>-->
+      </ngx-datatable>
+    </div>
+    <div class="ui segment arora-card traveller-detail" *ngIf="transactionsData.length > 0">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section align_heading">
+          <div class="five wide column align_heading">
+            <h3 class="arora-card_title">Transactions</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                     [rowHeight]="'auto'" [limit]="10" [rows]='transactionsData' [sortType]="'multi'" [reorderable]="true"
+                     [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Supplier Confirmation No" prop="confimation_no">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Sale Amount" prop="sale_amount">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="NET DUE AMOUNT" prop="due_net_amount">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="SUPPLIER" prop="supplier">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="BOOKING STATUS" prop="booking_status">
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div>
+
+    <!-- <div class="ui segment arora-card traveller-detail">
+      <div class="ui grid">
+        <div class="ui sixteen wide column grid head-section">
+          <div class="five wide column">
+            <h3 class="arora-card_title">Free Service</h3>
+          </div>
+          <div class="eleven wide column right">
+          </div>
+        </div>
+      </div>
+      <ngx-datatable #table class='table' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" [limit]="10"
+        [rows]='emdData' [sortType]="'multi'" [reorderable]="true" [sorts]="[{prop: 'id', dir: 'desc'}]">
+        <ngx-datatable-column name="Traveller" prop="trav_name">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Seat" prop="seat_no">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Baggage" prop="serv_bagg">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Meal" prop="serv_typmeal">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Disability" prop="serv_dis">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Airline" prop="airline_num">
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Route" prop="route">
+        </ngx-datatable-column>
+      </ngx-datatable>
+    </div> -->
+    <!-- *ngIf="remarks != null" -->
+    <div class="ui segment arora-card traveller-detail">
+      <!--      <div class="ui grid">-->
+      <!--        <div class="ui sixteen wide column grid head-section">-->
+      <!--          <div class="five wide column">-->
+      <!--            <h3 class="arora-card_title">Booking Comments</h3>-->
+      <!--          </div>-->
+      <!--          <div class="eleven wide column right">-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <div class="comment-block">
+        <!--        <div class="ui input fluid">-->
+        <!--          <textarea></textarea>-->
+        <!--        </div>-->
+        <div class="add-comment bookings_btn-panel">
+          <button class="ui primary button floated" [disabled]="onCancelTicket"
+                  (click)="cancelTicket()">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                 *ngIf="cancelBookingLoader" /> Cancel Booking
+          </button>
+          <button class="ui primary button floated" [disabled]="onOrderReterive"
+                  (click)="orderRetrieve()">
+            <img src="./../../../../../assets/img/ajaxLoader.gif" class="flights_footer-btn__bookings-logo"
+                 *ngIf="issueTicketLoader" /> Order Reterive
+          </button>
+          <!--          <button class="ui primary button">Submit</button>-->
+          <!-- <a>
+            <span>submit</span>
+            <img src="../../../../assets/icons/add_icon.png">
+          </a> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!--
+  <div id="context1" class="ui modal">
+    <div class="ui secondary menu">
+      <button class="ui button primary">
+        <a class="item active" data-tab="bag">
+          <span>Add</span>
+          <img src="./../../../../../assets/img/bag-grey.png" />
+        </a>
+      </button>
+      <a class="item" data-tab="dinner">Dinner</a>
+      <a class="item" data-tab="disability">Disability</a>
+    </div>
+    <div class="ui active tab segment" data-tab="bag">
+      4
+    </div>
+    <div class="ui tab segment" data-tab="dinner">
+      5
+    </div>
+    <div class="ui tab segment" data-tab="disability">
+      6
+    </div>
+  </div>
+  -->
+
+</div>
+
+
+<jw-modal id="send_voucher" class="modal send_voucher">
+  <div class="ui">
+    <h2>Send Voucher</h2>
+    <i class="close icon" (click)="closeModal('send_voucher')"></i>
+    <form [formGroup]="voucherForm"  (ngSubmit)="sendVoucher()">
+      <div class="ui grid">
+        <div class="sixteen wide column row">
+          <div class="sixteen wide column">
+            <label>Email</label>
+            <div class="ui fluid input">
+              <input type="email" value="email" formControlName="userEmail" placeholder="email" class="email"
+                     style="text-transform:none !important;" />
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="sixteen wide column">
+            <label>Message</label>
+            <div class="ui fluid input">
+              <textarea formControlName="message"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="sixteen wide column">
+            <div class="ui checkbox mar-right-15px outer-checkbox">
+              <input type="checkbox" name="price-check" formControlName ="voucherStatus">
+              <label for="price-check">
+                Send without price
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="sixteen wide column row">
+          <div class="sixteen wide column bookings_btn-panel text-right">
+            <button class="ui reset button" (click)="closeModal('send_voucher')">Close</button>
+            <button class="ui primary button" (click)="sendVoucher()" >Send Voucher</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</jw-modal>
+
+<app-car-voucher [bookingTrip_id]="bookingTrip_id"
+                      *ngIf="displayVoucher"></app-car-voucher>
+
+<app-car-invoice [bookingTrip_id]="bookingTrip_id" *ngIf="displayInvoice"></app-car-invoice>
+
+
+
+

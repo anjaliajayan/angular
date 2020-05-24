@@ -1,0 +1,1006 @@
+<h3><span class="booking-header">New Company Profile</span></h3>
+<div class="ui fluid container">
+  <div class="ui grid container stepper-grid" #tab>
+    <div class="four wide column stepper-grid_step _active" id="group" (click)="setActiveTab('group')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _group"></div>
+        </div>
+        <label>Group Data</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="four wide column stepper-grid_step" id="travel" (click)="setActiveTab('travel')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _travel"></div>
+        </div>
+        <label>Travel</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="four wide column stepper-grid_step" id="payment" (click)="setActiveTab('payment')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _payment"></div>
+        </div>
+        <label>Payment</label>
+      </div>
+      <div class="stepper-grid_step__step-border">
+        <hr />
+      </div>
+    </div>
+    <div class="four wide column stepper-grid_step" id="remarks" (click)="setActiveTab('remarks')">
+      <div class="stepper-grid_step__step-icon">
+        <div>
+          <div class="image _remarks"></div>
+        </div>
+        <label>Remarks</label>
+      </div>
+    </div>
+  </div>
+  <form class="ui form" autocomplete="off"[formGroup]="newCompanyProfileForm" #tabContent>
+    <div id="group-content" class="stepper-grid-content animated fadeIn _active">
+      <div class="outer-basic mtb">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Group Data</h4>
+            </div>
+            <div class="fields">
+              <label>General Info</label>
+            </div>
+            <div class="fields">
+              <div class="two wide field">
+                <input type="text" name="groupName" formControlName="group_name" value="" placeholder="Group Name">
+              </div>
+              <div class="four wide field">
+                <input type="text" name="groupDescription" formControlName="group_description" value=""
+                  placeholder="Group Description">
+              </div>
+              <div class="four wide field">
+                <input type="text" name="groupIndex" formControlName="group_index" value="" placeholder="Group Index">
+              </div>
+              <div class="four wide field">
+                <div class="ui fluid search selection dropdown">
+                  <input type="hidden" name="languages" formControlName="languages" value="">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Languages</div>
+                  <div class="menu">
+                    <div class="item" (click)="setDropDownType('Arabic', 'languages')">Arabic</div>
+                    <div class="item" (click)="setDropDownType('English', 'languages')">English</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui sixteen wide column grid">
+              <button class="ui primary button btn-sticky" (click)="updateNewCompanyProfile();">
+                Update Profile +
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic mtb">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields">
+              <label>Number Info</label>
+            </div>
+            <div formArrayName="number">
+              <div *ngFor="let numberD of newCompanyProfileForm.get('number')['controls'];let nIndex = index">
+                <div [formGroupName]="nIndex" class="fields">
+                  <div class="field">
+                    <div class="three wide field newAgency_topAlign">
+                      <div class="ui checkbox">
+                        <input type="checkbox" name="prefered" formControlName="preferedHome" value="">
+                        <label>Prefered</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="two wide field">
+                    <div class="ui fluid search selection dropdown">
+                      <input type="hidden" name="home" formControlName="home" value="">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Home</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Home1', 'home')">Home 1</div>
+                        <div class="item" (click)="setDropDownType('Home2', 'home')">Home 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <input type="text" name="number" formControlName="number" value="" placeholder="Number">
+                  </div>
+                  <div class="five wide field">
+                    <input type="text" name="number_comment" formControlName="number_comment" value=""
+                      placeholder="Comment">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui primary button btn-sticky" (click)="addMoreNumbers()">
+                Add Number +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic mtb">
+        <div class="outer-basicForm">
+          <div class="form-inner">
+            <div class="fields">
+              <label>Email Info</label>
+            </div>
+            <div formArrayName="email">
+              <div *ngFor="let emailD of newCompanyProfileForm.get('email')['controls'];let eIndex = index">
+                <div [formGroupName]="eIndex" class="fields">
+                  <div class="field">
+                    <div class="three wide field newAgency_topAlign">
+                      <div class="ui checkbox ">
+                        <input type="checkbox" name="prefered" formControlName="preferedOfficial" value="">
+                        <label>Prefered</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="two wide field">
+                    <div class="ui fluid search selection dropdown">
+                      <input type="hidden" name="office" formControlName="Official" value="">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Official</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Official 1', 'Official')">
+                          Official 1</div>
+                        <div class="item" (click)="setDropDownType('Official 1', 'Official')">
+                          Official 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="four wide field">
+                    <input type="text" name="emailAddress" formControlName="emailAddress" value=""
+                      placeholder="Email Address">
+                  </div>
+                  <div class="five wide field">
+                    <input type="text" name="comment" formControlName="emailAddress_comment" value=""
+                      placeholder="Comment">
+                  </div>
+                  <div class="ui primary button btn-sticky" (click)="addMoreEmail()">
+                    Add Email +
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic mtb">
+        <div class="outer-basicForm">
+          <div class="fields">
+            <label>Address Info</label>
+          </div>
+          <div class="form-inner">
+            <div formArrayName="address">
+              <div *ngFor="let addressD of newCompanyProfileForm.get('address')['controls']; let aIndex = index">
+                <div [formGroupName]="aIndex">
+                  <div class="fields">
+                    <div class="field">
+                      <div class="three wide field newAgency_topAlign">
+                        <div class="ui checkbox ">
+                          <input type="checkbox" name="prefered" formControlName="preferedAddress" value="">
+                          <label>Prefered</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="two wide field">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="office" formControlName="addressList" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Office</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('Office 1', 'addressList')">
+                            Office 1</div>
+                          <div class="item" (click)="setDropDownType('Office 2', 'addressList')">
+                            Office 2</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="five wide field">
+                      <input type="text" name="address" formControlName="address" value="" placeholder="Address">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="street" formControlName="street" value="" placeholder="Street">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="city" formControlName="city" value="" placeholder="City">
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="field">
+                      <div class="three wide field">
+                        <div class="ui checkbox ">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="three wide field">
+                    </div>
+                    <div class="two wide field">
+                      <input type="text" name="state" formControlName="state" value="" placeholder="Region/State">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="postalCode" formControlName="postalCode" value=""
+                        placeholder="Postal Code">
+                    </div>
+                    <div class="three wide field">
+                      <div class="ui fluid search selection dropdown">
+                        <input type="hidden" name="country" formControlName="countryList" value="">
+                        <i class="dropdown icon"></i>
+                        <div class="default text">Country</div>
+                        <div class="menu">
+                          <div class="item" (click)="setDropDownType('USA', 'countryList')">
+                            USA</div>
+                          <div class="item" (click)="setDropDownType('UAE', 'countryList')">
+                            UAE</div>
+                          <div class="item" (click)="setDropDownType('Australia', 'countryList')">
+                            Australia</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="company" formControlName="company" value="" placeholder="Company">
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="field">
+                      <div class="three wide field">
+                        <div class="ui checkbox ">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="three wide field">
+                    </div>
+                    <div class="five wide field">
+                      <input type="text" name="comment" formControlName="address_comment" value=""
+                        placeholder="Comment">
+                    </div>
+                    <div class="ui primary button btn-sticky" (click)="addMoreAddress()">
+                      Add Address +
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="travel-content" class="stepper-grid-content animated fadeIn">
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Travel Data</h4>
+            </div>
+            <div class="fields">
+              <label>Special Needs</label>
+            </div>
+            <div formArrayName="special_needs">
+              <div
+                *ngFor="let special_needsD of newCompanyProfileForm.get('special_needs')['controls'];let spIndex = index">
+                <div [formGroupName]="spIndex" class="fields">
+                  <div class="three wide field newAgency_topAlign">
+                    <div class="ui checkbox ">
+                      <input type="checkbox" name="explosionIndicator" formControlName="explosionIndicator" value="">
+                      <label>Explosion Indicator</label>
+                    </div>
+                  </div>
+                  <div class="two wide field">
+                    <div class="ui fluid search selection dropdown">
+                      <input type="hidden" name="type" formControlName="specialNeedsType" value="">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Type</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Type 1', 'specialNeedsType')">
+                          Type 1</div>
+                        <div class="item" (click)="setDropDownType('Type 2', 'specialNeedsType')">
+                          Type 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="three wide field">
+                    <div class="ui fluid search selection dropdown">
+                      <input type="hidden" name="description" formControlName="specialNeedsDesc" value="">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Description</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Description 1', 'specialNeedsDesc')">
+                          Description 1</div>
+                        <div class="item" (click)="setDropDownType('Description 2', 'specialNeedsDesc')">
+                          Description 2</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="three wide field">
+                    <input type="text" name="freeText" placeholder="Free Text" formControlName="specialNeedsFreeText"
+                      value="">
+                  </div>
+                  <div class="three wide field">
+                    <input type="text" name="airlineCode" placeholder="Airline Code"
+                      formControlName="specialNeedsAirlineCode" value="">
+                  </div>
+                  <div class="three wide field">
+                    <div class="ui fluid search selection dropdown">
+                      <input type="hidden" name="flightType" formControlName="specialNeedsFlightType" value="">
+                      <i class="dropdown icon"></i>
+                      <div class="default text">Flight Type</div>
+                      <div class="menu">
+                        <div class="item" (click)="setDropDownType('Description 2', 'specialNeedsDesc')">Type 1
+                        </div>
+                        <div class="item" (click)="setDropDownType('Description 2', 'specialNeedsDesc')">Type 2
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="newAgency_topAlign" *ngIf="spIndex > 0" (click)="removeSpecialNeeds(spIndex)">
+                    <i class="icon">
+                      <img src="./../../../../../assets/img/remove-button.svg" />
+                    </i>
+                  </div>
+                </div>
+              </div>
+              <div class="ui primary button btn-sticky" (click)="addMoreSpecialNeeds()">
+                Add More +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <div class="five wide field">
+                <h4>Miscellaneous Ticketing</h4>
+              </div>
+              <div class="four wide field"></div>
+              <div class="five wide field">
+                <label>Tour Code</label>
+              </div>
+            </div>
+            <div class="fields">
+              <div formArrayName="miscellaneous_ticketing">
+                <div
+                  *ngFor="let misc_ticketingD of newCompanyProfileForm.get('miscellaneous_ticketing')['controls']; let miscIndex = index">
+                  <div [formGroupName]="miscIndex" class="fields">
+                    <div class="six wide field">
+                      <input type="text" name="text" placeholder="Text" formControlName="miscellaneous_text" value="">
+                    </div>
+                    <div class="six wide field">
+                      <input type="text" name="provider" placeholder="Provider" formControlName="miscellaneous_provider"
+                        value="">
+                    </div>
+                    <div class="newAgency_topAlign" *ngIf="miscIndex > 0" (click)="removeMisc_ticketing(miscIndex)">
+                      <i class="icon">
+                        <img src="./../../../../../assets/icons/remove-button.svg" />
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui primary button" (click)="addMoremisc_ticketing()">
+                  Add More +
+                </div>
+              </div>
+              <div class="three wide field"></div>
+              <div formArrayName="tour_code">
+                <div
+                  *ngFor="let tour_codeD of newCompanyProfileForm.get('tour_code')['controls']; let tourIndex = index">
+                  <div [formGroupName]="tourIndex" class="fields">
+                    <div class="six wide field">
+                      <input type="text" name="text" formControlName="tourCode_text" placeholder="Text">
+                    </div>
+                    <div class="six wide field">
+                      <input type="text" name="provider" formControlName="tourCode_provider" placeholder="Provider">
+                    </div>
+                    <div class="newAgency_topAlign" *ngIf="tourIndex > 0" (click)="removeTourCode(tourIndex)">
+                      <i class="icon">
+                        <img src="./../../../../../assets/icons/remove-button.svg" />
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="ui primary button" (click)="addMoreTour_code()">
+                  Add More +
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <label>Ticketing Arrangement</label>
+              </div>
+              <div class="four wide field"></div>
+              <div class="five wide field">
+                <label>Validating Carrier</label>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="six wide field">
+                <div formArrayName="ticketing_arrangement">
+                  <div
+                    *ngFor="let ticketing_arrangementsD of newCompanyProfileForm.get('ticketing_arrangement')['controls']; let ticketIndex = index">
+                    <div [formGroupName]="ticketIndex" class="fields">
+                      <div class="five wide field">
+                        <input type="text" name="text" formControlName="ticketingArrangement_provider"
+                          placeholder="Provider">
+                      </div>
+                      <div class="newAgency_topAlign" *ngIf="ticketIndex > 0"
+                        (click)="removeTicketing_arrangement(ticketIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui primary button" (click)="addMoreTicketing_arrangements()">
+                    Add More +
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field">
+              </div>
+              <div class="six wide field">
+                <div formArrayName="validating_carrier">
+                  <div
+                    *ngFor="let validating_carrierD of newCompanyProfileForm.get('validating_carrier')['controls']; let validatingIndex = index">
+                    <div [formGroupName]="validatingIndex" class="fields">
+                      <div class="five wide field">
+                        <input type="text" name="text" placeholder="Provider">
+                      </div>
+                      <div class="newAgency_topAlign" *ngIf="validatingIndex > 0"
+                        (click)="removeValidatingCarrier(validatingIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui primary button" (click)="addMoreValidatingCarrier()">
+                    Add More +
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <h4>Original Issue</h4>
+              </div>
+              <div class="four wide field"></div>
+              <div class="five wide field">
+                <h4>Shadow Destination</h4>
+              </div>
+            </div>
+            <div class="fields">
+              <div class="seven wide field">
+                <div formArrayName="original_issue">
+                  <div
+                    *ngFor="let original_issueD of newCompanyProfileForm.get('original_issue')['controls']; let originalIndex = index">
+                    <div [formGroupName]="originalIndex" class="fields">
+                      <div class="six wide field">
+                        <input type="text" name="text" placeholder="">
+                      </div>
+                      <div class="newAgency_topAlign" *ngIf="originalIndex > 0"
+                        (click)="removeOriginalIssues(originalIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ui primary button" (click)="addMoreOriginal_issue()">
+                    Add More +
+                  </div>
+                </div>
+              </div>
+              <div class="three wide field">
+              </div>
+              <div class="three wide field"></div>
+              <div class="three wide field">
+                <input type="text" name="text" placeholder="">
+              </div>
+              <div class="three wide field">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Keywords</h4>
+            </div>
+            <div class="fields">
+              <div formArrayName="keywords">
+                <div *ngFor="let keywordsD of newCompanyProfileForm.get('keywords')['controls']; let keyIndex = index">
+                  <div [formGroupName]="keyIndex" class="fields">
+                    <div class="three wide field">
+                      <input type="text" name="keyword" placeholder="Keyword" formControlName="keywords" value="">
+                    </div>
+                    <div class="three wide field ">
+                      <input type="text" name="airline" placeholder="Airline" formControlName="airline" value="">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="keywordtText" placeholder="Keyword Text" formControlName="keywordText"
+                        value="">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="statusCode" placeholder="Status Code" formControlName="statusCode"
+                        value="">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="numberParty" placeholder="Number In Party" formControlName="numberParty"
+                        value="">
+                    </div>
+                    <div class="newAgency_topAlign" *ngIf="keyIndex > 0" (click)="removeKeywords(keyIndex)">
+                      <i class="icon">
+                        <img src="./../../../../../assets/icons/remove-button.svg" />
+                      </i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui primary button btn-sticky" (click)="addMoreKeywords()">
+                Add More +
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="outer-basic outer-basic_secondary mtb">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h4>Travel Management</h4>
+            </div>
+            <div class="fields">
+              <div class="four wide field">
+                <input type="text" name="defaultHomeAirport" placeholder="Default Home Airport"
+                  formControlName="default_home_airport" value="">
+              </div>
+              <div class="four wide field ">
+                <input type="text" name="defaultArrivalAirport" placeholder="Default Arrival Airport"
+                  formControlName="default_arrival_ariport" value="">
+              </div>
+              <div class="four wide field ">
+                <input type="text" name="depContactName" placeholder="Dep. Contact Name"
+                  formControlName="dep_contact_name" value="">
+              </div>
+            </div>
+            <div class="fields">
+              <div class="four wide field">
+                <input type="text" name="agentContactName" placeholder="Agent Contact Name"
+                  formControlName="agent_contact_name" value="">
+              </div>
+              <div class="four wide field ">
+                <div class="ui fluid search selection dropdown">
+                  <input type="hidden" name="deliveryMethod" formControlName="delivery_method" value="">
+                  <i class="dropdown icon"></i>
+                  <div class="default text">Delivery Method</div>
+                  <div class="menu">
+                    <div class="item" (click)="setDropDownType('Method 1', 'delivery_method')">Method 1
+                    </div>
+                    <div class="item" (click)="setDropDownType('Method 2', 'delivery_method')">Method 2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="payment-content" class="stepper-grid-content animated fadeIn">
+      <div class="outer-basic outer-basic_secondary">
+        <div class="outer-basicForm_secondary">
+          <div class="form-inner">
+            <div class="fields">
+              <h3><b>Payment Data</b></h3>
+            </div><br>
+            <div class="fields">
+              <h4>Bank Accounts</h4>
+              <div class="ui primary button btn-sticky" (click)="addBankAccount()">
+                Add Bank Account +
+              </div>
+            </div>
+            <div formArrayName="bank_accounts">
+              <div
+                *ngFor="let bank_accountsD of newCompanyProfileForm.get('bank_accounts')['controls']; let bank_accountsIndex = index">
+                <div [formGroupName]="bank_accountsIndex">
+                  <div class="fields">
+                    <div class="two wide field">
+                      <input type="text" name="code" formControlName="bank_code" value="" placeholder="Code">
+                    </div>
+                    <div class="five wide field">
+                      <input type="text" name="name" formControlName="bank_name" value="" placeholder="Name">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="bankAccountNumber" formControlName="bank_number" value=""
+                        placeholder="Number">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="city" value="" formControlName="bank_city" value="" placeholder="City">
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="two wide field">
+                    </div>
+                    <div class="five wide field">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="validFrom" formControlName="bank_valid_from" value=""
+                        placeholder="Valid From(DDMMYYYY)">
+                    </div>
+                    <div class="three wide field">
+                      <input type="text" name="validUntil" formControlName="bank_valid_to" value=""
+                        placeholder="Valid Until(DDMMYYYY)">
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="two wide field">
+                    </div>
+                    <div class="five wide field">
+                    </div>
+                    <div class="three wide field">
+                      <div class="ui checkbox ">
+                        <input type="checkbox" name="directDebitAuthorized">
+                        <label class="checkbox_label">Direct Debit Authorized</label>
+                      </div>
+                    </div>
+                    <div class="three wide field">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <div formArrayName="forms_of_payment">
+                  <div
+                    *ngFor="let forms_of_paymentD of newCompanyProfileForm.get('forms_of_payment')['controls']; let payIndex = index">
+                    <div [formGroupName]="payIndex" class="fields">
+                      <input type="text" name="formOfPayment" formControlName="forms_of_payment" value=""
+                        placeholder="Form Of Payment">
+                      <div class="newAgency_topAlign" (click)="addMoreForms_of_payment()">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/add_icon.png" />
+                        </i>
+                      </div>
+                      <div class="newAgency_topAlign" (click)="removeForm_of_payment(-1)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="four wide field"></div>
+              <div class="five wide field ">
+                <div formArrayName="endorsements">
+                  <div
+                    *ngFor="let endorsementsD of newCompanyProfileForm.get('endorsements')['controls']; let eIndex = index">
+                    <div [formGroupName]="eIndex" class="fields">
+                      <input type="text" name="endorsement" formControlName="endorsements" value=""
+                        placeholder="Endorsement">
+                      <div class="newAgency_topAlign" (click)="addMoreEndorsements()">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/add_icon.png" />
+                        </i>
+                      </div>
+                      <div class="newAgency_topAlign" (click)="removeEndorsements(eIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+            <div class="fields">
+              <div class="five wide field">
+                <div formArrayName="fare_price_override">
+                  <div
+                    *ngFor="let fare_price_overrideD of newCompanyProfileForm.get('fare_price_override')['controls']; let overrideIndex = index">
+                    <div [formGroupName]="overrideIndex" class="fields">
+                      <input type="text" name="fairPriceOverride" formControlName="fare_price_override" value=""
+                        placeholder="Fair Price Override">
+                      <div class="newAgency_topAlign" (click)="addMoreFair_price_override()">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/add_icon.png" />
+                        </i>
+                      </div>
+                      <div class="newAgency_topAlign" (click)="removeEndorsements(overrideIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="four wide field"></div>
+              <div class="five wide field ">
+                <input type="text" name="discount" formControlName="discounts" value="" placeholder="Discount">
+              </div>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+            <div class="fields">
+              <h4>Commision</h4>
+            </div>
+            <div class="fields">
+              <div class="four wide field">
+                <div formArrayName="commissions">
+                  <div
+                    *ngFor="let commissionD of newCompanyProfileForm.get('commissions')['controls']; let comIndex = index">
+                    <div [formGroupName]="comIndex" class="fields">
+                      <div class="three wide field">
+                        <input type="text" name="text" formControlName="commisionText" value="" placeholder="Text">
+                      </div>
+                      <div class="three wide field ">
+                        <input type="text" name="providerCode" formControlName="commisionProvideCode" value=""
+                          placeholder="Provider Code">
+                      </div>
+                      <div class="newAgency_topAlign" (click)="addMoreComission()">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/add_icon.png" />
+                        </i>
+                      </div>
+                      <div class="newAgency_topAlign" (click)="removeComission(comIndex)">
+                        <i class="icon">
+                          <img src="./../../../../../assets/icons/remove-button.svg" />
+                        </i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <hr>
+            </div>
+            <div class="fields">
+              <h4>Accounting</h4>
+            </div>
+            <div formArrayName="accounting">
+              <div
+                *ngFor="let accountingD of newCompanyProfileForm.get('accounting')['controls']; let accIndex = index">
+                <div [formGroupName]="accIndex">
+                  <div class="fields">
+                    <div class="four wide field">
+                      <input type="text" name="accountNumber" formControlName="accountNumber" value=""
+                        placeholder="Account Number">
+                    </div>
+                    <div class="four wide field ">
+                      <input type="text" name="costCentre" formControlName="accountCostCentre" value=""
+                        placeholder="Cost Centre">
+                    </div>
+                    <div class="four wide field ">
+                      <input type="text" name="iataNumber" formControlName="accountIataNumber" value=""
+                        placeholder="IATA Number">
+                    </div>
+                    <div class="four wide field ">
+                      <input type="text" name="clientReference" formControlName="accountClientReference" value=""
+                        placeholder="Client Reference">
+                    </div>
+                  </div>
+                  <div class="fields">
+                    <div class="four wide field">
+                      <input type="text" name="gstTaxName" formControlName="accountGstTaxName" value=""
+                        placeholder="GST Tax Name">
+                    </div>
+                    <div class="four wide field ">
+                      <input type="text" name="gstTaxNumber" formControlName="accountGetTaxNumber" value=""
+                        placeholder="GST Tax Number">
+                    </div>
+                    <div class="four wide field ">
+                      <input type="text" name="gstTaxAddress" formControlName="accountGstTaxAddress" value=""
+                        placeholder="GST Tax Address">
+                    </div>
+                    <div class="ui primary button btn-sticky" (click)="addMoreAccounting()">
+                      Add Accounting +
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="remarks-content" class="stepper-grid-content animated fadeIn">
+      <div class="outer-basic outer-basic_secondary">
+        <div class="outer-basic_tertiary">
+          <div class="outer-basicForm_tertiary">
+            <div class="form-inner">
+              <div class="fields">
+                <h3><b>Remarks</b></h3>
+              </div><br>
+              <div class="fields">
+                <h4>Remarks</h4>
+                <div class="ui primary button btn-sticky" (click)="addMoreRemarks()">
+                  Add Remark +
+                </div>
+              </div>
+              <div formArrayName="remarks">
+                <div
+                  *ngFor="let remarksD of newCompanyProfileForm.get('remarks')['controls']; let remarksIndex = index">
+                  <div [formGroupName]="remarksIndex">
+                    <div class="fields">
+                      <div class="three wide field">
+                        <div class="ui fluid search selection dropdown">
+                          <input type="hidden" formControlName="remark_type" value="" name="remarkType">
+                          <i class="dropdown icon"></i>
+                          <div class="default text">Remark Type</div>
+                          <div class="menu">
+                            <div class="item" data-value="remarkType1">Type 1</div>
+                            <div class="item" data-value="remarkType2">Type 2</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="three wide field ">
+                        <div class="ui fluid search selection dropdown">
+                          <input type="hidden" formControlName="remark_category" value="" name="category">
+                          <i class="dropdown icon"></i>
+                          <div class="default text">Category</div>
+                          <div class="menu">
+                            <div class="item" data-value="category1">Category 1</div>
+                            <div class="item" data-value="category2">Category 2</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="six wide field ">
+                        <textarea type="text" name="remark" formControlName="remark" value="" placeholder="Remark"
+                          rows="4" cols="50"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <hr>
+              </div>
+              <div class="fields">
+                <h4>Profile Notes</h4>
+              </div>
+              <div formArrayName="profile_notes">
+                <div
+                  *ngFor="let profile_notesD of newCompanyProfileForm.get('profile_notes')['controls']; let notesIndex = index">
+                  <div [formGroupName]="notesIndex">
+                    <div class="fields">
+                      <div class="three wide field">
+                        <div class="ui fluid search selection dropdown">
+                          <input type="hidden" formControlName="profile_notes_category" value="" name="category">
+                          <i class="dropdown icon"></i>
+                          <div class="default text">Category</div>
+                          <div class="menu">
+                            <div class="item" data-value="category1">Category 1</div>
+                            <div class="item" data-value="category2">Category 2</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="five wide field ">
+                        <input type="text" name="information" formControlName="profile_notes_information" value=""
+                          placeholder="Information">
+                      </div>
+                      <div class="ui primary button btn-sticky" (click)="addMoreProfileNotes()">
+                        Add Profile Note +
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <hr>
+              </div>
+              <div class="fields">
+                <h4>Priority Lines</h4>
+              </div>
+              <!-- <div class="fields"> -->
+              <div formArrayName="priority_lines1">
+                <div
+                  *ngFor="let priority_lines1D of newCompanyProfileForm.get('priority_lines1')['controls']; let priorityIndex1 = index">
+                  <div [formGroupName]="priorityIndex1">
+                    <div class="fields">
+                      <div class="five wide field ">
+                        <input type="text" name="information" formControlName="priorityInformation1" value=""
+                          placeholder="">
+                      </div>
+                      <div class="ui primary button btn-sticky" (click)="addMorePriority_lines1()">
+                        Add Priority Line +
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="field">
+                <hr>
+              </div>
+              <div class="fields">
+                <h4>Priority Lines</h4>
+              </div>
+              <!-- <div class="fields"> -->
+              <div formArrayName="priority_lines2">
+                <div
+                  *ngFor="let priority_lines2D of newCompanyProfileForm.get('priority_lines2')['controls']; let priorityIndex2 = index">
+                  <div [formGroupName]="priorityIndex2">
+                    <div class="fields">
+                      <div class="five wide field ">
+                        <input type="text" name="information" formControlName="priorityInformation2" value=""
+                          placeholder="">
+                      </div>
+                      <div class="ui primary button btn-sticky" (click)="addMorePriority_lines2()">
+                        Add Priority Line +
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <div class="field">
+                <hr>
+              </div>
+              <div class="fields">
+                <h4>Follow Up</h4>
+              </div>
+              <!-- <div class="fields"> -->
+              <div formArrayName="follow_up">
+                <div
+                  *ngFor="let follow_upD of newCompanyProfileForm.get('follow_up')['controls']; let follow_upIndex = index">
+                  <div [formGroupName]="follow_upIndex">
+                    <div class="fields">
+                      <div class="three wide field ">
+                        <input type="text" name="date" formControlName="followUpDate" value=""
+                          placeholder="Date (DDMMYYYY)">
+                      </div>
+                      <div class="three wide field ">
+                        <input type="text" name="action" formControlName="followUpAction" value="" placeholder="Action">
+                      </div>
+                      <div class="ui primary button btn-sticky" (click)="addMoreFollow_up()">
+                        Add Follow Up +
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+              <br>
+              <div class="bookings_btn-panel trailing_button">
+                <button class="ui secondary  button">
+                  Save
+                </button>
+                <button type="button" class="ui primary  button" (click)="createNewCompanyProfile()">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

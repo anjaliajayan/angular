@@ -1,0 +1,435 @@
+.seatmap-info {
+    font-size: 0.812rem;
+    max-height: 31.75rem;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+  }
+  
+  .seatmap-info-title-section {
+    display: flex;
+    margin-bottom: 1.5625rem;
+    max-height: 3rem;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin 0.3s ease;
+  }
+  
+  .seatmap-info-title-section_title {
+    font-size: 0.875rem;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    font-size: 0.875rem;
+    line-height: 2;
+    font-size: 0.875rem;
+    letter-spacing: 1px;
+    margin: 0;
+    align-self: center;
+    font-weight: 700;
+  }
+  
+  .seatmap-info-colorbar-section {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(5, minmax(6.25rem, 1fr));
+    -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr;
+    row-gap: 22px;
+    padding-bottom: 1.4375rem;
+    justify-content: start;
+    margin-top: 0;
+  }
+  
+  .seatmap-color-section {
+    margin-top: 0;
+  }
+  
+  .seatmap-color {
+    margin-top: 0;
+    display: grid;
+    display: -ms-grid;
+    -ms-grid-columns: 3.191875rem 7.783125rem;
+    grid-template-columns: 27% 66%;
+    transition: all 0.3s ease;
+  }
+  
+  @media (min-width: 1200px) {
+    .seatmap-color {
+      grid-template-columns: 26% 68%;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .seatmap-color {
+      grid-template-columns: 24% 65%;
+    }
+  }
+  
+  .seatmap-legend-seat-type {
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    z-index: 0;
+    background: transparent;
+    transition: width 0.3s ease;
+  }
+  
+  .seatmap-legend-seat-type:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 25px;
+    background-color: #eeeeee;
+    box-shadow: 0 2px 0 0 #ebebeb;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: height 0.3s ease;
+  }
+  
+  .seatmap-legend-seat-type.P:before {
+    background: #eb730c;
+  }
+  
+  .seatmap-color-wrapper {
+    margin-top: 0;
+    display: grid;
+    line-height: 1;
+  }
+  
+  .seatmap-color-wrapper * {
+    margin-top: 0;
+  }
+  
+  .seatmap-color-title {
+    font-size: 13px;
+    display: -webkit-box;
+    -webkit-box-align: center;
+    line-height: 16px;
+  }
+  
+  .seatmap-color-price {
+    font-size: 13px;
+  }
+  
+  .seatmap-legend-seat-type.F:before {
+    background: #275c49;
+  }
+  
+  .seatmap-legend-seat-type.S:before {
+    background: #cde5d7;
+  }
+  
+  .seatmap-legend-seat-type.SE:before {
+    background: #00266b;
+    border: 3px solid #4a90e2;
+    box-shadow: 0 2px 2px 0 rgba(0, 38, 107, 0.4);
+    border-radius: 4px;
+  }
+  
+  .seatmap-legend-seat-type.NA:before {
+    background: #ddd;
+  }
+  
+  .seatmap-info-detail-wrapper {
+    padding-bottom: 1.4375rem;
+  }
+  
+  .seatmap-info-detail-wrapper {
+    padding-bottom: 1.4375rem;
+  }
+  
+  .seatmap-info-detail-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .seatmap-info-detail-section-col {
+    position: relative;
+    margin-right: 2.5rem;
+  }
+  
+  .seatmap-info-detail-section * {
+    margin-top: 0;
+  }
+  
+  .seatmap-info-detail-section-col_icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1.25rem;
+  }
+  
+  .ico-bassinet--444 {
+    // background: url('../../../../webroot/img/bassinet.svg') no-repeat transparent center center;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+  }
+  
+  .seatmap-info-detail-section-text {
+    color: #333;
+    font-size: 0.812rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .seatmap-info-detail-section-col.seatmap-info-detail-section-amenities {
+    margin-right: 1.25rem;
+  }
+  
+  .seatmap-airline-info {
+    margin-top: 0px;
+    overflow: hidden;
+    border-top: 1px solid #e5e9f0;
+    padding-top: 12px;
+    padding-bottom: 8px;
+  }
+  
+  .seat.SEAT_WITH_BASSINET_FACILITY rect {
+    fill: #eb730c;
+  }
+  
+  .seat.SEAT_WITH_BASSINET_FACILITY text {
+    fill: #fff;
+  }
+  
+  .seat.CHARGEABLE_SEAT rect {
+    fill: #275c49;
+  }
+  
+  .seat.CHARGEABLE_SEAT text {
+    fill: #fff;
+  }
+  
+  .seat.FRONT_OF_CABIN rect {
+    fill: #cde5d7;
+  }
+  
+  .seat-map-container {
+    // max-width: 420px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1.875rem 0 2.5rem;
+    max-width: 80%;
+    .seat-map-row {
+      position: relative;
+      width: 100%;
+      margin: 0 auto 0;
+      padding-bottom: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+      grid-column-gap: 0.225rem;
+      align-items: end;
+      text-align: center;
+      .seat_design {
+        display: inline-block;
+        grid-row: 1 / span 1;
+        grid-column: auto / span 1;
+        grid-column-start: auto;
+        max-width: 35px;
+        button {
+          color: #fff;
+          height: 40px;
+          width: 40px;
+          font-size: 10px;
+          font-style: normal;
+          font-weight: 400;
+          overflow-wrap: break-word;
+          border: 1px solid #fff;
+          border-radius: 4px;
+          background-color: #cde5d7;
+          text-align: center;
+          vertical-align: middle;
+          padding-top: 3px;
+          margin: 3px 3px 6px 0px;
+          box-shadow: 0 2px 0 0 #ebebeb;
+          &:focus {
+            outline: none;
+          }
+          &:active,
+          &.active {
+            background: #00266b;
+            border: 3px solid #4a90e2;
+            box-shadow: 0 2px 2px 0 rgba(0, 38, 107, 0.4);
+            border-radius: 4px;
+          }
+        }
+        .seat_available_forward {
+          background-color: #275c49;
+        }
+        .seat_extra_legroom {
+          background-color: #eb730c;
+        }
+        .seat_unavailable {
+          background: #ddd;
+        }
+      }
+      .seat-row-number-left {
+        left: -25px;
+      }
+      .seat-row-number-right {
+        right: -20px;
+      }
+      .seat-row-number {
+        position: absolute;
+        bottom: 22px;
+      }
+      .seat-row-label,
+      .seat-row-number {
+        color: #757575;
+        font-size: 0.75rem;
+      }
+      .seat-row-label {
+        margin-bottom: 20px;
+      }
+      .facility_wrap {
+        min-height: 2.5rem;
+        position: relative;
+        z-index: 1;
+        color: #999999;
+        font-weight: 600;
+        font-size: 0.625rem;
+        letter-spacing: 0.5px;
+        text-align: center;
+        text-transform: uppercase;
+        grid-column-end: span 4;
+        // max-width: 156px;
+        &:before {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 2.375rem;
+          background: #dddddd;
+          box-shadow: 0 2px 0 0 #fafafa;
+          border-radius: 4px;
+          position: absolute;
+          top: 0;
+          left: 15px;
+          z-index: -1;
+        }
+        .seat_design_facility {
+          line-height: 1em;
+          position: absolute;
+          opacity: 0.4;
+          padding: 5px;
+          background-color: #ccc;
+          grid-column-start: 1;
+          border: rgba(0, 0, 0, 1);
+  
+          text-align: center;
+          top: 50%;
+          left: 56%;
+          transform: translate(-50%, -56%);
+        }
+        &.gallery {
+          &:before {
+            left: 22px;
+          }
+          .seat_design_facility {
+            opacity: 0.4;
+            padding: 5px;
+            background-color: #ccc;
+            grid-column-start: 1;
+            border: rgba(0, 0, 0, 1);
+            left: 60%;
+            transform: translate(-50%, -60%);
+          }
+        }
+        &.exit {
+          &:before {
+            left: 32px;
+          }
+          .seat_design_facility {
+            opacity: 0.4;
+            padding: 5px;
+            background-color: #ccc;
+            grid-column-start: 1;
+            border: rgba(0, 0, 0, 1);
+  
+            left: 65%;
+            transform: translate(-50%, -65%);
+          }
+        }
+      }
+    }
+  }
+
+.close.icon {
+  float: right;
+  cursor: pointer;
+}
+
+.seatmap-outer-wrapper {
+  margin: 12px;
+  .seatmap-info-content {
+    border: 1px solid #E5E9F0;
+    padding: 14px;
+    border-radius: 8px;
+  }
+}
+
+.ui.segment {
+  .ui.tabular.menu {
+    padding: 0px;
+    .item {
+      min-width: 25%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .ui.tab.segment {
+    margin-top: 24px;
+    border-top: 1px solid rgb(212, 212, 213);
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    .flight-name-wrapper {
+      line-height: 2;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+      margin: 0 0 12px;
+      align-self: center;
+      font-weight: 700;
+    }
+  }
+}
+
+.passenger-wrapper {
+  margin-bottom: 24px;
+  h5 {
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: 0;
+    font-weight: 600;
+    max-width: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 12px 0px;
+    padding: 12px;
+  }
+  .round-no {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #00266b;
+    padding: 0.0625rem;
+    color: #FFFFFF;
+    line-height: 1.5em;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    margin-right: 12px;
+    display: inline-block;
+  }
+}
+
+.svg-inline--fa.fa-chair {
+  width: 12px;
+}
+
+.fa {
+  font-size: 14px;
+}
